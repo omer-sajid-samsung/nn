@@ -1,0 +1,73 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name            = "amoprof"
+version         = "1.39.112"
+description     = "AI Workload-Aware Storage Profiler — maps AI operations to SSD I/O dimensions"
+readme          = "README.md"
+requires-python = ">=3.10"
+license         = { text = "Apache-2.0" }
+
+dependencies = [
+    "psutil>=5.9",
+    "rich>=13.0",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+cpu = [
+    "torch>=2.2",
+    "transformers>=4.40",
+    "accelerate>=0.30",
+    "datasets>=2.18",
+]
+gpu = [
+    "torch>=2.2",
+    "transformers>=4.40",
+    "accelerate>=0.30",
+    "vllm>=0.4",
+    "datasets>=2.18",
+]
+training = [
+    "torch>=2.2",
+    "transformers>=4.40",
+    "deepspeed>=0.14",
+    "datasets>=2.18",
+]
+# SGLang serving benchmark
+sglang = [
+    "sglang>=0.3",
+    "torch>=2.2",
+    "transformers>=4.40",
+]
+# SWE-bench code agent workload
+swebench = [
+    "swebench>=1.1",
+    "datasets>=2.18",
+    "torch>=2.2",
+    "transformers>=4.40",
+]
+# Bundled amoprof analyzer — needed for `amoprof analyze --amoprof-report`
+amoprof = [
+    "matplotlib>=3.7.0",
+    "numpy>=1.24.0",
+    "pandas>=1.5.0",
+    "openpyxl>=3.1.0",
+    "requests>=2.28.0",
+    "scipy>=1.10.0",
+    "Pillow>=9.4.0",
+]
+# All extras
+all = ["amoprof[gpu,training,sglang,swebench,amoprof]"]
+
+[project.scripts]
+amoprof = "amoprof.cli:main"
+
+[tool.setuptools.packages.find]
+where   = ["."]
+include = ["amoprof*"]
+
+[tool.setuptools.package-data]
+"amoprof.report" = ["*.py", "*.txt"]

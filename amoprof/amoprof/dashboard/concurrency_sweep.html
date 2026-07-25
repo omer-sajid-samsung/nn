@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AMOprof — Sweep Dashboard</title>
+<style>
+:root{
+  --bg:#0a0e1a;--panel:#0f1628;--border:#1e2d4a;
+  --text:#e2e8f0;--muted:#64748b;
+  --hbm:#22d3ee;--dram:#a78bfa;--ssd:#fb923c;
+  --ttft:#f472b6;--tpot:#4ade80;--req:#facc15;
+  --evict:#ef4444;--evictbg:#1a0a00;--evictborder:#7c2d12;
+  --turns:#a3e635;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);
+     font-family:'IBM Plex Mono','Fira Code',Consolas,monospace;
+     padding:20px 24px;min-height:100vh}
+h1{font-size:18px;font-weight:700;letter-spacing:1px}
+.sub{font-size:11px;color:var(--muted);margin-top:4px}
+.header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px}
+/* Tabs */
+.tabs{display:flex;gap:0;margin-bottom:18px;border-bottom:2px solid var(--border)}
+.tab{background:transparent;border:1px solid var(--border);border-bottom:none;
+     color:var(--muted);padding:7px 20px;cursor:pointer;font-family:inherit;
+     font-size:12px;margin-bottom:-2px;border-radius:6px 6px 0 0;transition:all .15s}
+.tab.active{background:var(--panel);color:var(--text);border-color:#2563eb;
+            border-bottom:2px solid var(--panel)}
+.tab:hover:not(.active){background:#12192e;color:var(--text)}
+.tab-content{display:none}.tab-content.active{display:block}
+/* Import */
+.btn{background:transparent;border:1px solid var(--border);color:var(--muted);
+     border-radius:6px;padding:5px 13px;cursor:pointer;font-family:inherit;font-size:11px}
+.btn:hover,.btn.active{background:#1e3a5f;color:#93c5fd;border-color:#2563eb}
+.import-box{background:var(--panel);border:1px solid var(--border);border-radius:10px;
+            padding:14px;margin-bottom:16px}
+.import-box label{font-size:11px;color:var(--muted);display:block;margin-bottom:6px}
+textarea{width:100%;height:100px;background:var(--bg);border:1px solid var(--border);
+         border-radius:6px;color:var(--text);padding:8px;font-family:monospace;
+         font-size:11px;resize:vertical}
+input[type=file]{display:none}
+.file-label{display:inline-block;background:#1e3a5f;border:1px solid #2563eb;
+            color:#93c5fd;border-radius:6px;padding:5px 13px;cursor:pointer;
+            font-size:11px;font-family:inherit}
+.evict-note{background:var(--evictbg);border:1px solid var(--evictborder);
+            border-radius:8px;padding:9px 14px;margin-bottom:18px;
+            font-size:11px;color:#fdba74}
+.turns-note{background:#0a1a0a;border:1px solid #2d5a1b;
+            border-radius:8px;padding:9px 14px;margin-bottom:18px;
+            font-size:11px;color:#86efac}
+/* Cards */
+.cards{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.card{background:var(--panel);border-radius:8px;padding:10px 14px;min-width:126px;border:1px solid var(--border)}
+.card-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+.card-value{font-size:20px;font-weight:700}
+.card-unit{font-size:12px;color:var(--muted);margin-left:3px}
+.card-sub{font-size:10px;color:var(--muted);margin-top:2px}
+/* Layout */
+.section-title{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin:22px 0 3px}
+.section-note{font-size:10px;color:var(--muted);margin-bottom:10px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:6px}
+.chart-panel{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px}
+.chart-title{font-size:11px;color:var(--muted);margin-bottom:8px}
+.wide-panel{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:6px}
+/* Tooltip */
+.tooltip{position:fixed;background:#0f1628;border:1px solid #1e2d4a;border-radius:8px;
+         padding:8px 12px;font-size:11px;pointer-events:none;display:none;z-index:1000;max-width:240px}
+.tooltip-hdr{color:#94a3b8;margin-bottom:4px}
+.tooltip-row{margin-bottom:2px}
+/* Table */
+table{width:100%;border-collapse:collapse;font-size:10px;margin-top:10px}
+th{padding:6px 10px;text-align:right;color:var(--muted);border-bottom:1px solid var(--border);white-space:nowrap}
+td{padding:5px 10px;text-align:right;border-bottom:1px solid var(--border)}
+tr.ev-row{background:var(--evictbg)!important;border-left:3px solid var(--evict)}
+tr.hi-row{background:#0a1a0a!important;border-left:3px solid var(--turns)}
+tr:nth-child(even){background:var(--panel)}
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px;font-size:10px}
+.leg-item{display:flex;align-items:center;gap:4px;color:var(--muted)}
+.leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.leg-dash{width:16px;height:2px;flex-shrink:0}
+.err{color:#ef4444;font-size:10px;margin-top:4px}
+.footer{border-top:1px solid var(--border);padding-top:12px;color:var(--muted);font-size:10px;margin-top:22px}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="tooltip" id="tip"></div>
+<div id="app"></div>
+<script>
+'use strict';
+// ── Demo data ─────────────────────────────────────────────────────────────────
+const DEMO_CONC=[
+ {inference_concurrency:1, ttft_mean_ms:4820,ttft_p99_ms:9200, tpot_mean_ms:328,tpot_p99_ms:720, throughput_req_s:.010,throughput_tok_s:3, prompt_tokens_mean:4800,output_tokens_mean:310, hbm_used_gb_mean:72,hbm_util_pct_mean:22, dram_used_gb_mean:48,dram_util_pct_mean:9, ssd_read_bw_mb_mean:.0,ssd_write_bw_mb_mean:.0,ssd_read_iops_mean:0,ssd_util_pct_mean:.1, kv_cache_hit_rate_pct:0, kv_pool_capacity_gb:186,kv_weights_gb:70,kv_per_request_gb:10,kv_fill_pct_mean:5,kv_fill_pct_peak:8, kv_overflow_at:18,kv_eviction_mb_s:.0,kv_restore_mb_s:.0,kv_miss_penalty_ms:0},
+ {inference_concurrency:4, ttft_mean_ms:5100,ttft_p99_ms:11400,tpot_mean_ms:342,tpot_p99_ms:890, throughput_req_s:.040,throughput_tok_s:12,prompt_tokens_mean:4820,output_tokens_mean:305, hbm_used_gb_mean:95,hbm_util_pct_mean:30, dram_used_gb_mean:49,dram_util_pct_mean:10,ssd_read_bw_mb_mean:.0,ssd_write_bw_mb_mean:.0,ssd_read_iops_mean:0,ssd_util_pct_mean:.1, kv_cache_hit_rate_pct:0, kv_pool_capacity_gb:186,kv_weights_gb:70,kv_per_request_gb:10,kv_fill_pct_mean:22,kv_fill_pct_peak:28,kv_overflow_at:18,kv_eviction_mb_s:.0,kv_restore_mb_s:.0,kv_miss_penalty_ms:14},
+ {inference_concurrency:8, ttft_mean_ms:6200,ttft_p99_ms:15800,tpot_mean_ms:378,tpot_p99_ms:1100,throughput_req_s:.090,throughput_tok_s:26,prompt_tokens_mean:4790,output_tokens_mean:298, hbm_used_gb_mean:148,hbm_util_pct_mean:46,dram_used_gb_mean:50,dram_util_pct_mean:10,ssd_read_bw_mb_mean:.0,ssd_write_bw_mb_mean:.0,ssd_read_iops_mean:0,ssd_util_pct_mean:.1, kv_cache_hit_rate_pct:2, kv_pool_capacity_gb:186,kv_weights_gb:70,kv_per_request_gb:10,kv_fill_pct_mean:43,kv_fill_pct_peak:55,kv_overflow_at:18,kv_eviction_mb_s:.0,kv_restore_mb_s:.0,kv_miss_penalty_ms:50},
+ {inference_concurrency:16,ttft_mean_ms:8900,ttft_p99_ms:24000,tpot_mean_ms:415,tpot_p99_ms:1800,throughput_req_s:.170,throughput_tok_s:47,prompt_tokens_mean:4810,output_tokens_mean:285, hbm_used_gb_mean:210,hbm_util_pct_mean:66,dram_used_gb_mean:52,dram_util_pct_mean:10,ssd_read_bw_mb_mean:1.2,ssd_write_bw_mb_mean:.8,ssd_read_iops_mean:280,ssd_util_pct_mean:3.4, kv_cache_hit_rate_pct:8, kv_pool_capacity_gb:186,kv_weights_gb:70,kv_per_request_gb:10,kv_fill_pct_mean:86,kv_fill_pct_peak:95,kv_overflow_at:18,kv_eviction_mb_s:.8,kv_restore_mb_s:1.2,kv_miss_penalty_ms:87},
+ {inference_concurrency:32,ttft_mean_ms:16200,ttft_p99_ms:48000,tpot_mean_ms:580,tpot_p99_ms:3400,throughput_req_s:.280,throughput_tok_s:72,prompt_tokens_mean:4795,output_tokens_mean:261,hbm_used_gb_mean:254,hbm_util_pct_mean:79,dram_used_gb_mean:58,dram_util_pct_mean:11,ssd_read_bw_mb_mean:42.8,ssd_write_bw_mb_mean:38.4,ssd_read_iops_mean:9800,ssd_util_pct_mean:48.2,kv_cache_hit_rate_pct:24,kv_pool_capacity_gb:186,kv_weights_gb:70,kv_per_request_gb:10,kv_fill_pct_mean:100,kv_fill_pct_peak:100,kv_overflow_at:18,kv_eviction_mb_s:38.4,kv_restore_mb_s:42.8,kv_miss_penalty_ms:252},
+ {inference_concurrency:52,ttft_mean_ms:31000,ttft_p99_ms:92000,tpot_mean_ms:920,tpot_p99_ms:6800,throughput_req_s:.310,throughput_tok_s:78,prompt_tokens_mean:4802,output_tokens_mean:249,hbm_used_gb_mean:256,hbm_util_pct_mean:80,dram_used_gb_mean:72,dram_util_pct_mean:14,ssd_read_bw_mb_mean:98.6,ssd_write_bw_mb_mean:89.2,ssd_read_iops_mean:22400,ssd_util_pct_mean:87.4,kv_cache_hit_rate_pct:38,kv_pool_capacity_gb:186,kv_weights_gb:70,kv_per_request_gb:10,kv_fill_pct_mean:100,kv_fill_pct_peak:100,kv_overflow_at:18,kv_eviction_mb_s:89.2,kv_restore_mb_s:98.6,kv_miss_penalty_ms:592},
+];
+// turns sweep demo — each row = one num_turns level
+// key insight: as turns increase → KV$ hit rate rises (prefix reuse),
+//              HBM prefill delta decreases, SSD pressure rises, TPOT rises
+const DEMO_TURNS=[
+ {num_turns:1, ttft_mean_ms:4820,tpot_mean_ms:328,tpot_p99_ms:720, throughput_req_s:.010,throughput_tok_s:3, prompt_tokens_mean:4800,output_tokens_mean:310, hbm_used_gb_mean:82,hbm_util_pct_mean:26, hbm_prefill_delta_gb_mean:1.2,hbm_decode_delta_gb_mean:0.0,hbm_kv_pool_fill_pct_mean:44, hbm_kv_evicted_gb_mean:0,dram_used_gb_mean:48,dram_delta_gb_mean:0.1,dram_hicache_staging_gb_mean:0, ssd_read_bw_mb_mean:0,ssd_write_bw_mb_mean:0,ssd_read_iops_mean:0,ssd_util_pct_mean:.1, kv_cache_hit_rate_pct:0, resolved_pct:5},
+ {num_turns:2, ttft_mean_ms:5200,tpot_mean_ms:362,tpot_p99_ms:980, throughput_req_s:.008,throughput_tok_s:5, prompt_tokens_mean:6200,output_tokens_mean:580, hbm_used_gb_mean:112,hbm_util_pct_mean:35, hbm_prefill_delta_gb_mean:0.8,hbm_decode_delta_gb_mean:0.0,hbm_kv_pool_fill_pct_mean:60, hbm_kv_evicted_gb_mean:0,dram_used_gb_mean:49,dram_delta_gb_mean:0.2,dram_hicache_staging_gb_mean:0, ssd_read_bw_mb_mean:.2,ssd_write_bw_mb_mean:.1,ssd_read_iops_mean:40,ssd_util_pct_mean:.5, kv_cache_hit_rate_pct:28, resolved_pct:9},
+ {num_turns:3, ttft_mean_ms:5900,tpot_mean_ms:398,tpot_p99_ms:1300,throughput_req_s:.006,throughput_tok_s:7, prompt_tokens_mean:8100,output_tokens_mean:840, hbm_used_gb_mean:148,hbm_util_pct_mean:46, hbm_prefill_delta_gb_mean:0.5,hbm_decode_delta_gb_mean:0.0,hbm_kv_pool_fill_pct_mean:80, hbm_kv_evicted_gb_mean:0.4,dram_used_gb_mean:52,dram_delta_gb_mean:0.8,dram_hicache_staging_gb_mean:0.6,ssd_read_bw_mb_mean:2.4,ssd_write_bw_mb_mean:1.8,ssd_read_iops_mean:480,ssd_util_pct_mean:4.2, kv_cache_hit_rate_pct:52, resolved_pct:14},
+ {num_turns:5, ttft_mean_ms:7100,tpot_mean_ms:468,tpot_p99_ms:2100,throughput_req_s:.004,throughput_tok_s:9, prompt_tokens_mean:11800,output_tokens_mean:1380,hbm_used_gb_mean:198,hbm_util_pct_mean:62, hbm_prefill_delta_gb_mean:0.3,hbm_decode_delta_gb_mean:0.0,hbm_kv_pool_fill_pct_mean:97, hbm_kv_evicted_gb_mean:1.8,dram_used_gb_mean:58,dram_delta_gb_mean:2.1,dram_hicache_staging_gb_mean:1.9,ssd_read_bw_mb_mean:18.6,ssd_write_bw_mb_mean:14.2,ssd_read_iops_mean:3800,ssd_util_pct_mean:22.4,kv_cache_hit_rate_pct:71, resolved_pct:19},
+];
+
+// ── CSV parser ─────────────────────────────────────────────────────────────────
+function parseCSV(text){
+  const lines=text.trim().split(/\r?\n/).filter(Boolean);
+  if(lines.length<2)return null;
+  const hdrs=lines[0].split(',').map(h=>h.trim());
+  return lines.slice(1).map(line=>{
+    const vals=line.split(',');
+    const o={};
+    hdrs.forEach((h,i)=>{const v=(vals[i]||'').trim();o[h]=v===''?0:isNaN(v)?v:Number(v);});
+    return o;
+  });
+}
+
+// ── SVG chart engine ──────────────────────────────────────────────────────────
+const NS='http://www.w3.org/2000/svg';
+function el(tag,attrs={},text){
+  const e=document.createElementNS(NS,tag);
+  for(const[k,v]of Object.entries(attrs))e.setAttribute(k,v);
+  if(text!=null)e.textContent=text;
+  return e;
+}
+function niceMax(v){if(v<=0)return 1;const p=Math.pow(10,Math.floor(Math.log10(v)));return Math.ceil(v/p)*p;}
+function niceTicks(max,n=5){if(max<=0)return[0];const step=niceMax(max/n);const t=[];for(let v=0;v<=max+step*.01;v+=step)t.push(Math.round(v*1000)/1000);return t;}
+function fmtVal(v,fmt){
+  if(fmt==='ms')return v>=1000?`${(v/1000).toFixed(1)}s`:`${v}ms`;
+  if(fmt==='K')return v>=1000?`${(v/1000).toFixed(0)}K`:`${v}`;
+  if(fmt==='pct')return`${v}%`;
+  if(typeof v==='number')return v%1===0?`${v}`:`${v.toFixed(1)}`;
+  return`${v}`;
+}
+
+function drawChart(container,data,xKey,series,{refX,axes={},height=200,showLegend=true}={}){
+  const M={top:12,right:axes.right?52:16,bottom:36,left:52};
+  const TW=container.clientWidth||460;
+  const TH=height+M.top+M.bottom;
+  const W=TW-M.left-M.right;
+  const H=height;
+  const xVals=data.map(d=>d[xKey]);
+  const xMin=Math.min(...xVals),xMax=Math.max(...xVals);
+  const xS=v=>M.left+(xMax===xMin?0.5:(v-xMin)/(xMax-xMin))*W;
+  const leftS=series.filter(s=>s.yAxis!=='right');
+  const rightS=series.filter(s=>s.yAxis==='right');
+  const lMax=axes.left?.max||niceMax(Math.max(...leftS.flatMap(s=>data.map(d=>d[s.key]||0)))*1.1);
+  const rMax=axes.right?.max||niceMax(Math.max(...rightS.flatMap(s=>data.map(d=>d[s.key]||0)))*1.1);
+  const yL=v=>M.top+H-(v/lMax)*H;
+  const yR=v=>M.top+H-(v/rMax)*H;
+  const yS=s=>s.yAxis==='right'?yR:yL;
+  const svg=el('svg',{width:'100%',height:TH,viewBox:`0 0 ${TW} ${TH}`});
+  niceTicks(lMax).forEach(t=>{
+    svg.appendChild(el('line',{x1:M.left,x2:M.left+W,y1:yL(t),y2:yL(t),stroke:'#1e2d4a','stroke-width':'1'}));
+    svg.appendChild(el('text',{x:M.left-6,y:yL(t)+4,'text-anchor':'end',fill:'#64748b','font-size':'10','font-family':'monospace'},fmtVal(t,axes.left?.fmt)));
+  });
+  if(axes.right){
+    niceTicks(rMax).forEach(t=>{
+      svg.appendChild(el('text',{x:M.left+W+6,y:yR(t)+4,'text-anchor':'start',fill:rightS[0]?.color||'#94a3b8','font-size':'10','font-family':'monospace'},fmtVal(t,axes.right?.fmt)));
+    });
+  }
+  xVals.forEach(v=>{
+    svg.appendChild(el('text',{x:xS(v),y:M.top+H+22,'text-anchor':'middle',fill:'#64748b','font-size':'10','font-family':'monospace'},`${v}`));
+  });
+  svg.appendChild(el('text',{x:M.left+W/2,y:TH-2,'text-anchor':'middle',fill:'#475569','font-size':'10','font-family':'monospace'},xKey));
+  svg.appendChild(el('rect',{x:M.left,y:M.top,width:W,height:H,fill:'none',stroke:'#1e2d4a'}));
+  if(refX!=null&&refX>=xMin&&refX<=xMax){
+    const rx=xS(refX);
+    svg.appendChild(el('line',{x1:rx,x2:rx,y1:M.top,y2:M.top+H,stroke:'#ef4444','stroke-dasharray':'5 3','stroke-width':'1.5'}));
+    svg.appendChild(el('text',{x:rx+3,y:M.top+12,fill:'#ef4444','font-size':'9','font-family':'monospace'},'overflow'));
+  }
+  // Gradient defs
+  const defs=el('defs');
+  series.filter(s=>s.type==='area').forEach((s,i)=>{
+    const gid=`g${i}_${Math.random().toString(36).slice(2)}`;
+    s._gid=gid;
+    const g=el('linearGradient',{id:gid,x1:'0',y1:'0',x2:'0',y2:'1'});
+    g.appendChild(el('stop',{offset:'5%','stop-color':s.color,'stop-opacity':'0.22'}));
+    g.appendChild(el('stop',{offset:'95%','stop-color':s.color,'stop-opacity':'0.03'}));
+    defs.appendChild(g);
+  });
+  svg.appendChild(defs);
+  series.filter(s=>s.type==='area').forEach(s=>{
+    const pts=data.map(d=>`${xS(d[xKey])},${yS(s)(d[s.key]||0)}`);
+    const lx=xS(data[data.length-1][xKey]),fx=xS(data[0][xKey]),bl=M.top+H;
+    svg.appendChild(el('path',{d:`M${fx},${bl} `+pts.map(p=>`L${p}`).join(' ')+` L${lx},${bl} Z`,fill:`url(#${s._gid})`}));
+  });
+  const bw_series=series.filter(s=>s.type==='bar');
+  if(bw_series.length){
+    const bw=Math.min(W/data.length*0.6/bw_series.length,28);
+    const gw=bw*bw_series.length;
+    bw_series.forEach((s,si)=>{
+      data.forEach(d=>{
+        const bx=xS(d[xKey])-gw/2+si*bw;
+        const bh=(d[s.key]||0)/lMax*H;
+        svg.appendChild(el('rect',{x:bx,y:M.top+H-Math.max(bh,0),width:bw-1,height:Math.max(bh,0),fill:s.color,opacity:'0.85',rx:'2'}));
+      });
+    });
+  }
+  series.filter(s=>s.type!=='bar').forEach(s=>{
+    const pts=data.map(d=>`${xS(d[xKey])},${yS(s)(d[s.key]||0)}`).join(' ');
+    svg.appendChild(el('polyline',{points:pts,fill:'none',stroke:s.color,'stroke-width':s.dashed?'1.5':'2',...(s.dashed?{'stroke-dasharray':'5 3'}:{})}));
+    if(!s.dashed)data.forEach(d=>{svg.appendChild(el('circle',{cx:xS(d[xKey]),cy:yS(s)(d[s.key]||0),r:'3.5',fill:s.color}));});
+  });
+  // Hover
+  const tip=document.getElementById('tip');
+  const ov=el('rect',{x:M.left,y:M.top,width:W,height:H,fill:'transparent',style:'cursor:crosshair'});
+  ov.addEventListener('mousemove',e=>{
+    const rect=svg.getBoundingClientRect();
+    const mx=e.clientX-rect.left-M.left;
+    const frac=Math.max(0,Math.min(1,mx/W));
+    const xv=xMin+frac*(xMax-xMin);
+    let near=data[0];let md=Infinity;
+    data.forEach(d=>{const dist=Math.abs(d[xKey]-xv);if(dist<md){md=dist;near=d;}});
+    let html=`<div class="tooltip-hdr">${xKey} = ${near[xKey]}</div>`;
+    series.forEach(s=>{const v=near[s.key];if(v!=null)html+=`<div class="tooltip-row" style="color:${s.color}">${s.name}: <strong>${fmtVal(v,s.fmt||axes[s.yAxis||'left']?.fmt)}</strong></div>`;});
+    tip.innerHTML=html;tip.style.display='block';
+    tip.style.left=(e.clientX+12)+'px';tip.style.top=(e.clientY-10)+'px';
+  });
+  ov.addEventListener('mouseleave',()=>{tip.style.display='none';});
+  svg.appendChild(ov);
+  container.appendChild(svg);
+  if(showLegend){
+    const leg=document.createElement('div');leg.className='legend';
+    series.forEach(s=>{
+      const item=document.createElement('div');item.className='leg-item';
+      const d=document.createElement('div');
+      if(s.dashed){d.className='leg-dash';d.style.background=s.color;d.style.borderTop=`2px dashed ${s.color}`;}
+      else{d.className='leg-dot';d.style.background=s.color;}
+      item.appendChild(d);
+      item.appendChild(Object.assign(document.createElement('span'),{textContent:s.name}));
+      leg.appendChild(item);
+    });
+    container.appendChild(leg);
+  }
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+function card(label,value,unit,color,sub){
+  const c=document.createElement('div');c.className='card';c.style.borderLeft=`3px solid ${color}`;
+  c.innerHTML=`<div class="card-label">${label}</div><div class="card-value" style="color:${color}">${value}<span class="card-unit">${unit}</span></div>${sub?`<div class="card-sub">${sub}</div>`:''}`;
+  return c;
+}
+function sec(title,note){
+  const d=document.createElement('div');
+  d.innerHTML=`<div class="section-title">${title}</div>${note?`<div class="section-note">${note}</div>`:''}`;
+  return d;
+}
+function panel(title,fn,wide){
+  const p=document.createElement('div');p.className=wide?'wide-panel':'chart-panel';
+  if(title)p.innerHTML=`<div class="chart-title">${title}</div>`;
+  fn(p);return p;
+}
+
+// ── CONCURRENCY SWEEP tab ─────────────────────────────────────────────────────
+function renderConc(data,root){
+  const last=data[data.length-1]||{};
+  const ov=last.kv_overflow_at||18;
+
+  const note=document.createElement('div');note.className='evict-note';
+  note.innerHTML=`&#9889; HiCache eviction starts at concurrency &ge; ${ov} &nbsp;&nbsp;(${ov} &times; ~10 GB KV$ &gt; 186 GB HBM pool)`;
+  root.appendChild(note);
+
+  const cards=document.createElement('div');cards.className='cards';
+  [[`Peak TTFT`,last.ttft_mean_ms?.toLocaleString(),'ms','#f472b6',`P99: ${last.ttft_p99_ms?.toLocaleString()} ms`],
+   [`Peak TPOT`,last.tpot_mean_ms?.toFixed(0),'ms','#4ade80',`P99: ${last.tpot_p99_ms} ms`],
+   [`Throughput`,last.throughput_req_s?.toFixed(3),'req/s','#facc15',`${last.throughput_tok_s?.toFixed(0)} tok/s`],
+   [`HBM util`,last.hbm_util_pct_mean?.toFixed(0),'%','#22d3ee',`${last.hbm_used_gb_mean?.toFixed(0)} GB`],
+   [`SSD rBW`,last.ssd_read_bw_mb_mean?.toFixed(1),'MB/s','#fb923c',`wBW: ${last.ssd_write_bw_mb_mean?.toFixed(1)} MB/s`],
+   [`KV$ miss`,last.kv_miss_penalty_ms?.toFixed(0),'ms','#f87171','TPOT penalty'],
+  ].forEach(a=>cards.appendChild(card(...a)));
+  root.appendChild(cards);
+
+  root.appendChild(sec('Latency vs Concurrency','TTFT and TPOT rise as queuing fills — SSD eviction adds KV$ restore stall'));
+  const r1=document.createElement('div');r1.className='grid2';
+  r1.appendChild(panel('TTFT — Time to First Token',p=>drawChart(p,data,'inference_concurrency',
+    [{key:'ttft_mean_ms',color:'#f472b6',name:'mean',type:'area',fmt:'ms'},{key:'ttft_p99_ms',color:'#f9a8d4',name:'P99',type:'line',dashed:true,fmt:'ms'}],
+    {refX:ov,axes:{left:{fmt:'ms'}}})));
+  r1.appendChild(panel('TPOT — Time Per Output Token',p=>drawChart(p,data,'inference_concurrency',
+    [{key:'tpot_mean_ms',color:'#4ade80',name:'mean',type:'area'},{key:'tpot_p99_ms',color:'#86efac',name:'P99',type:'line',dashed:true}],
+    {refX:ov,axes:{left:{}}})));
+  root.appendChild(r1);
+
+  root.appendChild(sec('Throughput and Tokens','Throughput plateaus as SSD stall dominates'));
+  const r2=document.createElement('div');r2.className='grid2';
+  r2.appendChild(panel('Throughput req/s (left) tok/s (right)',p=>drawChart(p,data,'inference_concurrency',
+    [{key:'throughput_req_s',color:'#facc15',name:'req/s',type:'line'},{key:'throughput_tok_s',color:'#4ade80',name:'tok/s',type:'line',yAxis:'right'}],
+    {refX:ov,axes:{left:{},right:{}}})));
+  r2.appendChild(panel('Token counts per instance',p=>drawChart(p,data,'inference_concurrency',
+    [{key:'prompt_tokens_mean',color:'#38bdf8',name:'prompt',type:'bar'},{key:'output_tokens_mean',color:'#818cf8',name:'output',type:'bar'}],
+    {refX:ov,axes:{left:{}}})));
+  root.appendChild(r2);
+
+  root.appendChild(sec('Memory Tier Utilisation','L1:HBM fills → L2:DRAM staging grows → L3:SSD eviction begins'));
+  root.appendChild(panel('HBM GB (left) · DRAM GB (left) · SSD BW MB/s (right)',p=>drawChart(p,data,'inference_concurrency',
+    [{key:'hbm_used_gb_mean',color:'#22d3ee',name:'L1:HBM GB',type:'line'},{key:'dram_used_gb_mean',color:'#a78bfa',name:'L2:DRAM GB',type:'line'},
+     {key:'ssd_read_bw_mb_mean',color:'#fb923c',name:'SSD read MB/s',type:'line',yAxis:'right'},{key:'ssd_write_bw_mb_mean',color:'#f97316',name:'SSD write MB/s',type:'line',dashed:true,yAxis:'right'}],
+    {refX:ov,height:220,axes:{left:{label:'GB'},right:{label:'MB/s'}}}),true));
+
+  root.appendChild(sec('KV$ Semantics','Pool fill crosses 100% at overflow threshold'));
+  const kvcards=document.createElement('div');kvcards.className='cards';
+  [[`Pool capacity`,(last.kv_pool_capacity_gb||186).toFixed(0),'GB','#22d3ee',`weights: ${(last.kv_weights_gb||70).toFixed(0)} GB`],
+   [`KV$/request`,(last.kv_per_request_gb||10).toFixed(1),'GB','#f472b6','at 65K ctx'],
+   [`Overflow at`,last.kv_overflow_at||18,'conc','#ef4444','eviction starts'],
+  ].forEach(a=>kvcards.appendChild(card(...a)));
+  root.appendChild(kvcards);
+  root.appendChild(panel('KV$ Pool Fill %',p=>drawChart(p,data,'inference_concurrency',
+    [{key:'kv_fill_pct_mean',color:'#22d3ee',name:'fill % mean',type:'area'},{key:'kv_fill_pct_peak',color:'#67e8f9',name:'fill % peak',type:'line',dashed:true}],
+    {refX:ov,axes:{left:{fmt:'pct',max:120}}}),true));
+  const r4=document.createElement('div');r4.className='grid2';
+  r4.appendChild(panel('TPOT Miss Penalty (ms)',p=>drawChart(p,data,'inference_concurrency',
+    [{key:'kv_miss_penalty_ms',color:'#f87171',name:'miss penalty ms',type:'bar'},{key:'tpot_mean_ms',color:'#4ade80',name:'TPOT mean ms',type:'line'}],
+    {refX:ov,axes:{left:{}}})));
+  r4.appendChild(panel('KV$ Eviction → SSD write / Restore ← SSD read',p=>drawChart(p,data,'inference_concurrency',
+    [{key:'kv_eviction_mb_s',color:'#f97316',name:'eviction MB/s',type:'area'},{key:'kv_restore_mb_s',color:'#fb923c',name:'restore MB/s',type:'area',dashed:true}],
+    {refX:ov,axes:{left:{}}})));
+  root.appendChild(r4);
+
+  root.appendChild(sec('SSD Detail'));
+  const r5=document.createElement('div');r5.className='grid2';
+  r5.appendChild(panel('SSD IOPS (left) + Util % (right)',p=>drawChart(p,data,'inference_concurrency',
+    [{key:'ssd_read_iops_mean',color:'#fb923c',name:'read IOPS',type:'line'},{key:'ssd_util_pct_mean',color:'#fcd34d',name:'util %',type:'line',yAxis:'right'}],
+    {refX:ov,axes:{left:{fmt:'K'},right:{fmt:'pct',max:100}}})));
+  r5.appendChild(panel('KV$ Cache Hit Rate % (RadixAttention)',p=>drawChart(p,data,'inference_concurrency',
+    [{key:'kv_cache_hit_rate_pct',color:'#22d3ee',name:'KV$ hit %',type:'area'}],
+    {refX:ov,axes:{left:{fmt:'pct',max:100}}})));
+  root.appendChild(r5);
+
+  // Raw table
+  root.appendChild(sec('Raw Data'));
+  const wrap=document.createElement('div');wrap.style.overflowX='auto';
+  const cols=[['Conc.','inference_concurrency','var(--text)',''],['TTFT','ttft_mean_ms','#f472b6','ms'],['TPOT','tpot_mean_ms','#4ade80','ms'],
+    ['req/s','throughput_req_s','#facc15',''],['tok/s','throughput_tok_s','#facc15',''],
+    ['HBM GB','hbm_used_gb_mean','#22d3ee','GB'],['HBM%','hbm_util_pct_mean','#22d3ee','%'],
+    ['DRAM GB','dram_used_gb_mean','#a78bfa','GB'],['SSD rBW','ssd_read_bw_mb_mean','#fb923c','MB/s'],
+    ['SSD wBW','ssd_write_bw_mb_mean','#f97316','MB/s'],['IOPS','ssd_read_iops_mean','#fb923c',''],
+    ['KV$ fill','kv_fill_pct_mean','#22d3ee','%'],['Miss pen','kv_miss_penalty_ms','#f87171','ms'],['KV$ hit','kv_cache_hit_rate_pct','#22d3ee','%']];
+  const tbl=document.createElement('table');
+  const thead=document.createElement('thead');const hr=document.createElement('tr');
+  cols.forEach(([lbl])=>{const th=document.createElement('th');th.textContent=lbl;hr.appendChild(th);});
+  thead.appendChild(hr);tbl.appendChild(thead);
+  const tbody=document.createElement('tbody');
+  data.forEach(row=>{
+    const tr=document.createElement('tr');
+    if(row.inference_concurrency>=ov)tr.className='ev-row';
+    cols.forEach(([,key,color,unit])=>{
+      const td=document.createElement('td');td.style.color=color;
+      const v=row[key];
+      td.textContent=v==null?'—':(Number.isInteger(v)?v.toLocaleString():Number(v).toFixed(1))+(unit?' '+unit:'');
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+  tbl.appendChild(tbody);wrap.appendChild(tbl);root.appendChild(wrap);
+
+  const footer=document.createElement('div');footer.className='footer';
+  footer.innerHTML=`Red rows = HiCache SSD eviction active (concurrency &ge; ${ov}) &nbsp;&middot;&nbsp; ${data===DEMO_CONC?'Demo data — load concurrency_sweep.csv to see real results':data.length+' data points loaded'}`;
+  root.appendChild(footer);
+}
+
+// ── TURNS SWEEP tab ───────────────────────────────────────────────────────────
+function renderTurns(data,root){
+  const last=data[data.length-1]||{};
+
+  const note=document.createElement('div');note.className='turns-note';
+  note.innerHTML=`&#127807; With each additional turn, RadixAttention prefix reuse grows &rarr; KV$ hit rate rises &rarr; HBM prefill delta decreases &rarr; cumulative context grows &rarr; SSD pressure rises at lower concurrency`;
+  root.appendChild(note);
+
+  const cards=document.createElement('div');cards.className='cards';
+  [[`Max turns`,last.num_turns,'turns','#a3e635',''],
+   [`KV$ hit rate`,last.kv_cache_hit_rate_pct?.toFixed(0),'%','#22d3ee',`at turn ${last.num_turns}`],
+   [`TPOT at max`,last.tpot_mean_ms?.toFixed(0),'ms','#4ade80',`P99: ${last.tpot_p99_ms} ms`],
+   [`Prefill delta`,last.hbm_prefill_delta_gb_mean?.toFixed(2),'GB/turn','#f472b6','KV$ written per turn'],
+   [`HBM fill %`,last.hbm_kv_pool_fill_pct_mean?.toFixed(0),'%','#fb923c','KV pool fill'],
+   [`Resolved %`,last.resolved_pct?.toFixed(0),'%','#a3e635','patch fixes tests'],
+  ].forEach(a=>cards.appendChild(card(...a)));
+  root.appendChild(cards);
+
+  // Latency vs turns
+  root.appendChild(sec('Inference Latency vs num_turns',
+    'TTFT rises from prefix growth; TPOT rises from larger KV$ to read per decode step'));
+  const r1=document.createElement('div');r1.className='grid2';
+  r1.appendChild(panel('TTFT and TPOT mean (ms)',p=>drawChart(p,data,'num_turns',
+    [{key:'ttft_mean_ms',color:'#f472b6',name:'TTFT mean',type:'area',fmt:'ms'},{key:'tpot_mean_ms',color:'#4ade80',name:'TPOT mean',type:'line'}],
+    {axes:{left:{fmt:'ms'}}})));
+  r1.appendChild(panel('Throughput req/s (left) · tok/s (right)',p=>drawChart(p,data,'num_turns',
+    [{key:'throughput_req_s',color:'#facc15',name:'req/s',type:'line'},{key:'throughput_tok_s',color:'#4ade80',name:'tok/s',type:'line',yAxis:'right'}],
+    {axes:{left:{},right:{}}})));
+  root.appendChild(r1);
+
+  // Token growth
+  root.appendChild(sec('Token Counts — Multi-turn Context Growth',
+    'Prompt tokens grow with each turn (history accumulates); output tokens grow as model has more context to refine'));
+  root.appendChild(panel('Mean prompt and output tokens per instance',p=>drawChart(p,data,'num_turns',
+    [{key:'prompt_tokens_mean',color:'#38bdf8',name:'prompt tokens',type:'bar'},{key:'output_tokens_mean',color:'#818cf8',name:'output tokens',type:'bar'}],
+    {axes:{left:{}}}),true));
+
+  // HBM per-op breakdown
+  root.appendChild(sec('HBM Memory Access Pattern per AI Operation',
+    'Key insight: hbm_prefill_delta decreases with more turns (prefix reuse writes fewer new KV$ tokens); KV pool fill rises'));
+  root.appendChild(panel('HBM pool fill % (left) · HBM prefill delta GB/turn (right) · evicted GB/turn (right)',p=>drawChart(p,data,'num_turns',
+    [{key:'hbm_kv_pool_fill_pct_mean',color:'#22d3ee',name:'KV pool fill %',type:'area'},
+     {key:'hbm_prefill_delta_gb_mean',color:'#f472b6',name:'prefill delta GB',type:'line',yAxis:'right'},
+     {key:'hbm_kv_evicted_gb_mean',color:'#fb923c',name:'evicted GB',type:'line',dashed:true,yAxis:'right'}],
+    {height:220,axes:{left:{fmt:'pct',max:120},right:{label:'GB'}}}),true));
+
+  const r3=document.createElement('div');r3.className='grid2';
+  r3.appendChild(panel('HBM used GB (total across all GPUs)',p=>drawChart(p,data,'num_turns',
+    [{key:'hbm_used_gb_mean',color:'#22d3ee',name:'HBM used GB',type:'area'}],
+    {axes:{left:{}}})));
+  r3.appendChild(panel('KV$ Cache Hit Rate % (RadixAttention prefix reuse)',p=>drawChart(p,data,'num_turns',
+    [{key:'kv_cache_hit_rate_pct',color:'#a3e635',name:'KV$ hit %',type:'area'}],
+    {axes:{left:{fmt:'pct',max:100}}})));
+  root.appendChild(r3);
+
+  // DRAM and SSD tier effects
+  root.appendChild(sec('DRAM and SSD Tier Effects',
+    'More turns = larger cumulative KV$ = earlier SSD overflow at same concurrency'));
+  const r4=document.createElement('div');r4.className='grid2';
+  r4.appendChild(panel('DRAM used GB (left) · HiCache staging GB (right)',p=>drawChart(p,data,'num_turns',
+    [{key:'dram_used_gb_mean',color:'#a78bfa',name:'DRAM used GB',type:'line'},{key:'dram_hicache_staging_gb_mean',color:'#c084fc',name:'HiCache staging GB',type:'line',yAxis:'right'}],
+    {axes:{left:{},right:{}}})));
+  r4.appendChild(panel('SSD read BW (left) · SSD write BW (left) · SSD IOPS (right)',p=>drawChart(p,data,'num_turns',
+    [{key:'ssd_read_bw_mb_mean',color:'#fb923c',name:'SSD read MB/s',type:'area'},{key:'ssd_write_bw_mb_mean',color:'#f97316',name:'SSD write MB/s',type:'area',dashed:true},
+     {key:'ssd_read_iops_mean',color:'#fcd34d',name:'IOPS',type:'line',yAxis:'right'}],
+    {axes:{left:{},right:{fmt:'K'}}})));
+  root.appendChild(r4);
+
+  // Resolution rate
+  root.appendChild(sec('Patch Quality vs num_turns',
+    'More turns = more chances to correct errors = higher resolved %'));
+  root.appendChild(panel('Resolved % by num_turns',p=>drawChart(p,data,'num_turns',
+    [{key:'resolved_pct',color:'#a3e635',name:'resolved %',type:'area'}],
+    {axes:{left:{fmt:'pct',max:100}}}),true));
+
+  // Raw table
+  root.appendChild(sec('Raw Data'));
+  const wrap=document.createElement('div');wrap.style.overflowX='auto';
+  const cols=[
+    ['Turns','num_turns','var(--turns)',''],
+    ['TTFT ms','ttft_mean_ms','#f472b6','ms'],['TPOT ms','tpot_mean_ms','#4ade80','ms'],
+    ['req/s','throughput_req_s','#facc15',''],['tok/s','throughput_tok_s','#facc15',''],
+    ['Prompt tok','prompt_tokens_mean','#38bdf8',''],['Out tok','output_tokens_mean','#818cf8',''],
+    ['HBM GB','hbm_used_gb_mean','#22d3ee','GB'],['KV fill%','hbm_kv_pool_fill_pct_mean','#22d3ee','%'],
+    ['Prefill dGB','hbm_prefill_delta_gb_mean','#f472b6','GB'],['Evicted GB','hbm_kv_evicted_gb_mean','#fb923c','GB'],
+    ['HiCache GB','dram_hicache_staging_gb_mean','#a78bfa','GB'],
+    ['SSD rBW','ssd_read_bw_mb_mean','#fb923c','MB/s'],['SSD wBW','ssd_write_bw_mb_mean','#f97316','MB/s'],
+    ['KV$ hit%','kv_cache_hit_rate_pct','#a3e635','%'],['Resolved%','resolved_pct','#a3e635','%'],
+  ];
+  const tbl=document.createElement('table');
+  const thead=document.createElement('thead');const hr=document.createElement('tr');
+  cols.forEach(([lbl])=>{const th=document.createElement('th');th.textContent=lbl;hr.appendChild(th);});
+  thead.appendChild(hr);tbl.appendChild(thead);
+  const tbody=document.createElement('tbody');
+  data.forEach((row,i)=>{
+    const tr=document.createElement('tr');
+    tr.className=i===data.length-1?'hi-row':'';
+    cols.forEach(([,key,color,unit])=>{
+      const td=document.createElement('td');td.style.color=color;
+      const v=row[key];
+      td.textContent=v==null?'—':(Number.isInteger(v)?v.toLocaleString():Number(v).toFixed(typeof v==='number'&&v<10?2:1))+(unit?' '+unit:'');
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+  tbl.appendChild(tbody);wrap.appendChild(tbl);root.appendChild(wrap);
+
+  const footer=document.createElement('div');footer.className='footer';
+  footer.innerHTML=`Green row = highest num_turns level &nbsp;&middot;&nbsp; ${data===DEMO_TURNS?'Demo data — load turns_sweep.csv to see real results':data.length+' data points loaded'}`;
+  root.appendChild(footer);
+}
+
+// ── App state ─────────────────────────────────────────────────────────────────
+let concData=DEMO_CONC, turnsData=DEMO_TURNS;
+let activeTab='conc';
+
+function renderApp(){
+  const app=document.getElementById('app');app.innerHTML='';
+
+  // Header
+  const hdr=document.createElement('div');hdr.className='header';
+  hdr.innerHTML=`<div><h1>AMOprof &middot; Sweep Dashboard</h1>
+    <div class="sub">Concurrency Sweep &amp; Turns Sweep &mdash; Memory Tier Analysis</div></div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap">
+      <label class="file-label" for="csvFile">&#128194; Open CSV<input type="file" id="csvFile" accept=".csv"></label>
+      <button class="btn" id="pasteBtn">Paste CSV</button>
+      <button class="btn" id="demoBtn">Reset demo</button>
+    </div>`;
+  app.appendChild(hdr);
+
+  // Import box (hidden)
+  const impBox=document.createElement('div');impBox.className='import-box';impBox.id='importBox';impBox.style.display='none';
+  impBox.innerHTML=`<label>Paste concurrency_sweep.csv or turns_sweep.csv &mdash; auto-detected by column headers:</label>
+    <textarea id="csvText" placeholder="inference_concurrency,ttft_mean_ms,...  OR  num_turns,ttft_mean_ms,..."></textarea>
+    <div id="csvErr" class="err"></div>
+    <div style="margin-top:8px;display:flex;gap:8px">
+      <button class="btn active" id="loadBtn">Load &rarr;</button>
+    </div>`;
+  app.appendChild(impBox);
+
+  // Tabs
+  const tabs=document.createElement('div');tabs.className='tabs';
+  [['conc','&#9654; Concurrency Sweep'],['turns','&#10007; Turns Sweep']].forEach(([id,lbl])=>{
+    const t=document.createElement('button');t.className='tab'+(activeTab===id?' active':'');
+    t.innerHTML=lbl;t.onclick=()=>{activeTab=id;renderApp();};tabs.appendChild(t);
+  });
+  app.appendChild(tabs);
+
+  // Active tab content
+  const content=document.createElement('div');content.className='tab-content active';
+  if(activeTab==='conc')renderConc(concData,content);
+  else renderTurns(turnsData,content);
+  app.appendChild(content);
+
+  // Event listeners
+  document.getElementById('pasteBtn').onclick=()=>{
+    const b=document.getElementById('importBox');
+    b.style.display=b.style.display==='none'?'block':'none';
+    document.getElementById('pasteBtn').classList.toggle('active');
+  };
+  document.getElementById('demoBtn').onclick=()=>{
+    concData=DEMO_CONC;turnsData=DEMO_TURNS;renderApp();
+  };
+  document.getElementById('loadBtn').onclick=()=>{
+    const text=document.getElementById('csvText').value;
+    loadCSV(text);
+  };
+  document.getElementById('csvFile').onchange=e=>{
+    const f=e.target.files[0];if(!f)return;
+    const r=new FileReader();r.onload=ev=>loadCSV(ev.target.result);r.readAsText(f);
+  };
+}
+
+function loadCSV(text){
+  const parsed=parseCSV(text);
+  if(!parsed||!parsed.length){document.getElementById('csvErr').textContent='Could not parse CSV';return;}
+  // Auto-detect: concurrency sweep has 'inference_concurrency', turns sweep has 'num_turns'
+  if('inference_concurrency' in parsed[0]){
+    concData=parsed;activeTab='conc';
+    document.getElementById('csvErr').textContent='';
+    document.getElementById('importBox').style.display='none';
+    renderApp();
+  } else if('num_turns' in parsed[0]){
+    turnsData=parsed;activeTab='turns';
+    document.getElementById('csvErr').textContent='';
+    document.getElementById('importBox').style.display='none';
+    renderApp();
+  } else {
+    document.getElementById('csvErr').textContent='CSV not recognised — needs inference_concurrency or num_turns column';
+  }
+}
+
+renderApp();
+</script>
+</body>
+</html>

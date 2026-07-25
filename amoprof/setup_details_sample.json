@@ -1,0 +1,20 @@
+{
+  "KV cache tier": "L3.5",
+  "L3 storage type": "mooncake",
+  "L3 naming rule": "Set KV cache tier to L3 for local SSD/NVMe/file-backed storage; set to L3.5 for AI Memory Node, Mooncake, or remote/shared/disaggregated backing tier.",
+  "GPU Count": 4,
+  "GPU Memory per Device GB": 80,
+  "Host DRAM GB": 1024,
+  "Host DRAM used GB": "auto",
+  "L3 storage capacity GB": 4096,
+  "L3 storage used GB": 0,
+  "L3 storage path": "/path/to/l3/storage",
+  "L3 Device": "",
+  "L3 Mount Path": "",
+  "HiCache size per GPU GB": 50,
+  "HiCache total GB": "auto = HiCache size per GPU GB \u00d7 GPU Count",
+  "L2 DRAM cache capacity GB": "auto",
+  "Formula Notes": {
+    "DRAM capacity": "Prefer HiCache size per GPU GB \u00d7 GPU Count for effective L2 DRAM cache capacity; fallback to Host DRAM GB."
+  }
+}

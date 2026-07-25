@@ -1,0 +1,40 @@
+[Unit]
+Description=AMOprof collection service (Prometheus /metrics endpoint)
+Documentation=file:/opt/amoprof/README.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+
+# Configuration is supplied entirely through environment variables so this unit
+# does not need to be edited. Copy systemd/amoprof.env.example to the path below
+# and adjust it to your host. AMOPROF_* variables map to the matching
+# `amoprof service` flags (see README.md).
+EnvironmentFile=/etc/amoprof/amoprof.env
+
+# Absolute path to the amoprof console script created by install.sh.
+# Default install puts the venv at ~/amoprof_venv; for a system service install
+# to a system-wide location (e.g. /opt/amoprof_venv) and update this path.
+# AMOPROF_EXTRA_ARGS carries flags that have no dedicated env var, e.g.
+# "--no-sudo --enable-blktrace --collectors all". Leave empty if unused.
+ExecStart=/bin/sh -c '/opt/amoprof_venv/bin/amoprof service $AMOPROF_EXTRA_ARGS'
+
+# blktrace, biosnoop, perf, SMART, and DRAM PMU collectors require privileges.
+# Run as root so the service can use sudo-free privileged collectors; pass
+# AMOPROF_EXTRA_ARGS="--no-sudo" via the EnvironmentFile when running as root.
+User=root
+Group=root
+
+Restart=on-failure
+RestartSec=5
+KillSignal=SIGINT
+TimeoutStopSec=120
+
+# Hardening that is compatible with the privileged collectors above.
+NoNewPrivileges=false
+ProtectHome=false
+ProtectSystem=false
+
+[Install]
+WantedBy=multi-user.target

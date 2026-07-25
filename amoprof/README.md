@@ -1,0 +1,612 @@
+# AMOprof
+
+AMOprof is a profiling and report-generation package for AI inference workloads. It correlates SGLang/HiCache metrics, GPU/HBM telemetry, host DRAM bandwidth, OS memory pressure, and local storage activity into Executive, Interactive, and End Report views.
+
+It is designed for long-context and KV-cache tiering experiments where HBM, DRAM, and local SSD/NVMe behavior must be interpreted together without mixing logical cache counters with physical block-device telemetry.
+
+---
+
+## What AMOprof reports
+
+AMOprof can generate a single combined HTML report with three tabs:
+
+| Tab | Purpose |
+|---|---|
+| Executive | High-level KPIs, findings, source health, and cross-layer interpretation. |
+| Interactive | Plotly-based exploratory timelines and drill-down charts. |
+| End Report | Static deep-dive report with formulas, sectioned analysis, PNG charts, and per-chart takeaways. |
+
+Core analysis areas include:
+
+- SGLang request, latency, throughput, and cache-hit metrics.
+- GPU utilization, GPU power, HBM usage, HBM bandwidth, and NVLink/PCIe signals when available.
+- HiCache/KV tier analysis across L1/HBM, L2/DRAM, and L3/local storage.
+- L3 local storage analysis from blktrace/iostat/sysfs, including bandwidth, IOPS, queue-depth evidence, request sizes, hot/cold LBA, TRIM/discard, and per-stream attribution when collected.
+- DRAM bandwidth from AMD uProf, Intel PCM, or perf IMC fallback.
+- OS page activity from vmstat, swap, NUMA, and page-fault counters.
+- Formula/source documentation so report KPIs can be traced back to counters.
+
+---
+
+## Tier terminology
+
+| Tier | Meaning | Typical source |
+|---|---|---|
+| L1 | GPU HBM and hot KV cache | DCGM / nvidia-smi / SGLang |
+| L2 | Host DRAM / HiCache memory tier | SGLang host-cache counters, setup details, DRAM PMU |
+| L3 | Node-local SSD/NVMe or local file-backed HiCache storage | blktrace, iostat, sysfs, SMART, filesystem capacity, plus SGLang movement counters |
+| L3.5 | AI Memory Node, Mooncake, remote/shared/disaggregated memory, object store, or unresolved logical backing tier with no local SSD mapping | Logical SGLang movement counters; physical charts only when an explicit device mapping exists |
+
+Important counter rules:
+
+- `sglang_backuped_tokens_total` is logical offload/write movement.
+- `sglang_prefetched_tokens_total` is logical prefetch/onboard movement.
+- `sglang_load_back_tokens_total` is an L2→L1 restore diagnostic and is not counted as local SSD read bytes.
+- Physical SSD/LBA charts are populated only from local block telemetry.
+- If no L3 is configured and no L3 activity exists, L3-relevant sections stay present but collapsed with a “not configured / no activity” note.
+
+
+### L3 vs L3.5 naming
+
+AMOprof uses the following convention across Executive, Interactive, and End Report tabs:
+
+- **L3** means local SSD/NVMe/file-backed cache storage.
+- **L3.5** means AI Memory Node, Mooncake, remote/shared/disaggregated memory, or a logical backing tier where no local SSD mapping is present.
+
+You can set this explicitly in `setup_details.json`:
+
+```json
+{
+  "KV cache tier": "L3.5",
+  "L3 storage type": "AI Memory Node / remote storage"
+}
+```
+
+For local SSD/NVMe:
+
+```json
+{
+  "KV cache tier": "L3",
+  "L3 storage type": "NVMe SSD",
+  "L3 Device": "/dev/nvme0n1",
+  "L3 storage path": "/mnt/nvme/hicache"
+}
+```
+
+For multiple local SSDs, pass a comma-separated `--ssd-device` list at
+collect time (see example 11a). The first device drives the L3 tile;
+additional devices are captured as sidecar summaries and CSVs.
+
+If `KV cache tier` is omitted, AMOprof derives the label from setup and launch evidence: NVMe/SSD/local file path resolves to **L3**; AI Memory Node, Mooncake, remote/object/RDMA/disaggregated evidence resolves to **L3.5**. If only SGLang logical backing-tier movement is present and no local SSD mapping is available, AMOprof labels the tier **L3.5** and keeps physical SSD/LBA charts separate.
+
+---
+
+## Package structure
+
+```text
+amoprof_1_39_94/
+├── README.md                         # Overview, features, CLI reference, examples
+├── INSTALL.md                        # Installation and dependency guide
+├── install.sh                        # Main installer for Python + common system dependencies
+├── pyproject.toml                    # Python package metadata and amoprof console entry point
+├── setup.py                          # Editable-install compatibility
+├── setup_details_sample.json         # Example setup metadata for reports
+├── run_amoprof_swebench_pro_sweeps.sh# Example benchmark wrapper
+├── scripts/
+│   └── install_dram_deps.sh          # Architecture/vendor-aware DRAM PMU dependency installer
+├── systemd/
+│   ├── amoprof.service               # systemd unit for `amoprof service`
+│   └── amoprof.env.example           # Example EnvironmentFile for the unit
+├── tests/
+│   └── test_executive_symbol_regression.py
+└── amoprof/
+    ├── cli.py                        # CLI parser and command dispatch
+    ├── service.py                    # Long-lived collection service with a Prometheus /metrics endpoint
+    ├── blktrace_service.py           # Incremental blkparse poller feeding service blktrace metrics
+    ├── collectors.py                 # Core GPU, DRAM, power, vmstat, iostat, SMART collectors
+    ├── collectors_extra.py           # blktrace, biosnoop, discard, swap-storm collectors
+    ├── prometheus_source.py          # Prometheus/SGLang/DCGM/node-exporter source handling
+    ├── blktrace_analyzer.py          # Block-level L3/NVMe trace analysis
+    ├── comparator.py                 # Multi-run comparison support
+    ├── aggregator.py                 # Multi-run aggregation support
+    ├── retime.py                     # Legacy timeseries alignment helper
+    ├── bench_lc_results.py           # Long-context benchmark summary renderer
+    ├── report/
+    │   ├── amoprof.py                # Static End Report generation
+    │   ├── interactive.py            # Interactive report generation
+    │   ├── combined.py               # Combined tabbed report generation
+    │   ├── common_kpis.py            # Shared KPI definitions
+    │   ├── l3_backend.py             # L3 backend detection/resolution
+    │   └── tier_terms.py             # Tier naming/terminology helpers
+    └── dashboard/                    # Optional dashboard assets
+```
+
+---
+
+## Quick installation
+
+```bash
+mkdir -p amoprof_1_39_94
+unzip amoprof_1_39_94.zip -d amoprof_1_39_94
+cd amoprof_1_39_94
+chmod +x install.sh scripts/install_dram_deps.sh
+./install.sh
+source ~/amoprof_venv/bin/activate
+amoprof --version
+```
+> **Install path note:** run `pip install -e .` only from the package root — the directory containing `pyproject.toml`, `setup.py`, `README.md`, and the inner `amoprof/` Python package. Do **not** run it from inside the inner `amoprof/` directory. If pip says neither `setup.py` nor `pyproject.toml` was found, run `cd ..` until `ls` shows one of those files.
+
+
+For full tracing and DRAM PMU support on the target server:
+
+```bash
+sudo ./install.sh --with-dram-deps --dram-tool auto
+```
+
+`install.sh` detects the OS package manager, CPU architecture, CPU vendor, and available GPU tools. It installs common packages using the relevant package names for `apt`, `dnf`, `yum`, `zypper`, or `pacman` where available. `scripts/install_dram_deps.sh` selects AMD uProf, Intel PCM, or perf IMC support based on CPU vendor and architecture.
+
+See [INSTALL.md](INSTALL.md) for detailed setup instructions.
+
+---
+
+## CLI commands
+
+AMOprof exposes one console entry point, `amoprof`, with these subcommands:
+
+| Command | Purpose | Typical output |
+|---|---|---|
+| `amoprof collect` | Collect local/remote runtime telemetry while a workload runs. | `metrics_run_*` directory with `raw/*.csv`, summaries, and optional reports. |
+| `amoprof analyze` | Generate reports from an existing run directory, Prometheus, or both. | Static, Interactive, and/or Combined HTML report. |
+| `amoprof retime` | Re-align legacy SGLang timeseries to the run start time. | Updated `raw/sglang_timeseries.csv` or dry-run offset report. |
+| `amoprof aggregate` | Merge multiple run directories into one synthetic run and optionally enrich from Prometheus. | `merged_run_*` directory and optional reports. |
+| `amoprof compare` | Compare multiple runs side by side. | Single comparison HTML with delta tables/charts. |
+| `amoprof bench-lc` | Render a long-context benchmark JSON into an HTML benchmark summary. | Benchmark summary HTML. |
+| `amoprof service` | Run a long-lived collection service that scrapes collectors in repeating cycles and exposes them on a Prometheus `/metrics` endpoint. | Live `/metrics` and `/healthz` HTTP endpoints plus per-cycle `raw/` output. |
+| `amoprof --version` | Print installed package version. | Version string. |
+
+Backward-compatible shortcut: if no subcommand is provided, AMOprof treats the invocation as `collect`. For example, `amoprof --duration-s 60 ...` is equivalent to `amoprof collect --duration-s 60 ...`.
+
+---
+
+## Command examples
+
+### 1. Collect metrics from a local SGLang run
+
+```bash
+sudo amoprof collect \
+  --output-dir ./amoprof_results \
+  --label dgx_lc_l3_nvme \
+  --duration-s 900 \
+  --interval-s 1 \
+  --sglang-host 127.0.0.1 \
+  --sglang-port 30000 \
+  --model openai/gpt-oss-120b \
+  --ssd-device /dev/nvme2n1 \
+  --hicache-path /mnt/sglang_hicache \
+  --enable-dram \
+  --dram-tool auto \
+  --enable-blktrace \
+  --enable-biosnoop \
+  --setup-details setup_details_sample.json \
+  --combined-report \
+  --strict-sanity
+```
+
+Use `sudo` for blktrace, biosnoop, perf, and DRAM PMU collectors. Use `--no-sudo` only when AMOprof itself already runs as root.
+
+### 2. Collect until SGLang becomes idle
+
+Useful when the benchmark duration is not known in advance:
+
+```bash
+sudo amoprof collect \
+  --output-dir ./amoprof_results \
+  --label lc_until_idle \
+  --sglang-host 127.0.0.1 \
+  --sglang-port 30000 \
+  --until-idle \
+  --idle-grace-s 20 \
+  --max-duration-s 7200 \
+  --enable-dram \
+  --enable-blktrace \
+  --combined-report
+```
+
+### 3. Analyze a collected run
+
+```bash
+amoprof analyze \
+  --run-dir ./amoprof_results/metrics_run_YYYYMMDD_HHMMSS \
+  --combined-report \
+  --interactive-report \
+  --amoprof-report \
+  --prom-rate-window 5m
+```
+
+### 4. Analyze a collected run and fill missing data from Prometheus
+
+```bash
+amoprof analyze \
+  --run-dir ./amoprof_results/metrics_run_YYYYMMDD_HHMMSS \
+  --prometheus http://PROM_HOST:9090 \
+  --start 2026-06-17T23:15:54Z \
+  --end   2026-06-17T23:25:54Z \
+  --prom-step 15 \
+  --prom-instance msl-ssg-dgx1.msl.lab:30000 \
+  --prefer local \
+  --setup-details setup_details_sample.json \
+  --combined-report
+```
+
+### 5. Generate a Prometheus-only report
+
+```bash
+amoprof analyze \
+  --prometheus http://PROM_HOST:9090 \
+  --start 2026-06-17T23:15:54Z \
+  --end   2026-06-17T23:25:54Z \
+  --prom-step 15 \
+  --prom-instance msl-ssg-dgx1.msl.lab:30000 \
+  --nvme-device nvme2n1 \
+  --output-dir ./prom_reports \
+  --setup-details setup_details_sample.json \
+  --prefer prometheus \
+  --combined-report
+```
+
+### 6. Discover Prometheus target labels
+
+```bash
+amoprof analyze \
+  --prometheus http://PROM_HOST:9090 \
+  --list-targets
+```
+
+Use the listed `{job, instance}` pairs with `--prom-instance`, `--prom-job`, and `--prom-labels`.
+
+### 7. Analyze with a benchmark summary file
+
+```bash
+amoprof analyze \
+  --run-dir ./metrics_run_YYYYMMDD_HHMMSS \
+  --bench-summary ./perf_metrics_summary.json \
+  --combined-report \
+  --interactive-report
+```
+
+### 8. Re-align a legacy SGLang timeseries
+
+Use `retime` only for old run directories where SGLang time starts at zero or is shifted relative to GPU/host telemetry:
+
+```bash
+amoprof retime \
+  --run-dir ./metrics_run_YYYYMMDD_HHMMSS \
+  --sglang-offset-s 75 \
+  --dry-run
+```
+
+Apply the offset after confirming the dry run:
+
+```bash
+amoprof retime \
+  --run-dir ./metrics_run_YYYYMMDD_HHMMSS \
+  --sglang-offset-s 75
+```
+
+### 9. Aggregate multiple runs into one report
+
+```bash
+amoprof aggregate \
+  --run-dirs ./run_c1 ./run_c4 ./run_c8 \
+  --start 1778871540 \
+  --end 1778877078 \
+  --prometheus http://PROM_HOST:9090 \
+  --output-dir ./aggregated \
+  --run-label concurrency_sweep \
+  --setup-details setup_details_sample.json \
+  --combined-report
+```
+
+### 10. Compare multiple runs side by side
+
+Each `--run` uses `LABEL:DIR[:START[:END]]`. The first run is the baseline.
+
+```bash
+amoprof compare \
+  --run "Baseline:./run_c1:1778871540:1778877078" \
+  --run "4-way concurrency:./run_c4:1778881540:1778887078" \
+  --run "FP8 KV:./run_fp8:1778891540:1778897078" \
+  --output-dir ./comparison \
+  --title "SGLang KV Cache Tuning Comparison"
+```
+
+### 11. Render a long-context benchmark summary
+
+```bash
+amoprof bench-lc \
+  --input ./lc_bm_results.json \
+  --output ./lc_benchmark_report.html \
+  --title "Long-Context Benchmark" \
+  --run-label qwen3_235b_awq
+```
+
+### 11a. Collect metrics from multiple SSDs in one run
+
+Pass a comma-separated list of block devices to `--ssd-device`. Every SSD
+collector (`iostat`, `smart`, `ssd_hw`, `nvme_driver`, `queue_depth_sysfs`,
+`discard`, `biolatency`, and optionally `blktrace` and `biosnoop`) is
+instantiated once per device.
+
+```bash
+sudo amoprof collect \
+  --output-dir ./amoprof_results \
+  --label dgx_lc_multi_ssd \
+  --duration-s 900 \
+  --interval-s 1 \
+  --sglang-host 127.0.0.1 \
+  --sglang-port 30000 \
+  --ssd-device /dev/nvme0n1,/dev/nvme1n1,/dev/nvme2n1 \
+  --hicache-path /mnt/sglang_hicache \
+  --enable-blktrace \
+  --enable-biosnoop \
+  --combined-report
+```
+
+The first device (`/dev/nvme0n1`) is the **primary** L3 device. Its
+collector outputs use the canonical filenames (`discard_timeseries.csv`,
+`queue_depth_sources_timeseries.csv`, `blkparse_events.generated.csv`,
+`blktrace_data/`, `biosnoop_events.csv`, …) and its `ssd_hw` capacity/df
+stats are merged into `raw/smart_summary.json` for the HiCache capacity
+tile.  Additional devices produce sidecar variants with a `_<devname>`
+suffix on filenames and `__<devname>` on collector summary keys, e.g.:
+
+```text
+raw/discard_timeseries.csv              # primary /dev/nvme0n1
+raw/discard_timeseries_nvme1n1.csv      # extra /dev/nvme1n1
+raw/discard_timeseries_nvme2n1.csv      # extra /dev/nvme2n1
+raw/queue_depth_sources_timeseries.csv          # primary
+raw/queue_depth_sources_timeseries_nvme1n1.csv  # extra
+raw/blktrace_data/trace.blktrace.*              # primary
+raw/blktrace_data_nvme1n1/trace.blktrace.*      # extra
+raw/blkparse_events.generated.csv               # primary
+raw/blkparse_events.generated_nvme1n1.csv       # extra
+raw/biosnoop_events.csv, biosnoop_events_nvme1n1.csv, ...
+raw/smart_summary.json                          # primary HiCache tile
+raw/smart_summary__nvme1n1.json                 # extra sidecar
+```
+
+`summary.json :: meta` records both fields:
+
+```json
+{
+  "ssd_device": "/dev/nvme0n1",
+  "ssd_devices": ["/dev/nvme0n1", "/dev/nvme1n1", "/dev/nvme2n1"]
+}
+```
+
+`amoprof service` accepts the same comma-separated `--ssd-device` and
+exposes each per-device collector as its own Prometheus series
+(e.g. `amoprof_iostat__nvme1n1_read_bw_mb_mean`).
+
+### 12. Run AMOprof as a long-lived collection service
+
+Instead of a single bounded `collect` run, run AMOprof as a service that scrapes
+the enabled collectors in repeating cycles and exposes the latest cycle on a
+Prometheus `/metrics` endpoint. A Prometheus server can then scrape AMOprof
+directly, and `/healthz` can be used for liveness checks.
+
+```bash
+sudo amoprof service \
+  --metrics-port 9101 \
+  --metrics-host 0.0.0.0 \
+  --collectors gpu,dram,vmstat,iostat,smart \
+  --scrape-duration-s 30 \
+  --interval-s 1 \
+  --ssd-device /dev/nvme0n1 \
+  --hicache-path /mnt/sglang_hicache \
+  --output-dir ./amoprof_results
+```
+
+Each cycle runs for `--scrape-duration-s` seconds, then refreshes the metrics
+served at `http://<host>:<metrics-port>/metrics`. Use `--collectors all` for all
+always-on collectors, or pass a comma-separated subset. `--ssd-device` also
+accepts a comma-separated list of devices; every SSD-scoped collector runs
+once per device and its Prometheus metric name gets the per-device suffix
+(the primary keeps canonical names, extras become `amoprof_<collector>__<dev>_<key>`).
+Add `--enable-blktrace`
+(with `--blkparse-interval-s` to control how often the live trace is parsed),
+`--enable-biosnoop`, `--enable-amduprof-pcm`, `--enable-nsys`, or `--enable-all`
+for the optional privileged collectors. Pass `--sglang-port` to also scrape a
+running SGLang server, or `--pid` to attach the perf/bpf collectors. Use
+`--no-sudo` only when AMOprof itself already runs as root. The service runs until
+it receives `SIGINT`/`SIGTERM`, and each cycle's raw output is written under
+`--output-dir`. Defaults can also be supplied via the `AMOPROF_METRICS_PORT`,
+`AMOPROF_SCRAPE_DURATION_S`, `AMOPROF_BLKPARSE_INTERVAL_S`, and related
+environment variables.
+
+Quick check while the service is running:
+
+```bash
+curl -s http://127.0.0.1:9101/healthz      # -> ok
+curl -s http://127.0.0.1:9101/metrics      # Prometheus exposition text
+```
+
+#### Run the service under systemd
+
+A unit file and an example environment file are provided under `systemd/`. The
+unit is fully configured through the environment file, so it does not need to be
+edited for normal use.
+
+```bash
+# 1. Install AMOprof to a system-wide venv so root can reach the console script.
+sudo ./install.sh --venv /opt/amoprof_venv
+
+# 2. Install the environment file and edit it for your host.
+sudo install -d /etc/amoprof
+sudo install -m 0644 systemd/amoprof.env.example /etc/amoprof/amoprof.env
+sudo $EDITOR /etc/amoprof/amoprof.env
+
+# 3. Install and start the service.
+sudo install -m 0644 systemd/amoprof.service /etc/systemd/system/amoprof.service
+sudo systemctl daemon-reload
+sudo systemctl enable --now amoprof.service
+
+# 4. Inspect it.
+systemctl status amoprof.service
+journalctl -u amoprof.service -f
+curl -s http://127.0.0.1:9101/healthz
+```
+
+Every `AMOPROF_*` variable in `/etc/amoprof/amoprof.env` maps to the matching
+`amoprof service` flag. Flags without a dedicated variable (for example
+`--collectors`, `--enable-blktrace`, `--no-sudo`, `--sglang-port`) are passed
+through `AMOPROF_EXTRA_ARGS`. If you install the venv somewhere other than
+`/opt/amoprof_venv`, update the `ExecStart` path in `systemd/amoprof.service`.
+
+#### Run the service with a subset of collectors (e.g. DRAM only)
+
+`--collectors` has no dedicated environment variable, so select the collector
+subset through `AMOPROF_EXTRA_ARGS`. To run the service with only the DRAM
+collector, edit `/etc/amoprof/amoprof.env` so that line reads:
+
+```ini
+# /etc/amoprof/amoprof.env
+AMOPROF_EXTRA_ARGS="--metrics-host 0.0.0.0 --collectors dram"
+```
+
+`AMOPROF_EXTRA_ARGS` is a single string, so keep any other non-env flags you
+need on the same line. Pass a comma-separated list for more than one collector,
+for example `--collectors dram,gpu,vmstat`. `dram` is an always-on collector, so
+no `--enable-*` flag is required. Apply the change with:
+
+```bash
+sudo $EDITOR /etc/amoprof/amoprof.env
+sudo systemctl restart amoprof.service
+journalctl -u amoprof.service -n 20      # confirm "Collectors : dram"
+```
+
+Only the metrics for the selected collector(s) then appear at
+`http://<host>:<metrics-port>/metrics` (for DRAM, the `amoprof_dram_*` series).
+
+---
+
+## Common collector options
+
+| Option | Use |
+|---|---|
+| `--sglang-host`, `--sglang-port` | Scrape SGLang `/metrics` and server info. |
+| `--ssd-device /dev/nvmeXnY[,/dev/nvmeAnB,...]` | Local L3 device(s) for physical storage analysis. Accepts a single device or a comma-separated list to monitor multiple SSDs in the same run. The first device is the primary L3 device (drives the HiCache capacity tile); extra devices produce per-device sidecar summaries and CSVs. |
+| `--hicache-path PATH` | Resolve local file-backed HiCache/L3 location and filesystem capacity. |
+| `--enable-blktrace` | Capture block I/O completions for request-size, LBA, latency, and physical R/W charts. |
+| `--enable-biosnoop` | Add per-PID/per-stream block I/O attribution. |
+| `--enable-dram --dram-tool auto` | Collect host DRAM bandwidth from AMD uProf, Intel PCM, or perf fallback. |
+| `--enable-nsys` | Capture Nsight Systems GPU traces when the tool is installed and supported. |
+| `--setup-details FILE` | Add model, TP, HBM, DRAM, L3 capacity, and launch configuration context. |
+| `--bench-summary FILE` | Attach benchmark-level summary/percentile validation to reports. |
+| `--strict-sanity` | Fail early on missing/invalid critical run metadata. |
+
+---
+
+## Common analyze/report options
+
+| Option | Use |
+|---|---|
+| `--combined-report` | Generate the tabbed Executive / Interactive / End Report HTML. |
+| `--interactive-report` | Generate only the interactive Plotly report. |
+| `--amoprof-report` | Generate only the static End Report. |
+| `--report-theme dark|light|off` | Select report styling and explanatory tooltip behavior. |
+| `--prefer local|prometheus` | Pick which source wins when local CSVs and Prometheus both provide the same metric. |
+| `--prom-rate-window 5m` | Set Prometheus `rate()` window for percentile timeseries. |
+| `--sglang-page-size N` | Override SGLang page size/KV block size when it cannot be auto-detected. |
+| `--server-info-url URL` | Fetch SGLang server metadata from an explicit endpoint. |
+| `--setup-details-override` | Allow manual setup details to replace server-info-derived metadata. |
+
+---
+
+## Dependency overview
+
+| Area | Tools |
+|---|---|
+| Python package | Python 3.10+, pip, venv, pandas, numpy, matplotlib, scipy, requests |
+| GPU/HBM | nvidia-smi and optionally DCGM/dcgmi |
+| SGLang metrics | SGLang Prometheus `/metrics` endpoint |
+| L3 local storage | nvme-cli, sysstat/iostat, blktrace/blkparse, sysfs |
+| Per-stream attribution | bpfcc-tools / biosnoop-bpfcc |
+| DRAM bandwidth | AMD uProf on AMD x86_64, Intel PCM on Intel x86_64, perf IMC fallback |
+| Optional tracing | bpftrace, Nsight Systems |
+
+---
+
+## Report consistency expectations
+
+AMOprof is designed to keep report sections stable across runs:
+
+- L3-active reports show populated L3 storage and KV-cache tier sections.
+- L2-only reports keep L3 sections collapsed instead of removing the section layout.
+- Static End Report GPU/HBM timelines use the full report-window display scale.
+- KV$B Event Traces appear immediately after KV Cache Footprint & HBM Capacity Analysis.
+- Logical SGLang L3 movement and physical SSD/LBA telemetry are shown separately unless a concrete local mapping exists.
+
+---
+
+## Troubleshooting
+
+### `blktrace` or `biosnoop` fails
+
+Run collection with sudo or configure passwordless sudo for the tracing binaries. These tools need root privileges on most systems.
+
+### DRAM bandwidth is missing
+
+Run:
+
+```bash
+sudo scripts/install_dram_deps.sh --dram-tool auto
+```
+
+Then collect with:
+
+```bash
+amoprof collect --enable-dram --dram-tool auto ...
+```
+
+### SGLang counters are missing
+
+Confirm the metrics endpoint is reachable:
+
+```bash
+curl http://127.0.0.1:30000/metrics | grep sglang_
+```
+
+### SMART data is missing
+
+Install `nvme-cli` and run collection with permission to query the NVMe device:
+
+```bash
+sudo nvme smart-log /dev/nvme2n1
+```
+
+---
+
+## Development checks
+
+```bash
+python -m compileall -q amoprof
+pytest -q tests/test_executive_symbol_regression.py
+```
+
+### v1.39.107 output directory behavior
+
+`amoprof collect --output-dir <DIR>` now writes the collection directly into `<DIR>`:
+
+- `<DIR>/raw/` contains the canonical raw CSV/JSON files.
+- `<DIR>/summary.json` and `<DIR>/summary.csv` describe the run.
+- Reports are written directly into `<DIR>` when requested.
+
+This means scripts can run:
+
+```bash
+amoprof collect --output-dir results/my_run --enable-dram --dram-tool auto
+amoprof analyze --run-dir results/my_run --combined-report
+```
+
+For compatibility with older workflows that expect `<DIR>/metrics_run_<timestamp>/raw`, pass `--nested-output` to `collect`.
