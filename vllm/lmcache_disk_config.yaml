@@ -1,0 +1,8 @@
+chunk_size: 64
+local_cpu: true
+max_local_cpu_size: 1.0
+local_disk: "file:///opt/ls/lmcache-disk-cache/"
+max_local_disk_size: 200.0
+extra_config: {'use_odirect': True}
+internal_api_server_enabled: true
+internal_api_server_port_start: 6999
