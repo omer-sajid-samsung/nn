@@ -1,0 +1,14 @@
+# Context-length headroom experiment (proposal item D): how far this 4x T4
+# box gets toward the 32k floor once gpu_memory_utilization is raised, using
+# w3_single_longctx_32k.yaml's vllm_launch (max_model_len=32768, util=0.75).
+# Run with: akb sweep --sweep sweeps/w3_32k_sweep.yaml --manage-vllm
+name: w3-32k-headroom
+base_spec: ../specs/w3_single_longctx_32k.yaml
+settle_s: 60
+runs:
+  - label: i16000
+    set: {data.input_distribution.min: 16000, data.input_distribution.max: 16000, data.input_distribution.mean: 16000}
+  - label: i24000
+    set: {data.input_distribution.min: 24000, data.input_distribution.max: 24000, data.input_distribution.mean: 24000}
+  - label: i32000
+    set: {data.input_distribution.min: 32000, data.input_distribution.max: 32000, data.input_distribution.mean: 32000}

@@ -1,0 +1,79 @@
+# =============================================================================
+# W3 variant — headroom experiment (proposal item D, context length).
+#
+# Same "one giant single-session prompt" shape as w3_single_longctx.yaml, but
+# raises gpu_memory_utilization toward what the specs always *assumed*
+# (0.7-ish) and pushes max_model_len toward the proposal's 32k floor, to see
+# how far this same 4x T4 box gets without new hardware. Baseline
+# w3_single_longctx.yaml stayed at the proven 16384/0.3 numbers on purpose;
+# this file is the experiment, not a replacement.
+# =============================================================================
+name: w3-single-longctx-32k
+description: >
+  Headroom experiment: same single-giant-context shape as w3, but with
+  gpu_memory_utilization and max_model_len raised on the same T4 box to see
+  how close we can get to the proposal's 32k floor without new hardware.
+model: Qwen/Qwen3-8B-AWQ
+
+inference_perf:
+  data:
+    type: random
+    input_distribution:
+      type: fixed
+      min: 16000
+      max: 16000
+      mean: 16000
+      std_dev: 1
+      total_count: 4
+    output_distribution:
+      type: fixed
+      min: 256
+      max: 256
+      mean: 256
+      std_dev: 1
+      total_count: 32
+  load:
+    type: concurrent
+    stages:
+      - num_requests: 4
+        concurrency_level: 1
+
+run_knobs:
+  c: load.stages.0.concurrency_level
+  i: data.input_distribution.mean
+
+prediction:
+  kv_dtype: float16
+  gpu_mem_util: 0.75
+  weights_gb: 6.0
+  expect_eviction: auto
+
+telemetry:
+  scrape_vllm_metrics: true
+  scrape_interval_s: 10
+  lmcache_port: 6999
+  lmcache_endpoints: [/metrics, /stats, /cache/stats, /health]
+
+amoprof: {}
+
+timeouts:
+  run_timeout_s: 1800
+  amoprof_ready_s: 90
+  post_start_settle_s: 10
+  post_stop_settle_s: 10
+  amoprof_stop_grace_s: 45
+  workload_kill_grace_s: 20
+
+# The point of this spec: raised gpu_memory_utilization + max_model_len,
+# managed via `akb ... --manage-vllm` so we can restart the server with these
+# specific flags without hand-editing sweep.sh.
+vllm_launch:
+  dtype: float16
+  max_model_len: 32768
+  gpu_memory_utilization: 0.75
+  tensor_parallel_size: 4
+  enforce_eager: true
+  kv_transfer_config: {kv_connector: LMCacheConnectorV1, kv_role: kv_both}
+  env:
+    LMCACHE_CONFIG_FILE: /opt/ls/vllm/lmcache_disk_config.yaml
+    LMCACHE_INTERNAL_API_SERVER_ENABLED: "true"

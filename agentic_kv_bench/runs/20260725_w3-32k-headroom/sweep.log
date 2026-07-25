@@ -1,0 +1,52 @@
+[2026-07-25 20:32:48] INFO [dry-run] would launch vLLM: model=Qwen/Qwen3-8B-AWQ cfg={'dtype': 'float16', 'max_model_len': 32768, 'gpu_memory_utilization': 0.75, 'tensor_parallel_size': 4, 'enforce_eager': True, 'kv_transfer_config': {'kv_connector': 'LMCacheConnectorV1', 'kv_role': 'kv_both'}, 'env': {'LMCACHE_CONFIG_FILE': '/opt/ls/vllm/lmcache_disk_config.yaml', 'LMCACHE_INTERNAL_API_SERVER_ENABLED': 'true'}, 'venv': '/opt/ls/vllm/.venv/bin/activate'}
+[2026-07-25 20:32:48] INFO sweep 'w3-32k-headroom': 3 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom
+[2026-07-25 20:32:48] INFO [dry-run] would execute run 1/3 in /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom/01-qwen3-8b-awq_i16000_c1_i16000 with overrides {'data.input_distribution.min': 16000, 'data.input_distribution.max': 16000, 'data.input_distribution.mean': 16000}
+[2026-07-25 20:32:48] INFO [dry-run] would execute run 2/3 in /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom/02-qwen3-8b-awq_i24000_c1_i24000 with overrides {'data.input_distribution.min': 24000, 'data.input_distribution.max': 24000, 'data.input_distribution.mean': 24000}
+[2026-07-25 20:32:48] INFO [dry-run] would execute run 3/3 in /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom/03-qwen3-8b-awq_i32000_c1_i32000 with overrides {'data.input_distribution.min': 32000, 'data.input_distribution.max': 32000, 'data.input_distribution.mean': 32000}
+[2026-07-25 20:32:48] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom/sweep_summary.csv
+[2026-07-25 20:32:55] INFO starting vLLM (model=Qwen/Qwen3-8B-AWQ) -> /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom/vllm_server.log
+[2026-07-25 20:32:55] INFO waiting up to 240s for vLLM health at http://127.0.0.1:8000 ...
+[2026-07-25 20:33:35] INFO vLLM is healthy (pid 2563857) at http://127.0.0.1:8000
+[2026-07-25 20:33:35] INFO sweep 'w3-32k-headroom': 3 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom
+[2026-07-25 20:33:35] INFO prediction: working_set=65024 tokens vs pool=234640 tokens -> expect_eviction=False
+[2026-07-25 20:33:35] INFO prediction note: working_set/pool = 0.28x
+[2026-07-25 20:33:36] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 20:33:36] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom/01-qwen3-8b-awq_i16000_c1_i16000/inference_perf.yaml --log-level INFO
+[2026-07-25 20:33:36] INFO driver started (pid 2565053), log: /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom/01-qwen3-8b-awq_i16000_c1_i16000/logs/driver.log
+[2026-07-25 20:40:16] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 20:40:16] INFO verdict: IN_REGIME — no eviction predicted, peak KV pressure 7% (clean control)
+[2026-07-25 20:40:16] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 20:40:16] INFO === 01-qwen3-8b-awq_i16000_c1_i16000: done in 401s, status=OK, verdict=IN_REGIME ===
+[2026-07-25 20:40:16] INFO settling 180s before next run...
+[2026-07-25 20:43:16] INFO prediction: working_set=97024 tokens vs pool=234640 tokens -> expect_eviction=False
+[2026-07-25 20:43:16] INFO prediction note: working_set/pool = 0.41x
+[2026-07-25 20:43:17] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 20:43:17] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom/02-qwen3-8b-awq_i24000_c1_i24000/inference_perf.yaml --log-level INFO
+[2026-07-25 20:43:17] INFO driver started (pid 2572773), log: /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom/02-qwen3-8b-awq_i24000_c1_i24000/logs/driver.log
+[2026-07-25 20:52:52] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 20:52:52] INFO verdict: IN_REGIME — no eviction predicted, peak KV pressure 10% (clean control)
+[2026-07-25 20:52:52] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 20:52:52] INFO === 02-qwen3-8b-awq_i24000_c1_i24000: done in 575s, status=OK, verdict=IN_REGIME ===
+[2026-07-25 20:52:52] INFO settling 180s before next run...
+[2026-07-25 20:55:52] INFO prediction: working_set=129024 tokens vs pool=234640 tokens -> expect_eviction=False
+[2026-07-25 20:55:52] INFO prediction note: working_set/pool = 0.55x
+[2026-07-25 20:55:52] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 20:55:52] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom/03-qwen3-8b-awq_i32000_c1_i32000/inference_perf.yaml --log-level INFO
+[2026-07-25 20:55:52] INFO driver started (pid 2577968), log: /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom/03-qwen3-8b-awq_i32000_c1_i32000/logs/driver.log
+[2026-07-25 21:09:48] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 21:09:48] INFO verdict: IN_REGIME — no eviction predicted, peak KV pressure 14% (clean control)
+[2026-07-25 21:09:48] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 21:09:48] INFO === 03-qwen3-8b-awq_i32000_c1_i32000: done in 835s, status=OK, verdict=IN_REGIME ===
+[2026-07-25 21:09:48] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom/sweep_summary.csv
+[2026-07-25 21:09:48] INFO stopping vLLM (pid 2563857), grace 60s...
+[2026-07-25 21:09:53] INFO vLLM stopped.
+[2026-07-25 21:09:56] INFO starting vLLM (model=Qwen/Qwen3-8B-AWQ) -> /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom/vllm_server.log
+[2026-07-25 21:09:56] INFO waiting up to 300s for vLLM health at http://127.0.0.1:8000 ...
+[2026-07-25 21:10:36] INFO vLLM is healthy (pid 2585114) at http://127.0.0.1:8000
+[2026-07-25 21:10:36] INFO sweep 'w3-32k-headroom': 3 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom
+[2026-07-25 21:10:36] INFO === 01-qwen3-8b-awq_i16000_c1_i16000: already OK, skipping (resume) ===
+[2026-07-25 21:10:36] INFO === 02-qwen3-8b-awq_i24000_c1_i24000: already OK, skipping (resume) ===
+[2026-07-25 21:10:36] INFO === 03-qwen3-8b-awq_i32000_c1_i32000: already OK, skipping (resume) ===
+[2026-07-25 21:10:36] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom/sweep_summary.csv
+[2026-07-25 21:10:36] INFO stopping vLLM (pid 2585114), grace 60s...
+[2026-07-25 21:10:42] INFO vLLM stopped.

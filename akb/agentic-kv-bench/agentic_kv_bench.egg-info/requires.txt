@@ -1,0 +1,4 @@
+PyYAML>=6.0
+
+[predict]
+huggingface-hub>=0.20

@@ -1,0 +1,87 @@
+# =============================================================================
+# W3 — Single-session worst case: one very long context
+#
+# Per-request worst case for chunked prefill and single-request disk spill.
+# One session, one giant prompt, minimal concurrency. This is a DIFFERENT
+# regime from W1/W2: here the SSD signal is the single request's prefill
+# behavior, not cross-session eviction.
+#
+# WARNING (put this in Mandar's doc, don't let him discover it):
+# Qwen3-32B supports 32k native, 131,072 with YaRN. A 256k text-only cell
+# EXCEEDS the model's official context envelope. Kept for KV-volume /
+# chunked-prefill profiling only — generation quality is not meaningful.
+# Qwen3-VL-32B supports 256k natively; the multimodal leg is clean.
+#
+# Requires --max-model-len >= prompt+output on the server side. On the T4 dev
+# box (16k) this spec WILL be rejected by the server — run it on the house
+# A100 rig with max-model-len 262144. That's the point of the cell.
+# =============================================================================
+name: w3-single-longctx
+description: >
+  One session at extreme context length. Per-request worst case for chunked
+  prefill and single-request KV spill. Beyond YaRN envelope for Qwen3-32B —
+  storage/KV profiling only.
+model: Qwen/Qwen3-8B-AWQ
+
+inference_perf:
+  data:
+    type: random
+    input_distribution:
+      type: fixed
+      min: 131072              # 128k; set 262144 for the 256k cell
+      max: 131072
+      mean: 131072
+      std_dev: 1
+      total_count: 4           # a few unique giants, revisited
+    output_distribution:
+      type: fixed
+      min: 256
+      max: 256
+      mean: 256
+      std_dev: 1
+      total_count: 32
+  load:
+    type: concurrent
+    stages:
+      - num_requests: 8
+        concurrency_level: 1   # ONE session at a time
+
+run_knobs:
+  c: load.stages.0.concurrency_level
+  i: data.input_distribution.mean
+
+prediction:
+  kv_dtype: float16
+  gpu_mem_util: 0.9            # house A100 rig setting
+  weights_gb: 6.0
+  expect_eviction: auto
+
+telemetry:
+  scrape_vllm_metrics: true
+  scrape_interval_s: 10
+  lmcache_port: 6999
+  lmcache_endpoints: [/metrics, /stats, /cache/stats, /health]
+
+amoprof: {}
+
+# Optional: only used with `akb ... --manage-vllm`. This baseline block caps
+# out at this box's proven-working 16384; see specs/w3_single_longctx_32k.yaml
+# for the raised-headroom experiment (proposal item D).
+vllm_launch:
+  dtype: float16
+  max_model_len: 16384
+  gpu_memory_utilization: 0.3
+  tensor_parallel_size: 4
+  enforce_eager: true
+  kv_transfer_config: {kv_connector: LMCacheConnectorV1, kv_role: kv_both}
+  env:
+    LMCACHE_CONFIG_FILE: /opt/ls/vllm/lmcache_disk_config.yaml
+    LMCACHE_INTERNAL_API_SERVER_ENABLED: "true"
+
+timeouts:
+  run_timeout_s: 3600          # giant prefills take a while; cap it
+  amoprof_ready_s: 90
+  post_start_settle_s: 10
+  post_stop_settle_s: 10
+  amoprof_stop_grace_s: 45
+  workload_kill_grace_s: 20

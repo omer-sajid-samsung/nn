@@ -1,0 +1,54 @@
+{
+  "sweep": "w1-concurrency-sweep",
+  "spec": "specs/w1_concurrency_cell.yaml",
+  "base_dir": "/opt/ls/agentic_kv_bench",
+  "created_utc": "2026-07-25T11:13:23Z",
+  "n_runs": 4,
+  "overrides": [
+    {
+      "load.stages.0.num_requests": 32,
+      "data.input_distribution.min": 4000,
+      "data.input_distribution.max": 4000,
+      "data.input_distribution.mean": 4000,
+      "data.input_distribution.total_count": 8,
+      "data.output_distribution.min": 128,
+      "data.output_distribution.max": 128,
+      "data.output_distribution.mean": 128,
+      "load.stages.0.concurrency_level": 1
+    },
+    {
+      "load.stages.0.num_requests": 32,
+      "data.input_distribution.min": 4000,
+      "data.input_distribution.max": 4000,
+      "data.input_distribution.mean": 4000,
+      "data.input_distribution.total_count": 8,
+      "data.output_distribution.min": 128,
+      "data.output_distribution.max": 128,
+      "data.output_distribution.mean": 128,
+      "load.stages.0.concurrency_level": 4
+    },
+    {
+      "load.stages.0.num_requests": 32,
+      "data.input_distribution.min": 4000,
+      "data.input_distribution.max": 4000,
+      "data.input_distribution.mean": 4000,
+      "data.input_distribution.total_count": 8,
+      "data.output_distribution.min": 128,
+      "data.output_distribution.max": 128,
+      "data.output_distribution.mean": 128,
+      "load.stages.0.concurrency_level": 8
+    },
+    {
+      "load.stages.0.num_requests": 32,
+      "data.input_distribution.min": 4000,
+      "data.input_distribution.max": 4000,
+      "data.input_distribution.mean": 4000,
+      "data.input_distribution.total_count": 8,
+      "data.output_distribution.min": 128,
+      "data.output_distribution.max": 128,
+      "data.output_distribution.mean": 128,
+      "load.stages.0.concurrency_level": 16
+    }
+  ],
+  "harness_version": "0.1.0"
+}

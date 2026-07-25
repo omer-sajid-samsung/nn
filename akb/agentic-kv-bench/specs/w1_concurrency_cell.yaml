@@ -1,0 +1,83 @@
+# =============================================================================
+# W1 — Concurrency sweep cell (one run per concurrency level)
+#
+# Measures TTFT/TPOT degradation and KV pressure as N concurrent sessions
+# share the GPU. Pair with --concurrency-list:
+#   akb sweep --spec specs/w1_concurrency_cell.yaml --concurrency-list "1 8 16 100 250"
+#
+# NOTE on physics: concurrency alone does not force eviction — the aggregate
+# live KV (N_sessions x per-session tokens) must exceed the pool. The
+# prediction block checks this per cell; expect IN_REGIME at low N and
+# CONFIRMED only once N x per-session > pool. If Mandar asks why c001 shows
+# no SSD traffic: that's the correct answer.
+# =============================================================================
+name: w1-concurrency-cell
+description: >
+  Single cell of the concurrency sweep: N concurrent long-prompt requests.
+  Sweep N via --concurrency-list. Eviction only when N x per-session KV > pool.
+model: Qwen/Qwen3-8B-AWQ
+
+inference_perf:
+  data:
+    type: random
+    input_distribution:
+      type: fixed
+      min: 30000
+      max: 30000
+      mean: 30000
+      std_dev: 1
+      total_count: 32          # prompt variety; raise for big rigs
+    output_distribution:
+      type: fixed
+      min: 128
+      max: 128
+      mean: 128
+      std_dev: 1
+      total_count: 500
+  load:
+    type: concurrent
+    stages:
+      - num_requests: 64
+        concurrency_level: 8   # <- the sweep knob (--concurrency-list)
+
+run_knobs:
+  c: load.stages.0.concurrency_level
+  i: data.input_distribution.mean
+
+prediction:
+  kv_dtype: float16
+  gpu_mem_util: 0.7
+  weights_gb: 6.0
+  expect_eviction: auto
+
+telemetry:
+  scrape_vllm_metrics: true
+  scrape_interval_s: 15
+  lmcache_port: 6999
+  lmcache_endpoints: [/metrics, /stats, /cache/stats, /health]
+
+amoprof: {}
+
+# Optional: only used with `akb ... --manage-vllm`. Mirrors the known-good
+# manual launch command for this box (4x T4). max_num_seqs is bumped for the
+# c=100/250 cells in sweeps/w1_concurrency_sweep.yaml — vLLM's own default
+# (128) would silently cap "concurrency" below what we're asking for.
+vllm_launch:
+  dtype: float16
+  max_model_len: 16384
+  gpu_memory_utilization: 0.3
+  tensor_parallel_size: 4
+  enforce_eager: true
+  max_num_seqs: 256
+  kv_transfer_config: {kv_connector: LMCacheConnectorV1, kv_role: kv_both}
+  env:
+    LMCACHE_CONFIG_FILE: /opt/ls/vllm/lmcache_disk_config.yaml
+    LMCACHE_INTERNAL_API_SERVER_ENABLED: "true"
+
+timeouts:
+  run_timeout_s: 0
+  amoprof_ready_s: 90
+  post_start_settle_s: 10
+  post_stop_settle_s: 10
+  amoprof_stop_grace_s: 45
+  workload_kill_grace_s: 20

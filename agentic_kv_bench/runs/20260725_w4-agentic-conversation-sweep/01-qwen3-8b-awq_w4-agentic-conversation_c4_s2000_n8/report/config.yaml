@@ -1,0 +1,135 @@
+api:
+  type: completion
+  streaming: true
+  headers: null
+  slo_unit: null
+  slo_tpot_header: null
+  slo_ttft_header: null
+  response_format: null
+  session_id_header_key: null
+data:
+  type: conversation_replay
+  path: null
+  corpus_file_path: null
+  input_distribution: null
+  output_distribution: null
+  shared_prefix: null
+  multimodal: null
+  trace: null
+  otel_trace_replay: null
+  weka_trace_replay: null
+  conversation_replay:
+    seed: 42
+    num_conversations: 8
+    shared_system_prompt_len: 2000
+    dynamic_system_prompt_len:
+      min: 500
+      max: 500
+      mean: 500.0
+      std_dev: 1.0
+      total_count: null
+      type: fixed
+      variance: null
+      skew: 0.0
+    turns_per_conversation:
+      min: 3
+      max: 3
+      mean: 3.0
+      std_dev: 1.0
+      total_count: null
+      type: fixed
+      variance: null
+      skew: 0.0
+    input_tokens_per_turn:
+      min: 150
+      max: 350
+      mean: 250.0
+      std_dev: 256.0
+      total_count: null
+      type: normal
+      variance: null
+      skew: 0.0
+    output_tokens_per_turn:
+      min: 150
+      max: 150
+      mean: 150.0
+      std_dev: 128.0
+      total_count: null
+      type: normal
+      variance: null
+      skew: 0.0
+    tool_call_latency_sec:
+      min: 0
+      max: 2
+      mean: 1.0
+      std_dev: 0.5
+      total_count: null
+      type: uniform
+      variance: null
+      skew: 0.0
+    max_model_len: null
+  visionarena: null
+load:
+  type: concurrent
+  interval: 1.0
+  stages:
+  - num_requests: 16
+    concurrency_level: 4
+    rate: 16.0
+    duration: 1
+  sweep: null
+  num_workers: 48
+  worker_max_concurrency: 0
+  worker_max_tcp_connections: 2500
+  trace: null
+  circuit_breakers: []
+  request_timeout: null
+  lora_traffic_split: null
+  base_seed: 1784987712831
+metrics: null
+report:
+  request_lifecycle:
+    summary: true
+    per_stage: true
+    per_request: true
+    per_adapter: true
+    per_adapter_stage: false
+    percentiles:
+    - 1.0
+    - 5.0
+    - 10.0
+    - 25.0
+    - 50.0
+    - 75.0
+    - 90.0
+    - 95.0
+    - 99.0
+    use_server_output_tokens: false
+    max_error_messages: 100
+  prometheus:
+    summary: true
+    per_stage: false
+  session_lifecycle:
+    summary: true
+    per_stage: true
+    per_session: false
+  goodput: null
+storage:
+  local_storage:
+    path: /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/report
+    report_file_prefix: null
+  google_cloud_storage: null
+  simple_storage_service: null
+server:
+  type: vllm
+  model_name: Qwen/Qwen3-8B-AWQ
+  base_url: http://127.0.0.1:8000
+  ignore_eos: true
+  api_key: null
+  cert_path: null
+  key_path: null
+tokenizer:
+  pretrained_model_name_or_path: Qwen/Qwen3-8B-AWQ
+  trust_remote_code: null
+  token: null
+circuit_breakers: null

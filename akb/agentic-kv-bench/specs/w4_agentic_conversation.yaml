@@ -1,0 +1,106 @@
+# =============================================================================
+# W4 — Agentic conversation replay (the "actually looks like an agent" leg)
+#
+# inference-perf's conversation_replay datagen: each session is a multi-turn
+# conversation with a two-part system prompt (large SHARED prefix = agent
+# environment/tool descriptions, plus a dynamic per-conversation suffix),
+# turns with sampled input/output lengths, and a simulated tool-call latency
+# between turns. This is the workload that matches the "agentic AI" story in
+# the proposal: environment prompt + tool loop + session memory growth.
+#
+# KV shape per live conversation:
+#   shared_prefix (cached once) + concurrent_sessions x (dyn_suffix + turns x (in+out))
+# The prediction block computes exactly this. Shared prefix revisits across
+# sessions exercise the LMCache HIT path; per-session suffix growth exercises
+# capacity.
+# =============================================================================
+name: w4-agentic-conversation
+description: >
+  Multi-turn agentic sessions: big shared system prompt (env/tools), dynamic
+  per-session suffix, turns with tool-call latency between them. The closest
+  shape to a real agent loop without running a live agent.
+model: Qwen/Qwen3-8B-AWQ
+
+inference_perf:
+  data:
+    type: conversation_replay
+    conversation_replay:
+      seed: 42                             # deterministic blueprints — reproducible runs
+      num_conversations: 64                # session pool (uniqueness)
+      shared_system_prompt_len: 16384      # env + tool descriptions; cached/shared
+      dynamic_system_prompt_len:
+        type: fixed
+        min: 4096
+        max: 4096
+        mean: 4096
+        std_dev: 1
+      turns_per_conversation:
+        type: fixed
+        min: 6
+        max: 6
+        mean: 6
+        std_dev: 1
+      input_tokens_per_turn:
+        type: normal
+        min: 256
+        max: 2048
+        mean: 1024
+        std_dev: 256
+      output_tokens_per_turn:
+        type: normal
+        min: 128
+        max: 1024
+        mean: 512
+        std_dev: 128
+      tool_call_latency_sec:
+        type: uniform
+        min: 0
+        max: 2
+        mean: 1
+        std_dev: 0.5
+  load:
+    type: concurrent
+    stages:
+      - num_requests: 64                   # sessions to run through
+        concurrency_level: 8               # live agent sessions at once
+
+run_knobs:
+  c: load.stages.0.concurrency_level
+  s: data.conversation_replay.shared_system_prompt_len
+  n: data.conversation_replay.num_conversations
+  t: data.conversation_replay.turns_per_conversation.mean
+
+prediction:
+  kv_dtype: float16
+  gpu_mem_util: 0.7
+  weights_gb: 6.0
+  expect_eviction: auto
+
+telemetry:
+  scrape_vllm_metrics: true
+  scrape_interval_s: 15
+  lmcache_port: 6999
+  lmcache_endpoints: [/metrics, /stats, /cache/stats, /health]
+
+amoprof: {}
+
+# Optional: only used with `akb ... --manage-vllm`. Mirrors the known-good
+# manual launch command for this box (4x T4).
+vllm_launch:
+  dtype: float16
+  max_model_len: 16384
+  gpu_memory_utilization: 0.3
+  tensor_parallel_size: 4
+  enforce_eager: true
+  kv_transfer_config: {kv_connector: LMCacheConnectorV1, kv_role: kv_both}
+  env:
+    LMCACHE_CONFIG_FILE: /opt/ls/vllm/lmcache_disk_config.yaml
+    LMCACHE_INTERNAL_API_SERVER_ENABLED: "true"
+
+timeouts:
+  run_timeout_s: 0
+  amoprof_ready_s: 90
+  post_start_settle_s: 10
+  post_stop_settle_s: 10
+  amoprof_stop_grace_s: 45
+  workload_kill_grace_s: 20

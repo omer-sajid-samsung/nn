@@ -1,0 +1,62 @@
+[2026-07-25 11:50:02] WARNING caught signal 2 — aborting after current run cleans up
+[2026-07-25 11:50:13] WARNING caught signal 15 — aborting after current run cleans up
+[2026-07-25 11:51:18] INFO sweep 'w2-revisit-thrash-sweep': 1 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep
+[2026-07-25 11:51:18] INFO prediction: working_set=24512 tokens vs pool=43808 tokens -> expect_eviction=False
+[2026-07-25 11:51:18] INFO prediction note: working_set/pool = 0.56x
+[2026-07-25 11:51:19] INFO starting amoprof -> /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u4/amoprof
+[2026-07-25 11:51:24] INFO amoprof is up (daemon pid 2381401), metrics on :9101; settling 10s
+[2026-07-25 11:51:34] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 11:51:34] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u4/inference_perf.yaml --log-level INFO
+[2026-07-25 11:51:34] INFO driver started (pid 2381793), log: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u4/logs/driver.log
+[2026-07-25 12:11:24] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 12:11:25] INFO stopping amoprof (pid 2381401), grace 45s...
+[2026-07-25 12:12:11] WARNING amoprof (pid 2381401) still alive after 45s of TERM — SIGKILLing tree.
+[2026-07-25 12:12:13] INFO amoprof stopped; settling 10s for final telemetry flush
+[2026-07-25 12:12:23] INFO verdict: UNEXPECTED_PRESSURE — no eviction predicted but peak KV pressure 98% — check pool estimate
+[2026-07-25 12:12:23] INFO === 01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u4: done in 1265s, status=OK, verdict=UNEXPECTED_PRESSURE ===
+[2026-07-25 12:12:23] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/sweep_summary.csv
+[2026-07-25 12:12:23] INFO sweep 'w2-revisit-thrash-sweep': 1 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep
+[2026-07-25 12:12:23] INFO prediction: working_set=49024 tokens vs pool=43808 tokens -> expect_eviction=True
+[2026-07-25 12:12:23] INFO prediction note: working_set/pool = 1.12x
+[2026-07-25 12:12:24] INFO starting amoprof -> /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u8/amoprof
+[2026-07-25 12:12:29] INFO amoprof is up (daemon pid 2407177), metrics on :9101; settling 10s
+[2026-07-25 12:12:39] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 12:12:39] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u8/inference_perf.yaml --log-level INFO
+[2026-07-25 12:12:39] INFO driver started (pid 2407556), log: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u8/logs/driver.log
+[2026-07-25 12:33:19] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 12:33:20] INFO stopping amoprof (pid 2407177), grace 45s...
+[2026-07-25 12:34:06] WARNING amoprof (pid 2407177) still alive after 45s of TERM — SIGKILLing tree.
+[2026-07-25 12:34:08] INFO amoprof stopped; settling 10s for final telemetry flush
+[2026-07-25 12:34:18] INFO verdict: LIKELY — predicted eviction; peak KV pressure 98%; LMCache counters silent/unavailable
+[2026-07-25 12:34:18] INFO === 01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u8: done in 1315s, status=OK, verdict=LIKELY ===
+[2026-07-25 12:34:18] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/sweep_summary.csv
+[2026-07-25 12:34:19] INFO sweep 'w2-revisit-thrash-sweep': 1 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep
+[2026-07-25 12:34:19] INFO prediction: working_set=73536 tokens vs pool=43808 tokens -> expect_eviction=True
+[2026-07-25 12:34:19] INFO prediction note: working_set/pool = 1.68x
+[2026-07-25 12:34:20] INFO starting amoprof -> /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u12/amoprof
+[2026-07-25 12:34:25] INFO amoprof is up (daemon pid 2431765), metrics on :9101; settling 10s
+[2026-07-25 12:34:35] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 12:34:35] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u12/inference_perf.yaml --log-level INFO
+[2026-07-25 12:34:35] INFO driver started (pid 2432146), log: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u12/logs/driver.log
+[2026-07-25 12:55:40] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 12:55:41] INFO stopping amoprof (pid 2431765), grace 45s...
+[2026-07-25 12:56:27] WARNING amoprof (pid 2431765) still alive after 45s of TERM — SIGKILLing tree.
+[2026-07-25 12:56:29] INFO amoprof stopped; settling 10s for final telemetry flush
+[2026-07-25 12:56:39] INFO verdict: LIKELY — predicted eviction; peak KV pressure 98%; LMCache counters silent/unavailable
+[2026-07-25 12:56:39] INFO === 01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u12: done in 1340s, status=OK, verdict=LIKELY ===
+[2026-07-25 12:56:39] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/sweep_summary.csv
+[2026-07-25 12:56:39] INFO sweep 'w2-revisit-thrash-sweep': 1 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep
+[2026-07-25 12:56:39] INFO prediction: working_set=98048 tokens vs pool=43808 tokens -> expect_eviction=True
+[2026-07-25 12:56:39] INFO prediction note: working_set/pool = 2.24x
+[2026-07-25 12:56:40] INFO starting amoprof -> /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u16/amoprof
+[2026-07-25 12:56:45] INFO amoprof is up (daemon pid 2456878), metrics on :9101; settling 10s
+[2026-07-25 12:56:55] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 12:56:55] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u16/inference_perf.yaml --log-level INFO
+[2026-07-25 12:56:55] INFO driver started (pid 2457259), log: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u16/logs/driver.log
+[2026-07-25 13:18:25] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 13:18:26] INFO stopping amoprof (pid 2456878), grace 45s...
+[2026-07-25 13:19:12] WARNING amoprof (pid 2456878) still alive after 45s of TERM — SIGKILLing tree.
+[2026-07-25 13:19:14] INFO amoprof stopped; settling 10s for final telemetry flush
+[2026-07-25 13:19:24] INFO verdict: LIKELY — predicted eviction; peak KV pressure 98%; LMCache counters silent/unavailable
+[2026-07-25 13:19:24] INFO === 01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u16: done in 1365s, status=OK, verdict=LIKELY ===
+[2026-07-25 13:19:24] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/sweep_summary.csv

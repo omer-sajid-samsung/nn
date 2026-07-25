@@ -1,0 +1,61 @@
+{
+  "verdict": "INDETERMINATE",
+  "verdict_reason": "no vllm:gpu_cache_usage_perc samples in telemetry",
+  "driver_status": 0,
+  "max_kv_pressure": null,
+  "lmcache_activity": {
+    "available": true,
+    "deltas": {}
+  },
+  "amoprof_files": 0,
+  "perf": {
+    "benchmark_time_s": 0.7,
+    "requests": 1,
+    "failures": 0,
+    "throughput": {
+      "input_tokens_per_sec": 393.5227659227821,
+      "output_tokens_per_sec": 12.297586435086941,
+      "total_tokens_per_sec": 405.82035235786907,
+      "requests_per_sec": 1.5371983043858677,
+      "images_per_sec": 0.0,
+      "videos_per_sec": 0.0,
+      "audios_per_sec": 0.0
+    },
+    "ttft_ms": {
+      "mean": 259.8,
+      "median": 259.8,
+      "p90": 259.8,
+      "p99": 259.8
+    },
+    "tpot_ms": {
+      "mean": 55.5,
+      "median": 55.5,
+      "p90": 55.5,
+      "p99": 55.5
+    },
+    "itl_ms": {
+      "mean": 55.5,
+      "median": 49.5,
+      "p90": 108.1,
+      "p99": 171.9
+    },
+    "request_latency_ms": {
+      "mean": 650.5,
+      "median": 650.5,
+      "p90": 650.5,
+      "p99": 650.5
+    }
+  },
+  "prediction": {
+    "kv_bytes_per_token": 147456,
+    "kv_bytes_source": "hf_config",
+    "pool_tokens": 43808,
+    "pool_source": "vllm_log",
+    "working_set_tokens": 264,
+    "working_set_source": "random:total_count*(in+out)",
+    "expect_eviction": false,
+    "notes": [
+      "working_set/pool = 0.01x"
+    ]
+  }
+}

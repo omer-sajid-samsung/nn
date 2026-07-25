@@ -1,0 +1,187 @@
+
+===== 2026-07-25 13:54:57 START: /home/ubuntu/amoprof_venv/bin/amoprof service --metrics-port 9101 --metrics-host 0.0.0.0 --vllm-port 8000 --lmcache-port 6999 --collectors gpu,dram,vmstat,iostat,smart --scrape-duration-s 10 --interval-s 1 --ssd-device /dev/nvme1n1 --hicache-path /opt/ls/lmcache-disk-cache --output-dir /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof --blkparse-interval-s 10 --lmcache-bytes-per-token 18432 --lmcache-max-disk-gb 20.0 --enable-blktrace --enable-biosnoop --enable-dram --dram-tool auto
+13:54:57  INFO      Prometheus /metrics listening on 0.0.0.0:9101
+
+====================================================================
+  AMOprof collection service started
+  Collectors     : biosnoop, blktrace, dram, gpu, iostat, pcm, sglang, smart, vmstat
+  Scrape window  : 10 s
+  Poll interval  : 1.0 s
+  Metrics URL    : http://0.0.0.0:9101/metrics
+  Health URL     : http://0.0.0.0:9101/healthz
+  Output base    : /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof
+====================================================================
+
+13:54:57  INFO      service: cycle 1 starting (20260725_135457; epoch=1784987697.688)
+13:54:58  INFO      BlktraceCollector: process is running; no trace.blktrace.* files visible yet under /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135457/raw/blktrace_data. Diagnostic only; final validation occurs at stop().
+13:54:58  INFO      BlktraceServicePoller started (interval=10s, cap=5000000 events)
+13:54:58  INFO      service: blktrace poller started for blktrace (interval=10s)
+13:55:08  INFO      BlktraceServicePoller: parse #0 — 0 total events, 0 new this interval (rows 0→0)
+13:55:08  INFO      BlktraceServicePoller: parse #1 — 0 total events, 0 new this interval (rows 0→0)
+13:55:08  INFO      service: 1 blktrace poller(s) stopped
+13:55:09  INFO      BlktraceCollector: parsing 48 binaries (0 MB total) with: blkparse -i /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135457/raw/blktrace_data/trace
+13:55:09  INFO      BlktraceCollector: parsed 204 events from 260 stdout lines
+13:55:09  INFO      service: cycle 1 complete, store covers 10 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135457/raw
+13:55:10  INFO      service: cycle 2 starting (20260725_135510; epoch=1784987710.271)
+13:55:10  INFO      BlktraceCollector: process is running; no trace.blktrace.* files visible yet under /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135510/raw/blktrace_data. Diagnostic only; final validation occurs at stop().
+13:55:10  INFO      BlktraceServicePoller started (interval=10s, cap=5000000 events)
+13:55:10  INFO      service: blktrace poller started for blktrace (interval=10s)
+13:55:20  INFO      BlktraceServicePoller: parse #0 — 0 total events, 0 new this interval (rows 0→0)
+13:55:20  INFO      BlktraceServicePoller: parse #1 — 0 total events, 0 new this interval (rows 0→0)
+13:55:20  INFO      service: 1 blktrace poller(s) stopped
+13:55:21  INFO      BlktraceCollector: parsing 48 binaries (0 MB total) with: blkparse -i /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135510/raw/blktrace_data/trace
+13:55:21  INFO      BlktraceCollector: parsed 6317 events from 12223 stdout lines
+13:55:22  INFO      service: cycle 2 complete, store covers 10 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135510/raw
+13:55:22  INFO      service: cycle 3 starting (20260725_135522; epoch=1784987722.909)
+13:55:23  INFO      BlktraceCollector: process is running; no trace.blktrace.* files visible yet under /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135522/raw/blktrace_data. Diagnostic only; final validation occurs at stop().
+13:55:23  INFO      BlktraceServicePoller started (interval=10s, cap=5000000 events)
+13:55:23  INFO      service: blktrace poller started for blktrace (interval=10s)
+13:55:33  INFO      BlktraceServicePoller: parse #0 — 0 total events, 0 new this interval (rows 0→0)
+13:55:33  INFO      BlktraceServicePoller: parse #1 — 0 total events, 0 new this interval (rows 0→0)
+13:55:33  INFO      service: 1 blktrace poller(s) stopped
+13:55:34  INFO      BlktraceCollector: parsing 48 binaries (0 MB total) with: blkparse -i /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135522/raw/blktrace_data/trace
+13:55:34  INFO      BlktraceCollector: parsed 796 events from 908 stdout lines
+13:55:34  INFO      service: cycle 3 complete, store covers 10 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135522/raw
+13:55:35  INFO      service: cycle 4 starting (20260725_135535; epoch=1784987735.487)
+13:55:36  INFO      BlktraceCollector: process is running; no trace.blktrace.* files visible yet under /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135535/raw/blktrace_data. Diagnostic only; final validation occurs at stop().
+13:55:36  INFO      BlktraceServicePoller started (interval=10s, cap=5000000 events)
+13:55:36  INFO      service: blktrace poller started for blktrace (interval=10s)
+13:55:46  INFO      BlktraceServicePoller: parse #0 — 0 total events, 0 new this interval (rows 0→0)
+13:55:46  INFO      BlktraceServicePoller: parse #1 — 0 total events, 0 new this interval (rows 0→0)
+13:55:46  INFO      service: 1 blktrace poller(s) stopped
+13:55:47  INFO      BlktraceCollector: parsing 48 binaries (0 MB total) with: blkparse -i /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135535/raw/blktrace_data/trace
+13:55:47  INFO      BlktraceCollector: parsed 1702 events from 1835 stdout lines
+13:55:47  INFO      service: cycle 4 complete, store covers 10 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135535/raw
+13:55:48  INFO      service: cycle 5 starting (20260725_135548; epoch=1784987748.056)
+13:55:48  INFO      BlktraceCollector: process is running; no trace.blktrace.* files visible yet under /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135548/raw/blktrace_data. Diagnostic only; final validation occurs at stop().
+13:55:48  INFO      BlktraceServicePoller started (interval=10s, cap=5000000 events)
+13:55:48  INFO      service: blktrace poller started for blktrace (interval=10s)
+13:55:58  INFO      BlktraceServicePoller: parse #0 — 0 total events, 0 new this interval (rows 0→0)
+13:55:58  INFO      BlktraceServicePoller: parse #1 — 0 total events, 0 new this interval (rows 0→0)
+13:55:58  INFO      service: 1 blktrace poller(s) stopped
+13:55:59  INFO      BlktraceCollector: parsing 48 binaries (0 MB total) with: blkparse -i /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135548/raw/blktrace_data/trace
+13:55:59  INFO      BlktraceCollector: parsed 268 events from 387 stdout lines
+13:56:00  INFO      service: cycle 5 complete, store covers 10 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135548/raw
+13:56:00  INFO      service: cycle 6 starting (20260725_135600; epoch=1784987760.631)
+13:56:01  INFO      BlktraceCollector: process is running; no trace.blktrace.* files visible yet under /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135600/raw/blktrace_data. Diagnostic only; final validation occurs at stop().
+13:56:01  INFO      BlktraceServicePoller started (interval=10s, cap=5000000 events)
+13:56:01  INFO      service: blktrace poller started for blktrace (interval=10s)
+13:56:11  INFO      BlktraceServicePoller: parse #0 — 0 total events, 0 new this interval (rows 0→0)
+13:56:11  INFO      BlktraceServicePoller: parse #1 — 0 total events, 0 new this interval (rows 0→0)
+13:56:11  INFO      service: 1 blktrace poller(s) stopped
+13:56:12  INFO      BlktraceCollector: parsing 48 binaries (1 MB total) with: blkparse -i /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135600/raw/blktrace_data/trace
+13:56:12  INFO      BlktraceCollector: parsed 13427 events from 25207 stdout lines
+13:56:12  INFO      service: cycle 6 complete, store covers 10 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135600/raw
+13:56:13  INFO      service: cycle 7 starting (20260725_135613; epoch=1784987773.279)
+13:56:13  INFO      BlktraceCollector: process is running; no trace.blktrace.* files visible yet under /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135613/raw/blktrace_data. Diagnostic only; final validation occurs at stop().
+13:56:13  INFO      BlktraceServicePoller started (interval=10s, cap=5000000 events)
+13:56:13  INFO      service: blktrace poller started for blktrace (interval=10s)
+13:56:23  INFO      BlktraceServicePoller: parse #0 — 0 total events, 0 new this interval (rows 0→0)
+13:56:23  INFO      BlktraceServicePoller: parse #1 — 0 total events, 0 new this interval (rows 0→0)
+13:56:23  INFO      service: 1 blktrace poller(s) stopped
+13:56:24  INFO      BlktraceCollector: parsing 48 binaries (0 MB total) with: blkparse -i /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135613/raw/blktrace_data/trace
+13:56:24  INFO      BlktraceCollector: parsed 202 events from 287 stdout lines
+13:56:25  INFO      service: cycle 7 complete, store covers 10 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135613/raw
+13:56:25  INFO      service: cycle 8 starting (20260725_135625; epoch=1784987785.949)
+13:56:26  INFO      BlktraceCollector: process is running; no trace.blktrace.* files visible yet under /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135625/raw/blktrace_data. Diagnostic only; final validation occurs at stop().
+13:56:26  INFO      BlktraceServicePoller started (interval=10s, cap=5000000 events)
+13:56:26  INFO      service: blktrace poller started for blktrace (interval=10s)
+13:56:36  INFO      BlktraceServicePoller: parse #0 — 0 total events, 0 new this interval (rows 0→0)
+13:56:36  INFO      BlktraceServicePoller: parse #1 — 0 total events, 0 new this interval (rows 0→0)
+13:56:36  INFO      service: 1 blktrace poller(s) stopped
+13:56:37  INFO      BlktraceCollector: parsing 48 binaries (0 MB total) with: blkparse -i /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135625/raw/blktrace_data/trace
+13:56:37  INFO      BlktraceCollector: parsed 228 events from 293 stdout lines
+13:56:38  INFO      service: cycle 8 complete, store covers 10 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135625/raw
+13:56:38  INFO      service: cycle 9 starting (20260725_135638; epoch=1784987798.587)
+13:56:39  INFO      BlktraceCollector: process is running; no trace.blktrace.* files visible yet under /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135638/raw/blktrace_data. Diagnostic only; final validation occurs at stop().
+13:56:39  INFO      BlktraceServicePoller started (interval=10s, cap=5000000 events)
+13:56:39  INFO      service: blktrace poller started for blktrace (interval=10s)
+13:56:49  INFO      BlktraceServicePoller: parse #0 — 0 total events, 0 new this interval (rows 0→0)
+13:56:49  INFO      BlktraceServicePoller: parse #1 — 0 total events, 0 new this interval (rows 0→0)
+13:56:49  INFO      service: 1 blktrace poller(s) stopped
+13:56:50  INFO      BlktraceCollector: parsing 48 binaries (0 MB total) with: blkparse -i /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135638/raw/blktrace_data/trace
+13:56:50  INFO      BlktraceCollector: parsed 4757 events from 8780 stdout lines
+13:56:50  INFO      service: cycle 9 complete, store covers 10 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135638/raw
+13:56:51  INFO      service: cycle 10 starting (20260725_135651; epoch=1784987811.181)
+13:56:51  INFO      BlktraceCollector: process is running; no trace.blktrace.* files visible yet under /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135651/raw/blktrace_data. Diagnostic only; final validation occurs at stop().
+13:56:51  INFO      BlktraceServicePoller started (interval=10s, cap=5000000 events)
+13:56:51  INFO      service: blktrace poller started for blktrace (interval=10s)
+13:57:01  INFO      BlktraceServicePoller: parse #0 — 0 total events, 0 new this interval (rows 0→0)
+13:57:01  INFO      BlktraceServicePoller: parse #1 — 0 total events, 0 new this interval (rows 0→0)
+13:57:01  INFO      service: 1 blktrace poller(s) stopped
+13:57:02  INFO      BlktraceCollector: parsing 48 binaries (0 MB total) with: blkparse -i /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135651/raw/blktrace_data/trace
+13:57:02  INFO      BlktraceCollector: parsed 388 events from 450 stdout lines
+13:57:03  INFO      service: cycle 10 complete, store covers 10 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135651/raw
+13:57:03  INFO      service: cycle 11 starting (20260725_135703; epoch=1784987823.735)
+13:57:04  INFO      BlktraceCollector: process is running; no trace.blktrace.* files visible yet under /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135703/raw/blktrace_data. Diagnostic only; final validation occurs at stop().
+13:57:04  INFO      BlktraceServicePoller started (interval=10s, cap=5000000 events)
+13:57:04  INFO      service: blktrace poller started for blktrace (interval=10s)
+13:57:14  INFO      BlktraceServicePoller: parse #0 — 0 total events, 0 new this interval (rows 0→0)
+13:57:14  INFO      BlktraceServicePoller: parse #1 — 0 total events, 0 new this interval (rows 0→0)
+13:57:14  INFO      service: 1 blktrace poller(s) stopped
+13:57:15  INFO      BlktraceCollector: parsing 48 binaries (0 MB total) with: blkparse -i /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135703/raw/blktrace_data/trace
+13:57:15  INFO      BlktraceCollector: parsed 151 events from 226 stdout lines
+13:57:15  INFO      service: cycle 11 complete, store covers 10 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135703/raw
+13:57:16  INFO      service: cycle 12 starting (20260725_135716; epoch=1784987836.360)
+13:57:16  INFO      BlktraceCollector: process is running; no trace.blktrace.* files visible yet under /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135716/raw/blktrace_data. Diagnostic only; final validation occurs at stop().
+13:57:17  INFO      BlktraceServicePoller started (interval=10s, cap=5000000 events)
+13:57:17  INFO      service: blktrace poller started for blktrace (interval=10s)
+13:57:27  INFO      BlktraceServicePoller: parse #0 — 0 total events, 0 new this interval (rows 0→0)
+13:57:27  INFO      BlktraceServicePoller: parse #1 — 0 total events, 0 new this interval (rows 0→0)
+13:57:27  INFO      service: 1 blktrace poller(s) stopped
+13:57:27  INFO      BlktraceCollector: parsing 48 binaries (0 MB total) with: blkparse -i /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135716/raw/blktrace_data/trace
+13:57:27  INFO      BlktraceCollector: parsed 890 events from 991 stdout lines
+13:57:28  INFO      service: cycle 12 complete, store covers 10 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135716/raw
+13:57:28  INFO      service: cycle 13 starting (20260725_135728; epoch=1784987848.952)
+13:57:29  INFO      BlktraceCollector: process is running; no trace.blktrace.* files visible yet under /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135728/raw/blktrace_data. Diagnostic only; final validation occurs at stop().
+13:57:29  INFO      BlktraceServicePoller started (interval=10s, cap=5000000 events)
+13:57:29  INFO      service: blktrace poller started for blktrace (interval=10s)
+13:57:39  INFO      BlktraceServicePoller: parse #0 — 0 total events, 0 new this interval (rows 0→0)
+13:57:39  INFO      service: 1 blktrace poller(s) stopped
+13:57:40  INFO      BlktraceCollector: parsing 48 binaries (0 MB total) with: blkparse -i /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135728/raw/blktrace_data/trace
+13:57:40  INFO      BlktraceCollector: parsed 6411 events from 12109 stdout lines
+13:57:41  INFO      service: cycle 13 complete, store covers 10 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135728/raw
+13:57:41  INFO      service: cycle 14 starting (20260725_135741; epoch=1784987861.563)
+13:57:42  INFO      BlktraceCollector: process is running; no trace.blktrace.* files visible yet under /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135741/raw/blktrace_data. Diagnostic only; final validation occurs at stop().
+13:57:42  INFO      BlktraceServicePoller started (interval=10s, cap=5000000 events)
+13:57:42  INFO      service: blktrace poller started for blktrace (interval=10s)
+13:57:52  INFO      BlktraceServicePoller: parse #0 — 0 total events, 0 new this interval (rows 0→0)
+13:57:52  INFO      service: 1 blktrace poller(s) stopped
+13:57:53  INFO      BlktraceCollector: parsing 48 binaries (0 MB total) with: blkparse -i /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135741/raw/blktrace_data/trace
+13:57:53  INFO      BlktraceCollector: parsed 218 events from 276 stdout lines
+13:57:53  INFO      service: cycle 14 complete, store covers 10 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135741/raw
+13:57:54  INFO      service: cycle 15 starting (20260725_135754; epoch=1784987874.143)
+13:57:54  INFO      BlktraceCollector: process is running; no trace.blktrace.* files visible yet under /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135754/raw/blktrace_data. Diagnostic only; final validation occurs at stop().
+13:57:54  INFO      BlktraceServicePoller started (interval=10s, cap=5000000 events)
+13:57:54  INFO      service: blktrace poller started for blktrace (interval=10s)
+13:58:04  INFO      BlktraceServicePoller: parse #0 — 0 total events, 0 new this interval (rows 0→0)
+13:58:04  INFO      BlktraceServicePoller: parse #1 — 0 total events, 0 new this interval (rows 0→0)
+13:58:04  INFO      service: 1 blktrace poller(s) stopped
+13:58:05  INFO      BlktraceCollector: parsing 48 binaries (0 MB total) with: blkparse -i /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135754/raw/blktrace_data/trace
+13:58:05  INFO      BlktraceCollector: parsed 1064 events from 1182 stdout lines
+13:58:06  INFO      service: cycle 15 complete, store covers 10 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135754/raw
+13:58:06  INFO      service: cycle 16 starting (20260725_135806; epoch=1784987886.730)
+13:58:07  INFO      BlktraceCollector: process is running; no trace.blktrace.* files visible yet under /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135806/raw/blktrace_data. Diagnostic only; final validation occurs at stop().
+13:58:07  INFO      BlktraceServicePoller started (interval=10s, cap=5000000 events)
+13:58:07  INFO      service: blktrace poller started for blktrace (interval=10s)
+13:58:17  INFO      BlktraceServicePoller: parse #0 — 0 total events, 0 new this interval (rows 0→0)
+13:58:17  INFO      BlktraceServicePoller: parse #1 — 0 total events, 0 new this interval (rows 0→0)
+13:58:17  INFO      service: 1 blktrace poller(s) stopped
+13:58:18  INFO      BlktraceCollector: parsing 48 binaries (0 MB total) with: blkparse -i /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135806/raw/blktrace_data/trace
+13:58:18  INFO      BlktraceCollector: parsed 219 events from 322 stdout lines
+13:58:18  INFO      service: cycle 16 complete, store covers 10 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135806/raw
+13:58:19  INFO      service: cycle 17 starting (20260725_135819; epoch=1784987899.311)
+13:58:19  INFO      BlktraceCollector: process is running; no trace.blktrace.* files visible yet under /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135819/raw/blktrace_data. Diagnostic only; final validation occurs at stop().
+13:58:20  INFO      BlktraceServicePoller started (interval=10s, cap=5000000 events)
+13:58:20  INFO      service: blktrace poller started for blktrace (interval=10s)
+13:58:28  INFO      service: received signal 15 - stopping
+13:58:28  INFO      BlktraceServicePoller: parse #0 — 0 total events, 0 new this interval (rows 0→0)
+13:58:28  INFO      service: 1 blktrace poller(s) stopped
+13:58:28  WARNING   BiosnoopCollector: no biosnoop events captured; possible causes: no block I/O during window, BCC/kernel probe attach failure, unsupported biosnoop binary, or permissions/CAP_BPF/CAP_SYS_ADMIN. stderr_tail=''
+13:58:29  INFO      BlktraceCollector: parsing 48 binaries (0 MB total) with: blkparse -i /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135819/raw/blktrace_data/trace
+13:58:29  INFO      BlktraceCollector: parsed 150 events from 207 stdout lines
+13:58:29  INFO      service: cycle 17 complete, store covers 10 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof/service_cycle_20260725_135819/raw
+13:58:29  INFO      service: shut down after 17 cycle(s)
+
+AMOprof service stopped after 17 cycle(s).
+

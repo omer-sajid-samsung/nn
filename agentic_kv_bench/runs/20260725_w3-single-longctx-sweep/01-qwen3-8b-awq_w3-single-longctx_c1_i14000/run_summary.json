@@ -1,0 +1,61 @@
+{
+  "verdict": "IN_REGIME",
+  "verdict_reason": "no eviction predicted, peak KV pressure 33% (clean control)",
+  "driver_status": 0,
+  "max_kv_pressure": 0.32553891121666056,
+  "lmcache_activity": {
+    "available": true,
+    "deltas": {}
+  },
+  "amoprof_files": 4250,
+  "perf": {
+    "benchmark_time_s": 599.1,
+    "requests": 4,
+    "failures": 0,
+    "throughput": {
+      "input_tokens_per_sec": 93.47471290684294,
+      "output_tokens_per_sec": 0.2136564866442124,
+      "total_tokens_per_sec": 93.68836939348715,
+      "requests_per_sec": 0.006676765207631638,
+      "images_per_sec": 0.0,
+      "videos_per_sec": 0.0,
+      "audios_per_sec": 0.0
+    },
+    "ttft_ms": {
+      "mean": 39053.1,
+      "median": 39016.4,
+      "p90": 40082.8,
+      "p99": 40360.7
+    },
+    "tpot_ms": {
+      "mean": 3561.3,
+      "median": 3573.2,
+      "p90": 3615.6,
+      "p99": 3627.0
+    },
+    "itl_ms": {
+      "mean": 432.9,
+      "median": 434.1,
+      "p90": 441.6,
+      "p99": 445.8
+    },
+    "request_latency_ms": {
+      "mean": 149535.2,
+      "median": 150078.2,
+      "p90": 151266.6,
+      "p99": 151615.1
+    }
+  },
+  "prediction": {
+    "kv_bytes_per_token": 147456,
+    "kv_bytes_source": "hf_config",
+    "pool_tokens": 43808,
+    "pool_source": "vllm_log",
+    "working_set_tokens": 28512,
+    "working_set_source": "random:total_count*(in+out)",
+    "expect_eviction": false,
+    "notes": [
+      "working_set/pool = 0.65x"
+    ]
+  }
+}

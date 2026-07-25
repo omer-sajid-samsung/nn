@@ -1,0 +1,88 @@
+# =============================================================================
+# W2 — Revisit thrash (the SSD leg)
+#
+# The run that forces KV eviction and exercises LMCache's disk READ path.
+#
+# Mechanism: a bounded pool of UNIQUE long prompts (total_count). Requests
+# sample from the pool, so prompts are revisited. When
+#     unique_prompts x (input_tokens + output_tokens)  >  GPU KV pool (tokens)
+# the GPU cannot hold every live session's KV -> vLLM evicts -> the next
+# revisit of an evicted prompt must be re-fetched from LMCache disk. That
+# re-fetch is what shows up in TTFT spread and in AMOProf's SSD telemetry.
+#
+# Default numbers below are tuned for the T4 dev box:
+#   Qwen3-8B fp16 KV = 147,456 B/token; pool ~ 260k tokens (gpu-mem-util 0.7)
+#   12 x 30,128 = 361,536 tokens  =  1.4x pool  -> eviction MUST occur.
+# On A100/H100 rigs, raise unique_prompts / input_tokens so the ratio stays
+# >1.2x pool — the prediction block in the manifest will tell you the ratio.
+# =============================================================================
+name: w2-revisit-thrash
+description: >
+  Statistical LRU thrash: bounded unique-prompt pool larger than the GPU KV
+  pool, sampled repeatedly. Forces eviction + LMCache disk retrieval on the
+  revisit path. The core SSD-profiling workload.
+model: Qwen/Qwen3-8B-AWQ
+
+inference_perf:
+  data:
+    type: random
+    input_distribution:
+      type: fixed
+      min: 30000
+      max: 30000
+      mean: 30000
+      std_dev: 1
+      total_count: 12          # unique prompts — THE eviction knob
+    output_distribution:
+      type: fixed
+      min: 128
+      max: 128
+      mean: 128
+      std_dev: 1
+      total_count: 500
+  load:
+    type: concurrent
+    stages:
+      - num_requests: 240      # >> total_count, so prompts ARE revisited
+        concurrency_level: 8
+
+run_knobs:                     # becomes the run dir suffix
+  c: load.stages.0.concurrency_level
+  i: data.input_distribution.mean
+  u: data.input_distribution.total_count
+
+prediction:
+  kv_dtype: float16            # KV dtype, NOT the weight quant (AWQ irrelevant here)
+  gpu_mem_util: 0.7
+  weights_gb: 6.0              # Qwen3-8B-AWQ ~5.5GB + runtime overhead
+  # pool_tokens: 260000        # uncomment to pin; else parsed from --vllm-log or estimated
+  expect_eviction: auto        # auto = working_set > pool (see manifest for the verdict input)
+
+telemetry:
+  scrape_vllm_metrics: true
+  scrape_interval_s: 15
+  lmcache_port: 6999
+  lmcache_endpoints: [/metrics, /stats, /cache/stats, /health]
+
+amoprof: {}                    # defaults in amoprof.py; override any key here
+
+# Optional: only used with `akb ... --manage-vllm`. Mirrors the known-good
+# manual launch command for this box (4x T4).
+vllm_launch:
+  dtype: float16
+  max_model_len: 16384
+  gpu_memory_utilization: 0.3
+  tensor_parallel_size: 4
+  enforce_eager: true
+  kv_transfer_config: {kv_connector: LMCacheConnectorV1, kv_role: kv_both}
+  env:
+    LMCACHE_CONFIG_FILE: /opt/ls/vllm/lmcache_disk_config.yaml
+    LMCACHE_INTERNAL_API_SERVER_ENABLED: "true"
+
+timeouts:
+  run_timeout_s: 0             # 0 = no limit; the stage ends itself
+  amoprof_ready_s: 90
+  post_start_settle_s: 10
+  post_stop_settle_s: 10
+  amoprof_stop_grace_s: 45
+  workload_kill_grace_s: 20

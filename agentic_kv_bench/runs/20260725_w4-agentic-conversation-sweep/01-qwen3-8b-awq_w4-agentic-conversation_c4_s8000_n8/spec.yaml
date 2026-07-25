@@ -1,0 +1,46 @@
+name: w4-agentic-conversation
+description: 'Multi-turn agentic sessions: big shared system prompt (env/tools), dynamic
+  per-session suffix, turns with tool-call latency between them. The closest shape
+  to a real agent loop without running a live agent.
+
+  '
+model: Qwen/Qwen3-8B-AWQ
+overrides:
+  load.stages.0.concurrency_level: 4
+  load.stages.0.num_requests: 16
+  data.conversation_replay.shared_system_prompt_len: 8000
+  data.conversation_replay.output_tokens_per_turn.min: 150
+  data.conversation_replay.output_tokens_per_turn.max: 150
+  data.conversation_replay.output_tokens_per_turn.mean: 150
+  data.conversation_replay.num_conversations: 8
+  data.conversation_replay.dynamic_system_prompt_len.min: 500
+  data.conversation_replay.dynamic_system_prompt_len.max: 500
+  data.conversation_replay.dynamic_system_prompt_len.mean: 500
+  data.conversation_replay.turns_per_conversation.min: 3
+  data.conversation_replay.turns_per_conversation.max: 3
+  data.conversation_replay.turns_per_conversation.mean: 3
+  data.conversation_replay.input_tokens_per_turn.min: 150
+  data.conversation_replay.input_tokens_per_turn.max: 350
+  data.conversation_replay.input_tokens_per_turn.mean: 250
+prediction:
+  kv_dtype: float16
+  gpu_mem_util: 0.7
+  weights_gb: 6.0
+  expect_eviction: auto
+telemetry:
+  scrape_vllm_metrics: true
+  scrape_interval_s: 15
+  lmcache_port: 6999
+  lmcache_endpoints:
+  - /metrics
+  - /stats
+  - /cache/stats
+  - /health
+amoprof: {}
+timeouts:
+  run_timeout_s: 0
+  amoprof_ready_s: 90
+  post_start_settle_s: 10
+  post_stop_settle_s: 10
+  amoprof_stop_grace_s: 45
+  workload_kill_grace_s: 20

@@ -1,0 +1,73 @@
+# Turns-per-session sweep for W4 — the proposal's "run multiple instances with
+# varied turns per session (e.g. 5 vs 20) to force maximum eviction" cell.
+#
+# inference-perf already samples turns_per_conversation independently per
+# conversation blueprint within a single run (see
+# conversation_replay_datagen.py:_build_conversations), so this sweep just
+# pins min=max=mean per cell to get clean separate data points at 5/10/20/40
+# turns, holding concurrency/shared-prefix/per-turn lengths fixed so turn
+# count is the only thing that varies between cells.
+name: w4-turns-sweep
+base_spec: ../specs/w4_agentic_conversation.yaml
+settle_s: 60
+runs:
+  - label: t005
+    set:
+      load.stages.0.concurrency_level: 4
+      data.conversation_replay.num_conversations: 8
+      data.conversation_replay.shared_system_prompt_len: 2000
+      data.conversation_replay.dynamic_system_prompt_len.min: 500
+      data.conversation_replay.dynamic_system_prompt_len.max: 500
+      data.conversation_replay.dynamic_system_prompt_len.mean: 500
+      data.conversation_replay.turns_per_conversation.min: 5
+      data.conversation_replay.turns_per_conversation.max: 5
+      data.conversation_replay.turns_per_conversation.mean: 5
+      data.conversation_replay.input_tokens_per_turn.min: 150
+      data.conversation_replay.input_tokens_per_turn.max: 350
+      data.conversation_replay.input_tokens_per_turn.mean: 250
+      load.stages.0.num_requests: 16
+  - label: t010
+    set:
+      load.stages.0.concurrency_level: 4
+      data.conversation_replay.num_conversations: 8
+      data.conversation_replay.shared_system_prompt_len: 2000
+      data.conversation_replay.dynamic_system_prompt_len.min: 500
+      data.conversation_replay.dynamic_system_prompt_len.max: 500
+      data.conversation_replay.dynamic_system_prompt_len.mean: 500
+      data.conversation_replay.turns_per_conversation.min: 10
+      data.conversation_replay.turns_per_conversation.max: 10
+      data.conversation_replay.turns_per_conversation.mean: 10
+      data.conversation_replay.input_tokens_per_turn.min: 150
+      data.conversation_replay.input_tokens_per_turn.max: 350
+      data.conversation_replay.input_tokens_per_turn.mean: 250
+      load.stages.0.num_requests: 16
+  - label: t020
+    set:
+      load.stages.0.concurrency_level: 4
+      data.conversation_replay.num_conversations: 8
+      data.conversation_replay.shared_system_prompt_len: 2000
+      data.conversation_replay.dynamic_system_prompt_len.min: 500
+      data.conversation_replay.dynamic_system_prompt_len.max: 500
+      data.conversation_replay.dynamic_system_prompt_len.mean: 500
+      data.conversation_replay.turns_per_conversation.min: 20
+      data.conversation_replay.turns_per_conversation.max: 20
+      data.conversation_replay.turns_per_conversation.mean: 20
+      data.conversation_replay.input_tokens_per_turn.min: 150
+      data.conversation_replay.input_tokens_per_turn.max: 350
+      data.conversation_replay.input_tokens_per_turn.mean: 250
+      load.stages.0.num_requests: 16
+  - label: t040
+    set:
+      load.stages.0.concurrency_level: 4
+      data.conversation_replay.num_conversations: 8
+      data.conversation_replay.shared_system_prompt_len: 2000
+      data.conversation_replay.dynamic_system_prompt_len.min: 500
+      data.conversation_replay.dynamic_system_prompt_len.max: 500
+      data.conversation_replay.dynamic_system_prompt_len.mean: 500
+      data.conversation_replay.turns_per_conversation.min: 40
+      data.conversation_replay.turns_per_conversation.max: 40
+      data.conversation_replay.turns_per_conversation.mean: 40
+      data.conversation_replay.input_tokens_per_turn.min: 150
+      data.conversation_replay.input_tokens_per_turn.max: 350
+      data.conversation_replay.input_tokens_per_turn.mean: 250
+      load.stages.0.num_requests: 16

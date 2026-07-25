@@ -1,0 +1,16 @@
+run_id=03-qwen3-8b-awq_c016_c16_i4000
+knobs=c16_i4000
+spec=w1-concurrency-cell
+telemetry_start_epoch=1785014985
+telemetry_start_utc=2026-07-25T21:29:45Z
+lmcache_before_epoch=1785014985
+lmcache_before_utc=2026-07-25T21:29:45Z
+workload_start_epoch=1785014985
+workload_start_utc=2026-07-25T21:29:45Z
+workload_end_epoch=1785015705
+workload_end_utc=2026-07-25T21:41:45Z
+driver_exit_status=0
+lmcache_after_epoch=1785015705
+lmcache_after_utc=2026-07-25T21:41:45Z
+validation_epoch=1785015705
+validation_utc=2026-07-25T21:41:45Z

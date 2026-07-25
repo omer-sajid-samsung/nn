@@ -1,0 +1,60 @@
+[2026-07-25 13:50:31] INFO sweep 'w4-agentic-conversation-sweep': 1 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep
+[2026-07-25 13:50:31] INFO prediction: working_set=7800 tokens vs pool=43808 tokens -> expect_eviction=False
+[2026-07-25 13:50:31] INFO prediction note: working_set/pool = 0.18x
+[2026-07-25 13:50:32] INFO starting amoprof -> /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s1000_n8/amoprof
+[2026-07-25 13:50:37] INFO amoprof is up (daemon pid 2509346), metrics on :9101; settling 10s
+[2026-07-25 13:50:47] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 13:50:47] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s1000_n8/inference_perf.yaml --log-level INFO
+[2026-07-25 13:50:47] INFO driver started (pid 2509641), log: /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s1000_n8/logs/driver.log
+[2026-07-25 13:53:57] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 13:53:58] INFO stopping amoprof (pid 2509346), grace 45s...
+[2026-07-25 13:54:44] WARNING amoprof (pid 2509346) still alive after 45s of TERM — SIGKILLing tree.
+[2026-07-25 13:54:46] INFO amoprof stopped; settling 10s for final telemetry flush
+[2026-07-25 13:54:56] INFO verdict: IN_REGIME — no eviction predicted, peak KV pressure 14% (clean control)
+[2026-07-25 13:54:56] INFO === 01-qwen3-8b-awq_w4-agentic-conversation_c4_s1000_n8: done in 265s, status=OK, verdict=IN_REGIME ===
+[2026-07-25 13:54:56] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/sweep_summary.csv
+[2026-07-25 13:54:56] INFO sweep 'w4-agentic-conversation-sweep': 1 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep
+[2026-07-25 13:54:56] INFO prediction: working_set=8800 tokens vs pool=43808 tokens -> expect_eviction=False
+[2026-07-25 13:54:56] INFO prediction note: working_set/pool = 0.20x
+[2026-07-25 13:54:57] INFO starting amoprof -> /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/amoprof
+[2026-07-25 13:55:02] INFO amoprof is up (daemon pid 2512492), metrics on :9101; settling 10s
+[2026-07-25 13:55:12] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 13:55:12] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/inference_perf.yaml --log-level INFO
+[2026-07-25 13:55:12] INFO driver started (pid 2512786), log: /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8/logs/driver.log
+[2026-07-25 13:58:27] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 13:58:28] INFO stopping amoprof (pid 2512492), grace 45s...
+[2026-07-25 13:59:14] WARNING amoprof (pid 2512492) still alive after 45s of TERM — SIGKILLing tree.
+[2026-07-25 13:59:16] INFO amoprof stopped; settling 10s for final telemetry flush
+[2026-07-25 13:59:26] INFO verdict: IN_REGIME — no eviction predicted, peak KV pressure 16% (clean control)
+[2026-07-25 13:59:26] INFO === 01-qwen3-8b-awq_w4-agentic-conversation_c4_s2000_n8: done in 270s, status=OK, verdict=IN_REGIME ===
+[2026-07-25 13:59:26] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/sweep_summary.csv
+[2026-07-25 13:59:26] INFO sweep 'w4-agentic-conversation-sweep': 1 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep
+[2026-07-25 13:59:26] INFO prediction: working_set=10800 tokens vs pool=43808 tokens -> expect_eviction=False
+[2026-07-25 13:59:26] INFO prediction note: working_set/pool = 0.25x
+[2026-07-25 13:59:27] INFO starting amoprof -> /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s4000_n8/amoprof
+[2026-07-25 13:59:32] INFO amoprof is up (daemon pid 2515642), metrics on :9101; settling 10s
+[2026-07-25 13:59:42] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 13:59:42] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s4000_n8/inference_perf.yaml --log-level INFO
+[2026-07-25 13:59:42] INFO driver started (pid 2515935), log: /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s4000_n8/logs/driver.log
+[2026-07-25 14:03:57] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 14:03:58] INFO stopping amoprof (pid 2515642), grace 45s...
+[2026-07-25 14:04:44] WARNING amoprof (pid 2515642) still alive after 45s of TERM — SIGKILLing tree.
+[2026-07-25 14:04:46] INFO amoprof stopped; settling 10s for final telemetry flush
+[2026-07-25 14:04:56] INFO verdict: IN_REGIME — no eviction predicted, peak KV pressure 20% (clean control)
+[2026-07-25 14:04:56] INFO === 01-qwen3-8b-awq_w4-agentic-conversation_c4_s4000_n8: done in 330s, status=OK, verdict=IN_REGIME ===
+[2026-07-25 14:04:56] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/sweep_summary.csv
+[2026-07-25 14:04:57] INFO sweep 'w4-agentic-conversation-sweep': 1 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep
+[2026-07-25 14:04:57] INFO prediction: working_set=14800 tokens vs pool=43808 tokens -> expect_eviction=False
+[2026-07-25 14:04:57] INFO prediction note: working_set/pool = 0.34x
+[2026-07-25 14:04:58] INFO starting amoprof -> /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s8000_n8/amoprof
+[2026-07-25 14:05:03] INFO amoprof is up (daemon pid 2519723), metrics on :9101; settling 10s
+[2026-07-25 14:05:13] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 14:05:13] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s8000_n8/inference_perf.yaml --log-level INFO
+[2026-07-25 14:05:13] INFO driver started (pid 2520018), log: /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/01-qwen3-8b-awq_w4-agentic-conversation_c4_s8000_n8/logs/driver.log
+[2026-07-25 14:10:53] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 14:10:54] INFO stopping amoprof (pid 2519723), grace 45s...
+[2026-07-25 14:11:40] WARNING amoprof (pid 2519723) still alive after 45s of TERM — SIGKILLing tree.
+[2026-07-25 14:11:42] INFO amoprof stopped; settling 10s for final telemetry flush
+[2026-07-25 14:11:52] INFO verdict: IN_REGIME — no eviction predicted, peak KV pressure 30% (clean control)
+[2026-07-25 14:11:52] INFO === 01-qwen3-8b-awq_w4-agentic-conversation_c4_s8000_n8: done in 415s, status=OK, verdict=IN_REGIME ===
+[2026-07-25 14:11:52] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w4-agentic-conversation-sweep/sweep_summary.csv

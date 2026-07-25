@@ -1,0 +1,16 @@
+run_id=02-qwen3-8b-awq_i24000_c1_i24000
+knobs=c1_i24000
+spec=w3-single-longctx-32k
+telemetry_start_epoch=1785012197
+telemetry_start_utc=2026-07-25T20:43:17Z
+lmcache_before_epoch=1785012197
+lmcache_before_utc=2026-07-25T20:43:17Z
+workload_start_epoch=1785012197
+workload_start_utc=2026-07-25T20:43:17Z
+workload_end_epoch=1785012772
+workload_end_utc=2026-07-25T20:52:52Z
+driver_exit_status=0
+lmcache_after_epoch=1785012772
+lmcache_after_utc=2026-07-25T20:52:52Z
+validation_epoch=1785012772
+validation_utc=2026-07-25T20:52:52Z

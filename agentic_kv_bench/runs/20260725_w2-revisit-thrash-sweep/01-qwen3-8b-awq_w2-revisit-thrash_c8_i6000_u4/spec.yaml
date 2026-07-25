@@ -1,0 +1,39 @@
+name: w2-revisit-thrash
+description: 'Statistical LRU thrash: bounded unique-prompt pool larger than the GPU
+  KV pool, sampled repeatedly. Forces eviction + LMCache disk retrieval on the revisit
+  path. The core SSD-profiling workload.
+
+  '
+model: Qwen/Qwen3-8B-AWQ
+overrides:
+  load.stages.0.concurrency_level: 8
+  load.stages.0.num_requests: 48
+  data.input_distribution.min: 6000
+  data.input_distribution.max: 6000
+  data.input_distribution.mean: 6000
+  data.input_distribution.total_count: 4
+  data.output_distribution.min: 128
+  data.output_distribution.max: 128
+  data.output_distribution.mean: 128
+prediction:
+  kv_dtype: float16
+  gpu_mem_util: 0.7
+  weights_gb: 6.0
+  expect_eviction: auto
+telemetry:
+  scrape_vllm_metrics: true
+  scrape_interval_s: 15
+  lmcache_port: 6999
+  lmcache_endpoints:
+  - /metrics
+  - /stats
+  - /cache/stats
+  - /health
+amoprof: {}
+timeouts:
+  run_timeout_s: 0
+  amoprof_ready_s: 90
+  post_start_settle_s: 10
+  post_stop_settle_s: 10
+  amoprof_stop_grace_s: 45
+  workload_kill_grace_s: 20

@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentic-kv-bench"
+version = "0.1.0"
+description = "Controllable agentic workload harness for vLLM+LMCache KV-offload profiling with AMOProf"
+requires-python = ">=3.10"
+dependencies = ["PyYAML>=6.0"]
+
+[project.optional-dependencies]
+predict = ["huggingface-hub>=0.20"]
+
+[project.scripts]
+akb = "agentic_kv_bench.cli:main"
+
+[tool.setuptools]
+packages = ["agentic_kv_bench"]

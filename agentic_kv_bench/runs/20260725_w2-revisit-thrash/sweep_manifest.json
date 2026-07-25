@@ -1,0 +1,32 @@
+{
+  "sweep": "w2-revisit-thrash",
+  "spec": "specs/w2_revisit_thrash.yaml",
+  "base_dir": "/opt/ls/agentic_kv_bench",
+  "created_utc": "2026-07-25T10:57:31Z",
+  "n_runs": 2,
+  "overrides": [
+    {
+      "load.stages.0.num_requests": 1,
+      "data.input_distribution.min": 256,
+      "data.input_distribution.max": 256,
+      "data.input_distribution.mean": 256,
+      "data.input_distribution.total_count": 1,
+      "data.output_distribution.min": 8,
+      "data.output_distribution.max": 8,
+      "data.output_distribution.mean": 8,
+      "load.stages.0.concurrency_level": 1
+    },
+    {
+      "load.stages.0.num_requests": 1,
+      "data.input_distribution.min": 256,
+      "data.input_distribution.max": 256,
+      "data.input_distribution.mean": 256,
+      "data.input_distribution.total_count": 1,
+      "data.output_distribution.min": 8,
+      "data.output_distribution.max": 8,
+      "data.output_distribution.mean": 8,
+      "load.stages.0.concurrency_level": 2
+    }
+  ],
+  "harness_version": "0.1.0"
+}

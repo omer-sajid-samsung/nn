@@ -1,0 +1,14 @@
+# Example sweep: W2 thrash across concurrency levels.
+#   akb sweep --sweep sweeps/w2_concurrency_sweep.yaml
+name: w2-thrash-c-sweep
+base_spec: ../specs/w2_revisit_thrash.yaml
+settle_s: 180
+runs:
+  - label: c001
+    set: {load.stages.0.concurrency_level: 1,  load.stages.0.num_requests: 24}
+  - label: c008
+    set: {load.stages.0.concurrency_level: 8,  load.stages.0.num_requests: 120}
+  - label: c016
+    set: {load.stages.0.concurrency_level: 16, load.stages.0.num_requests: 240}
+  - label: c032
+    set: {load.stages.0.concurrency_level: 32, load.stages.0.num_requests: 480}

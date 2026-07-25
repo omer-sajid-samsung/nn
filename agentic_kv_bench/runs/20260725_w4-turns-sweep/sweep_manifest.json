@@ -1,0 +1,70 @@
+{
+  "sweep": "w4-turns-sweep",
+  "spec": "sweeps/../specs/w4_agentic_conversation.yaml",
+  "base_dir": "/opt/ls/agentic_kv_bench",
+  "created_utc": "2026-07-25T22:09:03Z",
+  "n_runs": 4,
+  "overrides": [
+    {
+      "load.stages.0.concurrency_level": 4,
+      "data.conversation_replay.num_conversations": 8,
+      "data.conversation_replay.shared_system_prompt_len": 2000,
+      "data.conversation_replay.dynamic_system_prompt_len.min": 500,
+      "data.conversation_replay.dynamic_system_prompt_len.max": 500,
+      "data.conversation_replay.dynamic_system_prompt_len.mean": 500,
+      "data.conversation_replay.turns_per_conversation.min": 5,
+      "data.conversation_replay.turns_per_conversation.max": 5,
+      "data.conversation_replay.turns_per_conversation.mean": 5,
+      "data.conversation_replay.input_tokens_per_turn.min": 150,
+      "data.conversation_replay.input_tokens_per_turn.max": 350,
+      "data.conversation_replay.input_tokens_per_turn.mean": 250,
+      "load.stages.0.num_requests": 16
+    },
+    {
+      "load.stages.0.concurrency_level": 4,
+      "data.conversation_replay.num_conversations": 8,
+      "data.conversation_replay.shared_system_prompt_len": 2000,
+      "data.conversation_replay.dynamic_system_prompt_len.min": 500,
+      "data.conversation_replay.dynamic_system_prompt_len.max": 500,
+      "data.conversation_replay.dynamic_system_prompt_len.mean": 500,
+      "data.conversation_replay.turns_per_conversation.min": 10,
+      "data.conversation_replay.turns_per_conversation.max": 10,
+      "data.conversation_replay.turns_per_conversation.mean": 10,
+      "data.conversation_replay.input_tokens_per_turn.min": 150,
+      "data.conversation_replay.input_tokens_per_turn.max": 350,
+      "data.conversation_replay.input_tokens_per_turn.mean": 250,
+      "load.stages.0.num_requests": 16
+    },
+    {
+      "load.stages.0.concurrency_level": 4,
+      "data.conversation_replay.num_conversations": 8,
+      "data.conversation_replay.shared_system_prompt_len": 2000,
+      "data.conversation_replay.dynamic_system_prompt_len.min": 500,
+      "data.conversation_replay.dynamic_system_prompt_len.max": 500,
+      "data.conversation_replay.dynamic_system_prompt_len.mean": 500,
+      "data.conversation_replay.turns_per_conversation.min": 20,
+      "data.conversation_replay.turns_per_conversation.max": 20,
+      "data.conversation_replay.turns_per_conversation.mean": 20,
+      "data.conversation_replay.input_tokens_per_turn.min": 150,
+      "data.conversation_replay.input_tokens_per_turn.max": 350,
+      "data.conversation_replay.input_tokens_per_turn.mean": 250,
+      "load.stages.0.num_requests": 16
+    },
+    {
+      "load.stages.0.concurrency_level": 4,
+      "data.conversation_replay.num_conversations": 8,
+      "data.conversation_replay.shared_system_prompt_len": 2000,
+      "data.conversation_replay.dynamic_system_prompt_len.min": 500,
+      "data.conversation_replay.dynamic_system_prompt_len.max": 500,
+      "data.conversation_replay.dynamic_system_prompt_len.mean": 500,
+      "data.conversation_replay.turns_per_conversation.min": 40,
+      "data.conversation_replay.turns_per_conversation.max": 40,
+      "data.conversation_replay.turns_per_conversation.mean": 40,
+      "data.conversation_replay.input_tokens_per_turn.min": 150,
+      "data.conversation_replay.input_tokens_per_turn.max": 350,
+      "data.conversation_replay.input_tokens_per_turn.mean": 250,
+      "load.stages.0.num_requests": 16
+    }
+  ],
+  "harness_version": "0.1.0"
+}

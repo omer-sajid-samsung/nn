@@ -1,0 +1,76 @@
+[2026-07-25 20:44:56] === proposal-gap sweep starting ===
+[2026-07-25 20:44:56] sweep lock held by another process — waiting for it to finish...
+[2026-07-25 21:09:56] lock free, proceeding
+[2026-07-25 21:09:56] RUN: akb sweep --sweep sweeps/w3_32k_sweep.yaml --manage-vllm --vllm-venv /opt/ls/vllm/.venv/bin/activate --vllm-boot-wait-s 300 --no-amoprof
+[2026-07-25 21:09:56] INFO starting vLLM (model=Qwen/Qwen3-8B-AWQ) -> /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom/vllm_server.log
+[2026-07-25 21:09:56] INFO waiting up to 300s for vLLM health at http://127.0.0.1:8000 ...
+[2026-07-25 21:10:36] INFO vLLM is healthy (pid 2585114) at http://127.0.0.1:8000
+[2026-07-25 21:10:36] INFO sweep 'w3-32k-headroom': 3 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom
+[2026-07-25 21:10:36] INFO === 01-qwen3-8b-awq_i16000_c1_i16000: already OK, skipping (resume) ===
+[2026-07-25 21:10:36] INFO === 02-qwen3-8b-awq_i24000_c1_i24000: already OK, skipping (resume) ===
+[2026-07-25 21:10:36] INFO === 03-qwen3-8b-awq_i32000_c1_i32000: already OK, skipping (resume) ===
+[2026-07-25 21:10:36] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom/sweep_summary.csv
+[2026-07-25 21:10:36] INFO stopping vLLM (pid 2585114), grace 60s...
+[2026-07-25 21:10:42] INFO vLLM stopped.
+[2026-07-25 21:10:42] EXIT: 0
+[2026-07-25 21:10:42] RUN: akb sweep --sweep sweeps/w1_concurrency_sweep.yaml --manage-vllm --vllm-venv /opt/ls/vllm/.venv/bin/activate --vllm-boot-wait-s 300 --no-amoprof
+[2026-07-25 21:10:42] INFO starting vLLM (model=Qwen/Qwen3-8B-AWQ) -> /opt/ls/agentic_kv_bench/runs/20260725_w1-concurrency-sweep-full/vllm_server.log
+[2026-07-25 21:10:42] INFO waiting up to 300s for vLLM health at http://127.0.0.1:8000 ...
+[2026-07-25 21:11:22] INFO vLLM is healthy (pid 2586137) at http://127.0.0.1:8000
+[2026-07-25 21:11:22] INFO sweep 'w1-concurrency-sweep-full': 5 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w1-concurrency-sweep-full
+[2026-07-25 21:11:22] INFO prediction: working_set=132096 tokens vs pool=43808 tokens -> expect_eviction=True
+[2026-07-25 21:11:22] INFO prediction note: working_set/pool = 3.02x
+[2026-07-25 21:11:23] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 21:11:23] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w1-concurrency-sweep-full/01-qwen3-8b-awq_c001_c1_i4000/inference_perf.yaml --log-level INFO
+[2026-07-25 21:11:23] INFO driver started (pid 2587116), log: /opt/ls/agentic_kv_bench/runs/20260725_w1-concurrency-sweep-full/01-qwen3-8b-awq_c001_c1_i4000/logs/driver.log
+[2026-07-25 21:15:53] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 21:15:53] INFO verdict: NOT_OBSERVED — eviction predicted (132096 tokens working set vs 43808 pool) but peak KV pressure only 9% — harness bug or pool misestimate; investigate before reporting
+[2026-07-25 21:15:53] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 21:15:53] INFO === 01-qwen3-8b-awq_c001_c1_i4000: done in 271s, status=OK, verdict=NOT_OBSERVED ===
+[2026-07-25 21:15:53] INFO settling 180s before next run...
+[2026-07-25 21:18:53] INFO prediction: working_set=132096 tokens vs pool=43808 tokens -> expect_eviction=True
+[2026-07-25 21:18:53] INFO prediction note: working_set/pool = 3.02x
+[2026-07-25 21:18:54] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 21:18:54] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w1-concurrency-sweep-full/02-qwen3-8b-awq_c008_c8_i4000/inference_perf.yaml --log-level INFO
+[2026-07-25 21:18:54] INFO driver started (pid 2592754), log: /opt/ls/agentic_kv_bench/runs/20260725_w1-concurrency-sweep-full/02-qwen3-8b-awq_c008_c8_i4000/logs/driver.log
+[2026-07-25 21:26:44] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 21:26:44] INFO verdict: NOT_OBSERVED — eviction predicted (132096 tokens working set vs 43808 pool) but peak KV pressure only 75% — harness bug or pool misestimate; investigate before reporting
+[2026-07-25 21:26:44] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 21:26:44] INFO === 02-qwen3-8b-awq_c008_c8_i4000: done in 470s, status=OK, verdict=NOT_OBSERVED ===
+[2026-07-25 21:26:44] INFO settling 180s before next run...
+[2026-07-25 21:29:44] INFO prediction: working_set=132096 tokens vs pool=43808 tokens -> expect_eviction=True
+[2026-07-25 21:29:44] INFO prediction note: working_set/pool = 3.02x
+[2026-07-25 21:29:45] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 21:29:45] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w1-concurrency-sweep-full/03-qwen3-8b-awq_c016_c16_i4000/inference_perf.yaml --log-level INFO
+[2026-07-25 21:29:45] INFO driver started (pid 2598598), log: /opt/ls/agentic_kv_bench/runs/20260725_w1-concurrency-sweep-full/03-qwen3-8b-awq_c016_c16_i4000/logs/driver.log
+[2026-07-25 21:41:45] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 21:41:45] INFO verdict: LIKELY — predicted eviction; peak KV pressure 99%; LMCache counters silent/unavailable
+[2026-07-25 21:41:45] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 21:41:45] INFO === 03-qwen3-8b-awq_c016_c16_i4000: done in 720s, status=OK, verdict=LIKELY ===
+[2026-07-25 21:41:45] INFO settling 180s before next run...
+[2026-07-25 21:44:45] INFO prediction: working_set=36096 tokens vs pool=43808 tokens -> expect_eviction=False
+[2026-07-25 21:44:45] INFO prediction note: working_set/pool = 0.82x
+[2026-07-25 21:44:46] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 21:44:46] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w1-concurrency-sweep-full/04-qwen3-8b-awq_c100_c100_i1000/inference_perf.yaml --log-level INFO
+[2026-07-25 21:44:46] INFO driver started (pid 2606897), log: /opt/ls/agentic_kv_bench/runs/20260725_w1-concurrency-sweep-full/04-qwen3-8b-awq_c100_c100_i1000/logs/driver.log
+[2026-07-25 21:55:01] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 21:55:01] INFO verdict: UNEXPECTED_PRESSURE — no eviction predicted but peak KV pressure 100% — check pool estimate
+[2026-07-25 21:55:01] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 21:55:01] INFO === 04-qwen3-8b-awq_c100_c100_i1000: done in 615s, status=OK, verdict=UNEXPECTED_PRESSURE ===
+[2026-07-25 21:55:01] INFO settling 180s before next run...
+[2026-07-25 21:58:01] INFO prediction: working_set=20096 tokens vs pool=43808 tokens -> expect_eviction=False
+[2026-07-25 21:58:01] INFO prediction note: working_set/pool = 0.46x
+[2026-07-25 21:58:02] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 21:58:02] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w1-concurrency-sweep-full/05-qwen3-8b-awq_c250_c250_i500/inference_perf.yaml --log-level INFO
+[2026-07-25 21:58:02] INFO driver started (pid 2616066), log: /opt/ls/agentic_kv_bench/runs/20260725_w1-concurrency-sweep-full/05-qwen3-8b-awq_c250_c250_i500/logs/driver.log
+[2026-07-25 22:08:17] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 22:08:17] INFO verdict: UNEXPECTED_PRESSURE — no eviction predicted but peak KV pressure 100% — check pool estimate
+[2026-07-25 22:08:17] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 22:08:17] INFO === 05-qwen3-8b-awq_c250_c250_i500: done in 615s, status=OK, verdict=UNEXPECTED_PRESSURE ===
+[2026-07-25 22:08:17] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w1-concurrency-sweep-full/sweep_summary.csv
+[2026-07-25 22:08:17] INFO stopping vLLM (pid 2586137), grace 60s...
+[2026-07-25 22:08:23] INFO vLLM stopped.
+[2026-07-25 22:08:23] EXIT: 0
+[2026-07-25 22:08:23] RUN: akb sweep --sweep sweeps/w4_turns_sweep.yaml --manage-vllm --vllm-venv /opt/ls/vllm/.venv/bin/activate --vllm-boot-wait-s 300 --no-amoprof
+[2026-07-25 22:08:23] INFO starting vLLM (model=Qwen/Qwen3-8B-AWQ) -> /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/vllm_server.log
+[2026-07-25 22:08:23] INFO waiting up to 300s for vLLM health at http://127.0.0.1:8000 ...

@@ -1,0 +1,8 @@
+Metadata-Version: 2.4
+Name: agentic-kv-bench
+Version: 0.1.0
+Summary: Controllable agentic workload harness for vLLM+LMCache KV-offload profiling with AMOProf
+Requires-Python: >=3.10
+Requires-Dist: PyYAML>=6.0
+Provides-Extra: predict
+Requires-Dist: huggingface-hub>=0.20; extra == "predict"

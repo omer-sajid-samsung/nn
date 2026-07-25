@@ -1,0 +1,1 @@
+{"avgqu": 0.6, "collector": "iostat", "iteration": 0, "rMBs": 5.880087890625, "rawt": 2.0, "riops": 47.78, "time_sec": 0.619535, "timestamp_epoch": 1784988220.954972, "timestamp_utc": "2026-07-25T14:03:40.954972+00:00", "ts": 1784988220.954972, "util": 1.61, "wMBs": 4.639716796875, "wawt": 10.18, "wiops": 49.71}

@@ -1,0 +1,45 @@
+{
+  "sweep": "w1-concurrency-sweep-full",
+  "spec": "sweeps/../specs/w1_concurrency_cell.yaml",
+  "base_dir": "/opt/ls/agentic_kv_bench",
+  "created_utc": "2026-07-25T21:11:22Z",
+  "n_runs": 5,
+  "overrides": [
+    {
+      "load.stages.0.concurrency_level": 1,
+      "load.stages.0.num_requests": 8,
+      "data.input_distribution.min": 4000,
+      "data.input_distribution.max": 4000,
+      "data.input_distribution.mean": 4000
+    },
+    {
+      "load.stages.0.concurrency_level": 8,
+      "load.stages.0.num_requests": 32,
+      "data.input_distribution.min": 4000,
+      "data.input_distribution.max": 4000,
+      "data.input_distribution.mean": 4000
+    },
+    {
+      "load.stages.0.concurrency_level": 16,
+      "load.stages.0.num_requests": 48,
+      "data.input_distribution.min": 4000,
+      "data.input_distribution.max": 4000,
+      "data.input_distribution.mean": 4000
+    },
+    {
+      "load.stages.0.concurrency_level": 100,
+      "load.stages.0.num_requests": 200,
+      "data.input_distribution.min": 1000,
+      "data.input_distribution.max": 1000,
+      "data.input_distribution.mean": 1000
+    },
+    {
+      "load.stages.0.concurrency_level": 250,
+      "load.stages.0.num_requests": 500,
+      "data.input_distribution.min": 500,
+      "data.input_distribution.max": 500,
+      "data.input_distribution.mean": 500
+    }
+  ],
+  "harness_version": "0.1.0"
+}

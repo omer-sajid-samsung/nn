@@ -1,0 +1,28 @@
+{
+  "sweep": "w4-agentic-conversation-sweep",
+  "spec": "specs/w4_agentic_conversation.yaml",
+  "base_dir": "/opt/ls/agentic_kv_bench",
+  "created_utc": "2026-07-25T14:04:57Z",
+  "n_runs": 1,
+  "overrides": [
+    {
+      "load.stages.0.concurrency_level": 4,
+      "load.stages.0.num_requests": 16,
+      "data.conversation_replay.shared_system_prompt_len": 8000,
+      "data.conversation_replay.output_tokens_per_turn.min": 150,
+      "data.conversation_replay.output_tokens_per_turn.max": 150,
+      "data.conversation_replay.output_tokens_per_turn.mean": 150,
+      "data.conversation_replay.num_conversations": 8,
+      "data.conversation_replay.dynamic_system_prompt_len.min": 500,
+      "data.conversation_replay.dynamic_system_prompt_len.max": 500,
+      "data.conversation_replay.dynamic_system_prompt_len.mean": 500,
+      "data.conversation_replay.turns_per_conversation.min": 3,
+      "data.conversation_replay.turns_per_conversation.max": 3,
+      "data.conversation_replay.turns_per_conversation.mean": 3,
+      "data.conversation_replay.input_tokens_per_turn.min": 150,
+      "data.conversation_replay.input_tokens_per_turn.max": 350,
+      "data.conversation_replay.input_tokens_per_turn.mean": 250
+    }
+  ],
+  "harness_version": "0.1.0"
+}

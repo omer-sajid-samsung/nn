@@ -1,0 +1,25 @@
+{
+  "sweep": "w3-32k-headroom",
+  "spec": "sweeps/../specs/w3_single_longctx_32k.yaml",
+  "base_dir": "/opt/ls/agentic_kv_bench",
+  "created_utc": "2026-07-25T21:10:36Z",
+  "n_runs": 3,
+  "overrides": [
+    {
+      "data.input_distribution.min": 16000,
+      "data.input_distribution.max": 16000,
+      "data.input_distribution.mean": 16000
+    },
+    {
+      "data.input_distribution.min": 24000,
+      "data.input_distribution.max": 24000,
+      "data.input_distribution.mean": 24000
+    },
+    {
+      "data.input_distribution.min": 32000,
+      "data.input_distribution.max": 32000,
+      "data.input_distribution.mean": 32000
+    }
+  ],
+  "harness_version": "0.1.0"
+}

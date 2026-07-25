@@ -1,0 +1,16 @@
+run_id=02-qwen3-8b-awq_c002_c2_i256_u1
+knobs=c2_i256_u1
+spec=w2-revisit-thrash
+telemetry_start_epoch=1784977064
+telemetry_start_utc=2026-07-25T10:57:44Z
+lmcache_before_epoch=1784977064
+lmcache_before_utc=2026-07-25T10:57:44Z
+workload_start_epoch=1784977064
+workload_start_utc=2026-07-25T10:57:44Z
+workload_end_epoch=1784977074
+workload_end_utc=2026-07-25T10:57:54Z
+driver_exit_status=0
+lmcache_after_epoch=1784977074
+lmcache_after_utc=2026-07-25T10:57:54Z
+validation_epoch=1784977074
+validation_utc=2026-07-25T10:57:54Z

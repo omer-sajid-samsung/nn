@@ -1,0 +1,48 @@
+{
+  "run_id": "01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u4",
+  "seq": "01",
+  "knobs": "c8_i6000_u4",
+  "spec_name": "w2-revisit-thrash",
+  "model": "Qwen/Qwen3-8B-AWQ",
+  "started_utc": "2026-07-25T11:51:18Z",
+  "provenance": {
+    "harness_version": "0.1.0",
+    "date_utc": "2026-07-25T11:51:18Z",
+    "host": "ip-172-31-87-180",
+    "kernel": "7.0.0-1007-aws",
+    "gpus": "GPU 0: Tesla T4 (UUID: GPU-6a720a78-60ad-f046-75c6-2050a565b2f0)\nGPU 1: Tesla T4 (UUID: GPU-e42f772c-63a1-582c-0497-5a814ab08a79)\nGPU 2: Tesla T4 (UUID: GPU-bb52d108-ce9d-f621-6129-a3846f2aac9c)\nGPU 3: Tesla T4 (UUID: GPU-4094d32a-2c02-215b-5503-0e4fec58fec5)",
+    "vllm_url": "http://127.0.0.1:8000",
+    "model": "Qwen/Qwen3-8B-AWQ",
+    "pip_inference-perf": "0.6.1",
+    "pip_vllm": "not installed",
+    "pip_lmcache": "not installed"
+  },
+  "prediction": {
+    "kv_bytes_per_token": 147456,
+    "kv_bytes_source": "hf_config",
+    "pool_tokens": 43808,
+    "pool_source": "vllm_log",
+    "working_set_tokens": 24512,
+    "working_set_source": "random:total_count*(in+out)",
+    "expect_eviction": false,
+    "notes": [
+      "working_set/pool = 0.56x"
+    ]
+  },
+  "overrides": {
+    "load.stages.0.concurrency_level": 8,
+    "load.stages.0.num_requests": 48,
+    "data.input_distribution.min": 6000,
+    "data.input_distribution.max": 6000,
+    "data.input_distribution.mean": 6000,
+    "data.input_distribution.total_count": 4,
+    "data.output_distribution.min": 128,
+    "data.output_distribution.max": 128,
+    "data.output_distribution.mean": 128
+  },
+  "finished_utc": "2026-07-25T12:12:23Z",
+  "status": "OK",
+  "duration_s": 1265,
+  "verdict": "UNEXPECTED_PRESSURE",
+  "verdict_reason": "no eviction predicted but peak KV pressure 98% \u2014 check pool estimate"
+}

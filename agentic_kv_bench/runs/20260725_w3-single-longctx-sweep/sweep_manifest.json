@@ -1,0 +1,21 @@
+{
+  "sweep": "w3-single-longctx-sweep",
+  "spec": "specs/w3_single_longctx.yaml",
+  "base_dir": "/opt/ls/agentic_kv_bench",
+  "created_utc": "2026-07-25T13:39:05Z",
+  "n_runs": 1,
+  "overrides": [
+    {
+      "load.stages.0.concurrency_level": 1,
+      "load.stages.0.num_requests": 4,
+      "data.input_distribution.min": 14000,
+      "data.input_distribution.max": 14000,
+      "data.input_distribution.mean": 14000,
+      "data.input_distribution.total_count": 2,
+      "data.output_distribution.min": 256,
+      "data.output_distribution.max": 256,
+      "data.output_distribution.mean": 256
+    }
+  ],
+  "harness_version": "0.1.0"
+}

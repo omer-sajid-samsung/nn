@@ -1,0 +1,32 @@
+# Concurrency sweep for W1, matching the proposal's requested levels: 1, 8, 16, 100, 250.
+#
+# input_tokens shrinks as concurrency rises so the aggregate working set
+# (concurrency x (input+output)) stays in a sane multiple of the 43,808-token
+# T4 pool instead of exploding by 50-100x — still guarantees thrash at c=100/250,
+# just without absurdly long individual runs.
+#
+# c=100 and c=250 need vLLM's scheduler started with --max-num-seqs >= 256
+# (vLLM's default max_num_seqs is 128 — see vllm/config/scheduler.py:169 — so
+# without raising it, only the first 128 of these "concurrent" requests are
+# ever actually batched together; the rest just sit in vLLM's own queue).
+# Use `akb ... --manage-vllm` once vllm_proc.py lands, or restart the server
+# by hand with `--max-num-seqs 256` before running these two cells.
+name: w1-concurrency-sweep-full
+base_spec: ../specs/w1_concurrency_cell.yaml
+settle_s: 60
+runs:
+  - label: c001
+    set: {load.stages.0.concurrency_level: 1,   load.stages.0.num_requests: 8,
+          data.input_distribution.min: 4000, data.input_distribution.max: 4000, data.input_distribution.mean: 4000}
+  - label: c008
+    set: {load.stages.0.concurrency_level: 8,   load.stages.0.num_requests: 32,
+          data.input_distribution.min: 4000, data.input_distribution.max: 4000, data.input_distribution.mean: 4000}
+  - label: c016
+    set: {load.stages.0.concurrency_level: 16,  load.stages.0.num_requests: 48,
+          data.input_distribution.min: 4000, data.input_distribution.max: 4000, data.input_distribution.mean: 4000}
+  - label: c100
+    set: {load.stages.0.concurrency_level: 100, load.stages.0.num_requests: 200,
+          data.input_distribution.min: 1000, data.input_distribution.max: 1000, data.input_distribution.mean: 1000}
+  - label: c250
+    set: {load.stages.0.concurrency_level: 250, load.stages.0.num_requests: 500,
+          data.input_distribution.min: 500,  data.input_distribution.max: 500,  data.input_distribution.mean: 500}

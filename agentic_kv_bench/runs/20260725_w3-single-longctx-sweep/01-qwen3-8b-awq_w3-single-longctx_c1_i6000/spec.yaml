@@ -1,0 +1,37 @@
+name: w3-single-longctx
+description: "One session at extreme context length. Per-request worst case for chunked\
+  \ prefill and single-request KV spill. Beyond YaRN envelope for Qwen3-32B \u2014\
+  \ storage/KV profiling only.\n"
+model: Qwen/Qwen3-8B-AWQ
+overrides:
+  load.stages.0.concurrency_level: 1
+  load.stages.0.num_requests: 4
+  data.input_distribution.min: 6000
+  data.input_distribution.max: 6000
+  data.input_distribution.mean: 6000
+  data.input_distribution.total_count: 2
+  data.output_distribution.min: 256
+  data.output_distribution.max: 256
+  data.output_distribution.mean: 256
+prediction:
+  kv_dtype: float16
+  gpu_mem_util: 0.9
+  weights_gb: 6.0
+  expect_eviction: auto
+telemetry:
+  scrape_vllm_metrics: true
+  scrape_interval_s: 10
+  lmcache_port: 6999
+  lmcache_endpoints:
+  - /metrics
+  - /stats
+  - /cache/stats
+  - /health
+amoprof: {}
+timeouts:
+  run_timeout_s: 3600
+  amoprof_ready_s: 90
+  post_start_settle_s: 10
+  post_stop_settle_s: 10
+  amoprof_stop_grace_s: 45
+  workload_kill_grace_s: 20

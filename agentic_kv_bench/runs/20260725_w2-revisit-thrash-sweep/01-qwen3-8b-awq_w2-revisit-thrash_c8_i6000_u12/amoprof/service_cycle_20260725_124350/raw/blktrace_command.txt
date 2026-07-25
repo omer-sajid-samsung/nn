@@ -1,0 +1,1 @@
+sudo -n blktrace -d /dev/nvme1n1 -D /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u12/amoprof/service_cycle_20260725_124350/raw/blktrace_data -o trace -w 10 -b 16384 -n 4

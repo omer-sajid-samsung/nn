@@ -1,0 +1,89 @@
+# =============================================================================
+# W5 — Real agentic dataset via OTel trace replay (proposal item F).
+#
+# Replaces synthetic conversation_replay content with genuine multi-agent
+# tool-call traces, using inference-perf's built-in otel_trace_replay
+# datagen (inference_perf/datagen/otel_trace_replay_datagen.py) — a
+# dependency- and output-aware replayer: each predecessor call's *actual*
+# generated output is substituted into the next turn's prompt at replay
+# time, so multi-agent/tool-chain KV growth replays faithfully instead of
+# with static recorded text. This is the harness's answer to "adopt a real
+# agentic dataset" without going back to AgentBench (whose lack of length
+# control is why we left it — see driver.py's docstring / README).
+#
+# Trace files under traces/otel_examples/ are the official example fixtures
+# shipped by kubernetes-sigs/inference-perf (Apache-2.0), fetched from:
+#   https://github.com/kubernetes-sigs/inference-perf/tree/main/examples/otel/test_traces/advanced
+# multi_agent_research.json: a coordinator dispatching 3 specialist agents
+# (market/environmental/technology) then synthesizing their outputs — real
+# multi-agent fan-out/fan-in shape, recorded against gpt-4 originally;
+# use_static_model below remaps every span to our own model regardless of
+# what was recorded.
+# =============================================================================
+name: w5-otel-agentic
+description: >
+  Real multi-agent tool-call trace (coordinator + 3 specialist sub-agents,
+  fan-out/fan-in) replayed via inference-perf's otel_trace_replay datagen,
+  output-substituted so KV growth follows this model's actual generations.
+model: Qwen/Qwen3-8B-AWQ
+
+inference_perf:
+  api:
+    type: chat
+    streaming: false
+  data:
+    type: otel_trace_replay
+    otel_trace_replay:
+      # Absolute path: inference-perf's CWD is the per-run report dir
+      # (driver.py sets cwd=layout.path), not the repo root.
+      trace_files:
+        - /opt/ls/akb/agentic-kv-bench/traces/otel_examples/multi_agent_research.json
+      use_static_model: true
+      static_model_name: Qwen/Qwen3-8B-AWQ
+      default_max_tokens: 1024
+      include_errors: true
+      skip_invalid_files: false
+  load:
+    type: trace_session_replay
+    stages:
+      - concurrent_sessions: 1
+    worker_max_concurrency: 10
+
+run_knobs:
+  cs: load.stages.0.concurrent_sessions
+
+prediction:
+  kv_dtype: float16
+  gpu_mem_util: 0.7
+  weights_gb: 6.0
+  expect_eviction: auto   # working_set_tokens() has no otel_trace_replay formula
+                          # (trace-dependent) -> auto degrades to INDETERMINATE by
+                          # design; pin prediction.pool_tokens/working_set_tokens
+                          # explicitly once real trace-token totals are known.
+
+telemetry:
+  scrape_vllm_metrics: true
+  scrape_interval_s: 10
+  lmcache_port: 6999
+  lmcache_endpoints: [/metrics, /stats, /cache/stats, /health]
+
+amoprof: {}
+
+timeouts:
+  run_timeout_s: 900
+  amoprof_ready_s: 90
+  post_start_settle_s: 10
+  post_stop_settle_s: 10
+  amoprof_stop_grace_s: 45
+  workload_kill_grace_s: 20
+
+vllm_launch:
+  dtype: float16
+  max_model_len: 16384
+  gpu_memory_utilization: 0.3
+  tensor_parallel_size: 4
+  enforce_eager: true
+  kv_transfer_config: {kv_connector: LMCacheConnectorV1, kv_role: kv_both}
+  env:
+    LMCACHE_CONFIG_FILE: /opt/ls/vllm/lmcache_disk_config.yaml
+    LMCACHE_INTERNAL_API_SERVER_ENABLED: "true"

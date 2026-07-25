@@ -1,0 +1,13 @@
+{
+  "biosnoop_available": true,
+  "biosnoop_events": 5253,
+  "biosnoop_events_all_devices": 5274,
+  "biosnoop_csv": "/opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u8/amoprof/service_cycle_20260725_121406/raw/biosnoop_events.csv",
+  "biosnoop_all_devices_csv": "/opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u8/amoprof/service_cycle_20260725_121406/raw/biosnoop_events_all.csv",
+  "biosnoop_summary": "/opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-sweep/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u8/amoprof/service_cycle_20260725_121406/raw/biosnoop_summary.json",
+  "biosnoop_duration_s": 10.9,
+  "biosnoop_filter_disk": "nvme1n1",
+  "collection_start_time_seconds": 1784981646.07869,
+  "collection_end_time_seconds": 1784981656.847724,
+  "collection_duration_s": 10.769034
+}

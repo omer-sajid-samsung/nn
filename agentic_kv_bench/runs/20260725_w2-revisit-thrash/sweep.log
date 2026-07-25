@@ -1,0 +1,21 @@
+[2026-07-25 10:57:31] INFO sweep 'w2-revisit-thrash': 2 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash
+[2026-07-25 10:57:31] INFO prediction: working_set=264 tokens vs pool=43808 tokens -> expect_eviction=False
+[2026-07-25 10:57:31] INFO prediction note: working_set/pool = 0.01x
+[2026-07-25 10:57:32] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 10:57:32] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash/01-qwen3-8b-awq_c001_c1_i256_u1/inference_perf.yaml --log-level INFO
+[2026-07-25 10:57:32] INFO driver started (pid 2318236), log: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash/01-qwen3-8b-awq_c001_c1_i256_u1/logs/driver.log
+[2026-07-25 10:57:42] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 10:57:42] INFO verdict: INDETERMINATE — no vllm:gpu_cache_usage_perc samples in telemetry
+[2026-07-25 10:57:42] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 10:57:42] INFO === 01-qwen3-8b-awq_c001_c1_i256_u1: done in 11s, status=OK, verdict=INDETERMINATE ===
+[2026-07-25 10:57:42] INFO settling 1s before next run...
+[2026-07-25 10:57:43] INFO prediction: working_set=264 tokens vs pool=43808 tokens -> expect_eviction=False
+[2026-07-25 10:57:43] INFO prediction note: working_set/pool = 0.01x
+[2026-07-25 10:57:44] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 10:57:44] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash/02-qwen3-8b-awq_c002_c2_i256_u1/inference_perf.yaml --log-level INFO
+[2026-07-25 10:57:44] INFO driver started (pid 2318609), log: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash/02-qwen3-8b-awq_c002_c2_i256_u1/logs/driver.log
+[2026-07-25 10:57:54] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 10:57:54] INFO verdict: INDETERMINATE — no vllm:gpu_cache_usage_perc samples in telemetry
+[2026-07-25 10:57:54] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 10:57:54] INFO === 02-qwen3-8b-awq_c002_c2_i256_u1: done in 10s, status=OK, verdict=INDETERMINATE ===
+[2026-07-25 10:57:54] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash/sweep_summary.csv

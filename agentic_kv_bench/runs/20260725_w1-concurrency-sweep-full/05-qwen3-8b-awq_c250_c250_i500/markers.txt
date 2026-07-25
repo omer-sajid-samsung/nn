@@ -1,0 +1,16 @@
+run_id=05-qwen3-8b-awq_c250_c250_i500
+knobs=c250_i500
+spec=w1-concurrency-cell
+telemetry_start_epoch=1785016682
+telemetry_start_utc=2026-07-25T21:58:02Z
+lmcache_before_epoch=1785016682
+lmcache_before_utc=2026-07-25T21:58:02Z
+workload_start_epoch=1785016682
+workload_start_utc=2026-07-25T21:58:02Z
+workload_end_epoch=1785017297
+workload_end_utc=2026-07-25T22:08:17Z
+driver_exit_status=0
+lmcache_after_epoch=1785017297
+lmcache_after_utc=2026-07-25T22:08:17Z
+validation_epoch=1785017297
+validation_utc=2026-07-25T22:08:17Z

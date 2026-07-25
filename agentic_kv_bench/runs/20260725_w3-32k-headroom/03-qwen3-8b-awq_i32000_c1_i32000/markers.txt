@@ -1,0 +1,16 @@
+run_id=03-qwen3-8b-awq_i32000_c1_i32000
+knobs=c1_i32000
+spec=w3-single-longctx-32k
+telemetry_start_epoch=1785012952
+telemetry_start_utc=2026-07-25T20:55:52Z
+lmcache_before_epoch=1785012952
+lmcache_before_utc=2026-07-25T20:55:52Z
+workload_start_epoch=1785012952
+workload_start_utc=2026-07-25T20:55:52Z
+workload_end_epoch=1785013788
+workload_end_utc=2026-07-25T21:09:48Z
+driver_exit_status=0
+lmcache_after_epoch=1785013788
+lmcache_after_utc=2026-07-25T21:09:48Z
+validation_epoch=1785013788
+validation_utc=2026-07-25T21:09:48Z
