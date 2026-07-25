@@ -1,0 +1,799 @@
+/opt/ls/conda/envs/agent-bench/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+/opt/ls/conda/envs/agent-bench/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+[93mWarning: 7 agent(s) and 16 task(s) are defined but not used, they will be ignored.[0m
+[93m    Agent: {'vicuna-13b', 'wizard-30b', 'vicuna-7b', 'vicuna-33b', 'text-davinci-003', 'text-davinci-002', 'gpt-3.5-turbo-0613'}[0m
+[93m    Task: {'kg-std', 'webshop-std', 'cg-dev', 'm2w-std', 'kg-dev', 'm2w-dev', 'os-dev', 'alfworld-std', 'avalon-dev-single', 'ltp-std', 'avalon-dev-naive', 'webshop-dev', 'cg-std', 'dbbench-dev', 'ltp-dev', 'alfworld-dev'}[0m
+[92mcreating dbbench-std client...[0m
+TaskClient created: dbbench-std (http://localhost:5000/api)
+[92mcreating os-std client...[0m
+TaskClient created: os-std (http://localhost:5000/api)
+[96mMessage: 444 samples remaining.[0m
+[96mAgent "qwen3-8b-awq" needs to run 2 tasks with total 444 samples:[0m
+[96m    Task "dbbench-std": 300[0m
+[96m    Task "os-std": 144[0m
+Total:   0%|          | 0/444 [00:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:00<?, ?it/s][A                                              
+                                                     [ARunning Count: 0
+Total:   0%|          | 0/444 [00:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:00<?, ?it/s][A                                              
+                                                     [A[92mAssigned qwen3-8b-awq/dbbench-std#299[0m
+Total:   0%|          | 0/444 [00:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:00<?, ?it/s][ATotal:   0%|          | 1/444 [00:13<1:38:01, 13.28s/it]
+qwen3-8b-awq:   0%|          | 1/444 [00:13<1:38:01, 13.28s/it][A                                                        
+                                                               [ARunning Count: 0
+Total:   0%|          | 1/444 [00:13<1:38:01, 13.28s/it]
+qwen3-8b-awq:   0%|          | 1/444 [00:13<1:38:01, 13.28s/it][A                                                        
+                                                               [A[92mAssigned qwen3-8b-awq/dbbench-std#298[0m
+Total:   0%|          | 1/444 [00:13<1:38:01, 13.28s/it]
+qwen3-8b-awq:   0%|          | 1/444 [00:13<1:38:01, 13.28s/it][A                                                        
+                                                               [ARunning Count: 1
+Total:   0%|          | 1/444 [00:19<1:38:01, 13.28s/it]
+qwen3-8b-awq:   0%|          | 1/444 [00:19<1:38:01, 13.28s/it][ATotal:   0%|          | 2/444 [00:22<1:19:15, 10.76s/it]
+qwen3-8b-awq:   0%|          | 2/444 [00:22<1:19:15, 10.76s/it][A                                                        
+                                                               [ARunning Count: 0
+Total:   0%|          | 2/444 [00:32<1:19:15, 10.76s/it]
+qwen3-8b-awq:   0%|          | 2/444 [00:32<1:19:15, 10.76s/it][A                                                        
+                                                               [A[92mAssigned qwen3-8b-awq/dbbench-std#297[0m
+Total:   0%|          | 2/444 [00:32<1:19:15, 10.76s/it]
+qwen3-8b-awq:   0%|          | 2/444 [00:32<1:19:15, 10.76s/it][ATotal:   1%|          | 3/444 [00:41<1:46:41, 14.52s/it]
+qwen3-8b-awq:   1%|          | 3/444 [00:41<1:46:41, 14.52s/it][A                                                        
+                                                               [ARunning Count: 0
+Total:   1%|          | 3/444 [00:46<1:46:41, 14.52s/it]
+qwen3-8b-awq:   1%|          | 3/444 [00:46<1:46:41, 14.52s/it][A                                                        
+                                                               [A[92mAssigned qwen3-8b-awq/dbbench-std#296[0m
+Total:   1%|          | 3/444 [00:46<1:46:41, 14.52s/it]
+qwen3-8b-awq:   1%|          | 3/444 [00:46<1:46:41, 14.52s/it][A                                                        
+                                                               [ARunning Count: 1
+Total:   1%|          | 3/444 [00:57<1:46:41, 14.52s/it]
+qwen3-8b-awq:   1%|          | 3/444 [00:57<1:46:41, 14.52s/it][A                                                        
+                                                               [ARunning Count: 1
+Total:   1%|          | 3/444 [01:10<1:46:41, 14.52s/it]
+qwen3-8b-awq:   1%|          | 3/444 [01:10<1:46:41, 14.52s/it][A                                                        
+                                                               [ARunning Count: 1
+Total:   1%|          | 3/444 [01:24<1:46:41, 14.52s/it]
+qwen3-8b-awq:   1%|          | 3/444 [01:24<1:46:41, 14.52s/it][A                                                        
+                                                               [ARunning Count: 1
+Total:   1%|          | 3/444 [01:30<1:46:41, 14.52s/it]
+qwen3-8b-awq:   1%|          | 3/444 [01:30<1:46:41, 14.52s/it][A                                                        
+                                                               [ARunning Count: 1
+Total:   1%|          | 3/444 [01:39<1:46:41, 14.52s/it]
+qwen3-8b-awq:   1%|          | 3/444 [01:39<1:46:41, 14.52s/it][A                                                        
+                                                               [ARunning Count: 1
+Total:   1%|          | 3/444 [01:48<1:46:41, 14.52s/it]
+qwen3-8b-awq:   1%|          | 3/444 [01:48<1:46:41, 14.52s/it][A                                                        
+                                                               [ARunning Count: 1
+Total:   1%|          | 3/444 [02:02<1:46:41, 14.52s/it]
+qwen3-8b-awq:   1%|          | 3/444 [02:02<1:46:41, 14.52s/it][A                                                        
+                                                               [ARunning Count: 1
+Total:   1%|          | 3/444 [02:15<1:46:41, 14.52s/it]
+qwen3-8b-awq:   1%|          | 3/444 [02:15<1:46:41, 14.52s/it][A                                                        
+                                                               [ARunning Count: 1
+Total:   1%|          | 3/444 [02:25<1:46:41, 14.52s/it]
+qwen3-8b-awq:   1%|          | 3/444 [02:25<1:46:41, 14.52s/it][A                                                        
+                                                               [ARunning Count: 1
+Total:   1%|          | 3/444 [02:39<1:46:41, 14.52s/it]
+qwen3-8b-awq:   1%|          | 3/444 [02:39<1:46:41, 14.52s/it][A                                                        
+                                                               [ARunning Count: 1
+Total:   1%|          | 3/444 [02:50<1:46:41, 14.52s/it]
+qwen3-8b-awq:   1%|          | 3/444 [02:50<1:46:41, 14.52s/it][ATotal:   1%|          | 4/444 [02:57<7:38:15, 62.49s/it]
+qwen3-8b-awq:   1%|          | 4/444 [02:57<7:38:15, 62.49s/it][A                                                        
+                                                               [ARunning Count: 0
+Total:   1%|          | 4/444 [03:01<7:38:15, 62.49s/it]
+qwen3-8b-awq:   1%|          | 4/444 [03:01<7:38:15, 62.49s/it][A                                                        
+                                                               [A[92mAssigned qwen3-8b-awq/dbbench-std#295[0m
+Total:   1%|          | 4/444 [03:01<7:38:15, 62.49s/it]
+qwen3-8b-awq:   1%|          | 4/444 [03:01<7:38:15, 62.49s/it][A                                                        
+                                                               [ARunning Count: 1
+Total:   1%|          | 4/444 [03:12<7:38:15, 62.49s/it]
+qwen3-8b-awq:   1%|          | 4/444 [03:12<7:38:15, 62.49s/it][ATotal:   1%|          | 5/444 [03:15<5:41:21, 46.65s/it]
+qwen3-8b-awq:   1%|          | 5/444 [03:15<5:41:21, 46.65s/it][A                                                        
+                                                               [ARunning Count: 0
+Total:   1%|          | 5/444 [03:26<5:41:21, 46.65s/it]
+qwen3-8b-awq:   1%|          | 5/444 [03:26<5:41:21, 46.65s/it][A                                                        
+                                                               [A[92mAssigned qwen3-8b-awq/dbbench-std#294[0m
+Total:   1%|          | 5/444 [03:26<5:41:21, 46.65s/it]
+qwen3-8b-awq:   1%|          | 5/444 [03:26<5:41:21, 46.65s/it][A                                                        
+                                                               [ARunning Count: 1
+Total:   1%|          | 5/444 [03:33<5:41:21, 46.65s/it]
+qwen3-8b-awq:   1%|          | 5/444 [03:33<5:41:21, 46.65s/it][A                                                        
+                                                               [ARunning Count: 1
+Total:   1%|          | 5/444 [03:43<5:41:21, 46.65s/it]
+qwen3-8b-awq:   1%|          | 5/444 [03:43<5:41:21, 46.65s/it][ATotal:   1%|▏         | 6/444 [03:51<5:12:06, 42.75s/it]
+qwen3-8b-awq:   1%|▏         | 6/444 [03:51<5:12:06, 42.75s/it][A                                                        
+                                                               [ARunning Count: 0
+Total:   1%|▏         | 6/444 [03:57<5:12:06, 42.75s/it]
+qwen3-8b-awq:   1%|▏         | 6/444 [03:57<5:12:06, 42.75s/it][A                                                        
+                                                               [A[92mAssigned qwen3-8b-awq/dbbench-std#293[0m
+Total:   1%|▏         | 6/444 [03:57<5:12:06, 42.75s/it]
+qwen3-8b-awq:   1%|▏         | 6/444 [03:57<5:12:06, 42.75s/it][ATotal:   2%|▏         | 7/444 [04:05<4:03:02, 33.37s/it]
+qwen3-8b-awq:   2%|▏         | 7/444 [04:05<4:03:02, 33.37s/it][A                                                        
+                                                               [ARunning Count: 0
+Total:   2%|▏         | 7/444 [04:11<4:03:02, 33.37s/it]
+qwen3-8b-awq:   2%|▏         | 7/444 [04:11<4:03:02, 33.37s/it][A                                                        
+                                                               [A[92mAssigned qwen3-8b-awq/dbbench-std#292[0m
+Total:   2%|▏         | 7/444 [04:11<4:03:02, 33.37s/it]
+qwen3-8b-awq:   2%|▏         | 7/444 [04:11<4:03:02, 33.37s/it][ATotal:   2%|▏         | 8/444 [04:19<3:18:22, 27.30s/it]
+qwen3-8b-awq:   2%|▏         | 8/444 [04:19<3:18:22, 27.30s/it][A                                                        
+                                                               [ARunning Count: 0
+Total:   2%|▏         | 8/444 [04:20<3:18:22, 27.30s/it]
+qwen3-8b-awq:   2%|▏         | 8/444 [04:20<3:18:22, 27.30s/it][A                                                        
+                                                               [A[92mAssigned qwen3-8b-awq/dbbench-std#291[0m
+Total:   2%|▏         | 8/444 [04:20<3:18:22, 27.30s/it]
+qwen3-8b-awq:   2%|▏         | 8/444 [04:20<3:18:22, 27.30s/it][A                                                        
+                                                               [ARunning Count: 1
+Total:   2%|▏         | 8/444 [04:25<3:18:22, 27.30s/it]
+qwen3-8b-awq:   2%|▏         | 8/444 [04:25<3:18:22, 27.30s/it][A                                                        
+                                                               [ARunning Count: 1
+Total:   2%|▏         | 8/444 [04:31<3:18:22, 27.30s/it]
+qwen3-8b-awq:   2%|▏         | 8/444 [04:31<3:18:22, 27.30s/it][ATotal:   2%|▏         | 9/444 [04:31<2:43:50, 22.60s/it]
+qwen3-8b-awq:   2%|▏         | 9/444 [04:31<2:43:50, 22.60s/it][A                                                        
+                                                               [ARunning Count: 0
+Total:   2%|▏         | 9/444 [04:45<2:43:50, 22.60s/it]
+qwen3-8b-awq:   2%|▏         | 9/444 [04:45<2:43:50, 22.60s/it][A                                                        
+                                                               [A[92mAssigned qwen3-8b-awq/dbbench-std#290[0m
+Total:   2%|▏         | 9/444 [04:45<2:43:50, 22.60s/it]
+qwen3-8b-awq:   2%|▏         | 9/444 [04:45<2:43:50, 22.60s/it][ATotal:   2%|▏         | 10/444 [04:52<2:40:23, 22.17s/it]
+qwen3-8b-awq:   2%|▏         | 10/444 [04:52<2:40:23, 22.17s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   2%|▏         | 10/444 [04:57<2:40:23, 22.17s/it]
+qwen3-8b-awq:   2%|▏         | 10/444 [04:57<2:40:23, 22.17s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#289[0m
+Total:   2%|▏         | 10/444 [04:57<2:40:23, 22.17s/it]
+qwen3-8b-awq:   2%|▏         | 10/444 [04:57<2:40:23, 22.17s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   2%|▏         | 10/444 [05:08<2:40:23, 22.17s/it]
+qwen3-8b-awq:   2%|▏         | 10/444 [05:08<2:40:23, 22.17s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   2%|▏         | 10/444 [05:19<2:40:23, 22.17s/it]
+qwen3-8b-awq:   2%|▏         | 10/444 [05:19<2:40:23, 22.17s/it][ATotal:   2%|▏         | 11/444 [05:22<2:57:00, 24.53s/it]
+qwen3-8b-awq:   2%|▏         | 11/444 [05:22<2:57:00, 24.53s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   2%|▏         | 11/444 [05:29<2:57:00, 24.53s/it]
+qwen3-8b-awq:   2%|▏         | 11/444 [05:29<2:57:00, 24.53s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#288[0m
+Total:   2%|▏         | 11/444 [05:29<2:57:00, 24.53s/it]
+qwen3-8b-awq:   2%|▏         | 11/444 [05:29<2:57:00, 24.53s/it][ATotal:   3%|▎         | 12/444 [05:38<2:37:55, 21.93s/it]
+qwen3-8b-awq:   3%|▎         | 12/444 [05:38<2:37:55, 21.93s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   3%|▎         | 12/444 [05:44<2:37:55, 21.93s/it]
+qwen3-8b-awq:   3%|▎         | 12/444 [05:44<2:37:55, 21.93s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#287[0m
+Total:   3%|▎         | 12/444 [05:44<2:37:55, 21.93s/it]
+qwen3-8b-awq:   3%|▎         | 12/444 [05:44<2:37:55, 21.93s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   3%|▎         | 12/444 [05:55<2:37:55, 21.93s/it]
+qwen3-8b-awq:   3%|▎         | 12/444 [05:55<2:37:55, 21.93s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   3%|▎         | 12/444 [06:02<2:37:55, 21.93s/it]
+qwen3-8b-awq:   3%|▎         | 12/444 [06:02<2:37:55, 21.93s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   3%|▎         | 12/444 [06:16<2:37:55, 21.93s/it]
+qwen3-8b-awq:   3%|▎         | 12/444 [06:16<2:37:55, 21.93s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   3%|▎         | 12/444 [06:30<2:37:55, 21.93s/it]
+qwen3-8b-awq:   3%|▎         | 12/444 [06:30<2:37:55, 21.93s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   3%|▎         | 12/444 [06:38<2:37:55, 21.93s/it]
+qwen3-8b-awq:   3%|▎         | 12/444 [06:38<2:37:55, 21.93s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   3%|▎         | 12/444 [06:51<2:37:55, 21.93s/it]
+qwen3-8b-awq:   3%|▎         | 12/444 [06:51<2:37:55, 21.93s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   3%|▎         | 12/444 [06:59<2:37:55, 21.93s/it]
+qwen3-8b-awq:   3%|▎         | 12/444 [06:59<2:37:55, 21.93s/it][ATotal:   3%|▎         | 13/444 [07:05<4:59:12, 41.65s/it]
+qwen3-8b-awq:   3%|▎         | 13/444 [07:05<4:59:12, 41.65s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   3%|▎         | 13/444 [07:13<4:59:12, 41.65s/it]
+qwen3-8b-awq:   3%|▎         | 13/444 [07:13<4:59:12, 41.65s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#286[0m
+Total:   3%|▎         | 13/444 [07:13<4:59:12, 41.65s/it]
+qwen3-8b-awq:   3%|▎         | 13/444 [07:13<4:59:12, 41.65s/it][ATotal:   3%|▎         | 14/444 [07:21<4:03:05, 33.92s/it]
+qwen3-8b-awq:   3%|▎         | 14/444 [07:21<4:03:05, 33.92s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   3%|▎         | 14/444 [07:27<4:03:05, 33.92s/it]
+qwen3-8b-awq:   3%|▎         | 14/444 [07:27<4:03:05, 33.92s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#285[0m
+Total:   3%|▎         | 14/444 [07:27<4:03:05, 33.92s/it]
+qwen3-8b-awq:   3%|▎         | 14/444 [07:27<4:03:05, 33.92s/it][ATotal:   3%|▎         | 15/444 [07:35<3:19:15, 27.87s/it]
+qwen3-8b-awq:   3%|▎         | 15/444 [07:35<3:19:15, 27.87s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   3%|▎         | 15/444 [07:40<3:19:15, 27.87s/it]
+qwen3-8b-awq:   3%|▎         | 15/444 [07:40<3:19:15, 27.87s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#284[0m
+Total:   3%|▎         | 15/444 [07:40<3:19:15, 27.87s/it]
+qwen3-8b-awq:   3%|▎         | 15/444 [07:40<3:19:15, 27.87s/it][ATotal:   4%|▎         | 16/444 [07:46<2:42:59, 22.85s/it]
+qwen3-8b-awq:   4%|▎         | 16/444 [07:46<2:42:59, 22.85s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   4%|▎         | 16/444 [07:47<2:42:59, 22.85s/it]
+qwen3-8b-awq:   4%|▎         | 16/444 [07:47<2:42:59, 22.85s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#283[0m
+Total:   4%|▎         | 16/444 [07:47<2:42:59, 22.85s/it]
+qwen3-8b-awq:   4%|▎         | 16/444 [07:47<2:42:59, 22.85s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   4%|▎         | 16/444 [07:55<2:42:59, 22.85s/it]
+qwen3-8b-awq:   4%|▎         | 16/444 [07:55<2:42:59, 22.85s/it][ATotal:   4%|▍         | 17/444 [08:06<2:36:07, 21.94s/it]
+qwen3-8b-awq:   4%|▍         | 17/444 [08:06<2:36:07, 21.94s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   4%|▍         | 17/444 [08:08<2:36:07, 21.94s/it]
+qwen3-8b-awq:   4%|▍         | 17/444 [08:08<2:36:07, 21.94s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#282[0m
+Total:   4%|▍         | 17/444 [08:08<2:36:07, 21.94s/it]
+qwen3-8b-awq:   4%|▍         | 17/444 [08:08<2:36:07, 21.94s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   4%|▍         | 17/444 [08:15<2:36:07, 21.94s/it]
+qwen3-8b-awq:   4%|▍         | 17/444 [08:15<2:36:07, 21.94s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   4%|▍         | 17/444 [08:28<2:36:07, 21.94s/it]
+qwen3-8b-awq:   4%|▍         | 17/444 [08:28<2:36:07, 21.94s/it][ATotal:   4%|▍         | 18/444 [08:34<2:47:57, 23.66s/it]
+qwen3-8b-awq:   4%|▍         | 18/444 [08:34<2:47:57, 23.66s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   4%|▍         | 18/444 [08:41<2:47:57, 23.66s/it]
+qwen3-8b-awq:   4%|▍         | 18/444 [08:41<2:47:57, 23.66s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#281[0m
+Total:   4%|▍         | 18/444 [08:41<2:47:57, 23.66s/it]
+qwen3-8b-awq:   4%|▍         | 18/444 [08:41<2:47:57, 23.66s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   4%|▍         | 18/444 [08:47<2:47:57, 23.66s/it]
+qwen3-8b-awq:   4%|▍         | 18/444 [08:47<2:47:57, 23.66s/it][ATotal:   4%|▍         | 19/444 [08:50<2:30:57, 21.31s/it]
+qwen3-8b-awq:   4%|▍         | 19/444 [08:50<2:30:57, 21.31s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   4%|▍         | 19/444 [08:59<2:30:57, 21.31s/it]
+qwen3-8b-awq:   4%|▍         | 19/444 [08:59<2:30:57, 21.31s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#280[0m
+Total:   4%|▍         | 19/444 [08:59<2:30:57, 21.31s/it]
+qwen3-8b-awq:   4%|▍         | 19/444 [08:59<2:30:57, 21.31s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   4%|▍         | 19/444 [09:10<2:30:57, 21.31s/it]
+qwen3-8b-awq:   4%|▍         | 19/444 [09:10<2:30:57, 21.31s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   4%|▍         | 19/444 [09:22<2:30:57, 21.31s/it]
+qwen3-8b-awq:   4%|▍         | 19/444 [09:22<2:30:57, 21.31s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   4%|▍         | 19/444 [09:30<2:30:57, 21.31s/it]
+qwen3-8b-awq:   4%|▍         | 19/444 [09:30<2:30:57, 21.31s/it][ATotal:   5%|▍         | 20/444 [09:34<3:18:44, 28.12s/it]
+qwen3-8b-awq:   5%|▍         | 20/444 [09:34<3:18:44, 28.12s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▍         | 20/444 [09:37<3:18:44, 28.12s/it]
+qwen3-8b-awq:   5%|▍         | 20/444 [09:37<3:18:44, 28.12s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#279[0m
+Total:   5%|▍         | 20/444 [09:37<3:18:44, 28.12s/it]
+qwen3-8b-awq:   5%|▍         | 20/444 [09:37<3:18:44, 28.12s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   5%|▍         | 20/444 [09:43<3:18:44, 28.12s/it]
+qwen3-8b-awq:   5%|▍         | 20/444 [09:43<3:18:44, 28.12s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   5%|▍         | 20/444 [09:53<3:18:44, 28.12s/it]
+qwen3-8b-awq:   5%|▍         | 20/444 [09:53<3:18:44, 28.12s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   5%|▍         | 20/444 [10:06<3:18:44, 28.12s/it]
+qwen3-8b-awq:   5%|▍         | 20/444 [10:06<3:18:44, 28.12s/it][ATotal:   5%|▍         | 21/444 [10:12<3:39:30, 31.14s/it]
+qwen3-8b-awq:   5%|▍         | 21/444 [10:12<3:39:30, 31.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▍         | 21/444 [10:17<3:39:30, 31.14s/it]
+qwen3-8b-awq:   5%|▍         | 21/444 [10:17<3:39:30, 31.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#278[0m
+Total:   5%|▍         | 21/444 [10:17<3:39:30, 31.14s/it]
+qwen3-8b-awq:   5%|▍         | 21/444 [10:17<3:39:30, 31.14s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   5%|▍         | 21/444 [10:28<3:39:30, 31.14s/it]
+qwen3-8b-awq:   5%|▍         | 21/444 [10:28<3:39:30, 31.14s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   5%|▍         | 21/444 [10:41<3:39:30, 31.14s/it]
+qwen3-8b-awq:   5%|▍         | 21/444 [10:41<3:39:30, 31.14s/it][ATotal:   5%|▍         | 22/444 [10:54<4:01:52, 34.39s/it]
+qwen3-8b-awq:   5%|▍         | 22/444 [10:54<4:01:52, 34.39s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▍         | 22/444 [10:54<4:01:52, 34.39s/it]
+qwen3-8b-awq:   5%|▍         | 22/444 [10:54<4:01:52, 34.39s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#277[0m
+Total:   5%|▍         | 22/444 [10:54<4:01:52, 34.39s/it]
+qwen3-8b-awq:   5%|▍         | 22/444 [10:54<4:01:52, 34.39s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   5%|▍         | 22/444 [11:03<4:01:52, 34.39s/it]
+qwen3-8b-awq:   5%|▍         | 22/444 [11:03<4:01:52, 34.39s/it][ATotal:   5%|▌         | 23/444 [11:07<3:15:40, 27.89s/it]
+qwen3-8b-awq:   5%|▌         | 23/444 [11:07<3:15:40, 27.89s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 23/444 [11:11<3:15:40, 27.89s/it]
+qwen3-8b-awq:   5%|▌         | 23/444 [11:11<3:15:40, 27.89s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#276[0m
+Total:   5%|▌         | 23/444 [11:11<3:15:40, 27.89s/it]
+qwen3-8b-awq:   5%|▌         | 23/444 [11:11<3:15:40, 27.89s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   5%|▌         | 23/444 [11:26<3:15:40, 27.89s/it]
+qwen3-8b-awq:   5%|▌         | 23/444 [11:26<3:15:40, 27.89s/it][ATotal:   5%|▌         | 24/444 [11:35<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [11:35<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [11:36<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [11:36<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#275[0m
+Total:   5%|▌         | 24/444 [11:36<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [11:36<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   5%|▌         | 24/444 [11:50<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [11:50<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  Invalid status code 500:
+
+Total:   5%|▌         | 24/444 [12:01<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:01<3:16:57, 28.14s/it][A                                                         
+                                                                [A{"error":{"message":"EngineCore encountered an issue. See stack trace (above) for the root cause.","type":"Internal Server Error","param":null,"code":500}}
+Total:   5%|▌         | 24/444 [12:01<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:01<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  Invalid status code 500:
+
+Total:   5%|▌         | 24/444 [12:03<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:03<3:16:57, 28.14s/it][A                                                         
+                                                                [A{"error":{"message":"EngineCore encountered an issue. See stack trace (above) for the root cause.","type":"Internal Server Error","param":null,"code":500}}
+Total:   5%|▌         | 24/444 [12:03<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:03<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   5%|▌         | 24/444 [12:05<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:05<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf351627f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [12:06<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:06<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [12:10<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:10<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#275 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [12:10<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:10<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [12:12<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:12<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#274[0m
+Total:   5%|▌         | 24/444 [12:12<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:12<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf351762b0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [12:12<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:12<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf351762e0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [12:14<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:14<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35163c10>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [12:17<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:17<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [12:21<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:21<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#274 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [12:21<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:21<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [12:22<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:22<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#273[0m
+Total:   5%|▌         | 24/444 [12:22<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:22<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35162490>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [12:22<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:22<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf350fc670>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [12:24<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:24<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35105040>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [12:27<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:27<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [12:31<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:31<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#273 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [12:31<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:31<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [12:32<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:32<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#272[0m
+Total:   5%|▌         | 24/444 [12:32<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:32<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf351628e0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [12:32<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:32<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf351634f0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [12:34<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:34<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35174940>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [12:37<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:37<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [12:41<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:41<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#272 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [12:41<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:41<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [12:44<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:44<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#271[0m
+Total:   5%|▌         | 24/444 [12:44<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:44<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf351058b0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [12:44<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:44<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf350ff0a0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [12:46<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:46<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35174a30>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [12:49<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:49<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [12:53<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:53<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#271 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [12:53<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:53<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [12:58<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:58<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#270[0m
+Total:   5%|▌         | 24/444 [12:58<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:58<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf351631c0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [12:58<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [12:58<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35162430>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [13:00<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:00<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35162490>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [13:03<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:03<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [13:07<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:07<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#270 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [13:07<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:07<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [13:11<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:11<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#269[0m
+Total:   5%|▌         | 24/444 [13:11<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:11<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf350ffd00>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [13:11<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:11<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35162040>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [13:13<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:13<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35163b50>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [13:16<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:16<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [13:20<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:20<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#269 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [13:20<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:20<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [13:25<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:25<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#268[0m
+Total:   5%|▌         | 24/444 [13:25<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:25<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35174ca0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [13:25<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:25<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf351052e0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [13:27<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:27<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf3510f850>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [13:30<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:30<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [13:34<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:34<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#268 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [13:34<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:34<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [13:38<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:38<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#267[0m
+Total:   5%|▌         | 24/444 [13:38<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:38<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf351058b0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [13:38<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:38<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35163d60>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [13:40<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:40<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35162790>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [13:43<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:43<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [13:47<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:47<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#267 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [13:47<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:47<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [13:51<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:51<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#266[0m
+Total:   5%|▌         | 24/444 [13:51<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:51<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf350ffdc0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [13:51<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:51<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf350ff400>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [13:53<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:53<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35162340>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [13:56<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [13:56<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [14:00<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:00<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#266 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [14:00<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:00<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [14:02<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:02<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#265[0m
+Total:   5%|▌         | 24/444 [14:02<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:02<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35163430>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [14:02<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:02<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35174b20>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [14:04<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:04<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35174580>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [14:07<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:07<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [14:11<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:11<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#265 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [14:11<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:11<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [14:12<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:12<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#264[0m
+Total:   5%|▌         | 24/444 [14:12<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:12<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35114a90>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [14:12<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:12<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf351747c0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [14:14<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:14<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35105340>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [14:17<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:17<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [14:21<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:21<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#264 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [14:21<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:21<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [14:22<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:22<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#263[0m
+Total:   5%|▌         | 24/444 [14:22<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:22<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf351620d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [14:22<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:22<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35114ca0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [14:24<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:24<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf3510b6d0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [14:27<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:27<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   5%|▌         | 24/444 [14:29<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:29<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [14:31<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:31<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#263 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [14:31<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:31<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [14:42<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:42<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#262[0m
+Total:   5%|▌         | 24/444 [14:42<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:42<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35162730>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [14:42<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:42<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35163af0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [14:44<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:44<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35105940>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [14:47<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:47<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   5%|▌         | 24/444 [14:49<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:49<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [14:51<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:51<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#262 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [14:51<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [14:51<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [15:01<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:01<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#261[0m
+Total:   5%|▌         | 24/444 [15:01<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:01<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf3510b220>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [15:01<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:01<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf3510bac0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [15:03<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:03<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35105220>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [15:06<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:06<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   5%|▌         | 24/444 [15:10<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:10<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [15:10<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:10<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#261 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [15:10<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:10<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [15:21<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:21<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#260[0m
+Total:   5%|▌         | 24/444 [15:21<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:21<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35163910>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [15:21<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:21<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35114160>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [15:23<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:23<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf3510b220>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [15:26<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:26<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [15:30<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:30<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#260 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [15:30<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:30<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [15:34<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:34<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#259[0m
+Total:   5%|▌         | 24/444 [15:34<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:34<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35114580>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [15:34<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:34<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35162c70>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [15:36<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:36<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35163cd0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [15:39<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:39<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [15:43<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:43<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#259 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [15:43<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:43<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [15:46<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:46<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#258[0m
+Total:   5%|▌         | 24/444 [15:46<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:46<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35174b20>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [15:46<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:46<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf3511f8b0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [15:48<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:48<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35174850>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [15:51<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:51<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [15:55<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:55<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#258 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [15:55<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:55<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [15:57<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:57<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#257[0m
+Total:   5%|▌         | 24/444 [15:57<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:57<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35163fd0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [15:57<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:57<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35162400>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [15:59<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [15:59<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf350ff340>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [16:02<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:02<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   5%|▌         | 24/444 [16:02<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:02<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [16:06<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:06<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#257 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [16:06<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:06<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [16:12<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:12<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#256[0m
+Total:   5%|▌         | 24/444 [16:12<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:12<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf3511f580>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [16:12<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:12<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf350ffaf0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [16:14<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:14<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35162ca0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [16:17<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:17<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   5%|▌         | 24/444 [16:19<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:19<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [16:21<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:21<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#256 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [16:21<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:21<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [16:33<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:33<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#255[0m
+Total:   5%|▌         | 24/444 [16:33<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:33<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35105910>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [16:33<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:33<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf3511f7c0>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [16:35<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:35<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf3511fb50>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [16:38<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:38<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [16:42<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:42<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#255 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [16:42<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:42<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 0
+Total:   5%|▌         | 24/444 [16:43<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:43<3:16:57, 28.14s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/dbbench-std#254[0m
+Total:   5%|▌         | 24/444 [16:43<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:43<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35174550>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [16:43<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:43<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35105400>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [16:45<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:45<3:16:57, 28.14s/it][A                                                         
+                                                                [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Max retries exceeded with url: /v1/chat/completions (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x78bf35162a30>: Failed to establish a new connection: [Errno 111] Connection refused'))
+Total:   5%|▌         | 24/444 [16:48<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:48<3:16:57, 28.14s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   5%|▌         | 24/444 [16:50<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:50<3:16:57, 28.14s/it][A                                                         
+                                                                [AERROR: HTTPAgent/dbbench-std agent error Failed.
+Total:   5%|▌         | 24/444 [16:52<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:52<3:16:57, 28.14s/it][A                                                         
+                                                                [A[93mWarning: qwen3-8b-awq/dbbench-std#254 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   5%|▌         | 24/444 [16:52<3:16:57, 28.14s/it]
+qwen3-8b-awq:   5%|▌         | 24/444 [16:52<3:16:57, 28.14s/it][A

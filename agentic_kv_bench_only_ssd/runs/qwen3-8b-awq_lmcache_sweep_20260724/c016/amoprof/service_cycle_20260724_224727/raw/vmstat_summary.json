@@ -1,0 +1,23 @@
+{
+  "vmstat_available": true,
+  "page_faults_per_s": 42173.62,
+  "major_faults_per_s": 4.23,
+  "page_faults_total": 478114,
+  "major_faults_total": 48,
+  "swap_in_per_s": 0.0,
+  "swap_out_per_s": 0.0,
+  "swap_pages_total": 0,
+  "page_cache_reads_per_s": 106418.02,
+  "page_cache_writes_per_s": 3018.14,
+  "numa_migrations_per_s": 0.0,
+  "numa_hint_faults_per_s": 0.0,
+  "tlb_remote_miss_per_s": 0.0,
+  "oom_kills": 0,
+  "hugepages_total": 0,
+  "hugepages_free": 0,
+  "hugepages_used": 0,
+  "hugepage_size_kb": 2048,
+  "collection_start_time_seconds": 1784933247.323121,
+  "collection_end_time_seconds": 1784933258.001596,
+  "collection_duration_s": 10.678475
+}

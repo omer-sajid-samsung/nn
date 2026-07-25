@@ -1,0 +1,12 @@
+{
+  "blktrace_pid": 1650984,
+  "blktrace_running": true,
+  "device": "/dev/nvme1n1",
+  "trace_dir": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c016/amoprof/service_cycle_20260725_025333/raw/blktrace_data",
+  "trace_prefix": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c016/amoprof/service_cycle_20260725_025333/raw/blktrace_data/trace",
+  "trace_file_count_after_start": 0,
+  "trace_files_seen_after_start": [],
+  "debugfs_mounted": true,
+  "tracefs_mounted": true,
+  "note": "No trace.blktrace.* files immediately after launch is not an error. AMOprof validates trace files at stop() after blktrace flushes output."
+}

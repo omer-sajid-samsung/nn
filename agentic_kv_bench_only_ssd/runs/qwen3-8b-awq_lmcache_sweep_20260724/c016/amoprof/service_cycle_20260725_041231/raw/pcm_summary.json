@@ -1,0 +1,11 @@
+{
+  "pcm_available": false,
+  "pcm_source": "intel-pcm/pcm-memory",
+  "pcm_reason": "FG1 | Can not access server uncore PCI configuration space. Access to uncore counters (memory and QPI bandwidth) is disabled. | You must be root to access server uncore counters in PCM. | Detected Intel(R) Xeon(R) Platinum 8259CL CPU @ 2.50GHz \"Intel(r) microarchitecture codename Cascade Lake-SP\" stepping 7 microcode level 0x5003901 | Access to Intel(r) Performance Counter Monitor has denied (no MSR or PCI CFG space access). | Cleaning up | Closed perf event handles | Zeroed uncore PMU registers",
+  "pcm_samples": 0,
+  "pcm_raw_path": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c016/amoprof/service_cycle_20260725_041231/raw/pcm_memory_raw.csv",
+  "pcm_stderr_path": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c016/amoprof/service_cycle_20260725_041231/raw/pcm_memory_stderr.txt",
+  "collection_start_time_seconds": 1784952751.842017,
+  "collection_end_time_seconds": 1784952762.527194,
+  "collection_duration_s": 10.685177
+}

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>AMOprof Report — service_cycle_20260724_105101</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+  <style>
+    *,*::before,*::after { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 24px;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      color: #0f172a;
+      background: #e2e8f0;
+      line-height: 1.55;
+    }
+    header {
+      max-width: 1400px; margin: 0 auto 24px auto;
+      padding: 24px 28px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #f1f5f9;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(15,23,42,0.18);
+    }
+    header h1 { margin: 0 0 6px 0; font-size: 24px; letter-spacing: -0.3px; }
+    header .sub { color: #94a3b8; font-size: 13px; }
+    .kpi-grid {
+      max-width: 1400px; margin: 0 auto 24px auto;
+      display: grid; gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    .kpi-tile {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 12px 14px;
+      box-shadow: 0 1px 3px rgba(15,23,42,0.06);
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .kpi-tile:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 3px 10px rgba(15,23,42,0.12);
+    }
+    .kpi-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.6px;
+                  color: #64748b; margin-bottom: 4px; font-weight: 600; }
+    .kpi-value { font-size: 22px; font-weight: 700; color: #0f172a; }
+    .kpi-unit  { font-size: 13px; font-weight: 500; color: #475569; margin-left: 4px; }
+    .kpi-note  { font-size: 11px; color: #64748b; margin-top: 3px; }
+    section.card {
+      max-width: 1400px; margin: 0 auto 18px auto;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 18px 22px 22px 22px;
+      box-shadow: 0 1px 3px rgba(15,23,42,0.05);
+    }
+    section.card h2 {
+      margin: 0 0 12px 0;
+      font-size: 16px;
+      color: #0f172a;
+      letter-spacing: -0.2px;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 8px;
+    }
+    .plot { width: 100%; min-height: 360px; }
+    .caption { margin-top: 10px; font-size: 12px; color: #64748b; font-style: italic; }
+    .no-data {
+      padding: 32px; text-align: center; color: #64748b;
+      background: #f1f5f9; border-radius: 8px; font-size: 14px;
+    }
+
+    /* Collapsed-empty section styling. The whole <section.card.empty-card>
+       collapses to a single muted row when the section has no data, so
+       long-tail "requires blktrace" / "Prom-only" sections don't push
+       interesting content off-screen. Click anywhere on the summary row
+       to expand and read the explanation. */
+    section.card.empty-card {
+      padding: 0;
+      background: #f8fafc;
+      border-color: #e2e8f0;
+    }
+    .empty-details { margin: 0; }
+    .empty-summary {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 16px;
+      cursor: pointer; user-select: none;
+      list-style: none;  /* hide default disclosure triangle on most browsers */
+      font-size: 13px; color: #64748b;
+      border-radius: 8px;
+      transition: background 80ms ease-in-out;
+    }
+    .empty-summary::-webkit-details-marker { display: none; }
+    .empty-summary:hover { background: #f1f5f9; }
+    .empty-details[open] .empty-summary {
+      border-bottom: 1px solid #e2e8f0;
+      border-radius: 8px 8px 0 0;
+    }
+    .empty-icon {
+      font-size: 16px; color: #94a3b8;
+      transition: transform 120ms ease-in-out;
+    }
+    .empty-details[open] .empty-icon { transform: rotate(45deg); }
+    .empty-title {
+      flex: 1; font-weight: 600; color: #475569;
+    }
+    .empty-hint {
+      font-size: 11px; color: #94a3b8; font-style: italic;
+    }
+    .empty-details[open] .empty-hint { display: none; }
+    .empty-details .no-data {
+      margin: 0; border-radius: 0 0 8px 8px;
+      background: #f8fafc;
+    }
+    footer {
+      max-width: 1400px; margin: 24px auto 0 auto;
+      text-align: center; color: #64748b; font-size: 12px;
+      padding: 16px;
+    }
+    /* Hover hint banner */
+    .hint {
+      background: #fef3c7; border-left: 4px solid #f59e0b;
+      color: #78350f; padding: 10px 14px; border-radius: 6px;
+      margin: 0 auto 18px auto; max-width: 1400px; font-size: 13px;
+    }
+
+    .setup-panel {
+      background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%) !important;
+      border: 1px solid #a5b4fc !important;
+      border-left: 6px solid #4f46e5 !important;
+      color: #0f172a !important;
+      box-shadow: 0 4px 14px rgba(79,70,229,0.12) !important;
+    }
+    .setup-panel h2 { color: #1e1b4b !important; }
+    .setup-panel-collapsible summary { cursor:pointer; list-style:none; font-size:18px; font-weight:800; color:#1e1b4b !important; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .setup-panel-collapsible summary::-webkit-details-marker { display:none; }
+    .setup-panel-collapsible summary:before { content:'▶'; font-size:12px; color:#4f46e5; margin-right:4px; }
+    .setup-panel-collapsible[open] summary:before { content:'▼'; }
+    .setup-panel-collapsible:not([open]) .setup-grid { display:none; }
+    .setup-summary-hint { font-size:11px; color:#64748b; font-weight:600; }
+    .setup-grid { display:grid; grid-template-columns: 1.35fr .85fr; gap:16px; align-items:start; }
+    .setup-table { width:100%; border-collapse:separate; border-spacing:0; overflow:hidden; border-radius:10px; border:1px solid #c7d2fe; background:#ffffff; }
+    .setup-table tr:nth-child(even) td { background:#f8fafc; }
+    .setup-table tr:nth-child(odd) td { background:#ffffff; }
+    .setup-table tr:hover td { background:#dbeafe !important; }
+    .setup-key { padding:9px 12px; font-weight:800; color:#1e293b !important; width:34%; border-bottom:1px solid #e2e8f0; vertical-align:top; }
+    .setup-value { padding:9px 12px; font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace; color:#0f172a !important; border-bottom:1px solid #e2e8f0; vertical-align:top; overflow-wrap:anywhere; word-break:break-word; }
+    .setup-row-defaulted .setup-key, .setup-row-defaulted .setup-value { background:#fff7ed !important; color:#7c2d12 !important; }
+    .setup-info-box { background:#ffffff !important; border:1px solid #c7d2fe; border-radius:10px; padding:14px 16px; font-size:12px; color:#334155 !important; line-height:1.65; }
+    .setup-info-box p { margin:0 0 9px 0; }
+    .setup-info-box code { background:#eef2ff !important; color:#3730a3 !important; padding:1px 4px; border-radius:4px; }
+    .setup-info-title { font-size:12px; font-weight:800; color:#312e81; text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px; }
+    .stack-cake { display:grid; gap:8px; margin-top:8px; }
+    .stack-row { display:grid; gap:8px; }
+    .stack-row.full { grid-template-columns:1fr; }
+    .stack-row.pair { grid-template-columns:1.6fr 1fr; }
+    .stack-row.trio { grid-template-columns:1fr 1fr 1fr; }
+    .stack-row > div, .stack-row.full { border-radius:10px; padding:14px 16px; color:#fff; }
+    .stack-row b { display:block; font-size:15px; margin-bottom:4px; }
+    .stack-row span { font-size:11px; opacity:.92; }
+    .a5 { background:#24577f; } .a4 { background:#317bb8; } .model { background:#b89a05; }
+    .l1 { background:#2f8a4e; } .l2 { background:#7a3f97; } .l3 { background:#a45714; }
+    @media(max-width:768px) { .setup-grid,.stack-row.pair,.stack-row.trio { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📊 AMOprof — AI Memory &amp; IO Profiler · Interactive Report</h1>
+    <div class="sub">
+      Model: deepseek-ai/DeepSeek-R1-Distill-Llama-70B
+      &nbsp;·&nbsp; Duration: 0 sec
+      &nbsp;·&nbsp; Source: offline
+    </div>
+  </header>
+
+  <div class="hint">
+    💡 <b>Tip:</b> Hover any chart for exact values. Click a legend entry to hide/show traces.
+    Drag to zoom; double-click to reset.
+  </div>
+
+  <div class="kpi-grid">
+    
+<div class="kpi-tile" title="Peak 0%">
+  <div class="kpi-label">GPU util</div>
+  <div class="kpi-value" style="color:#0f172a">0.0<span class="kpi-unit">%</span></div>
+  <div class="kpi-note">Peak 0%</div>
+</div>
+<div class="kpi-tile" title="0% full · 8 GPU(s) · 0.0 GB/GPU avg">
+  <div class="kpi-label">HBM used (all GPUs)</div>
+  <div class="kpi-value" style="color:#0f172a">0.0 / 320<span class="kpi-unit">GB</span></div>
+  <div class="kpi-note">0% full · 8 GPU(s) · 0.0 GB/GPU avg</div>
+</div>
+<div class="kpi-tile" title="Peak per-GPU draw">
+  <div class="kpi-label">GPU power</div>
+  <div class="kpi-value" style="color:#0f172a">28<span class="kpi-unit">W</span></div>
+  <div class="kpi-note">Peak per-GPU draw</div>
+</div>
+<div class="kpi-tile" title="runtime residency unavailable · sglang_hicache_host_used_tokens missing from selected-window timeseries">
+  <div class="kpi-label">DRAM residency</div>
+  <div class="kpi-value" style="color:#0f172a">— / 400<span class="kpi-unit">GB</span></div>
+  <div class="kpi-note">runtime residency unavailable · sglang_hicache_host_used_tokens missing from selected-window timeseries</div>
+</div>
+<div class="kpi-tile" title="12% full">
+  <div class="kpi-label">L3.5 (AI Memory Node / remote storage) used</div>
+  <div class="kpi-value" style="color:#0f172a">99.6 / 824<span class="kpi-unit">GB</span></div>
+  <div class="kpi-note">12% full</div>
+</div>
+<div class="kpi-tile" title="R=0  W=329  T=0">
+  <div class="kpi-label">Block IOs</div>
+  <div class="kpi-value" style="color:#0f172a">329<span class="kpi-unit"></span></div>
+  <div class="kpi-note">R=0  W=329  T=0</div>
+</div>
+  </div>
+
+  
+<section class="card">
+  <h2>🔗 Cross-layer correlation — why utilization can be low while latency is high</h2>
+  <p>
+    Based on the SGLang launch command and setup details, this section explains why GPU/HBM/DRAM/L3
+    utilization may be below 100% while TTFT/TPOT are high. Low utilization can mean the pipeline is
+    waiting on prefill, scheduling, cache movement, request concurrency, or tier transitions rather than
+    saturating a hardware counter.
+  </p>
+  <table style="width:100%;border-collapse:collapse;font-size:13px">
+    <tr><td style="font-weight:700;width:190px;padding:7px;border-bottom:1px solid #e2e8f0">Latency</td><td style="padding:7px;border-bottom:1px solid #e2e8f0">Use the KPI tiles above for canonical TTFT, TPOT/ITL, E2E, and throughput. These are the user-visible symptoms.</td></tr>
+    <tr><td style="font-weight:700;padding:7px;border-bottom:1px solid #e2e8f0">Token movement</td><td style="padding:7px;border-bottom:1px solid #e2e8f0">Eviction/backup pressure explains L3 writes and cache churn; prefetch plus L2→L1 load_back restore pressure matters when it aligns with latency spikes. load_back remains a diagnostic upper bound, not physical SSD bytes.</td></tr>
+    <tr><td style="font-weight:700;padding:7px;border-bottom:1px solid #e2e8f0">Compute and GPU</td><td style="padding:7px;border-bottom:1px solid #e2e8f0">GPU utilization can be low when prefill, scheduling, cache movement, or low concurrency leaves gaps between kernels. This is pipeline starvation, not necessarily low workload intensity.</td></tr>
+    <tr><td style="font-weight:700;padding:7px;border-bottom:1px solid #e2e8f0">HBM</td><td style="padding:7px;border-bottom:1px solid #e2e8f0">HBM used is residency/capacity, not a target that must reach 100%. Headroom may be reserved for activations, CUDA graphs, and safety margin.</td></tr>
+    <tr><td style="font-weight:700;padding:7px;border-bottom:1px solid #e2e8f0">DRAM/L3</td><td style="padding:7px;border-bottom:1px solid #e2e8f0">Low DRAM BW indicates L2 headroom. L3 advisory QD/busy-time is busy-time/pressure and must be correlated with latency, bandwidth, and exact Q→C evidence before calling L3 saturation.</td></tr>
+  </table>
+</section>
+<section class="card">
+  <h2>🚀 Setup-aware SGLang launch tuning</h2>
+  <p>Recommendations are based on the setup_details launch command and observed report metrics.</p>
+  <ul style="margin-left:18px;color:#334155">
+    <li><b>HBM KV pool:</b> if HBM headroom exists, A/B test higher <code>--mem-fraction-static</code> values such as 0.85, then 0.88/0.90 only if SGLang logs show safe available GPU memory.</li>
+    <li><b>FP8 KV:</b> keep or enable <code>--kv-cache-dtype fp8_e5m2</code> to reduce KV bytes/token and L3 spill pressure.</li>
+    <li><b>Chunked prefill:</b> keep or enable <code>--chunked-prefill-size 4096</code>; A/B 2048/4096/8192 for TTFT vs throughput.</li>
+    <li><b>L2 DRAM:</b> when DRAM BW is low, test increasing <code>--hicache-size</code> before assuming SSD hardware is the bottleneck.</li>
+    <li><b>L3.5 (AI Memory Node / remote storage):</b> use an explicit <code>--file-storage-path</code> on the NVMe mount and direct/page_first_direct for cleaner L3 correlation.</li>
+  </ul>
+</section>
+
+  
+<details class="card setup-panel setup-panel-collapsible">
+  <summary>⚙️ Setup / Server Configuration <span class="setup-summary-hint">collapsed by default</span></summary>
+  <div class="setup-grid">
+    <div><table class="setup-table"><tbody><tr class=""><td class="setup-key">Model</td><td class="setup-value">deepseek-ai/DeepSeek-R1-Distill-Llama-70B</td></tr><tr class=""><td class="setup-key">Runtime</td><td class="setup-value">SGLang</td></tr><tr class=""><td class="setup-key">Job</td><td class="setup-value">unknown</td></tr><tr class=""><td class="setup-key">Engine</td><td class="setup-value">unknown</td></tr><tr class=""><td class="setup-key">TP size</td><td class="setup-value">8</td></tr><tr class=""><td class="setup-key">dtype</td><td class="setup-value">unknown</td></tr><tr class=""><td class="setup-key">KV dtype</td><td class="setup-value">unknown</td></tr><tr class=""><td class="setup-key">Context length</td><td class="setup-value">unknown</td></tr><tr class=""><td class="setup-key">Page size</td><td class="setup-value">unknown</td></tr><tr class=""><td class="setup-key">Num pages/tokens</td><td class="setup-value">unknown</td></tr><tr class=""><td class="setup-key">HiCache</td><td class="setup-value">unknown</td></tr><tr class=""><td class="setup-key">Model path</td><td class="setup-value">deepseek-ai/DeepSeek-R1-Distill-Llama-70B</td></tr><tr class=""><td class="setup-key">Host</td><td class="setup-value">0.0.0.0</td></tr><tr class=""><td class="setup-key">Port</td><td class="setup-value">30000</td></tr><tr class=""><td class="setup-key">DP size</td><td class="setup-value">1</td></tr><tr class=""><td class="setup-key">Attention backend</td><td class="setup-value">triton</td></tr><tr class=""><td class="setup-key">Mem fraction static</td><td class="setup-value">0.8</td></tr><tr class=""><td class="setup-key">Hierarchical cache</td><td class="setup-value">enabled</td></tr><tr class=""><td class="setup-key">HiCache size</td><td class="setup-value">50</td></tr><tr class=""><td class="setup-key">HiCache storage backend</td><td class="setup-value">file</td></tr><tr class=""><td class="setup-key">HiCache write policy</td><td class="setup-value">write_through</td></tr><tr class=""><td class="setup-key">Trust remote code</td><td class="setup-value">true</td></tr><tr class=""><td class="setup-key">Metrics enabled</td><td class="setup-value">true</td></tr><tr class=""><td class="setup-key">Cache report enabled</td><td class="setup-value">true</td></tr><tr class=""><td class="setup-key">Reasoning parser</td><td class="setup-value">deepseek-r1</td></tr><tr class=""><td class="setup-key">Tool call parser</td><td class="setup-value">deepseekv3</td></tr><tr class=""><td class="setup-key">Reference launch command</td><td class="setup-value">python -m sglang.launch_server --model-path deepseek-ai/DeepSeek-R1-Distill-Llama-70B --tp-size 8 --dp-size 1 --port 30000 --host 0.0.0.0 --attention-backend triton --mem-fraction-static 0.8 --enable-hierarchical-cache --hicache-size 50 --trust-remote-code --enable-metrics --enable-cache-report --reasoning-parser deepseek-r1 --tool-call-parser deepseekv3 --hicache-storage-backend file --hicache-write-policy write_through</td></tr><tr class="setup-row-defaulted"><td class="setup-key">Default profile</td><td class="setup-value">SGLang DeepSeek-R1-70B HiCache reference launch; defaulted fields are assumed, not observed</td></tr><tr class="setup-row-defaulted"><td class="setup-key">Defaulted fields</td><td class="setup-value">Model, Model path, Host, Port, TP size, DP size, Attention backend, Mem fraction static, Hierarchical cache, HiCache size, HiCache storage backend, HiCache write policy, Trust remote code, Metrics enabled, Cache report enabled, Reasoning parser, Tool call parser, Reference launch command</td></tr><tr class=""><td class="setup-key">Application / Benchmark</td><td class="setup-value">unknown</td></tr><tr class=""><td class="setup-key">Launch command</td><td class="setup-value">python -m sglang.launch_server --model-path deepseek-ai/DeepSeek-R1-Distill-Llama-70B --tp-size 8 --dp-size 1 --port 30000 --host 0.0.0.0 --attention-backend triton --mem-fraction-static 0.8 --enable-hierarchical-cache --hicache-size 50 --trust-remote-code --enable-metrics --enable-cache-report --reasoning-parser deepseek-r1 --tool-call-parser deepseekv3 --hicache-storage-backend file --hicache-write-policy write_through</td></tr><tr class=""><td class="setup-key">mem-fraction-static</td><td class="setup-value">0.8</td></tr></tbody></table></div>
+    <div class="setup-info-box">
+      <div class="setup-info-title">How setup fields were populated</div>
+      <p><b>Auto-detected:</b> read from <code>sglang_summary.json</code>, Prometheus labels, and cache config labels when present.</p>
+      <p><b>Manual override:</b> <code>setup_details.json</code> or <code>setup.json</code> values override auto-detection.</p>
+      <p><b>Defaults:</b> remaining missing SGLang launch parameters use the built-in DeepSeek-R1-70B HiCache reference profile and are listed under <code>Defaulted fields</code>.</p>
+    </div>
+  </div>
+</details>
+<section class="card" style="border-left:4px solid #0f766e">
+  <h2>🍰 AI Workload Stack — Layered Memory-Tier View</h2>
+  <div class="stack-cake">
+    <div class="stack-row full a5"><b>A5 · Application Layer</b><span>benchmarks, prompt/output mix, TTFT, TPOT, P99 request latency</span></div>
+    <div class="stack-row pair"><div class="a4"><b>A4 · Inference Runtime</b><span>SGLang scheduling, batching, KV$ eviction/L2→L1 load-back</span></div><div class="model"><b>AI Models</b><span>model config, dtype, context length, KV$/token</span></div></div>
+    <div class="stack-row trio"><div class="l1"><b>A3/A2/A1 · L1 HBM</b><span>CUDA kernels, GPU driver, HBM capacity/BW</span></div><div class="l2"><b>A3/A2/A1 · L2 DRAM</b><span>OS memory manager, page faults, swap, DRAM BW</span></div><div class="l3"><b>A3/A2/A1 · L3.5 (AI Memory Node / remote storage)</b><span>OS block layer, NVMe driver, NAND, blktrace/biosnoop</span></div></div>
+  </div>
+  <div class="caption">Report sections below are ordered to match this layered view.</div>
+</section>
+<section class="card layer-header" id="layer-a5" style="background:#24577f;color:#fff;border-color:#24577f">
+  <h2 style="color:#fff;border-bottom:1px solid rgba(255,255,255,.35)">A5 · Application Layer</h2>
+  <div style="font-size:13px;opacity:.95">Benchmark workload, request mix, prompt/output token distributions, TTFT/TPOT and tail latency.</div>
+</section>
+<section class="card layer-header" id="layer-a4" style="background:#317bb8;color:#fff;border-color:#317bb8">
+  <h2 style="color:#fff;border-bottom:1px solid rgba(255,255,255,.35)">A4 · Inference Runtime + AI Model</h2>
+  <div style="font-size:13px;opacity:.95">SGLang runtime behavior, model/cache configuration, token throughput, cache-hit, tier residency and KV eviction/L2→L1 load-back.</div>
+</section>
+<section class="card empty-card">
+  <details class="empty-details">
+    <summary class="empty-summary">
+      <span class="empty-icon">⊘</span>
+      <span class="empty-title">Token Throughput & Cache Hit Rate</span>
+      <span class="empty-hint">no data — click to expand</span>
+    </summary>
+    <div class="no-data">No data available for this chart.<br>
+      <small>SGLang Prometheus scrape — hover any point for values</small>
+      <details class="fml"><summary>📐 Formula & Metrics Used</summary><pre>Throughput mean = active_mean(sglang_gen_throughput)
+Throughput p50 = median(nonzero_samples(sglang_gen_throughput))
+Fallback throughput = Δsglang_generation_tokens_total / Δtime_sec
+Primary cache hit = cache-served prompt/prefill tokens / (cache-served + compute-served prompt/prefill tokens) × 100
+Request JSON exact = Σmeta_info.cached_tokens / Σ(meta_info.cached_tokens + meta_info.prompt_tokens) × 100
+OpenAI usage exact = Σusage.prompt_tokens_details.cached_tokens / Σusage.prompt_tokens × 100
+Prometheus fallback = Δsglang_realtime_tokens_total{mode="prefill_cache"} / (Δprefill_cache + Δprefill_compute) × 100
+Cached/prompt diagnostic = Δsglang_cached_tokens_total / Δsglang_prompt_tokens_total × 100
+Gauge diagnostics = avg/active/peak sglang_cache_hit_rate samples</pre></details>
+    </div>
+  </details>
+</section>
+<section class="card empty-card">
+  <details class="empty-details">
+    <summary class="empty-summary">
+      <span class="empty-icon">⊘</span>
+      <span class="empty-title">KV Cache Tier Occupancy</span>
+      <span class="empty-hint">no data — click to expand</span>
+    </summary>
+    <div class="no-data">No data available for this chart.<br>
+      <small>L1=Device(HBM), L2=Host(DRAM), L3.5 (AI Memory Node / remote storage) — stacked</small>
+      <details class="fml"><summary>📐 Formula & Metrics Used</summary><pre>L1/HBM tokens = sglang_kv_used_tokens or sglang_token_usage-derived fields
+L2/host cache occupancy = sglang_hicache_host_used_tokens / sglang_hicache_host_total_tokens × 100
+L3.5 (AI Memory Node / remote storage) movement = Δsglang_backuped_tokens_total (write/offload) and Δsglang_prefetched_tokens_total (read/onboard)
+Diagnostic-only counters = Δsglang_load_back_tokens_total (hierarchy restore upper bound) and Δsglang_evicted_tokens_total (cache pressure)
+Bytes estimate = token_delta × KV bytes per token from setup/model profile; load_back is L2→L1 restore and is not counted as SSD/L3 bytes</pre></details>
+    </div>
+  </details>
+</section>
+<section class="card empty-card">
+  <details class="empty-details">
+    <summary class="empty-summary">
+      <span class="empty-icon">⊘</span>
+      <span class="empty-title">KV Cache Eviction / L2→L1 Load-back / Backup Rates</span>
+      <span class="empty-hint">no data — click to expand</span>
+    </summary>
+    <div class="no-data">No data available for this chart.<br>
+      <small>SGLang hierarchical-cache movement counters</small>
+      <details class="fml"><summary>📐 Formula & Metrics Used</summary><pre>L1/HBM tokens = sglang_kv_used_tokens or sglang_token_usage-derived fields
+L2/host cache occupancy = sglang_hicache_host_used_tokens / sglang_hicache_host_total_tokens × 100
+L3.5 (AI Memory Node / remote storage) movement = Δsglang_backuped_tokens_total (write/offload) and Δsglang_prefetched_tokens_total (read/onboard)
+Diagnostic-only counters = Δsglang_load_back_tokens_total (hierarchy restore upper bound) and Δsglang_evicted_tokens_total (cache pressure)
+Bytes estimate = token_delta × KV bytes per token from setup/model profile; load_back is L2→L1 restore and is not counted as SSD/L3 bytes</pre></details>
+    </div>
+  </details>
+</section>
+<section class="card">
+  <h2>L3 Consistency Check — SGLang vs local sources</h2>
+  <div class="caption"><b>Status:</b> Not directly comparable<br>
+  <b>Resolved backend:</b> Unresolved backing tier &nbsp;·&nbsp; <b>Evidence:</b> no explicit backend evidence<br>
+  <b>Rule:</b> SGLang counters are logical KV movement. blktrace/blkparse/iostat are physical local-block bytes. Visualizations compare them side-by-side; they are not merged unless backend is resolved as L3.5 (AI Memory Node / remote storage) and the physical capture is complete.<br>
+  <b>Note:</b> SGLang counters are logical Unresolved backing tier movement; local block-device bytes are not treated as L3 because no resolved L3.5 (AI Memory Node / remote storage) block mapping is available.</div>
+  <div id="ch_l3_consistency" class="plot"></div>
+  <table style="width:100%;border-collapse:collapse;margin-top:10px;font-size:13px">
+    <tr><th style="text-align:left;padding:6px;border-bottom:1px solid #334155">Direction</th><th style="text-align:right;padding:6px;border-bottom:1px solid #334155">SGLang logical GB</th><th style="text-align:right;padding:6px;border-bottom:1px solid #334155">Local physical GB</th></tr>
+    <tr><td style="padding:6px">Read: prefetched only (L2→L1 load_back restore diagnostic)</td><td style="text-align:right;padding:6px">0.000</td><td style="text-align:right;padding:6px">0.000</td></tr>
+    <tr><td style="padding:6px">Write: backuped</td><td style="text-align:right;padding:6px">0.000</td><td style="text-align:right;padding:6px">0.008</td></tr>
+  </table>
+  <script>
+    (function() {
+      var fig = {"data": [{"x": ["Read", "Write"], "y": [0.0, 0.0], "type": "bar", "name": "SGLang logical L3", "hovertemplate": "%{x}: %{y:.3f} GB<extra></extra>"}, {"x": ["Read", "Write"], "y": [0.0, 0.00753021240234375], "type": "bar", "name": "Local block physical", "hovertemplate": "%{x}: %{y:.3f} GB<extra></extra>"}], "layout": {"title": {"text": "L3 consistency: SGLang logical vs local-source physical bytes", "font": {"size": 15, "color": "#0f172a", "family": "Inter, system-ui, sans-serif"}, "x": 0.02, "y": 0.97, "xanchor": "left", "yanchor": "top"}, "height": 540, "margin": {"l": 70, "r": 320, "t": 60, "b": 130}, "plot_bgcolor": "#f8fafc", "paper_bgcolor": "#ffffff", "font": {"color": "#0f172a", "size": 13, "family": "Inter, system-ui, sans-serif"}, "xaxis": {"type": "category", "title": {"text": "Direction"}, "gridcolor": "#cbd5e1", "linecolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "automargin": true}, "yaxis": {"title": {"text": "GB", "font": {"size": 13}, "standoff": 10}, "gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "automargin": true}, "hovermode": "x unified", "hoverlabel": {"bgcolor": "#1e293b", "bordercolor": "#0f172a", "font": {"color": "#f1f5f9", "size": 13}}, "legend": {"orientation": "v", "yanchor": "top", "y": 1.0, "xanchor": "left", "x": 1.03, "font": {"size": 11, "color": "#0f172a"}, "bgcolor": "rgba(248,250,252,0.98)", "bordercolor": "#cbd5e1", "borderwidth": 1, "itemwidth": 30, "itemsizing": "constant", "tracegroupgap": 6}, "barmode": "group", "autosize": true}};
+      Plotly.newPlot('ch_l3_consistency', fig.data, fig.layout,
+        {responsive:true, displayModeBar:true, displaylogo:false,
+          modeBarButtonsToRemove:['select2d','lasso2d']});
+    })();
+  </script>
+</section>
+<section class="card empty-card">
+  <details class="empty-details">
+    <summary class="empty-summary">
+      <span class="empty-icon">⊘</span>
+      <span class="empty-title">L3.5 (AI Memory Node / remote storage) cache Bandwidth — Prometheus-derived (MB/s)</span>
+      <span class="empty-hint">no data — click to expand</span>
+    </summary>
+    <div class="no-data">No data available for this chart.<br>
+      <small>Estimated from SGLang backuped/prefetched token counters × 320 KB/tok (model arch). Useful work, not raw device bytes. load_back is shown as L2→L1 restore diagnostic-only and is not counted as SSD/L3 read bytes bytes.</small>
+      
+    </div>
+  </details>
+</section>
+<section class="card empty-card">
+  <details class="empty-details">
+    <summary class="empty-summary">
+      <span class="empty-icon">⊘</span>
+      <span class="empty-title">L3.5 (AI Memory Node / remote storage) cache Traffic — Cumulative GB (Prometheus-derived)</span>
+      <span class="empty-hint">no data — click to expand</span>
+    </summary>
+    <div class="no-data">No data available for this chart.<br>
+      <small>Endurance footprint over the collection window. Use for SSD TBW sizing when extrapolating to a longer production timeframe.</small>
+      
+    </div>
+  </details>
+</section>
+<section class="card layer-header" id="layer-l1" style="background:#2f8a4e;color:#fff;border-color:#2f8a4e">
+  <h2 style="color:#fff;border-bottom:1px solid rgba(255,255,255,.35)">A3/A2/A1 · L1 HBM / CUDA / GPU</h2>
+  <div style="font-size:13px;opacity:.95">GPU kernel/runtime layer, HBM occupancy, HBM bandwidth pressure, GPU power and utilization.</div>
+</section>
+<section class="card">
+  <h2>GPU Utilization & HBM (per GPU)</h2>
+  <div id="ch_gpu" class="plot"></div>
+  <div class="caption">Per-GPU lines — click legend entries to isolate one GPU</div>
+  
+  <script>
+    (function() {
+      var fig = {"data": [{"x": [-0.0, 0.0667, 0.1333, 0.2, 0.2667, 0.3333, 0.4, 0.4667, 0.5333, 0.6, 0.6667, 0.7333, 0.8, 0.8667, 0.9333, 1.0, 1.0667, 1.1333, 1.2, 1.2667, 1.3333, 1.4, 1.4667, 1.5333, 1.6], "y": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "type": "scatter", "mode": "lines+markers", "name": "GPU0 util", "line": {"color": "#22d3ee", "width": 2.4}, "marker": {"size": 5}, "hovertemplate": "<b>GPU0</b>: %{y:.1f}% util<extra></extra>"}, {"x": [0.0167, 0.0833, 0.15, 0.2167, 0.2833, 0.35, 0.4167, 0.4833, 0.55, 0.6167, 0.6833, 0.75, 0.8167, 0.8833, 0.95, 1.0167, 1.0833, 1.15, 1.2167, 1.2833, 1.35, 1.4167, 1.4833, 1.55, 1.6167], "y": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "type": "scatter", "mode": "lines+markers", "name": "GPU1 util", "line": {"color": "#a78bfa", "width": 2.4}, "marker": {"size": 5}, "hovertemplate": "<b>GPU1</b>: %{y:.1f}% util<extra></extra>"}, {"x": [0.0333, 0.1, 0.1667, 0.2333, 0.3, 0.3667, 0.4333, 0.5, 0.5667, 0.6333, 0.7, 0.7667, 0.8333, 0.9, 0.9667, 1.0333, 1.1, 1.1667, 1.2333, 1.3, 1.3667, 1.4333, 1.5, 1.5667, 1.6333], "y": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "type": "scatter", "mode": "lines+markers", "name": "GPU2 util", "line": {"color": "#f97316", "width": 2.4}, "marker": {"size": 5}, "hovertemplate": "<b>GPU2</b>: %{y:.1f}% util<extra></extra>"}, {"x": [0.05, 0.1167, 0.1833, 0.25, 0.3167, 0.3833, 0.45, 0.5167, 0.5833, 0.65, 0.7167, 0.7833, 0.85, 0.9167, 0.9833, 1.05, 1.1167, 1.1833, 1.25, 1.3167, 1.3833, 1.45, 1.5167, 1.5833, 1.65], "y": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "type": "scatter", "mode": "lines+markers", "name": "GPU3 util", "line": {"color": "#22c55e", "width": 2.4}, "marker": {"size": 5}, "hovertemplate": "<b>GPU3</b>: %{y:.1f}% util<extra></extra>"}, {"x": [-0.0, 0.0167, 0.0333, 0.05, 0.0667, 0.0833, 0.1, 0.1167, 0.1333, 0.15, 0.1667, 0.1833, 0.2, 0.2167, 0.2333, 0.25, 0.2667, 0.2833, 0.3, 0.3167, 0.3333, 0.35, 0.3667, 0.3833, 0.4, 0.4167, 0.4333, 0.45, 0.4667, 0.4833, 0.5, 0.5167, 0.5333, 0.55, 0.5667, 0.5833, 0.6, 0.6167, 0.6333, 0.65, 0.6667, 0.6833, 0.7, 0.7167, 0.7333, 0.75, 0.7667, 0.7833, 0.8, 0.8167, 0.8333, 0.85, 0.8667, 0.8833, 0.9, 0.9167, 0.9333, 0.95, 0.9667, 0.9833, 1.0, 1.0167, 1.0333, 1.05, 1.0667, 1.0833, 1.1, 1.1167, 1.1333, 1.15, 1.1667, 1.1833, 1.2, 1.2167, 1.2333, 1.25, 1.2667, 1.2833, 1.3, 1.3167, 1.3333, 1.35, 1.3667, 1.3833, 1.4, 1.4167, 1.4333, 1.45, 1.4667, 1.4833, 1.5, 1.5167, 1.5333, 1.55, 1.5667, 1.5833, 1.6, 1.6167, 1.6333, 1.65], "y": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "type": "scatter", "mode": "lines", "name": "Active GPU mean", "line": {"color": "#0f172a", "width": 3.4, "dash": "dash"}, "hovertemplate": "<b>%{y:.1f}%</b> active mean<extra></extra>"}, {"x": [-0.0, 0.0167, 0.0333, 0.05, 0.0667, 0.0833, 0.1, 0.1167, 0.1333, 0.15, 0.1667, 0.1833, 0.2, 0.2167, 0.2333, 0.25, 0.2667, 0.2833, 0.3, 0.3167, 0.3333, 0.35, 0.3667, 0.3833, 0.4, 0.4167, 0.4333, 0.45, 0.4667, 0.4833, 0.5, 0.5167, 0.5333, 0.55, 0.5667, 0.5833, 0.6, 0.6167, 0.6333, 0.65, 0.6667, 0.6833, 0.7, 0.7167, 0.7333, 0.75, 0.7667, 0.7833, 0.8, 0.8167, 0.8333, 0.85, 0.8667, 0.8833, 0.9, 0.9167, 0.9333, 0.95, 0.9667, 0.9833, 1.0, 1.0167, 1.0333, 1.05, 1.0667, 1.0833, 1.1, 1.1167, 1.1333, 1.15, 1.1667, 1.1833, 1.2, 1.2167, 1.2333, 1.25, 1.2667, 1.2833, 1.3, 1.3167, 1.3333, 1.35, 1.3667, 1.3833, 1.4, 1.4167, 1.4333, 1.45, 1.4667, 1.4833, 1.5, 1.5167, 1.5333, 1.55, 1.5667, 1.5833, 1.6, 1.6167, 1.6333, 1.65], "y": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "type": "scatter", "mode": "lines", "name": "Mean HBM used (MB, visible GPUs)", "line": {"color": "#7c3aed", "width": 2.8, "dash": "dashdot"}, "yaxis": "y2", "hovertemplate": "<b>%{y:.0f}</b> MB/GPU<extra></extra>"}], "layout": {"title": {"text": "GPU Utilization & HBM Memory \u2014 canonical payload shared with End Report", "x": 0.02, "xanchor": "left"}, "height": 580, "margin": {"l": 70, "r": 360, "t": 58, "b": 110}, "plot_bgcolor": "#f8fafc", "paper_bgcolor": "#ffffff", "font": {"color": "#0f172a", "size": 12}, "xaxis": {"title": "Time (min)", "range": [0, 1.65], "gridcolor": "#e2e8f0", "zerolinecolor": "#cbd5e1"}, "yaxis": {"title": "GPU utilization %", "range": [0, 20], "gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8"}, "yaxis2": {"title": "HBM used MB/GPU", "overlaying": "y", "side": "right", "gridcolor": "transparent"}, "hovermode": "x unified", "legend": {"orientation": "v", "yanchor": "top", "y": 1.0, "xanchor": "left", "x": 1.03, "font": {"size": 10, "color": "#0f172a"}, "bgcolor": "rgba(248,250,252,0.98)", "bordercolor": "#cbd5e1", "borderwidth": 1, "itemsizing": "constant", "tracegroupgap": 6, "itemwidth": 30}, "shapes": [{"type": "line", "xref": "paper", "x0": 0, "x1": 1, "yref": "y", "y0": 100, "y1": 100, "line": {"color": "#64748b", "width": 1, "dash": "dot"}}], "annotations": [{"text": "Showing 4 visible GPU(s); source=gpu_timeseries.csv; unique timestamps=100; canonical GPU/HBM payload shared by Interactive and End Report.", "xref": "paper", "yref": "paper", "x": 0.01, "y": 1.08, "xanchor": "left", "showarrow": false, "font": {"size": 10, "color": "#475569"}}], "autosize": true}};
+      Plotly.newPlot('ch_gpu', fig.data, fig.layout,
+        {responsive:true, displayModeBar:true, displaylogo:false,
+          modeBarButtonsToRemove:['select2d','lasso2d']});
+    })();
+  </script>
+</section>
+<section class="card">
+  <h2>Total GPU Power Draw</h2>
+  <div id="ch_power" class="plot"></div>
+  
+  
+  <script>
+    (function() {
+      var fig = {"data": [{"x": ["2026-07-24T10:51:01.171", "2026-07-24T10:51:02.171", "2026-07-24T10:51:03.171", "2026-07-24T10:51:04.171", "2026-07-24T10:51:05.171", "2026-07-24T10:51:06.171", "2026-07-24T10:51:07.171", "2026-07-24T10:51:08.171", "2026-07-24T10:51:09.171", "2026-07-24T10:51:10.171", "2026-07-24T10:51:11.171", "2026-07-24T10:51:12.171", "2026-07-24T10:51:13.171", "2026-07-24T10:51:14.171", "2026-07-24T10:51:15.171", "2026-07-24T10:51:16.171", "2026-07-24T10:51:17.171", "2026-07-24T10:51:18.171", "2026-07-24T10:51:19.171", "2026-07-24T10:51:20.171", "2026-07-24T10:51:21.171", "2026-07-24T10:51:22.171", "2026-07-24T10:51:23.171", "2026-07-24T10:51:24.171", "2026-07-24T10:51:25.171", "2026-07-24T10:51:26.171", "2026-07-24T10:51:27.171", "2026-07-24T10:51:28.171", "2026-07-24T10:51:29.171", "2026-07-24T10:51:30.171", "2026-07-24T10:51:31.171", "2026-07-24T10:51:32.171", "2026-07-24T10:51:33.171", "2026-07-24T10:51:34.171", "2026-07-24T10:51:35.171", "2026-07-24T10:51:36.171", "2026-07-24T10:51:37.171", "2026-07-24T10:51:38.171", "2026-07-24T10:51:39.171", "2026-07-24T10:51:40.171", "2026-07-24T10:51:41.171", "2026-07-24T10:51:42.171", "2026-07-24T10:51:43.171", "2026-07-24T10:51:44.171", "2026-07-24T10:51:45.171", "2026-07-24T10:51:46.171", "2026-07-24T10:51:47.171", "2026-07-24T10:51:48.171", "2026-07-24T10:51:49.171", "2026-07-24T10:51:50.171", "2026-07-24T10:51:51.171", "2026-07-24T10:51:52.171", "2026-07-24T10:51:53.171", "2026-07-24T10:51:54.171", "2026-07-24T10:51:55.171", "2026-07-24T10:51:56.171", "2026-07-24T10:51:57.171", "2026-07-24T10:51:58.171", "2026-07-24T10:51:59.171", "2026-07-24T10:52:00.171", "2026-07-24T10:52:01.171", "2026-07-24T10:52:02.171", "2026-07-24T10:52:03.171", "2026-07-24T10:52:04.171", "2026-07-24T10:52:05.171", "2026-07-24T10:52:06.171", "2026-07-24T10:52:07.171", "2026-07-24T10:52:08.171", "2026-07-24T10:52:09.171", "2026-07-24T10:52:10.171", "2026-07-24T10:52:11.171", "2026-07-24T10:52:12.171", "2026-07-24T10:52:13.171", "2026-07-24T10:52:14.171", "2026-07-24T10:52:15.171", "2026-07-24T10:52:16.171", "2026-07-24T10:52:17.171", "2026-07-24T10:52:18.171", "2026-07-24T10:52:19.171", "2026-07-24T10:52:20.171", "2026-07-24T10:52:21.171", "2026-07-24T10:52:22.171", "2026-07-24T10:52:23.171", "2026-07-24T10:52:24.171", "2026-07-24T10:52:25.171", "2026-07-24T10:52:26.171", "2026-07-24T10:52:27.171", "2026-07-24T10:52:28.171", "2026-07-24T10:52:29.171", "2026-07-24T10:52:30.171", "2026-07-24T10:52:31.171", "2026-07-24T10:52:32.171", "2026-07-24T10:52:33.171", "2026-07-24T10:52:34.171", "2026-07-24T10:52:35.171", "2026-07-24T10:52:36.171", "2026-07-24T10:52:37.171", "2026-07-24T10:52:38.171", "2026-07-24T10:52:39.171", "2026-07-24T10:52:40.171"], "y": [11.35, 13.44, 27.88, 12.25, 11.35, 12.15, 27.79, 11.95, 11.46, 11.86, 15.43, 12.06, 11.26, 11.46, 15.43, 11.46, 11.26, 11.46, 15.43, 11.76, 11.86, 11.66, 15.43, 12.55, 11.86, 11.76, 15.43, 11.96, 11.26, 11.36, 15.43, 11.86, 11.26, 11.16, 15.53, 11.56, 11.76, 13.65, 15.44, 11.27, 11.66, 13.25, 15.43, 12.06, 12.26, 11.96, 15.43, 11.86, 11.56, 11.46, 15.43, 11.66, 11.56, 11.46, 15.43, 11.36, 12.06, 11.66, 15.43, 11.96, 11.76, 11.76, 15.43, 11.66, 11.26, 11.46, 15.43, 11.56, 11.26, 11.46, 15.43, 11.36, 11.76, 11.66, 15.44, 11.76, 11.76, 11.66, 15.42, 11.76, 11.26, 11.46, 15.43, 11.76, 11.46, 11.16, 15.43, 11.56, 11.86, 11.56, 15.43, 11.36, 12.45, 11.66, 15.53, 11.96, 11.36, 11.36, 15.43, 11.66], "type": "scatter", "mode": "lines", "name": "Total GPU power (W)", "line": {"color": "#fb923c", "width": 2.2}, "fill": "tozeroy", "fillcolor": "rgba(251,146,60,0.2)", "hovertemplate": "<b>%{y:.0f}</b> W total<extra></extra>"}], "layout": {"title": {"text": "System GPU Power Draw", "font": {"size": 15, "color": "#0f172a", "family": "Inter, system-ui, sans-serif"}, "x": 0.02, "y": 0.97, "xanchor": "left", "yanchor": "top"}, "height": 460, "margin": {"l": 70, "r": 90, "t": 60, "b": 130}, "plot_bgcolor": "#f8fafc", "paper_bgcolor": "#ffffff", "font": {"color": "#0f172a", "size": 13, "family": "Inter, system-ui, sans-serif"}, "xaxis": {"gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "type": "date", "tickformat": "%H:%M:%S", "title": {"text": "Wall-clock time (UTC)", "font": {"size": 13}}, "hoverformat": "%Y-%m-%d %H:%M:%S UTC"}, "yaxis": {"title": {"text": "Watts (sum of 8 GPUs)", "font": {"size": 13}, "standoff": 10}, "gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "automargin": true}, "hovermode": "x unified", "hoverlabel": {"bgcolor": "#1e293b", "bordercolor": "#0f172a", "font": {"color": "#f1f5f9", "size": 13}}, "legend": {"orientation": "h", "yanchor": "top", "y": -0.14, "xanchor": "left", "x": 0, "font": {"size": 11, "color": "#0f172a"}, "bgcolor": "rgba(248,250,252,0.98)", "bordercolor": "#cbd5e1", "borderwidth": 1, "itemwidth": 30, "itemsizing": "constant", "tracegroupgap": 6}, "autosize": true}};
+      Plotly.newPlot('ch_power', fig.data, fig.layout,
+        {responsive:true, displayModeBar:true, displaylogo:false,
+          modeBarButtonsToRemove:['select2d','lasso2d']});
+    })();
+  </script>
+</section>
+<section class="card layer-header" id="layer-l2" style="background:#7a3f97;color:#fff;border-color:#7a3f97">
+  <h2 style="color:#fff;border-bottom:1px solid rgba(255,255,255,.35)">A3/A2/A1 · L2 DRAM / OS Memory Manager</h2>
+  <div style="font-size:13px;opacity:.95">Host DRAM and OS memory behavior: page faults, swap activity, NUMA effects and DRAM bandwidth.</div>
+</section>
+<section class="card">
+  <h2>Swap Storm — Page Activity</h2>
+  <div id="ch_swap" class="plot"></div>
+  <div class="caption">Per-second rates derived from /proc/vmstat cumulative counters</div>
+  
+  <script>
+    (function() {
+      var fig = {"data": [{"x": ["2026-07-24T10:51:02.437", "2026-07-24T10:51:03.438", "2026-07-24T10:51:04.438", "2026-07-24T10:51:05.439", "2026-07-24T10:51:06.440", "2026-07-24T10:51:07.440", "2026-07-24T10:51:08.441", "2026-07-24T10:51:09.441", "2026-07-24T10:51:10.442", "2026-07-24T10:51:11.442", "2026-07-24T10:51:12.443", "2026-07-24T10:51:13.443", "2026-07-24T10:51:14.444", "2026-07-24T10:51:15.444", "2026-07-24T10:51:16.445", "2026-07-24T10:51:17.446", "2026-07-24T10:51:18.446", "2026-07-24T10:51:19.447", "2026-07-24T10:51:20.448", "2026-07-24T10:51:21.448", "2026-07-24T10:51:22.448", "2026-07-24T10:51:23.449", "2026-07-24T10:51:24.449", "2026-07-24T10:51:25.450", "2026-07-24T10:51:26.451", "2026-07-24T10:51:27.451", "2026-07-24T10:51:28.452", "2026-07-24T10:51:28.672"], "y": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "type": "scatter", "mode": "lines", "name": "Swap-in pages/s", "line": {"color": "#3b82f6", "width": 2}, "hovertemplate": "<b>%{y:.0f}</b> pages/s in<extra></extra>"}, {"x": ["2026-07-24T10:51:02.437", "2026-07-24T10:51:03.438", "2026-07-24T10:51:04.438", "2026-07-24T10:51:05.439", "2026-07-24T10:51:06.440", "2026-07-24T10:51:07.440", "2026-07-24T10:51:08.441", "2026-07-24T10:51:09.441", "2026-07-24T10:51:10.442", "2026-07-24T10:51:11.442", "2026-07-24T10:51:12.443", "2026-07-24T10:51:13.443", "2026-07-24T10:51:14.444", "2026-07-24T10:51:15.444", "2026-07-24T10:51:16.445", "2026-07-24T10:51:17.446", "2026-07-24T10:51:18.446", "2026-07-24T10:51:19.447", "2026-07-24T10:51:20.448", "2026-07-24T10:51:21.448", "2026-07-24T10:51:22.448", "2026-07-24T10:51:23.449", "2026-07-24T10:51:24.449", "2026-07-24T10:51:25.450", "2026-07-24T10:51:26.451", "2026-07-24T10:51:27.451", "2026-07-24T10:51:28.452", "2026-07-24T10:51:28.672"], "y": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "type": "scatter", "mode": "lines", "name": "Swap-out pages/s", "line": {"color": "#ef4444", "width": 2}, "fill": "tozeroy", "fillcolor": "rgba(239,68,68,0.15)", "hovertemplate": "<b>%{y:.0f}</b> pages/s out<extra></extra>"}, {"x": ["2026-07-24T10:51:02.437", "2026-07-24T10:51:03.438", "2026-07-24T10:51:04.438", "2026-07-24T10:51:05.439", "2026-07-24T10:51:06.440", "2026-07-24T10:51:07.440", "2026-07-24T10:51:08.441", "2026-07-24T10:51:09.441", "2026-07-24T10:51:10.442", "2026-07-24T10:51:11.442", "2026-07-24T10:51:12.443", "2026-07-24T10:51:13.443", "2026-07-24T10:51:14.444", "2026-07-24T10:51:15.444", "2026-07-24T10:51:16.445", "2026-07-24T10:51:17.446", "2026-07-24T10:51:18.446", "2026-07-24T10:51:19.447", "2026-07-24T10:51:20.448", "2026-07-24T10:51:21.448", "2026-07-24T10:51:22.448", "2026-07-24T10:51:23.449", "2026-07-24T10:51:24.449", "2026-07-24T10:51:25.450", "2026-07-24T10:51:26.451", "2026-07-24T10:51:27.451", "2026-07-24T10:51:28.452", "2026-07-24T10:51:28.672"], "y": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 46.953046953047064, 0.0], "type": "scatter", "mode": "lines", "name": "Major faults/s", "yaxis": "y2", "line": {"color": "#a16207", "width": 1.5, "dash": "dot"}, "hovertemplate": "<b>%{y:.1f}</b> major/s<extra></extra>"}], "layout": {"title": {"text": "Swap Storm \u2014 Page Swap & Major Fault Rates", "font": {"size": 15, "color": "#0f172a", "family": "Inter, system-ui, sans-serif"}, "x": 0.02, "y": 0.97, "xanchor": "left", "yanchor": "top"}, "height": 540, "margin": {"l": 70, "r": 320, "t": 60, "b": 130}, "plot_bgcolor": "#f8fafc", "paper_bgcolor": "#ffffff", "font": {"color": "#0f172a", "size": 13, "family": "Inter, system-ui, sans-serif"}, "xaxis": {"gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "type": "date", "tickformat": "%H:%M:%S", "title": {"text": "Wall-clock time (UTC)", "font": {"size": 13}}, "hoverformat": "%Y-%m-%d %H:%M:%S UTC"}, "yaxis": {"title": {"text": "Pages / sec", "font": {"size": 13}, "standoff": 10}, "gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "automargin": true}, "hovermode": "x unified", "hoverlabel": {"bgcolor": "#1e293b", "bordercolor": "#0f172a", "font": {"color": "#f1f5f9", "size": 13}}, "legend": {"orientation": "v", "yanchor": "top", "y": 1.0, "xanchor": "left", "x": 1.03, "font": {"size": 11, "color": "#0f172a"}, "bgcolor": "rgba(248,250,252,0.98)", "bordercolor": "#cbd5e1", "borderwidth": 1, "itemwidth": 30, "itemsizing": "constant", "tracegroupgap": 6}, "yaxis2": {"title": {"text": "Major faults / sec", "font": {"size": 13}}, "overlaying": "y", "side": "right", "gridcolor": "transparent", "linecolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}}, "annotations": [{"text": "\u2705 No swap I/O detected \u2014 kernel memory was not under pressure", "xref": "paper", "yref": "paper", "x": 0.5, "y": 0.5, "xanchor": "center", "showarrow": false, "font": {"size": 14, "color": "#22c55e"}}], "autosize": true}};
+      Plotly.newPlot('ch_swap', fig.data, fig.layout,
+        {responsive:true, displayModeBar:true, displaylogo:false,
+          modeBarButtonsToRemove:['select2d','lasso2d']});
+    })();
+  </script>
+</section>
+<section class="card empty-card">
+  <details class="empty-details">
+    <summary class="empty-summary">
+      <span class="empty-icon">⊘</span>
+      <span class="empty-title">System DRAM Bandwidth (CPU PMU)</span>
+      <span class="empty-hint">no data — click to expand</span>
+    </summary>
+    <div class="no-data">No data available for this chart.<br>
+      <small>From --enable-dram: AMD uProf PCM on AMD or Intel PCM/perf IMC on Intel. If PMU data is missing, AMOprof falls back to an estimated KV-movement bandwidth from SGLang backup/load_back/prefetch counters; that fallback is useful for shape/correlation, not physical DRAM-channel saturation.</small>
+      
+    </div>
+  </details>
+</section>
+<section class="card layer-header" id="layer-l3" style="background:#a45714;color:#fff;border-color:#a45714">
+  <h2 style="color:#fff;border-bottom:1px solid rgba(255,255,255,.35)">A3/A2/A1 · L3.5 (AI Memory Node / remote storage) / host block layer</h2>
+  <div style="font-size:13px;opacity:.95">SGLang KV block movement is logical L3/backing-tier traffic. Host block charts are physical device telemetry and are treated as L3 only when setup_details resolves a concrete L3.5 (AI Memory Node / remote storage) device/path.</div>
+</section>
+<section class="card">
+  <h2>Host/OS block I/O — not KV block L3 IOPS (Read / Write / Trim)</h2>
+  <div id="ch_nvme_iops" class="plot"></div>
+  <div class="caption">Host block-device counters are not interpreted as KV block/L3 traffic because setup_details does not resolve this device as the L3.5 (AI Memory Node / remote storage) L3 backend. Read/write activity can appear here without latency/utilization if the capture lacks rd_ms/wr_ms/io_ms or iostat await/busy-time fields; in that case the latency section shows an activity fallback. Use the SGLang KV block movement chart and L3 consistency card for logical L3 direction.</div>
+  
+  <script>
+    (function() {
+      var fig = {"data": [{"x": ["2026-07-24T10:51:02.423"], "y": [21.27], "type": "scatter", "mode": "lines", "name": "Read IOPS", "line": {"color": "#22c55e", "width": 1.8}, "hovertemplate": "<b>%{y:.0f}</b> rd IOPS<extra></extra>"}, {"x": ["2026-07-24T10:51:02.423"], "y": [35.99], "type": "scatter", "mode": "lines", "name": "Write IOPS", "line": {"color": "#f43f5e", "width": 1.8}, "fill": "tozeroy", "fillcolor": "rgba(244,63,94,0.12)", "hovertemplate": "<b>%{y:.0f}</b> wr IOPS<extra></extra>"}], "layout": {"title": {"text": "Host/OS block I/O \u2014 not KV block L3 Rate (Read / Write / Trim)", "font": {"size": 15, "color": "#0f172a", "family": "Inter, system-ui, sans-serif"}, "x": 0.02, "y": 0.97, "xanchor": "left", "yanchor": "top"}, "height": 540, "margin": {"l": 70, "r": 320, "t": 60, "b": 130}, "plot_bgcolor": "#f8fafc", "paper_bgcolor": "#ffffff", "font": {"color": "#0f172a", "size": 13, "family": "Inter, system-ui, sans-serif"}, "xaxis": {"gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "type": "date", "tickformat": "%H:%M:%S", "title": {"text": "Wall-clock time (UTC)", "font": {"size": 13}}, "hoverformat": "%Y-%m-%d %H:%M:%S UTC"}, "yaxis": {"title": {"text": "IOPS", "font": {"size": 13}, "standoff": 10}, "gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "automargin": true}, "hovermode": "x unified", "hoverlabel": {"bgcolor": "#1e293b", "bordercolor": "#0f172a", "font": {"color": "#f1f5f9", "size": 13}}, "legend": {"orientation": "v", "yanchor": "top", "y": 1.0, "xanchor": "left", "x": 1.03, "font": {"size": 11, "color": "#0f172a"}, "bgcolor": "rgba(248,250,252,0.98)", "bordercolor": "#cbd5e1", "borderwidth": 1, "itemwidth": 30, "itemsizing": "constant", "tracegroupgap": 6}, "autosize": true}};
+      Plotly.newPlot('ch_nvme_iops', fig.data, fig.layout,
+        {responsive:true, displayModeBar:true, displaylogo:false,
+          modeBarButtonsToRemove:['select2d','lasso2d']});
+    })();
+  </script>
+</section>
+<section class="card">
+  <h2>Host/OS block I/O — not KV block L3 Bandwidth</h2>
+  <div id="ch_nvme_bw" class="plot"></div>
+  <div class="caption">Host block-device counters are not interpreted as KV block/L3 traffic because setup_details does not resolve this device as the L3.5 (AI Memory Node / remote storage) L3 backend. Read/write activity can appear here without latency/utilization if the capture lacks rd_ms/wr_ms/io_ms or iostat await/busy-time fields; in that case the latency section shows an activity fallback. Use the SGLang KV block movement chart and L3 consistency card for logical L3 direction.</div>
+  
+  <script>
+    (function() {
+      var fig = {"data": [{"x": ["2026-07-24T10:51:02.423"], "y": [2.360107421875], "type": "scatter", "mode": "lines", "name": "Read MB/s", "line": {"color": "#22c55e", "width": 2}, "hovertemplate": "<b>%{y:.1f}</b> MB/s read<extra></extra>"}, {"x": ["2026-07-24T10:51:02.423"], "y": [2.616005859375], "type": "scatter", "mode": "lines", "name": "Write MB/s", "line": {"color": "#f43f5e", "width": 2}, "fill": "tozeroy", "fillcolor": "rgba(244,63,94,0.12)", "hovertemplate": "<b>%{y:.1f}</b> MB/s write<extra></extra>"}], "layout": {"title": {"text": "Host/OS block I/O \u2014 not KV block L3 Bandwidth (Read / Write)", "font": {"size": 15, "color": "#0f172a", "family": "Inter, system-ui, sans-serif"}, "x": 0.02, "y": 0.97, "xanchor": "left", "yanchor": "top"}, "height": 540, "margin": {"l": 70, "r": 320, "t": 60, "b": 130}, "plot_bgcolor": "#f8fafc", "paper_bgcolor": "#ffffff", "font": {"color": "#0f172a", "size": 13, "family": "Inter, system-ui, sans-serif"}, "xaxis": {"gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "type": "date", "tickformat": "%H:%M:%S", "title": {"text": "Wall-clock time (UTC)", "font": {"size": 13}}, "hoverformat": "%Y-%m-%d %H:%M:%S UTC"}, "yaxis": {"title": {"text": "MB / sec", "font": {"size": 13}, "standoff": 10}, "gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "automargin": true}, "hovermode": "x unified", "hoverlabel": {"bgcolor": "#1e293b", "bordercolor": "#0f172a", "font": {"color": "#f1f5f9", "size": 13}}, "legend": {"orientation": "v", "yanchor": "top", "y": 1.0, "xanchor": "left", "x": 1.03, "font": {"size": 11, "color": "#0f172a"}, "bgcolor": "rgba(248,250,252,0.98)", "bordercolor": "#cbd5e1", "borderwidth": 1, "itemwidth": 30, "itemsizing": "constant", "tracegroupgap": 6}, "autosize": true}};
+      Plotly.newPlot('ch_nvme_bw', fig.data, fig.layout,
+        {responsive:true, displayModeBar:true, displaylogo:false,
+          modeBarButtonsToRemove:['select2d','lasso2d']});
+    })();
+  </script>
+</section>
+<section class="card">
+  <h2>Host/OS block I/O — not KV block L3 Latency & Device Busy-Time</h2>
+  <div id="ch_nvme_lat" class="plot"></div>
+  <div class="caption">Host block-device counters are not interpreted as KV block/L3 traffic because setup_details does not resolve this device as the L3.5 (AI Memory Node / remote storage) L3 backend. Read/write activity can appear here without latency/utilization if the capture lacks rd_ms/wr_ms/io_ms or iostat await/busy-time fields; in that case the latency section shows an activity fallback. Use the SGLang KV block movement chart and L3 consistency card for logical L3 direction.</div>
+  
+  <script>
+    (function() {
+      var fig = {"data": [{"x": ["2026-07-24T10:51:02.423"], "y": [1.59], "type": "scatter", "mode": "lines", "name": "Read latency (ms)", "line": {"color": "#3b82f6", "width": 1.8}, "hovertemplate": "<b>%{y:.3f}</b> ms<extra></extra>"}, {"x": ["2026-07-24T10:51:02.423"], "y": [2.54], "type": "scatter", "mode": "lines", "name": "Write latency (ms)", "line": {"color": "#ef4444", "width": 1.8}, "hovertemplate": "<b>%{y:.3f}</b> ms<extra></extra>"}, {"x": ["2026-07-24T10:51:02.423"], "y": [0.78], "type": "scatter", "mode": "lines", "name": "Device util %", "yaxis": "y2", "line": {"color": "#94a3b8", "width": 1.4, "dash": "dot"}, "hovertemplate": "<b>%{y:.1f}</b>%% util<extra></extra>"}], "layout": {"title": {"text": "Host/OS block I/O \u2014 not KV block L3 Latency & Device Busy-Time", "font": {"size": 15, "color": "#0f172a", "family": "Inter, system-ui, sans-serif"}, "x": 0.02, "y": 0.97, "xanchor": "left", "yanchor": "top"}, "height": 540, "margin": {"l": 70, "r": 320, "t": 60, "b": 130}, "plot_bgcolor": "#f8fafc", "paper_bgcolor": "#ffffff", "font": {"color": "#0f172a", "size": 13, "family": "Inter, system-ui, sans-serif"}, "xaxis": {"gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "type": "date", "tickformat": "%H:%M:%S", "title": {"text": "Wall-clock time (UTC)", "font": {"size": 13}}, "hoverformat": "%Y-%m-%d %H:%M:%S UTC"}, "yaxis": {"title": {"text": "Latency (ms)", "font": {"size": 13}, "standoff": 10}, "gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "automargin": true}, "hovermode": "x unified", "hoverlabel": {"bgcolor": "#1e293b", "bordercolor": "#0f172a", "font": {"color": "#f1f5f9", "size": 13}}, "legend": {"orientation": "v", "yanchor": "top", "y": 1.0, "xanchor": "left", "x": 1.03, "font": {"size": 11, "color": "#0f172a"}, "bgcolor": "rgba(248,250,252,0.98)", "bordercolor": "#cbd5e1", "borderwidth": 1, "itemwidth": 30, "itemsizing": "constant", "tracegroupgap": 6}, "yaxis2": {"title": {"text": "Util %", "font": {"size": 13}}, "overlaying": "y", "side": "right", "gridcolor": "transparent", "linecolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}}, "autosize": true}};
+      Plotly.newPlot('ch_nvme_lat', fig.data, fig.layout,
+        {responsive:true, displayModeBar:true, displaylogo:false,
+          modeBarButtonsToRemove:['select2d','lasso2d']});
+    })();
+  </script>
+</section>
+<section class="card">
+  <h2>NVMe Queue Depth Over Time</h2>
+  <div id="ch_qd_ts" class="plot"></div>
+  <div class="caption">Exact queue depth derived from blktrace Q (queued) → C (completed) events. Stacked area shows read vs write in-flight count; purple line is total. <b>QD = 1</b> means the device serves requests one at a time (latency-bound). <b>QD ≥ 32 sustained</b> means the device queue is the bottleneck.</div>
+  
+  <script>
+    (function() {
+      var fig = {"data": [{"x": ["2026-07-24T10:51:01.171", "2026-07-24T10:51:02.716", "2026-07-24T10:51:03.848", "2026-07-24T10:51:05.419", "2026-07-24T10:51:07.998", "2026-07-24T10:51:11.411", "2026-07-24T10:51:12.867", "2026-07-24T10:51:15.420", "2026-07-24T10:51:17.880", "2026-07-24T10:51:21.184", "2026-07-24T10:51:22.422", "2026-07-24T10:51:24.421"], "y": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], "type": "scatter", "mode": "lines", "name": "Read QD", "stackgroup": "qd", "line": {"color": "#3b82f6", "width": 0}, "fillcolor": "rgba(59,130,246,0.55)", "hovertemplate": "<b>%{y:.0f}</b> reads in-flight<extra></extra>"}, {"x": ["2026-07-24T10:51:01.171", "2026-07-24T10:51:02.716", "2026-07-24T10:51:03.848", "2026-07-24T10:51:05.419", "2026-07-24T10:51:07.998", "2026-07-24T10:51:11.411", "2026-07-24T10:51:12.867", "2026-07-24T10:51:15.420", "2026-07-24T10:51:17.880", "2026-07-24T10:51:21.184", "2026-07-24T10:51:22.422", "2026-07-24T10:51:24.421"], "y": [41.0, 84.0, 72.0, 75.0, 94.0, 94.0, 137.0, 127.0, 134.0, 175.0, 180.0, 168.0], "type": "scatter", "mode": "lines", "name": "Write QD", "stackgroup": "qd", "line": {"color": "#ef4444", "width": 0}, "fillcolor": "rgba(239,68,68,0.55)", "hovertemplate": "<b>%{y:.0f}</b> writes in-flight<extra></extra>"}, {"x": ["2026-07-24T10:51:01.171", "2026-07-24T10:51:02.716", "2026-07-24T10:51:03.848", "2026-07-24T10:51:05.419", "2026-07-24T10:51:07.998", "2026-07-24T10:51:11.411", "2026-07-24T10:51:12.867", "2026-07-24T10:51:15.420", "2026-07-24T10:51:17.880", "2026-07-24T10:51:21.184", "2026-07-24T10:51:22.422", "2026-07-24T10:51:24.421"], "y": [41.0, 84.0, 72.0, 75.0, 94.0, 94.0, 137.0, 127.0, 134.0, 175.0, 180.0, 168.0], "type": "scatter", "mode": "lines", "name": "Total QD (peak per bucket)", "line": {"color": "#7c3aed", "width": 2.2}, "hovertemplate": "<b>%{y:.0f}</b> total outstanding<extra></extra>"}], "layout": {"title": {"text": "NVMe Queue Depth Over Time", "font": {"size": 15, "color": "#0f172a", "family": "Inter, system-ui, sans-serif"}, "x": 0.02, "y": 0.97, "xanchor": "left", "yanchor": "top"}, "height": 540, "margin": {"l": 70, "r": 320, "t": 60, "b": 130}, "plot_bgcolor": "#f8fafc", "paper_bgcolor": "#ffffff", "font": {"color": "#0f172a", "size": 13, "family": "Inter, system-ui, sans-serif"}, "xaxis": {"gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "type": "date", "tickformat": "%H:%M:%S", "title": {"text": "Wall-clock time (UTC)", "font": {"size": 13}}, "hoverformat": "%Y-%m-%d %H:%M:%S UTC"}, "yaxis": {"title": {"text": "Outstanding I/Os", "font": {"size": 13}, "standoff": 10}, "gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "automargin": true}, "hovermode": "x unified", "hoverlabel": {"bgcolor": "#1e293b", "bordercolor": "#0f172a", "font": {"color": "#f1f5f9", "size": 13}}, "legend": {"orientation": "v", "yanchor": "top", "y": 1.0, "xanchor": "left", "x": 1.03, "font": {"size": 11, "color": "#0f172a"}, "bgcolor": "rgba(248,250,252,0.98)", "bordercolor": "#cbd5e1", "borderwidth": 1, "itemwidth": 30, "itemsizing": "constant", "tracegroupgap": 6}, "autosize": true}};
+      Plotly.newPlot('ch_qd_ts', fig.data, fig.layout,
+        {responsive:true, displayModeBar:true, displaylogo:false,
+          modeBarButtonsToRemove:['select2d','lasso2d']});
+    })();
+  </script>
+</section>
+<section class="card">
+  <h2>Queue Depth Distribution (time-weighted)</h2>
+  <div id="ch_qd_dist" class="plot"></div>
+  <div class="caption">Histogram is time-weighted: bar height = fraction of trace time spent at that QD value (NOT count of events). Blue: idle (QD ≤ 1) · green: healthy parallel I/O · amber: deep queue · red: saturation. Read left-to-right to find where the device actually spends its time.</div>
+  
+  <script>
+    (function() {
+      var fig = {"data": [{"x": ["1"], "y": [0.0], "type": "bar", "name": "Idle", "marker": {"color": "#0ea5e9"}, "hovertemplate": "<b>QD bucket %{x}</b><br>%{y:.2f}% of trace time<extra></extra>"}, {"x": ["2\u20135", "4\u20137", "8\u201311", "12\u201315", "16\u201319", "20\u201323", "24\u201327", "28\u201331"], "y": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], "type": "bar", "name": "Healthy", "marker": {"color": "#22c55e"}, "hovertemplate": "<b>QD bucket %{x}</b><br>%{y:.2f}% of trace time<extra></extra>"}, {"x": ["32\u201347", "48\u201363", "64\u201379", "80\u201395", "96\u2013111", "112\u2013127"], "y": [6.53, 0.0, 22.29, 20.56, 0.0, 18.83], "type": "bar", "name": "Deep queue", "marker": {"color": "#f59e0b"}, "hovertemplate": "<b>QD bucket %{x}</b><br>%{y:.2f}% of trace time<extra></extra>"}, {"x": ["128\u2013255"], "y": [31.740000000000002], "type": "bar", "name": "Saturation risk", "marker": {"color": "#ef4444"}, "hovertemplate": "<b>QD bucket %{x}</b><br>%{y:.2f}% of trace time<extra></extra>"}], "layout": {"title": {"text": "Queue Depth Distribution (time-weighted, binned)", "font": {"size": 15, "color": "#0f172a", "family": "Inter, system-ui, sans-serif"}, "x": 0.02, "y": 0.97, "xanchor": "left", "yanchor": "top"}, "height": 540, "margin": {"l": 70, "r": 320, "t": 60, "b": 130}, "plot_bgcolor": "#f8fafc", "paper_bgcolor": "#ffffff", "font": {"color": "#0f172a", "size": 13, "family": "Inter, system-ui, sans-serif"}, "xaxis": {"type": "category", "title": {"text": "Queue depth bucket (outstanding I/Os)", "standoff": 12}, "gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 11, "color": "#0f172a"}, "automargin": true}, "yaxis": {"title": {"text": "% of trace time", "font": {"size": 13}, "standoff": 10}, "gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "automargin": true}, "hovermode": "closest", "hoverlabel": {"bgcolor": "#1e293b", "bordercolor": "#0f172a", "font": {"color": "#f1f5f9", "size": 13}}, "legend": {"orientation": "v", "yanchor": "top", "y": 1.0, "xanchor": "left", "x": 1.03, "font": {"size": 11, "color": "#0f172a"}, "bgcolor": "rgba(248,250,252,0.98)", "bordercolor": "#cbd5e1", "borderwidth": 1, "itemwidth": 30, "itemsizing": "constant", "tracegroupgap": 6}, "barmode": "stack", "autosize": true}};
+      Plotly.newPlot('ch_qd_dist', fig.data, fig.layout,
+        {responsive:true, displayModeBar:true, displaylogo:false,
+          modeBarButtonsToRemove:['select2d','lasso2d']});
+    })();
+  </script>
+</section>
+<section class="card">
+  <h2>Request Size Distribution</h2>
+  <div id="ch_reqsize" class="plot"></div>
+  <div class="caption">From blktrace request_size_distribution.csv — bucketed by IO size</div>
+  
+  <script>
+    (function() {
+      var fig = {"data": [{"x": ["\u22644KB", "4-16KB", "16-64KB", "64-256KB", "256KB-1MB", ">1MB"], "y": [0, 0, 0, 0, 0, 0], "type": "bar", "name": "Read", "marker": {"color": "#22c55e", "line": {"color": "#0f172a", "width": 1}}, "hovertemplate": "<b>Read</b> %{x}: %{y:,} requests<extra></extra>"}, {"x": ["\u22644KB", "4-16KB", "16-64KB", "64-256KB", "256KB-1MB", ">1MB"], "y": [68, 217, 11, 33, 0, 0], "type": "bar", "name": "Write", "marker": {"color": "#f43f5e", "line": {"color": "#0f172a", "width": 1}}, "hovertemplate": "<b>Write</b> %{x}: %{y:,} requests<extra></extra>"}, {"x": ["\u22644KB", "4-16KB", "16-64KB", "64-256KB", "256KB-1MB", ">1MB"], "y": [0, 0, 0, 0, 0, 0], "type": "bar", "name": "Trim", "marker": {"color": "#eab308", "line": {"color": "#0f172a", "width": 1}}, "hovertemplate": "<b>Trim</b> %{x}: %{y:,} requests<extra></extra>"}], "layout": {"title": {"text": "Request Size Distribution by Operation", "font": {"size": 15, "color": "#0f172a", "family": "Inter, system-ui, sans-serif"}, "x": 0.02, "y": 0.97, "xanchor": "left", "yanchor": "top"}, "height": 540, "margin": {"l": 70, "r": 320, "t": 60, "b": 130}, "plot_bgcolor": "#f8fafc", "paper_bgcolor": "#ffffff", "font": {"color": "#0f172a", "size": 13, "family": "Inter, system-ui, sans-serif"}, "xaxis": {"title": {"text": "Request size bucket"}, "tickfont": {"size": 12, "color": "#0f172a"}}, "yaxis": {"title": {"text": "Number of requests", "font": {"size": 13}, "standoff": 10}, "gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "automargin": true}, "hovermode": "x unified", "hoverlabel": {"bgcolor": "#1e293b", "bordercolor": "#0f172a", "font": {"color": "#f1f5f9", "size": 13}}, "legend": {"orientation": "v", "yanchor": "top", "y": 1.0, "xanchor": "left", "x": 1.03, "font": {"size": 11, "color": "#0f172a"}, "bgcolor": "rgba(248,250,252,0.98)", "bordercolor": "#cbd5e1", "borderwidth": 1, "itemwidth": 30, "itemsizing": "constant", "tracegroupgap": 6}, "barmode": "group", "autosize": true}};
+      Plotly.newPlot('ch_reqsize', fig.data, fig.layout,
+        {responsive:true, displayModeBar:true, displaylogo:false,
+          modeBarButtonsToRemove:['select2d','lasso2d']});
+    })();
+  </script>
+</section>
+<section class="card">
+  <h2>Inter-Arrival Time Distribution</h2>
+  <div id="ch_iat" class="plot"></div>
+  <div class="caption">Time between consecutive requests per op</div>
+  
+  <script>
+    (function() {
+      var fig = {"data": [{"x": ["<1us", "1-10us", "10-100us", "100us-1ms", "1-10ms", "10-100ms", ">100ms"], "y": [0, 0, 0, 0, 0, 0, 0], "type": "bar", "name": "read", "marker": {"color": "#22c55e", "line": {"color": "#0f172a", "width": 1}}, "hovertemplate": "<b>read</b> %{x}: %{y:,} reqs<extra></extra>"}, {"x": ["<1us", "1-10us", "10-100us", "100us-1ms", "1-10ms", "10-100ms", ">100ms"], "y": [0, 33, 228, 36, 5, 2, 24], "type": "bar", "name": "write", "marker": {"color": "#f43f5e", "line": {"color": "#0f172a", "width": 1}}, "hovertemplate": "<b>write</b> %{x}: %{y:,} reqs<extra></extra>"}, {"x": ["<1us", "1-10us", "10-100us", "100us-1ms", "1-10ms", "10-100ms", ">100ms"], "y": [0, 0, 0, 0, 0, 0, 0], "type": "bar", "name": "trim", "marker": {"color": "#eab308", "line": {"color": "#0f172a", "width": 1}}, "hovertemplate": "<b>trim</b> %{x}: %{y:,} reqs<extra></extra>"}], "layout": {"title": {"text": "Inter-Arrival Time Distribution", "font": {"size": 15, "color": "#0f172a", "family": "Inter, system-ui, sans-serif"}, "x": 0.02, "y": 0.97, "xanchor": "left", "yanchor": "top"}, "height": 540, "margin": {"l": 70, "r": 320, "t": 60, "b": 130}, "plot_bgcolor": "#f8fafc", "paper_bgcolor": "#ffffff", "font": {"color": "#0f172a", "size": 13, "family": "Inter, system-ui, sans-serif"}, "xaxis": {"title": {"text": "IAT bucket"}, "tickfont": {"size": 12, "color": "#0f172a"}}, "yaxis": {"title": {"text": "Number of requests", "font": {"size": 13}, "standoff": 10}, "gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "automargin": true}, "hovermode": "x unified", "hoverlabel": {"bgcolor": "#1e293b", "bordercolor": "#0f172a", "font": {"color": "#f1f5f9", "size": 13}}, "legend": {"orientation": "v", "yanchor": "top", "y": 1.0, "xanchor": "left", "x": 1.03, "font": {"size": 11, "color": "#0f172a"}, "bgcolor": "rgba(248,250,252,0.98)", "bordercolor": "#cbd5e1", "borderwidth": 1, "itemwidth": 30, "itemsizing": "constant", "tracegroupgap": 6}, "barmode": "group", "autosize": true}};
+      Plotly.newPlot('ch_iat', fig.data, fig.layout,
+        {responsive:true, displayModeBar:true, displaylogo:false,
+          modeBarButtonsToRemove:['select2d','lasso2d']});
+    })();
+  </script>
+</section>
+<section class="card">
+  <h2>R/W/T Bytes per 10-sec Window (stacked)</h2>
+  <div id="ch_rwt" class="plot"></div>
+  
+  
+  <script>
+    (function() {
+      var fig = {"data": [{"x": [0.0, 10.0, 20.0], "y": [0.0, 0.0, 0.0], "type": "scatter", "mode": "lines", "name": "Read MB/window", "stackgroup": "rwt", "fillcolor": "rgba(34,197,94,0.6)", "line": {"color": "#22c55e"}, "hovertemplate": "<b>%{y:.1f}</b> MB read<extra></extra>"}, {"x": [0.0, 10.0, 20.0], "y": [3.104768, 2.584576, 2.39616], "type": "scatter", "mode": "lines", "name": "Write MB/window", "stackgroup": "rwt", "fillcolor": "rgba(244,63,94,0.55)", "line": {"color": "#f43f5e"}, "hovertemplate": "<b>%{y:.1f}</b> MB write<extra></extra>"}, {"x": [0.0, 10.0, 20.0], "y": [0.0, 0.0, 0.0], "type": "scatter", "mode": "lines", "name": "Trim MB/window", "stackgroup": "rwt", "fillcolor": "rgba(234,179,8,0.5)", "line": {"color": "#eab308"}, "hovertemplate": "<b>%{y:.1f}</b> MB trim<extra></extra>"}], "layout": {"title": {"text": "R/W/T Bytes per 10-sec Window (stacked)", "font": {"size": 15, "color": "#0f172a", "family": "Inter, system-ui, sans-serif"}, "x": 0.02, "y": 0.97, "xanchor": "left", "yanchor": "top"}, "height": 540, "margin": {"l": 70, "r": 320, "t": 60, "b": 130}, "plot_bgcolor": "#f8fafc", "paper_bgcolor": "#ffffff", "font": {"color": "#0f172a", "size": 13, "family": "Inter, system-ui, sans-serif"}, "xaxis": {"title": {"text": "Wall-clock time (UTC)", "font": {"size": 13}, "standoff": 15}, "gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "type": "date", "automargin": true}, "yaxis": {"title": {"text": "MB per window", "font": {"size": 13}, "standoff": 10}, "gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "automargin": true}, "hovermode": "x unified", "hoverlabel": {"bgcolor": "#1e293b", "bordercolor": "#0f172a", "font": {"color": "#f1f5f9", "size": 13}}, "legend": {"orientation": "v", "yanchor": "top", "y": 1.0, "xanchor": "left", "x": 1.03, "font": {"size": 11, "color": "#0f172a"}, "bgcolor": "rgba(248,250,252,0.98)", "bordercolor": "#cbd5e1", "borderwidth": 1, "itemwidth": 30, "itemsizing": "constant", "tracegroupgap": 6}, "autosize": true}};
+      Plotly.newPlot('ch_rwt', fig.data, fig.layout,
+        {responsive:true, displayModeBar:true, displaylogo:false,
+          modeBarButtonsToRemove:['select2d','lasso2d']});
+    })();
+  </script>
+</section>
+<section class="card">
+  <h2>Bandwidth per Stream (top 20)</h2>
+  <div id="ch_bps" class="plot"></div>
+  <div class="caption">Each stream = (pid, comm) — sorted by bandwidth</div>
+  
+  <script>
+    (function() {
+      var fig = {"data": [{"y": ["0:554780", "0:0", "0:489719"], "x": [3.906, 0.289, 0.045], "type": "bar", "orientation": "h", "name": "Write", "marker": {"color": "#f43f5e", "line": {"color": "#0f172a", "width": 1}}, "customdata": [0.004096, 7.180288, 0.90112], "hovertemplate": "<b>write</b><br>Stream: %{y}<br>Bandwidth: <b>%{x:.2f} MiB/s</b><br>Total: %{customdata:.1f} MB<extra></extra>"}], "layout": {"title": {"text": "Bandwidth per Stream (top 20 per op)", "font": {"size": 15, "color": "#0f172a", "family": "Inter, system-ui, sans-serif"}, "x": 0.02, "y": 0.97, "xanchor": "left", "yanchor": "top"}, "height": 580, "margin": {"l": 70, "r": 90, "t": 60, "b": 130}, "plot_bgcolor": "#f8fafc", "paper_bgcolor": "#ffffff", "font": {"color": "#0f172a", "size": 13, "family": "Inter, system-ui, sans-serif"}, "xaxis": {"title": {"text": "MiB / sec"}, "tickfont": {"size": 12, "color": "#0f172a"}}, "yaxis": {"title": {"text": "Stream (pid:comm)", "font": {"size": 13}, "standoff": 10}, "gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "automargin": true}, "hovermode": "x unified", "hoverlabel": {"bgcolor": "#1e293b", "bordercolor": "#0f172a", "font": {"color": "#f1f5f9", "size": 13}}, "legend": {"orientation": "h", "yanchor": "top", "y": -0.14, "xanchor": "left", "x": 0, "font": {"size": 11, "color": "#0f172a"}, "bgcolor": "rgba(248,250,252,0.98)", "bordercolor": "#cbd5e1", "borderwidth": 1, "itemwidth": 30, "itemsizing": "constant", "tracegroupgap": 6}, "barmode": "group", "autosize": true}};
+      Plotly.newPlot('ch_bps', fig.data, fig.layout,
+        {responsive:true, displayModeBar:true, displaylogo:false,
+          modeBarButtonsToRemove:['select2d','lasso2d']});
+    })();
+  </script>
+</section>
+<section class="card">
+  <h2>SSD I/O Distribution Across LBA Space</h2>
+  <div id="ch_hot" class="plot"></div>
+  <div class="caption"><strong>Consistency rule:</strong> this chart is physical local-block telemetry from blktrace/blkparse completion events only. SGLang backuped/prefetched counters are logical L3 KV movement; load_back is L2→L1 restore diagnostic-only; Executive and End Report reconcile them separately, so this LBA distribution must not be used to override SGLang logical directionality when blktrace is partial/missing.<br><br><strong>Trace target:</strong> /dev/nvme1n1 &nbsp;·&nbsp; <strong>FS backing device:</strong> /dev/nvme1n1<br><b>This run:</b> 0 GB of writes during the trace window vs <b>100 GB of files</b> on disk at analyze time — workload accumulating without major churn (0.00× ratio).<br>Bars (log scale) show <b>total bytes written or read per ~120 equal-width LBA bins during the collection window</b>. This is cumulative I/O traffic, not current file allocation: a workload that creates and overwrites or deletes KV blocks will rack up many TB of writes even if df shows only a few hundred GB of files at the end. Diamonds mark the 30 hottest 16 MB buckets per op. Dotted line = device capacity. The dashed line at 'df' marks the filesystem byte total at analyze time — it's a different quantity than the bars: <b>df = files that currently exist</b>, <b>bars = bytes written during the trace</b>. They can disagree in either direction. If the bars sum to MORE than df, the workload was churning (writing then deleting/overwriting). If the bars sum to LESS, pre-existing files weren't re-touched during this window.</div>
+  
+  <script>
+    (function() {
+      var fig = {"data": [{"x": [3.7499174912, 11.249752473600001, 18.749587456, 26.2494224384, 33.7492574208, 41.2490924032, 48.748927385600005, 56.248762368, 63.748597350400004, 71.24843233280001, 78.74826731520001, 86.2481022976, 93.74793728, 101.2477722624, 108.74760724480001, 116.24744222720001, 123.7472772096, 131.247112192, 138.74694717440002, 146.2467821568, 153.7466171392, 161.24645212160002, 168.746287104, 176.24612208640002, 183.7459570688, 191.2457920512, 198.74562703360002, 206.245462016, 213.74529699840002, 221.2451319808, 228.7449669632, 236.24480194560002, 243.744636928, 251.24447191040002, 258.7443068928, 266.2441418752, 273.7439768576, 281.24381184000003, 288.7436468224, 296.2434818048, 303.7433167872, 311.2431517696, 318.74298675200004, 326.2428217344, 333.7426567168, 341.2424916992, 348.7423266816, 356.24216166400004, 363.7419966464, 371.2418316288, 378.7416666112, 386.2415015936, 393.74133657600004, 401.2411715584, 408.7410065408, 416.2408415232, 423.7406765056, 431.24051148800004, 438.7403464704, 446.2401814528, 453.7400164352, 461.2398514176, 468.73968640000004, 476.2395213824, 483.7393563648, 491.2391913472, 498.73902632960005, 506.23886131200004, 513.7386962944, 521.2385312768, 528.7383662592, 536.2382012416, 543.738036224, 551.2378712064, 558.7377061888001, 566.2375411712001, 573.7373761536, 581.237211136, 588.7370461184, 596.2368811008, 603.7367160832, 611.2365510656, 618.736386048, 626.2362210304, 633.7360560128001, 641.2358909952001, 648.7357259776, 656.23556096, 663.7353959424, 671.2352309248, 678.7350659072, 686.2349008896, 693.734735872, 701.2345708544, 708.7344058368001, 716.2342408192001, 723.7340758016, 731.233910784, 738.7337457664, 746.2335807488, 753.7334157312, 761.2332507136, 768.733085696, 776.2329206784001, 783.7327556608001, 791.2325906432001, 798.7324256256001, 806.232260608, 813.7320955904, 821.2319305728, 828.7317655552, 836.2316005376, 843.73143552, 851.2312705024001, 858.7311054848001, 866.2309404672001, 873.7307754496001, 881.230610432, 888.7304454144, 896.2302803968], "y": [1.114112, null, 0.032768, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.59392, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.765952, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 0.294912, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 3.612672, 1.671168], "type": "bar", "name": "Write traffic (0.0 GB written in window, touches 6% of device)", "marker": {"color": "#f43f5e", "opacity": 0.45, "line": {"color": "#f43f5e", "width": 0}}, "width": 7.12484323328, "offsetgroup": "write", "hovertemplate": "<b>Write distribution</b><br>LBA range: %{x:.1f} GB \u00b1 3.7 GB<br>Bytes in bin: <b>%{y:.2f} MB</b><extra></extra>", "legendgroup": "dist"}, {"x": [890.903724032, 0.402653184, 449.696497664, 0.721420288, 292.309434368, 899.795648512, 899.963420672, 899.92986624, 778.311827456, 898.654797824, 292.225548288, 899.409772544, 890.920501248, 891.088273408, 898.604466176, 891.071496192, 899.946643456, 899.34266368, 887.5147264, 899.493658624, 899.661430784, 292.275879936, 778.29505024, 887.59861248, 19.260243968, 899.42654976, 898.789015552, 899.292332032], "y": [3.096576, 0.770048, 0.765952, 0.344064, 0.319488, 0.26624, 0.24576, 0.24576, 0.24576, 0.229376, 0.221184, 0.180224, 0.147456, 0.131072, 0.114688, 0.114688, 0.098304, 0.098304, 0.08192, 0.08192, 0.065536, 0.053248, 0.049152, 0.04096, 0.032768, 0.032768, 0.008192, 0.004096], "type": "scatter", "mode": "markers", "name": "Write hot regions (top 30)", "marker": {"color": "#f43f5e", "size": 11, "opacity": 0.9, "symbol": "diamond", "line": {"color": "#0f172a", "width": 1.2}}, "hovertemplate": "<b>Write hot region</b><br>LBA: %{x:.3f} GB<br>Bytes: <b>%{y:.1f} MB</b><extra></extra>", "legendgroup": "hot"}], "layout": {"title": {"text": "SSD I/O Distribution Across LBA Space", "font": {"size": 15, "color": "#0f172a", "family": "Inter, system-ui, sans-serif"}, "x": 0.02, "y": 0.97, "xanchor": "left", "yanchor": "top"}, "height": 540, "margin": {"l": 70, "r": 320, "t": 60, "b": 130}, "plot_bgcolor": "#f8fafc", "paper_bgcolor": "#ffffff", "font": {"color": "#0f172a", "size": 13, "family": "Inter, system-ui, sans-serif"}, "xaxis": {"type": "linear", "title": {"text": "Disk LBA offset (GB) \u2014 device capacity 838 GB", "standoff": 15}, "range": [0, 917.96268908544], "gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "automargin": true}, "yaxis": {"type": "log", "title": {"text": "Bytes per bin (MB, log)", "standoff": 10}, "gridcolor": "#cbd5e1", "zerolinecolor": "#94a3b8", "linecolor": "#475569", "tickcolor": "#475569", "tickfont": {"size": 12, "color": "#0f172a"}, "automargin": true}, "hovermode": "closest", "hoverlabel": {"bgcolor": "#1e293b", "bordercolor": "#0f172a", "font": {"color": "#f1f5f9", "size": 13}}, "legend": {"orientation": "v", "yanchor": "top", "y": 1.0, "xanchor": "left", "x": 1.03, "font": {"size": 11, "color": "#0f172a"}, "bgcolor": "rgba(248,250,252,0.98)", "bordercolor": "#cbd5e1", "borderwidth": 1, "itemwidth": 30, "itemsizing": "constant", "tracegroupgap": 6}, "barmode": "overlay", "shapes": [{"type": "line", "xref": "x", "yref": "paper", "x0": 99.6, "x1": 99.6, "y0": 0, "y1": 1, "line": {"color": "#0ea5e9", "width": 2, "dash": "dash"}}, {"type": "line", "xref": "x", "yref": "paper", "x0": 838.2, "x1": 838.2, "y0": 0, "y1": 1, "line": {"color": "#475569", "width": 2, "dash": "dot"}}], "annotations": [{"x": 99.6, "y": 1.02, "xref": "x", "yref": "paper", "text": "df at analyze time: 100 GB filesystem-used (cumulative across runs, not just this window)", "showarrow": false, "yanchor": "bottom", "font": {"size": 10, "color": "#0ea5e9"}, "bgcolor": "rgba(14,165,233,0.08)", "bordercolor": "#0ea5e9", "borderwidth": 1, "borderpad": 3}, {"x": 838.2, "y": 0.95, "xref": "x", "yref": "paper", "text": "capacity 838 GB", "showarrow": false, "yanchor": "top", "xanchor": "right", "font": {"size": 11, "color": "#475569"}}], "autosize": true}};
+      Plotly.newPlot('ch_hot', fig.data, fig.layout,
+        {responsive:true, displayModeBar:true, displaylogo:false,
+          modeBarButtonsToRemove:['select2d','lasso2d']});
+    })();
+  </script>
+</section>
+<section class="card layer-header" id="layer-cross" style="background:#0f172a;color:#fff;border-color:#0f172a">
+  <h2 style="color:#fff;border-bottom:1px solid rgba(255,255,255,.35)">Cross-layer Diagnosis</h2>
+  <div style="font-size:13px;opacity:.95">Use these charts together to connect A5 request symptoms back to A4 runtime behavior and A1–A3 memory/storage tiers.</div>
+</section>
+
+  <footer>
+    Generated by AMOprof · static charts available via <code>--report</code> · interactive via <code>--interactive</code>
+  </footer>
+</body>
+</html>

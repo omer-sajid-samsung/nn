@@ -1,0 +1,35 @@
+{
+  "run_id": "service_cycle_20260725_051202",
+  "label": "service_cycle_20260725_051202",
+  "service_mode": true,
+  "service_cycle": 1841,
+  "timestamp": "2026-07-25T05:12:12.720798+00:00",
+  "t0_epoch": 1784956322.0288453,
+  "start_time": 1784956322.0288453,
+  "t_end_epoch": 1784956332.7207975,
+  "end_time": 1784956332.7207975,
+  "start_time_utc": "2026-07-25T05:12:02.028845+00:00",
+  "end_time_utc": "2026-07-25T05:12:12.720798+00:00",
+  "duration_s": 10.692,
+  "requested_duration_s": 10.0,
+  "interval_s": 1.0,
+  "collectors": [
+    "biosnoop",
+    "blktrace",
+    "dram",
+    "gpu",
+    "iostat",
+    "pcm",
+    "sglang",
+    "smart",
+    "vmstat"
+  ],
+  "ssd_device": "/dev/nvme1n1",
+  "ssd_devices": [
+    "/dev/nvme1n1"
+  ],
+  "hicache_path": "/opt/ls/lmcache-disk-cache",
+  "sglang_port": "",
+  "vllm_port": 8000,
+  "vllm_host": "127.0.0.1"
+}

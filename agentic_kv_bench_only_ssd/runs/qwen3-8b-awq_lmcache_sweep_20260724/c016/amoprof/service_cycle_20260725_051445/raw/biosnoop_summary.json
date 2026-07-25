@@ -1,0 +1,24 @@
+{
+  "biosnoop_available": false,
+  "biosnoop_events": 0,
+  "biosnoop_events_all_devices": 0,
+  "biosnoop_lines_seen": 0,
+  "biosnoop_lines_unparsed": 0,
+  "biosnoop_headers_seen": 0,
+  "biosnoop_csv": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c016/amoprof/service_cycle_20260725_051445/raw/biosnoop_events.csv",
+  "biosnoop_all_devices_csv": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c016/amoprof/service_cycle_20260725_051445/raw/biosnoop_events_all.csv",
+  "biosnoop_raw_log": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c016/amoprof/service_cycle_20260725_051445/raw/biosnoop_raw.log",
+  "biosnoop_stderr": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c016/amoprof/service_cycle_20260725_051445/raw/biosnoop_stderr.txt",
+  "biosnoop_command": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c016/amoprof/service_cycle_20260725_051445/raw/biosnoop_command.txt",
+  "biosnoop_duration_s": 0.0,
+  "biosnoop_filter_disk": "nvme1n1",
+  "biosnoop_reason": "",
+  "biosnoop_binary": "biosnoop",
+  "biosnoop_cmd": [
+    "biosnoop",
+    "-t"
+  ],
+  "note": "biosnoop_events.csv is filtered to the requested SSD/device and matching partitions; biosnoop_events_all.csv keeps the unfiltered all-device stream.",
+  "biosnoop_started": true,
+  "biosnoop_pid": 1781790
+}

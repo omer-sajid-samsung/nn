@@ -1,0 +1,31 @@
+[2026-07-24 20:47:37] vLLM is healthy at http://127.0.0.1:8000.
+[2026-07-24 20:47:37] Sweep 'qwen3-8b-awq_lmcache_sweep_20260724' starting. Levels: 8 16 1
+[2026-07-24 20:47:37] Results root: /opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724
+[2026-07-24 20:47:37] === c008: concurrency=8 ===
+[2026-07-24 20:47:37] Starting amoprof -> /opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c008/amoprof (log: /opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c008/amoprof_service.log)
+[2026-07-24 20:47:37] Waiting up to 90s for amoprof metrics port 9101...
+[2026-07-24 20:47:42] amoprof is up (daemon pid 1047622), metrics on :9101.
+[2026-07-24 20:47:42] Settling 10s before starting the workload...
+[2026-07-24 20:47:52] AgentBench started (pid 1048136), log: /opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c008/agentbench.log
+[2026-07-24 22:44:02] Stopping amoprof (pid 1047622), grace 45s...
+[2026-07-24 22:44:04] amoprof stopped.
+[2026-07-24 22:44:04] Settling 10s for final telemetry flush...
+[2026-07-24 22:44:14] === c008: done in 6983s, status=OK ===
+[2026-07-24 22:44:14] Settling for 180s before next level...
+[2026-07-24 22:47:14] === c016: concurrency=16 ===
+[2026-07-24 22:47:14] Starting amoprof -> /opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c016/amoprof (log: /opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c016/amoprof_service.log)
+[2026-07-24 22:47:14] Waiting up to 90s for amoprof metrics port 9101...
+[2026-07-24 22:47:19] amoprof is up (daemon pid 1267333), metrics on :9101.
+[2026-07-24 22:47:19] Settling 10s before starting the workload...
+[2026-07-24 22:47:29] AgentBench started (pid 1271574), log: /opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c016/agentbench.log
+[2026-07-25 00:47:32] TIMEOUT after 7200s — stopping workload tree (grace 20s).
+[2026-07-25 00:47:36] Settling 10s for final telemetry flush...
+[2026-07-25 00:47:46] === c016: done in 7220s, status=TIMEOUT ===
+[2026-07-25 00:47:46] Settling for 180s before next level...
+[2026-07-25 00:50:46] === c001: concurrency=1 ===
+[2026-07-25 00:50:46] ERROR: port 9101 already in use — leftover amoprof?
+[2026-07-25 00:50:46]        Run: sudo pkill -f 'amoprof.*service'   (then re-run the sweep)
+[2026-07-25 00:50:46] Sweep finished. Summary:
+run_id,concurrency,start_utc,duration_s,status,run_dir
+c008,8,2026-07-24T20:47:37Z,6983,OK,/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c008
+c016,16,2026-07-24T22:47:14Z,7220,TIMEOUT,/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c016

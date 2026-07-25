@@ -1,0 +1,77 @@
+05:34:21  INFO      Prometheus /metrics listening on 0.0.0.0:9101
+
+====================================================================
+  AMOprof collection service started
+  Collectors     : dram, gpu, iostat, smart, vmstat
+  Scrape window  : 30 s
+  Poll interval  : 1.0 s
+  Metrics URL    : http://0.0.0.0:9101/metrics
+  Health URL     : http://0.0.0.0:9101/healthz
+  Output base    : /opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof
+====================================================================
+
+05:34:21  INFO      service: cycle 1 starting (20260724_053421; epoch=1784871261.405)
+05:34:52  INFO      service: cycle 1 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_053421/raw
+05:34:52  INFO      service: cycle 2 starting (20260724_053452; epoch=1784871292.747)
+05:35:23  INFO      service: cycle 2 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_053452/raw
+05:35:24  INFO      service: cycle 3 starting (20260724_053524; epoch=1784871324.136)
+05:35:55  INFO      service: cycle 3 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_053524/raw
+05:35:55  INFO      service: cycle 4 starting (20260724_053555; epoch=1784871355.554)
+05:36:26  INFO      service: cycle 4 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_053555/raw
+05:36:26  INFO      service: cycle 5 starting (20260724_053626; epoch=1784871386.974)
+05:36:57  INFO      service: cycle 5 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_053626/raw
+05:36:58  INFO      service: cycle 6 starting (20260724_053658; epoch=1784871418.377)
+05:37:29  INFO      service: cycle 6 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_053658/raw
+05:37:29  INFO      service: cycle 7 starting (20260724_053729; epoch=1784871449.795)
+05:38:00  INFO      service: cycle 7 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_053729/raw
+05:38:01  INFO      service: cycle 8 starting (20260724_053801; epoch=1784871481.204)
+05:38:32  INFO      service: cycle 8 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_053801/raw
+05:38:32  INFO      service: cycle 9 starting (20260724_053832; epoch=1784871512.674)
+05:39:03  INFO      service: cycle 9 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_053832/raw
+05:39:04  INFO      service: cycle 10 starting (20260724_053904; epoch=1784871544.124)
+05:39:35  INFO      service: cycle 10 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_053904/raw
+05:39:35  INFO      service: cycle 11 starting (20260724_053935; epoch=1784871575.552)
+05:40:06  INFO      service: cycle 11 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_053935/raw
+05:40:06  INFO      service: cycle 12 starting (20260724_054006; epoch=1784871606.953)
+05:40:37  INFO      service: cycle 12 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054006/raw
+05:40:38  INFO      service: cycle 13 starting (20260724_054038; epoch=1784871638.402)
+05:41:09  INFO      service: cycle 13 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054038/raw
+05:41:09  INFO      service: cycle 14 starting (20260724_054109; epoch=1784871669.828)
+05:41:40  INFO      service: cycle 14 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054109/raw
+05:41:41  INFO      service: cycle 15 starting (20260724_054141; epoch=1784871701.269)
+05:42:12  INFO      service: cycle 15 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054141/raw
+05:42:12  INFO      service: cycle 16 starting (20260724_054212; epoch=1784871732.702)
+05:42:43  INFO      service: cycle 16 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054212/raw
+05:42:44  INFO      service: cycle 17 starting (20260724_054244; epoch=1784871764.138)
+05:43:15  INFO      service: cycle 17 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054244/raw
+05:43:15  INFO      service: cycle 18 starting (20260724_054315; epoch=1784871795.545)
+05:43:46  INFO      service: cycle 18 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054315/raw
+05:43:46  INFO      service: cycle 19 starting (20260724_054346; epoch=1784871826.972)
+05:44:17  INFO      service: cycle 19 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054346/raw
+05:44:18  INFO      service: cycle 20 starting (20260724_054418; epoch=1784871858.352)
+05:44:49  INFO      service: cycle 20 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054418/raw
+05:44:49  INFO      service: cycle 21 starting (20260724_054449; epoch=1784871889.764)
+05:45:20  INFO      service: cycle 21 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054449/raw
+05:45:21  INFO      service: cycle 22 starting (20260724_054521; epoch=1784871921.130)
+05:45:52  INFO      service: cycle 22 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054521/raw
+05:45:52  INFO      service: cycle 23 starting (20260724_054552; epoch=1784871952.507)
+05:46:23  INFO      service: cycle 23 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054552/raw
+05:46:23  INFO      service: cycle 24 starting (20260724_054623; epoch=1784871983.926)
+05:46:54  INFO      service: cycle 24 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054623/raw
+05:46:55  INFO      service: cycle 25 starting (20260724_054655; epoch=1784872015.340)
+05:47:26  INFO      service: cycle 25 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054655/raw
+05:47:26  INFO      service: cycle 26 starting (20260724_054726; epoch=1784872046.758)
+05:47:57  INFO      service: cycle 26 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054726/raw
+05:47:58  INFO      service: cycle 27 starting (20260724_054758; epoch=1784872078.147)
+05:48:29  INFO      service: cycle 27 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054758/raw
+05:48:29  INFO      service: cycle 28 starting (20260724_054829; epoch=1784872109.575)
+05:49:00  INFO      service: cycle 28 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054829/raw
+05:49:00  INFO      service: cycle 29 starting (20260724_054900; epoch=1784872140.925)
+05:49:31  INFO      service: cycle 29 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054900/raw
+05:49:32  INFO      service: cycle 30 starting (20260724_054932; epoch=1784872172.349)
+05:50:03  INFO      service: cycle 30 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_054932/raw
+05:50:03  INFO      service: cycle 31 starting (20260724_055003; epoch=1784872203.784)
+05:50:34  INFO      service: cycle 31 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_055003/raw
+05:50:35  INFO      service: cycle 32 starting (20260724_055035; epoch=1784872235.200)
+05:51:06  INFO      service: cycle 32 complete, store covers 5 collector(s); local raw=/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_055035/raw
+05:51:06  INFO      service: cycle 33 starting (20260724_055106; epoch=1784872266.606)

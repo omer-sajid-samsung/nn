@@ -1,0 +1,12 @@
+{
+  "biosnoop_available": false,
+  "biosnoop_reason": "no biosnoop events captured; possible causes: no block I/O during window, BCC/kernel probe attach failure, unsupported biosnoop binary, or permissions/CAP_BPF/CAP_SYS_ADMIN. stderr_tail=':56: note: expanded from macro \\'__static_assert\\'\\n   80 | #define __static_assert(expr, msg, ...) _Static_assert(expr, msg)\\n      |                                                        ^~~~\\ninclude/linux/fs.h:2431:44: note: expression evaluates to \\'40 == 0\\'\\n 2431 | static_assert(sizeof(struct filename) % 64 == 0);\\n      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~\\ninclude/linux/build_bug.h:79:50: note: expanded from macro \\'static_assert\\'\\n   79 | #define static_assert(expr, ...) __static_assert(expr, ##__VA_ARGS__, #expr)\\n      |                                                  ^~~~\\ninclude/linux/build_bug.h:80:56: note: expanded from macro \\'__static_assert\\'\\n   80 | #define __static_assert(expr, msg, ...) _Static_assert(expr, msg)\\n      |                                                        ^~~~\\n5 warnings and 1 error generated.\\nTraceback (most recent call last):\\n  File \"/usr/sbin/biosnoop-bpfcc\", line 335, in <module>\\n    b = BPF(text=bpf_text)\\n        ^^^^^^^^^^^^^^^^^^\\n  File \"/usr/lib/python3/dist-packages/bcc/__init__.py\", line 479, in __init__\\n    raise Exception(\"Failed to compile BPF module %s\" % (src_file or \"<text>\"))\\nException: Failed to compile BPF module <text>\\n'",
+  "biosnoop_events": 0,
+  "biosnoop_events_all_devices": 0,
+  "biosnoop_summary": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_060938/raw/biosnoop_summary.json",
+  "biosnoop_stderr": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_060938/raw/biosnoop_stderr.txt",
+  "biosnoop_raw_log": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_060938/raw/biosnoop_raw.log",
+  "collection_start_time_seconds": 1784873378.332214,
+  "collection_end_time_seconds": 1784873409.043968,
+  "collection_duration_s": 30.711754
+}

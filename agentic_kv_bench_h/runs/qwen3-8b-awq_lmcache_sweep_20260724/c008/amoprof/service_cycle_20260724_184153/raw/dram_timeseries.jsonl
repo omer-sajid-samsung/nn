@@ -1,0 +1,2 @@
+{"available_gb": 146.28, "collector": "dram", "free_gb": 79.35, "iteration": 0, "time_sec": 0.506817, "timestamp_epoch": 1784918513.634278, "timestamp_utc": "2026-07-24T18:41:53.634278+00:00", "total_gb": 186.68, "ts": 1784918513.634278, "used_gb": 21.37, "util_pct": 11.4}
+{"available_gb": 136.35, "collector": "dram", "free_gb": 69.43, "iteration": 1, "time_sec": 1.509607, "timestamp_epoch": 1784918514.637068, "timestamp_utc": "2026-07-24T18:41:54.637068+00:00", "total_gb": 186.68, "ts": 1784918514.637068, "used_gb": 22.28, "util_pct": 11.9}

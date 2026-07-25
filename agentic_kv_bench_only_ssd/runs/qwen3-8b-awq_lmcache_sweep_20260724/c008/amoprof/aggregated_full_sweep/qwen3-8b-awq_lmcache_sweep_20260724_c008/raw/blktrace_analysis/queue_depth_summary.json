@@ -1,0 +1,18 @@
+{
+  "qd_mean": 357.72,
+  "qd_p50": 38.0,
+  "qd_p95": 361.0,
+  "qd_p99": 12610.0,
+  "qd_max": 26114,
+  "qd_samples_count": 3263,
+  "qd_bucket_s": 1.0,
+  "qd_total_time_s": 6885.861,
+  "qd_source": "blkparse_events_csv_q_to_c",
+  "q_events_seen": 580686,
+  "c_events_seen": 1515080,
+  "pct_at_qd_ge_32": 51.93,
+  "pct_at_qd_ge_64": 40.54,
+  "pct_at_qd_ge_128": 18.37,
+  "pct_at_qd_ge_256": 6.87,
+  "pct_at_qd_ge_1024": 3.3
+}

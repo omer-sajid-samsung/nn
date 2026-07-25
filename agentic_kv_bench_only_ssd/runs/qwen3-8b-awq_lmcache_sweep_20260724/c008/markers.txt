@@ -1,0 +1,10 @@
+run_id=c008
+concurrency=8
+amoprof_start_epoch=1784926057
+amoprof_ready_epoch=1784926072
+agentbench_start_epoch=1784926072
+agentbench_start_utc=2026-07-24T20:47:52Z
+agentbench_end_epoch=1784933040
+agentbench_end_utc=2026-07-24T22:44:00Z
+agentbench_exit_status=0
+amoprof_stop_epoch=1784933044

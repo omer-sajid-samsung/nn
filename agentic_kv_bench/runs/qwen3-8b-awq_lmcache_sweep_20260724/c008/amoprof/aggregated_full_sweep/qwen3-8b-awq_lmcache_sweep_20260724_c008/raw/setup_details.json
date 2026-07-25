@@ -1,0 +1,8 @@
+{
+  "L3 storage type": "local_ssd",
+  "KV cache tier": "L3",
+  "HiCache storage backend": "file",
+  "L3 Device": "/dev/nvme1n1",
+  "L3 Mount Path": "/opt/ls",
+  "HiCache storage path": "/opt/ls/lmcache-disk-cache"
+}

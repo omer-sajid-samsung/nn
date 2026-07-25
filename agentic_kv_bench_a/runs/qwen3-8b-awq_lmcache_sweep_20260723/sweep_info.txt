@@ -1,0 +1,13 @@
+run_name=qwen3-8b-awq_lmcache_sweep_20260723
+concurrency_list=1 8 16
+date_utc=2026-07-24T02:00:58Z
+host=ip-172-31-87-180
+kernel=7.0.0-1007-aws
+GPU 0: Tesla T4 (UUID: GPU-6a720a78-60ad-f046-75c6-2050a565b2f0)
+GPU 1: Tesla T4 (UUID: GPU-e42f772c-63a1-582c-0497-5a814ab08a79)
+GPU 2: Tesla T4 (UUID: GPU-bb52d108-ce9d-f621-6129-a3846f2aac9c)
+GPU 3: Tesla T4 (UUID: GPU-4094d32a-2c02-215b-5503-0e4fec58fec5)
+agentbench_commit=ed013ff9887b0c3d7864c56ae54d41eba54a99d8
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme1n1    824G   69G  714G   9% /opt/ls
+/dev/nvme1n1    824G   69G  714G   9% /opt/ls

@@ -1,0 +1,15 @@
+[2026-07-24 06:00:51] vLLM is healthy at http://127.0.0.1:8000.
+[2026-07-24 06:00:51] Sweep 'qwen3-8b-awq_lmcache_sweep_20260723' starting. Levels: 1 8 16
+[2026-07-24 06:00:51] Results root: /opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723
+[2026-07-24 06:00:51] === c001: concurrency=1 ===
+[2026-07-24 06:00:51] Starting amoprof -> /opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof (log: /opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof_service.log)
+[2026-07-24 06:00:51] Waiting up to 90s for amoprof metrics port 9101...
+[2026-07-24 06:03:09] vLLM is healthy at http://127.0.0.1:8000.
+[2026-07-24 06:03:09] Sweep 'qwen3-8b-awq_lmcache_sweep_20260723' starting. Levels: 1 8 16
+[2026-07-24 06:03:09] Results root: /opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723
+[2026-07-24 06:03:09] === c001: concurrency=1 ===
+[2026-07-24 06:03:09] Starting amoprof -> /opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof (log: /opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof_service.log)
+[2026-07-24 06:03:09] Waiting up to 90s for amoprof metrics port 9101...
+[2026-07-24 06:03:14] amoprof is up (daemon pid 180148), metrics on :9101.
+[2026-07-24 06:03:14] Settling 10s before starting the workload...
+[2026-07-24 06:03:24] AgentBench started (pid 180495), log: /opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/agentbench.log

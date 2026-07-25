@@ -1,0 +1,2 @@
+{"index": "std-007-bootstrap-00020", "error": "AGENT_FAILED", "info": "Failed.", "output": {"index": null, "status": "running", "result": null, "history": null}, "time": {"timestamp": 1784927158053, "str": "2026-07-24 21:05:58"}}
+{"index": "std-006-new-00003", "error": "AGENT_FAILED", "info": "Failed.", "output": {"index": null, "status": "running", "result": null, "history": null}, "time": {"timestamp": 1784927640053, "str": "2026-07-24 21:14:00"}}

@@ -1,0 +1,12 @@
+{
+  "aligned_samples": 184,
+  "all_timeseries_samples": 184,
+  "analysis_dir": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_105101/analysis",
+  "has_sglang": false,
+  "operation_samples": 0,
+  "operations": [
+    "unmapped"
+  ],
+  "run_dir": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c001/amoprof/service_cycle_20260724_105101",
+  "sglang_samples": 0
+}

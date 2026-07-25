@@ -1,0 +1,10 @@
+{
+  "pcm_available": false,
+  "pcm_source": "intel-pcm/pcm-memory",
+  "pcm_reason": null,
+  "pcm_samples": 0,
+  "pcm_raw_path": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c008/amoprof/service_cycle_20260724_204738/raw/pcm_memory_raw.csv",
+  "collection_start_time_seconds": 1784929503.9124,
+  "collection_end_time_seconds": 1784929514.5836,
+  "collection_duration_s": 10.6712
+}

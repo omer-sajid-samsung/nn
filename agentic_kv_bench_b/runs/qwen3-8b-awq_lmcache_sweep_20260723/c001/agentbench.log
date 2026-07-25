@@ -1,0 +1,515 @@
+/opt/ls/conda/envs/agent-bench/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+/opt/ls/conda/envs/agent-bench/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+[93mWarning: 7 agent(s) and 16 task(s) are defined but not used, they will be ignored.[0m
+[93m    Agent: {'vicuna-13b', 'vicuna-7b', 'text-davinci-003', 'vicuna-33b', 'gpt-3.5-turbo-0613', 'wizard-30b', 'text-davinci-002'}[0m
+[93m    Task: {'avalon-dev-naive', 'cg-std', 'm2w-dev', 'avalon-dev-single', 'webshop-std', 'ltp-dev', 'os-dev', 'm2w-std', 'ltp-std', 'cg-dev', 'kg-dev', 'dbbench-dev', 'webshop-dev', 'kg-std', 'alfworld-dev', 'alfworld-std'}[0m
+[92mcreating os-std client...[0m
+TaskClient created: os-std (http://localhost:5000/api)
+[92mcreating dbbench-std client...[0m
+TaskClient created: dbbench-std (http://localhost:5000/api)
+[96mMessage: 444 samples remaining.[0m
+[96mAgent "qwen3-8b-awq" needs to run 2 tasks with total 444 samples:[0m
+[96m    Task "os-std": 144[0m
+[96m    Task "dbbench-std": 300[0m
+Total:   0%|          | 0/444 [00:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:00<?, ?it/s][A                                              
+                                                     [ARunning Count: 0
+Total:   0%|          | 0/444 [00:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:00<?, ?it/s][A                                              
+                                                     [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00087[0m
+Total:   0%|          | 0/444 [00:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:00<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [00:07<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:07<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [00:12<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:12<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [00:24<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:24<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [00:36<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:36<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [00:48<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:48<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [00:58<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:58<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [01:05<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [01:05<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [01:13<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [01:13<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [01:27<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [01:27<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [01:35<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [01:35<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [01:44<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [01:44<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [01:50<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [01:50<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [02:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [02:00<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [02:01<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [02:01<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [02:15<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [02:15<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [02:20<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [02:20<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [02:26<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [02:26<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [02:33<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [02:33<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [02:46<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [02:46<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [03:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [03:00<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [03:14<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [03:14<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [03:29<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [03:29<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [03:37<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [03:37<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [03:43<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [03:43<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [03:55<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [03:55<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [04:01<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [04:01<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [04:12<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [04:12<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [04:23<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [04:23<?, ?it/s][ATotal:   0%|          | 1/444 [04:27<32:53:22, 267.27s/it]
+qwen3-8b-awq:   0%|          | 1/444 [04:27<32:53:22, 267.27s/it][A                                                          
+                                                                 [ARunning Count: 0
+Total:   0%|          | 1/444 [04:29<32:53:22, 267.27s/it]
+qwen3-8b-awq:   0%|          | 1/444 [04:29<32:53:22, 267.27s/it][A                                                          
+                                                                 [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00086[0m
+Total:   0%|          | 1/444 [04:29<32:53:22, 267.27s/it]
+qwen3-8b-awq:   0%|          | 1/444 [04:29<32:53:22, 267.27s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   0%|          | 1/444 [04:41<32:53:22, 267.27s/it]
+qwen3-8b-awq:   0%|          | 1/444 [04:41<32:53:22, 267.27s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   0%|          | 1/444 [04:51<32:53:22, 267.27s/it]
+qwen3-8b-awq:   0%|          | 1/444 [04:51<32:53:22, 267.27s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   0%|          | 1/444 [04:56<32:53:22, 267.27s/it]
+qwen3-8b-awq:   0%|          | 1/444 [04:56<32:53:22, 267.27s/it][ATotal:   0%|          | 2/444 [05:06<16:20:17, 133.07s/it]
+qwen3-8b-awq:   0%|          | 2/444 [05:06<16:20:17, 133.07s/it][A                                                          
+                                                                 [ARunning Count: 0
+Total:   0%|          | 2/444 [05:10<16:20:17, 133.07s/it]
+qwen3-8b-awq:   0%|          | 2/444 [05:10<16:20:17, 133.07s/it][A                                                          
+                                                                 [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00085[0m
+Total:   0%|          | 2/444 [05:10<16:20:17, 133.07s/it]
+qwen3-8b-awq:   0%|          | 2/444 [05:10<16:20:17, 133.07s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   0%|          | 2/444 [05:20<16:20:17, 133.07s/it]
+qwen3-8b-awq:   0%|          | 2/444 [05:20<16:20:17, 133.07s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   0%|          | 2/444 [05:33<16:20:17, 133.07s/it]
+qwen3-8b-awq:   0%|          | 2/444 [05:33<16:20:17, 133.07s/it][ATotal:   1%|          | 3/444 [05:38<10:39:05, 86.95s/it] 
+qwen3-8b-awq:   1%|          | 3/444 [05:38<10:39:05, 86.95s/it] [A                                                         
+                                                                [ARunning Count: 0
+Total:   1%|          | 3/444 [05:43<10:39:05, 86.95s/it]
+qwen3-8b-awq:   1%|          | 3/444 [05:43<10:39:05, 86.95s/it][A                                                         
+                                                                [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00084[0m
+Total:   1%|          | 3/444 [05:43<10:39:05, 86.95s/it]
+qwen3-8b-awq:   1%|          | 3/444 [05:43<10:39:05, 86.95s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   1%|          | 3/444 [05:55<10:39:05, 86.95s/it]
+qwen3-8b-awq:   1%|          | 3/444 [05:55<10:39:05, 86.95s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   1%|          | 3/444 [06:04<10:39:05, 86.95s/it]
+qwen3-8b-awq:   1%|          | 3/444 [06:04<10:39:05, 86.95s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   1%|          | 3/444 [06:16<10:39:05, 86.95s/it]
+qwen3-8b-awq:   1%|          | 3/444 [06:16<10:39:05, 86.95s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   1%|          | 3/444 [06:29<10:39:05, 86.95s/it]
+qwen3-8b-awq:   1%|          | 3/444 [06:29<10:39:05, 86.95s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   1%|          | 3/444 [06:41<10:39:05, 86.95s/it]
+qwen3-8b-awq:   1%|          | 3/444 [06:41<10:39:05, 86.95s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   1%|          | 3/444 [06:49<10:39:05, 86.95s/it]
+qwen3-8b-awq:   1%|          | 3/444 [06:49<10:39:05, 86.95s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   1%|          | 3/444 [07:02<10:39:05, 86.95s/it]
+qwen3-8b-awq:   1%|          | 3/444 [07:02<10:39:05, 86.95s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   1%|          | 3/444 [07:15<10:39:05, 86.95s/it]
+qwen3-8b-awq:   1%|          | 3/444 [07:15<10:39:05, 86.95s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   1%|          | 3/444 [07:22<10:39:05, 86.95s/it]
+qwen3-8b-awq:   1%|          | 3/444 [07:22<10:39:05, 86.95s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   1%|          | 3/444 [07:28<10:39:05, 86.95s/it]
+qwen3-8b-awq:   1%|          | 3/444 [07:28<10:39:05, 86.95s/it][A                                                         
+                                                                [ARunning Count: 1
+Total:   1%|          | 3/444 [07:34<10:39:05, 86.95s/it]
+qwen3-8b-awq:   1%|          | 3/444 [07:34<10:39:05, 86.95s/it][ATotal:   1%|          | 4/444 [07:41<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [07:41<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 0
+Total:   1%|          | 4/444 [07:43<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [07:43<12:20:59, 101.04s/it][A                                                          
+                                                                 [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00083[0m
+Total:   1%|          | 4/444 [07:43<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [07:43<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [07:58<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [07:58<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [08:05<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [08:05<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [08:15<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [08:15<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [08:24<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [08:24<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [08:37<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [08:37<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [08:49<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [08:49<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [08:58<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [08:58<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [09:13<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [09:13<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [09:26<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [09:26<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [09:34<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [09:34<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [09:45<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [09:45<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [09:53<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [09:53<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [09:58<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [09:58<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [10:08<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [10:08<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [10:17<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [10:17<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [10:31<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [10:31<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [10:37<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [10:37<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [10:43<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [10:43<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [10:58<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [10:58<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [11:06<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [11:06<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [11:15<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [11:15<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [11:25<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [11:25<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [11:34<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [11:34<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [11:41<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [11:41<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [11:47<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [11:47<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [11:57<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [11:57<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [12:10<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [12:10<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [12:20<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [12:20<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [12:30<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [12:30<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [12:36<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [12:36<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [12:47<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [12:47<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [13:02<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [13:02<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [13:16<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [13:16<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [13:23<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [13:23<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [13:36<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [13:36<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [13:48<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [13:48<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [13:59<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [13:59<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [14:08<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [14:08<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [14:21<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [14:21<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [14:29<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [14:29<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [14:42<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [14:42<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [14:55<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [14:55<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [15:08<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [15:08<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [15:21<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [15:21<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [15:28<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [15:28<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [15:43<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [15:43<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [15:55<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [15:55<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [16:00<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [16:00<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [16:09<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [16:09<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [16:22<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [16:22<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [16:32<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [16:32<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [16:40<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [16:40<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [16:50<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [16:50<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [16:58<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [16:58<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [17:05<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [17:05<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [17:18<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [17:18<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [17:32<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [17:32<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [17:47<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [17:47<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [18:01<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [18:01<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [18:15<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [18:15<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [18:22<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [18:22<12:20:59, 101.04s/it][A                                                          
+                                                                 [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   1%|          | 4/444 [18:25<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [18:25<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [18:29<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [18:29<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [18:43<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [18:43<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [18:54<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [18:54<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [19:00<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [19:00<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [19:07<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [19:07<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [19:12<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [19:12<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [19:18<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [19:18<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [19:28<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [19:28<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [19:42<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [19:42<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [19:55<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [19:55<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [20:06<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [20:06<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [20:16<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [20:16<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [20:22<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [20:22<12:20:59, 101.04s/it][A                                                          
+                                                                 [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   1%|          | 4/444 [20:27<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [20:27<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [20:29<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [20:29<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [20:41<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [20:41<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [20:55<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [20:55<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [21:02<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [21:02<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [21:08<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [21:08<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [21:21<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [21:21<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [21:34<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [21:34<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [21:39<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [21:39<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [21:48<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [21:48<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [21:53<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [21:53<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [22:03<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [22:03<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [22:08<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [22:08<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [22:17<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [22:17<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [22:23<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [22:23<12:20:59, 101.04s/it][A                                                          
+                                                                 [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   1%|          | 4/444 [22:30<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [22:30<12:20:59, 101.04s/it][A                                                          
+                                                                 [AERROR: HTTPAgent/os-std agent error Failed.
+Total:   1%|          | 4/444 [22:34<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [22:34<12:20:59, 101.04s/it][A                                                          
+                                                                 [A[93mWarning: qwen3-8b-awq/os-std#std-007-bootstrap-00083 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   1%|          | 4/444 [22:34<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [22:34<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 0
+Total:   1%|          | 4/444 [22:35<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [22:35<12:20:59, 101.04s/it][A                                                          
+                                                                 [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00082[0m
+Total:   1%|          | 4/444 [22:35<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [22:35<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [22:47<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [22:47<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [23:00<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [23:00<12:20:59, 101.04s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 4/444 [23:14<12:20:59, 101.04s/it]
+qwen3-8b-awq:   1%|          | 4/444 [23:14<12:20:59, 101.04s/it][ATotal:   1%|          | 5/444 [23:14<48:55:27, 401.20s/it]
+qwen3-8b-awq:   1%|          | 5/444 [23:14<48:55:27, 401.20s/it][A                                                          
+                                                                 [ARunning Count: 0
+Total:   1%|          | 5/444 [23:25<48:55:27, 401.20s/it]
+qwen3-8b-awq:   1%|          | 5/444 [23:25<48:55:27, 401.20s/it][A                                                          
+                                                                 [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00081[0m
+Total:   1%|          | 5/444 [23:25<48:55:27, 401.20s/it]
+qwen3-8b-awq:   1%|          | 5/444 [23:25<48:55:27, 401.20s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 5/444 [23:32<48:55:27, 401.20s/it]
+qwen3-8b-awq:   1%|          | 5/444 [23:32<48:55:27, 401.20s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 5/444 [23:46<48:55:27, 401.20s/it]
+qwen3-8b-awq:   1%|          | 5/444 [23:46<48:55:27, 401.20s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 5/444 [23:58<48:55:27, 401.20s/it]
+qwen3-8b-awq:   1%|          | 5/444 [23:58<48:55:27, 401.20s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 5/444 [24:07<48:55:27, 401.20s/it]
+qwen3-8b-awq:   1%|          | 5/444 [24:07<48:55:27, 401.20s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 5/444 [24:14<48:55:27, 401.20s/it]
+qwen3-8b-awq:   1%|          | 5/444 [24:14<48:55:27, 401.20s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|          | 5/444 [24:26<48:55:27, 401.20s/it]
+qwen3-8b-awq:   1%|          | 5/444 [24:26<48:55:27, 401.20s/it][ATotal:   1%|▏         | 6/444 [24:26<35:12:23, 289.37s/it]
+qwen3-8b-awq:   1%|▏         | 6/444 [24:26<35:12:23, 289.37s/it][A                                                          
+                                                                 [ARunning Count: 0
+Total:   1%|▏         | 6/444 [24:41<35:12:23, 289.37s/it]
+qwen3-8b-awq:   1%|▏         | 6/444 [24:41<35:12:23, 289.37s/it][A                                                          
+                                                                 [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00080[0m
+Total:   1%|▏         | 6/444 [24:41<35:12:23, 289.37s/it]
+qwen3-8b-awq:   1%|▏         | 6/444 [24:41<35:12:23, 289.37s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|▏         | 6/444 [24:50<35:12:23, 289.37s/it]
+qwen3-8b-awq:   1%|▏         | 6/444 [24:50<35:12:23, 289.37s/it][A                                                          
+                                                                 [ARunning Count: 1
+Total:   1%|▏         | 6/444 [24:56<35:12:23, 289.37s/it]
+qwen3-8b-awq:   1%|▏         | 6/444 [24:56<35:12:23, 289.37s/it][A

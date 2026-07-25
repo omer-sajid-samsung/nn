@@ -1,0 +1,1424 @@
+/opt/ls/conda/envs/agent-bench/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+/opt/ls/conda/envs/agent-bench/lib/python3.9/site-packages/transformers/utils/generic.py:311: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  torch.utils._pytree._register_pytree_node(
+[93mWarning: 7 agent(s) and 16 task(s) are defined but not used, they will be ignored.[0m
+[93m    Agent: {'vicuna-33b', 'wizard-30b', 'text-davinci-003', 'vicuna-13b', 'gpt-3.5-turbo-0613', 'vicuna-7b', 'text-davinci-002'}[0m
+[93m    Task: {'os-dev', 'alfworld-std', 'dbbench-dev', 'webshop-std', 'cg-std', 'kg-dev', 'ltp-dev', 'webshop-dev', 'kg-std', 'alfworld-dev', 'm2w-dev', 'm2w-std', 'cg-dev', 'avalon-dev-single', 'ltp-std', 'avalon-dev-naive'}[0m
+[92mcreating os-std client...[0m
+TaskClient created: os-std (http://localhost:5000/api)
+[92mcreating dbbench-std client...[0m
+TaskClient created: dbbench-std (http://localhost:5000/api)
+[96mMessage: 444 samples remaining.[0m
+[96mAgent "qwen3-8b-awq" needs to run 2 tasks with total 444 samples:[0m
+[96m    Task "os-std": 144[0m
+[96m    Task "dbbench-std": 300[0m
+Total:   0%|          | 0/444 [00:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:00<?, ?it/s][A                                              
+                                                     [ARunning Count: 0
+Total:   0%|          | 0/444 [00:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:00<?, ?it/s][A                                              
+                                                     [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00087[0m
+Total:   0%|          | 0/444 [00:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:00<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [00:07<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:07<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [00:21<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:21<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [00:33<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:33<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [00:45<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:45<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [00:53<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [00:53<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [01:03<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [01:03<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [01:18<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [01:18<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [01:26<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [01:26<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [01:32<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [01:32<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [01:42<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [01:42<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [01:52<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [01:52<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [01:59<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [01:59<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [02:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [02:00<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [02:05<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [02:05<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [02:13<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [02:13<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [02:20<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [02:20<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [02:26<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [02:26<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [02:32<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [02:32<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [02:46<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [02:46<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [02:54<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [02:54<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [03:03<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [03:03<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [03:11<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [03:11<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [03:23<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [03:23<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [03:30<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [03:30<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [03:37<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [03:37<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [03:51<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [03:51<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [04:02<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [04:02<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [04:06<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [04:06<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [04:19<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [04:19<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [04:26<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [04:26<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [04:38<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [04:38<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [04:52<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [04:52<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [05:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [05:00<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [05:14<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [05:14<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [05:26<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [05:26<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [05:33<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [05:33<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [05:45<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [05:45<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [05:53<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [05:53<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [06:04<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [06:04<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [06:05<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [06:05<?, ?it/s][A                                              
+                                                     [AERROR: HTTPAgent/os-std agent error Failed.
+Total:   0%|          | 0/444 [06:09<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [06:09<?, ?it/s][A                                              
+                                                     [A[93mWarning: qwen3-8b-awq/os-std#std-007-bootstrap-00087 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   0%|          | 0/444 [06:09<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [06:09<?, ?it/s][A                                              
+                                                     [ARunning Count: 0
+Total:   0%|          | 0/444 [06:13<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [06:13<?, ?it/s][A                                              
+                                                     [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00086[0m
+Total:   0%|          | 0/444 [06:13<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [06:13<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [06:26<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [06:26<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [06:40<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [06:40<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [06:50<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [06:50<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [06:55<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [06:55<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [07:08<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [07:08<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [07:22<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [07:22<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [07:32<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [07:32<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [07:44<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [07:44<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [07:59<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [07:59<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [08:06<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [08:06<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [08:14<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [08:14<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [08:18<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [08:18<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [08:23<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [08:23<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [08:29<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [08:29<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [08:44<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [08:44<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [08:51<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [08:51<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [09:02<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [09:02<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [09:17<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [09:17<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [09:23<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [09:23<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [09:30<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [09:30<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [09:36<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [09:36<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [09:41<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [09:41<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [09:51<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [09:51<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [10:03<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [10:03<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [10:12<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [10:12<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [10:16<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [10:16<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [10:21<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [10:21<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [10:31<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [10:31<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [10:45<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [10:45<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [10:56<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [10:56<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [11:07<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [11:07<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [11:21<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [11:21<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [11:33<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [11:33<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [11:39<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [11:39<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [11:46<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [11:46<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [11:57<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [11:57<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [12:04<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [12:04<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [12:18<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [12:18<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [12:19<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [12:19<?, ?it/s][A                                              
+                                                     [AERROR: HTTPAgent/os-std agent error Failed.
+Total:   0%|          | 0/444 [12:23<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [12:23<?, ?it/s][A                                              
+                                                     [A[93mWarning: qwen3-8b-awq/os-std#std-007-bootstrap-00086 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   0%|          | 0/444 [12:28<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [12:28<?, ?it/s][A                                              
+                                                     [ARunning Count: 0
+Total:   0%|          | 0/444 [12:29<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [12:29<?, ?it/s][A                                              
+                                                     [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00085[0m
+Total:   0%|          | 0/444 [12:29<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [12:29<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [12:35<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [12:35<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [12:46<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [12:46<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [12:59<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [12:59<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [13:12<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [13:12<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [13:24<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [13:24<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [13:35<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [13:35<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [13:46<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [13:46<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [14:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [14:00<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [14:10<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [14:10<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [14:18<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [14:18<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [14:29<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [14:29<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [14:29<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [14:29<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [14:38<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [14:38<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [14:43<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [14:43<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [14:52<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [14:52<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [15:05<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [15:05<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [15:13<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [15:13<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [15:22<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [15:22<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [15:36<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [15:36<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [15:43<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [15:43<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [15:54<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [15:54<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [16:05<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [16:05<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [16:19<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [16:19<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [16:29<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [16:29<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [16:31<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [16:31<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [16:35<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [16:35<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [16:48<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [16:48<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [16:57<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [16:57<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [17:08<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [17:08<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [17:18<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [17:18<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [17:26<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [17:26<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [17:33<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [17:33<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [17:38<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [17:38<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [17:52<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [17:52<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [18:03<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [18:03<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [18:17<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [18:17<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [18:26<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [18:26<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [18:34<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [18:34<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [18:38<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [18:38<?, ?it/s][A                                              
+                                                     [AERROR: HTTPAgent/os-std agent error Failed.
+Total:   0%|          | 0/444 [18:38<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [18:38<?, ?it/s][A                                              
+                                                     [A[93mWarning: qwen3-8b-awq/os-std#std-007-bootstrap-00085 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   0%|          | 0/444 [18:38<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [18:38<?, ?it/s][A                                              
+                                                     [ARunning Count: 0
+Total:   0%|          | 0/444 [18:46<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [18:46<?, ?it/s][A                                              
+                                                     [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00084[0m
+Total:   0%|          | 0/444 [18:46<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [18:46<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [18:57<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [18:57<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [19:03<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [19:03<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [19:12<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [19:12<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [19:23<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [19:23<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [19:30<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [19:30<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [19:40<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [19:40<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [19:52<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [19:52<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [19:57<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [19:57<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [20:06<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [20:06<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [20:15<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [20:15<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [20:26<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [20:26<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [20:35<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [20:35<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [20:46<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [20:46<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [20:49<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [20:49<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [20:58<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [20:58<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [21:05<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [21:05<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [21:18<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [21:18<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [21:29<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [21:29<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [21:35<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [21:35<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [21:45<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [21:45<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [21:55<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [21:55<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [22:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [22:00<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [22:14<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [22:14<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [22:24<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [22:24<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [22:38<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [22:38<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [22:47<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [22:47<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [22:48<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [22:48<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [22:56<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [22:56<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [23:10<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [23:10<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [23:20<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [23:20<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [23:34<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [23:34<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [23:48<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [23:48<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [23:55<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [23:55<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [24:01<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [24:01<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [24:13<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [24:13<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [24:21<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [24:21<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [24:27<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [24:27<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [24:41<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [24:41<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [24:51<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [24:51<?, ?it/s][A                                              
+                                                     [AERROR: HTTPAgent/os-std agent error Failed.
+Total:   0%|          | 0/444 [24:55<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [24:55<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [24:56<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [24:56<?, ?it/s][A                                              
+                                                     [A[93mWarning: qwen3-8b-awq/os-std#std-007-bootstrap-00084 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   0%|          | 0/444 [25:01<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [25:01<?, ?it/s][A                                              
+                                                     [ARunning Count: 0
+Total:   0%|          | 0/444 [25:05<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [25:05<?, ?it/s][A                                              
+                                                     [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00083[0m
+Total:   0%|          | 0/444 [25:05<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [25:05<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [25:12<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [25:12<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [25:24<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [25:24<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [25:30<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [25:30<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [25:40<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [25:40<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [25:46<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [25:46<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [25:57<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [25:57<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [26:02<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [26:02<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [26:09<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [26:09<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [26:22<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [26:22<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [26:37<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [26:37<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [26:43<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [26:43<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [26:58<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [26:58<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [27:06<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [27:06<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [27:06<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [27:06<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [27:17<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [27:17<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [27:23<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [27:23<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [27:28<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [27:28<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [27:41<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [27:41<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [27:49<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [27:49<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [27:58<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [27:58<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [28:06<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [28:06<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [28:15<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [28:15<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [28:29<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [28:29<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [28:35<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [28:35<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [28:41<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [28:41<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [28:51<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [28:51<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [29:06<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [29:06<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [29:08<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [29:08<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [29:20<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [29:20<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [29:25<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [29:25<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [29:37<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [29:37<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [29:42<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [29:42<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [29:49<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [29:49<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [29:58<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [29:58<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [30:11<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [30:11<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [30:19<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [30:19<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [30:33<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [30:33<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [30:38<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [30:38<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [30:50<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [30:50<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [31:05<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [31:05<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [31:11<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [31:11<?, ?it/s][A                                              
+                                                     [AERROR: HTTPAgent/os-std agent error Failed.
+Total:   0%|          | 0/444 [31:15<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [31:15<?, ?it/s][A                                              
+                                                     [A[93mWarning: qwen3-8b-awq/os-std#std-007-bootstrap-00083 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   0%|          | 0/444 [31:15<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [31:15<?, ?it/s][A                                              
+                                                     [ARunning Count: 0
+Total:   0%|          | 0/444 [31:18<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [31:18<?, ?it/s][A                                              
+                                                     [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00082[0m
+Total:   0%|          | 0/444 [31:18<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [31:18<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [31:25<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [31:25<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [31:33<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [31:33<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [31:41<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [31:41<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [31:55<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [31:55<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [32:10<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [32:10<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [32:19<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [32:19<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [32:26<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [32:26<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [32:34<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [32:34<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [32:42<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [32:42<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [32:51<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [32:51<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [33:02<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [33:02<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [33:10<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [33:10<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [33:19<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [33:19<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [33:24<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [33:24<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [33:37<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [33:37<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [33:52<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [33:52<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [33:59<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [33:59<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [34:09<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [34:09<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [34:24<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [34:24<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [34:30<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [34:30<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [34:44<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [34:44<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [34:55<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [34:55<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [35:04<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [35:04<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [35:13<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [35:13<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [35:21<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [35:21<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [35:26<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [35:26<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [35:38<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [35:38<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [35:44<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [35:44<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [35:57<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [35:57<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [36:05<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [36:05<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [36:13<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [36:13<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [36:20<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [36:20<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [36:35<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [36:35<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [36:41<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [36:41<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [36:53<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [36:53<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [37:02<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [37:02<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [37:10<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [37:10<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [37:21<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [37:21<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [37:24<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [37:24<?, ?it/s][A                                              
+                                                     [AERROR: HTTPAgent/os-std agent error Failed.
+Total:   0%|          | 0/444 [37:28<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [37:28<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [37:31<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [37:31<?, ?it/s][A                                              
+                                                     [A[93mWarning: qwen3-8b-awq/os-std#std-007-bootstrap-00082 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   0%|          | 0/444 [37:33<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [37:33<?, ?it/s][A                                              
+                                                     [ARunning Count: 0
+Total:   0%|          | 0/444 [37:40<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [37:40<?, ?it/s][A                                              
+                                                     [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00081[0m
+Total:   0%|          | 0/444 [37:40<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [37:40<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [37:52<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [37:52<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [38:03<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [38:03<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [38:18<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [38:18<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [38:29<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [38:29<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [38:37<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [38:37<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [38:50<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [38:50<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [38:55<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [38:55<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [39:05<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [39:05<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [39:17<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [39:17<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [39:31<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [39:31<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [39:40<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [39:40<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [39:41<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [39:41<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [39:51<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [39:51<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [40:05<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [40:05<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [40:13<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [40:13<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [40:19<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [40:19<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [40:26<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [40:26<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [40:36<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [40:36<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [40:43<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [40:43<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [40:48<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [40:48<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [40:58<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [40:58<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [41:05<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [41:05<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [41:17<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [41:17<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [41:26<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [41:26<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [41:38<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [41:38<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [41:43<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [41:43<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [41:48<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [41:48<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [41:56<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [41:56<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [42:11<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [42:11<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [42:22<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [42:22<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [42:34<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [42:34<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [42:48<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [42:48<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [42:58<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [42:58<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [43:07<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [43:07<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [43:13<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [43:13<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [43:22<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [43:22<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [43:36<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [43:36<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [43:46<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [43:46<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [43:46<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [43:46<?, ?it/s][A                                              
+                                                     [AERROR: HTTPAgent/os-std agent error Failed.
+Total:   0%|          | 0/444 [43:50<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [43:50<?, ?it/s][A                                              
+                                                     [A[93mWarning: qwen3-8b-awq/os-std#std-007-bootstrap-00081 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   0%|          | 0/444 [43:50<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [43:50<?, ?it/s][A                                              
+                                                     [ARunning Count: 0
+Total:   0%|          | 0/444 [43:58<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [43:58<?, ?it/s][A                                              
+                                                     [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00080[0m
+Total:   0%|          | 0/444 [43:58<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [43:58<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [44:09<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [44:09<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [44:18<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [44:18<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [44:26<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [44:26<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [44:36<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [44:36<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [44:50<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [44:50<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [44:59<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [44:59<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [45:07<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [45:07<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [45:21<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [45:21<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [45:35<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [45:35<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [45:46<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [45:46<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [45:59<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [45:59<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [45:59<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [45:59<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [46:04<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [46:04<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [46:17<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [46:17<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [46:28<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [46:28<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [46:43<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [46:43<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [46:57<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [46:57<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [47:04<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [47:04<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [47:17<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [47:17<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [47:23<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [47:23<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [47:30<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [47:30<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [47:41<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [47:41<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [47:47<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [47:47<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [48:01<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [48:01<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [48:01<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [48:01<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [48:12<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [48:12<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [48:19<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [48:19<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [48:26<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [48:26<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [48:32<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [48:32<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [48:40<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [48:40<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [48:52<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [48:52<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [49:05<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [49:05<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [49:14<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [49:14<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [49:27<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [49:27<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [49:36<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [49:36<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [49:44<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [49:44<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [49:53<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [49:53<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [50:04<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [50:04<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [50:07<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [50:07<?, ?it/s][A                                              
+                                                     [AERROR: HTTPAgent/os-std agent error Failed.
+Total:   0%|          | 0/444 [50:08<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [50:08<?, ?it/s][A                                              
+                                                     [A[93mWarning: qwen3-8b-awq/os-std#std-007-bootstrap-00080 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   0%|          | 0/444 [50:13<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [50:13<?, ?it/s][A                                              
+                                                     [ARunning Count: 0
+Total:   0%|          | 0/444 [50:21<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [50:21<?, ?it/s][A                                              
+                                                     [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00079[0m
+Total:   0%|          | 0/444 [50:21<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [50:21<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [50:27<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [50:27<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [50:36<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [50:36<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [50:43<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [50:43<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [50:49<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [50:49<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [51:03<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [51:03<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [51:16<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [51:16<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [51:28<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [51:28<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [51:42<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [51:42<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [51:50<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [51:50<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [52:02<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [52:02<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [52:09<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [52:09<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [52:21<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [52:21<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [52:23<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [52:23<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [52:38<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [52:38<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [52:49<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [52:49<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [53:03<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [53:03<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [53:09<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [53:09<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [53:17<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [53:17<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [53:22<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [53:22<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [53:30<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [53:30<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [53:37<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [53:37<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [53:49<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [53:49<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [54:02<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [54:02<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [54:17<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [54:17<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [54:24<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [54:24<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [54:24<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [54:24<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [54:36<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [54:36<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [54:45<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [54:45<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [54:51<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [54:51<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [54:57<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [54:57<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [55:05<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [55:05<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [55:18<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [55:18<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [55:28<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [55:28<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [55:38<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [55:38<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [55:49<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [55:49<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [56:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [56:00<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [56:06<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [56:06<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [56:14<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [56:14<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [56:27<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [56:27<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [56:27<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [56:27<?, ?it/s][A                                              
+                                                     [AERROR: HTTPAgent/os-std agent error Failed.
+Total:   0%|          | 0/444 [56:31<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [56:31<?, ?it/s][A                                              
+                                                     [A[93mWarning: qwen3-8b-awq/os-std#std-007-bootstrap-00079 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   0%|          | 0/444 [56:31<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [56:31<?, ?it/s][A                                              
+                                                     [ARunning Count: 0
+Total:   0%|          | 0/444 [56:35<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [56:35<?, ?it/s][A                                              
+                                                     [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00078[0m
+Total:   0%|          | 0/444 [56:35<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [56:35<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [56:48<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [56:48<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [57:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [57:00<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [57:05<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [57:05<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [57:15<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [57:15<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [57:22<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [57:22<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [57:34<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [57:34<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [57:42<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [57:42<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [57:53<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [57:53<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [58:07<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [58:07<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [58:19<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [58:19<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [58:34<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [58:34<?, ?it/s][A                                              
+                                                     [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [58:35<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [58:35<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [58:39<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [58:39<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [58:46<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [58:46<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [58:57<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [58:57<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [59:03<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [59:03<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [59:16<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [59:16<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [59:23<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [59:23<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [59:29<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [59:29<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [59:35<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [59:35<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [59:41<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [59:41<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [59:55<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [59:55<?, ?it/s][A                                              
+                                                     [ARunning Count: 1
+Total:   0%|          | 0/444 [1:00:05<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:00:05<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:00:18<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:00:18<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:00:31<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:00:31<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:00:37<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:00:37<?, ?it/s][A                                                
+                                                       [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [1:00:37<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:00:37<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:00:48<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:00:48<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:00:59<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:00:59<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:01:12<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:01:12<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:01:22<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:01:22<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:01:33<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:01:33<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:01:43<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:01:43<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:01:55<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:01:55<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:02:00<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:02:00<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:02:11<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:02:11<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:02:24<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:02:24<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:02:36<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:02:36<?, ?it/s][A                                                
+                                                       [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [1:02:40<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:02:40<?, ?it/s][A                                                
+                                                       [AERROR: HTTPAgent/os-std agent error Failed.
+Total:   0%|          | 0/444 [1:02:44<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:02:44<?, ?it/s][A                                                
+                                                       [A[93mWarning: qwen3-8b-awq/os-std#std-007-bootstrap-00078 failed with error AGENT_FAILED Failed. index=None status=<SampleStatus.RUNNING: 'running'> result=None history=None[0m
+Total:   0%|          | 0/444 [1:02:50<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:02:50<?, ?it/s][A                                                
+                                                       [ARunning Count: 0
+Total:   0%|          | 0/444 [1:02:51<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:02:51<?, ?it/s][A                                                
+                                                       [A[92mAssigned qwen3-8b-awq/os-std#std-007-bootstrap-00077[0m
+Total:   0%|          | 0/444 [1:02:51<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:02:51<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:03:04<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:03:04<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:03:09<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:03:09<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:03:18<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:03:18<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:03:30<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:03:30<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:03:38<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:03:38<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:03:50<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:03:50<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:03:58<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:03:58<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:04:08<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:04:08<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:04:15<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:04:15<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:04:29<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:04:29<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:04:37<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:04:37<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:04:50<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:04:50<?, ?it/s][A                                                
+                                                       [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [1:04:52<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:04:52<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:04:55<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:04:55<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:05:02<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:05:02<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:05:08<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:05:08<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:05:14<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:05:14<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:05:25<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:05:25<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:05:37<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:05:37<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:05:51<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:05:51<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:05:57<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:05:57<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:06:06<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:06:06<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:06:18<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:06:18<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:06:24<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:06:24<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:06:38<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:06:38<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:06:50<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:06:50<?, ?it/s][A                                                
+                                                       [AWarning:  HTTPConnectionPool(host='localhost', port=8000): Read timed out. (read timeout=120)
+Total:   0%|          | 0/444 [1:06:54<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:06:54<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:06:59<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:06:59<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:07:13<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:07:13<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:07:18<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:07:18<?, ?it/s][A                                                
+                                                       [ARunning Count: 1
+Total:   0%|          | 0/444 [1:07:27<?, ?it/s]
+qwen3-8b-awq:   0%|          | 0/444 [1:07:27<?, ?it/s][A

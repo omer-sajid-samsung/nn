@@ -1,0 +1,13 @@
+{
+  "biosnoop_available": true,
+  "biosnoop_events": 466,
+  "biosnoop_events_all_devices": 476,
+  "biosnoop_csv": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c016/amoprof/service_cycle_20260725_070729/raw/biosnoop_events.csv",
+  "biosnoop_all_devices_csv": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c016/amoprof/service_cycle_20260725_070729/raw/biosnoop_events_all.csv",
+  "biosnoop_summary": "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260724/c016/amoprof/service_cycle_20260725_070729/raw/biosnoop_summary.json",
+  "biosnoop_duration_s": 10.87,
+  "biosnoop_filter_disk": "nvme1n1",
+  "collection_start_time_seconds": 1784963249.306667,
+  "collection_end_time_seconds": 1784963259.96915,
+  "collection_duration_s": 10.662483
+}
