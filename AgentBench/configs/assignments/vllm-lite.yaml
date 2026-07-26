@@ -1,0 +1,14 @@
+import: definition.yaml
+
+concurrency:
+  task:
+    dbbench-std: 1
+    os-std: 1
+  agent:
+    qwen3-8b-awq: 2      # <- your "N agent sessions" knob
+
+assignments:
+  - agent: [qwen3-8b-awq]
+    task: [dbbench-std, os-std]
+
+output: "outputs/{TIMESTAMP}"

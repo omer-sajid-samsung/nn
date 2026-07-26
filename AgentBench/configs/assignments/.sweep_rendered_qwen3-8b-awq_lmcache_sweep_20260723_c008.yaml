@@ -1,0 +1,14 @@
+import: definition.yaml
+
+concurrency:
+  task:
+    dbbench-std: 1
+    os-std: 1
+  agent:
+    qwen3-8b-awq: 8   # <- the sweep knob
+
+assignments:
+  - agent: [qwen3-8b-awq]
+    task: [dbbench-std, os-std]
+
+output: "/opt/ls/agentic_kv_bench/runs/qwen3-8b-awq_lmcache_sweep_20260723/c008/agentbench_outputs/{TIMESTAMP}"

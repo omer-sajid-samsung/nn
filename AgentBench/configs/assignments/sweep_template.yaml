@@ -1,0 +1,14 @@
+import: definition.yaml
+
+concurrency:
+  task:
+    dbbench-std: 1
+    os-std: 1
+  agent:
+    qwen3-8b-awq: __AGENT_CONCURRENCY__   # <- the sweep knob
+
+assignments:
+  - agent: [qwen3-8b-awq]
+    task: [dbbench-std, os-std]
+
+output: "__OUTPUT_DIR__/{TIMESTAMP}"
