@@ -20,7 +20,7 @@ vllm serve Qwen/Qwen3-8B-AWQ \
   --dtype float16 \
   --tensor-parallel-size 4 \
   --max-model-len 16384 \
-  --gpu-memory-utilization 0.7 \
+  --gpu-memory-utilization 0.3 \
   --enforce-eager \
   --kv-transfer-config '{"kv_connector":"LMCacheConnectorV1", "kv_role":"kv_both"}' \
   --port 8000 2>&1 | tee vllm_server.log
