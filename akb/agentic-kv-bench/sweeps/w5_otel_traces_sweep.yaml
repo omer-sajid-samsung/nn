@@ -1,0 +1,16 @@
+# Additional agentic-trace coverage beyond multi_agent_research.json (already
+# validated standalone via specs/w5_otel_agentic.yaml): the other two official
+# kubernetes-sigs/inference-perf example traces, covering different agentic
+# shapes (code-review tool-use loop, customer-support escalation hand-off).
+name: w5-otel-traces-sweep
+base_spec: ../specs/w5_otel_agentic.yaml
+settle_s: 60
+runs:
+  - label: code-review
+    set:
+      data.otel_trace_replay.trace_files:
+        - /opt/ls/akb/agentic-kv-bench/traces/otel_examples/code_review_workflow.json
+  - label: customer-support
+    set:
+      data.otel_trace_replay.trace_files:
+        - /opt/ls/akb/agentic-kv-bench/traces/otel_examples/customer_support_escalation.json

@@ -54,9 +54,18 @@ class SudoKeepalive:
         self._thread: threading.Thread | None = None
 
     def start(self) -> None:
-        r = subprocess.run(["sudo", "-v"])
+        # Some boxes have sudoers rules scoped to specific commands rather than
+        # a blanket NOPASSWD:ALL, so `sudo -v` (which validates/refreshes the
+        # timestamp but runs no command) can demand a password even when an
+        # actual permitted command runs fine non-interactively. Probe with a
+        # real no-op command first; only fall back to the interactive `-v`
+        # (which will block on stdin) if that also fails.
+        r = subprocess.run(["sudo", "-n", "true"],
+                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         if r.returncode != 0:
-            raise RuntimeError("sudo needs a password; run where you can type it once, or use --no-sudo")
+            r = subprocess.run(["sudo", "-v"])
+            if r.returncode != 0:
+                raise RuntimeError("sudo needs a password; run where you can type it once, or use --no-sudo")
         self._thread = threading.Thread(target=self._loop, daemon=True)
         self._thread.start()
 
