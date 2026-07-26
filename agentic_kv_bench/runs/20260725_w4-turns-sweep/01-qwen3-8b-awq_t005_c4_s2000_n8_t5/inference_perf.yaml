@@ -1,0 +1,73 @@
+api:
+  type: completion
+  streaming: true
+server:
+  type: vllm
+  base_url: http://127.0.0.1:8000
+  model_name: Qwen/Qwen3-8B-AWQ
+  ignore_eos: true
+tokenizer:
+  pretrained_model_name_or_path: Qwen/Qwen3-8B-AWQ
+report:
+  request_lifecycle:
+    summary: true
+    per_stage: true
+    per_request: true
+    percentiles:
+    - 1
+    - 5
+    - 10
+    - 25
+    - 50
+    - 75
+    - 90
+    - 95
+    - 99
+  session_lifecycle:
+    summary: true
+    per_stage: true
+    per_session: false
+storage:
+  local_storage:
+    path: /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/01-qwen3-8b-awq_t005_c4_s2000_n8_t5/report
+data:
+  type: conversation_replay
+  conversation_replay:
+    seed: 42
+    num_conversations: 8
+    shared_system_prompt_len: 2000
+    dynamic_system_prompt_len:
+      type: fixed
+      min: 500
+      max: 500
+      mean: 500
+      std_dev: 1
+    turns_per_conversation:
+      type: fixed
+      min: 5
+      max: 5
+      mean: 5
+      std_dev: 1
+    input_tokens_per_turn:
+      type: normal
+      min: 150
+      max: 350
+      mean: 250
+      std_dev: 256
+    output_tokens_per_turn:
+      type: normal
+      min: 128
+      max: 1024
+      mean: 512
+      std_dev: 128
+    tool_call_latency_sec:
+      type: uniform
+      min: 0
+      max: 2
+      mean: 1
+      std_dev: 0.5
+load:
+  type: concurrent
+  stages:
+  - num_requests: 16
+    concurrency_level: 4

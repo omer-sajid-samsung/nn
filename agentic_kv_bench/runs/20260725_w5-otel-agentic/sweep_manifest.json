@@ -1,0 +1,11 @@
+{
+  "sweep": "w5-otel-agentic",
+  "spec": "specs/w5_otel_agentic.yaml",
+  "base_dir": "/opt/ls/agentic_kv_bench",
+  "created_utc": "2026-07-25T22:49:37Z",
+  "n_runs": 1,
+  "overrides": [
+    {}
+  ],
+  "harness_version": "0.1.0"
+}

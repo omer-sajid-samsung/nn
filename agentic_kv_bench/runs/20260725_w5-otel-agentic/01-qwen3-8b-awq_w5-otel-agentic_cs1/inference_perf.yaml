@@ -1,0 +1,47 @@
+api:
+  type: chat
+  streaming: false
+server:
+  type: vllm
+  base_url: http://127.0.0.1:8000
+  model_name: Qwen/Qwen3-8B-AWQ
+  ignore_eos: true
+tokenizer:
+  pretrained_model_name_or_path: Qwen/Qwen3-8B-AWQ
+report:
+  request_lifecycle:
+    summary: true
+    per_stage: true
+    per_request: true
+    percentiles:
+    - 1
+    - 5
+    - 10
+    - 25
+    - 50
+    - 75
+    - 90
+    - 95
+    - 99
+  session_lifecycle:
+    summary: true
+    per_stage: true
+    per_session: false
+storage:
+  local_storage:
+    path: /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-agentic/01-qwen3-8b-awq_w5-otel-agentic_cs1/report
+data:
+  type: otel_trace_replay
+  otel_trace_replay:
+    trace_files:
+    - /opt/ls/akb/agentic-kv-bench/traces/otel_examples/multi_agent_research.json
+    use_static_model: true
+    static_model_name: Qwen/Qwen3-8B-AWQ
+    default_max_tokens: 1024
+    include_errors: true
+    skip_invalid_files: false
+load:
+  type: trace_session_replay
+  stages:
+  - concurrent_sessions: 1
+  worker_max_concurrency: 10

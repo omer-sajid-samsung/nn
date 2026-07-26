@@ -13,3 +13,40 @@
 [2026-07-25 22:09:04] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
 [2026-07-25 22:09:04] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/01-qwen3-8b-awq_t005_c4_s2000_n8_t5/inference_perf.yaml --log-level INFO
 [2026-07-25 22:09:04] INFO driver started (pid 2625077), log: /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/01-qwen3-8b-awq_t005_c4_s2000_n8_t5/logs/driver.log
+[2026-07-25 22:15:29] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 22:15:29] INFO verdict: IN_REGIME — no eviction predicted, peak KV pressure 23% (clean control)
+[2026-07-25 22:15:29] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 22:15:29] INFO === 01-qwen3-8b-awq_t005_c4_s2000_n8_t5: done in 386s, status=OK, verdict=IN_REGIME ===
+[2026-07-25 22:15:29] INFO settling 180s before next run...
+[2026-07-25 22:18:29] INFO prediction: working_set=34480 tokens vs pool=43808 tokens -> expect_eviction=False
+[2026-07-25 22:18:29] INFO prediction note: working_set/pool = 0.79x
+[2026-07-25 22:18:30] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 22:18:30] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/02-qwen3-8b-awq_t010_c4_s2000_n8_t10/inference_perf.yaml --log-level INFO
+[2026-07-25 22:18:30] INFO driver started (pid 2630990), log: /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/02-qwen3-8b-awq_t010_c4_s2000_n8_t10/logs/driver.log
+[2026-07-25 22:25:10] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 22:25:10] INFO verdict: IN_REGIME — no eviction predicted, peak KV pressure 23% (clean control)
+[2026-07-25 22:25:10] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 22:25:10] INFO === 02-qwen3-8b-awq_t010_c4_s2000_n8_t10: done in 400s, status=OK, verdict=IN_REGIME ===
+[2026-07-25 22:25:10] INFO settling 180s before next run...
+[2026-07-25 22:28:10] INFO prediction: working_set=64960 tokens vs pool=43808 tokens -> expect_eviction=True
+[2026-07-25 22:28:10] INFO prediction note: working_set/pool = 1.48x
+[2026-07-25 22:28:11] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 22:28:11] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/03-qwen3-8b-awq_t020_c4_s2000_n8_t20/inference_perf.yaml --log-level INFO
+[2026-07-25 22:28:11] INFO driver started (pid 2635956), log: /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/03-qwen3-8b-awq_t020_c4_s2000_n8_t20/logs/driver.log
+[2026-07-25 22:36:36] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 22:36:36] INFO verdict: NOT_OBSERVED — eviction predicted (64960 tokens working set vs 43808 pool) but peak KV pressure only 22% — harness bug or pool misestimate; investigate before reporting
+[2026-07-25 22:36:36] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 22:36:36] INFO === 03-qwen3-8b-awq_t020_c4_s2000_n8_t20: done in 505s, status=OK, verdict=NOT_OBSERVED ===
+[2026-07-25 22:36:36] INFO settling 180s before next run...
+[2026-07-25 22:39:36] INFO prediction: working_set=125920 tokens vs pool=43808 tokens -> expect_eviction=True
+[2026-07-25 22:39:36] INFO prediction note: working_set/pool = 2.87x
+[2026-07-25 22:39:37] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 22:39:37] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/04-qwen3-8b-awq_t040_c4_s2000_n8_t40/inference_perf.yaml --log-level INFO
+[2026-07-25 22:39:37] INFO driver started (pid 2641827), log: /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/04-qwen3-8b-awq_t040_c4_s2000_n8_t40/logs/driver.log
+[2026-07-25 22:48:52] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 22:48:52] INFO verdict: NOT_OBSERVED — eviction predicted (125920 tokens working set vs 43808 pool) but peak KV pressure only 23% — harness bug or pool misestimate; investigate before reporting
+[2026-07-25 22:48:52] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 22:48:52] INFO === 04-qwen3-8b-awq_t040_c4_s2000_n8_t40: done in 555s, status=OK, verdict=NOT_OBSERVED ===
+[2026-07-25 22:48:52] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/sweep_summary.csv
+[2026-07-25 22:48:52] INFO stopping vLLM (pid 2624039), grace 60s...
+[2026-07-25 22:48:57] INFO vLLM stopped.

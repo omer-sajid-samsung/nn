@@ -1,0 +1,5 @@
+# Duplicative AMOProf combined-report output (just re-slices data already in
+# raw/*.csv per-run) -- not worth the extra LFS storage.
+**/combined_report/
+**/*combined_report*/
+**/amoprof_combined.html

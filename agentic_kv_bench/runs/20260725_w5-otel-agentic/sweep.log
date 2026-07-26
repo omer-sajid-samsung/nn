@@ -1,0 +1,15 @@
+[2026-07-25 22:48:57] INFO starting vLLM (model=Qwen/Qwen3-8B-AWQ) -> /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-agentic/vllm_server.log
+[2026-07-25 22:48:57] INFO waiting up to 300s for vLLM health at http://127.0.0.1:8000 ...
+[2026-07-25 22:49:37] INFO vLLM is healthy (pid 2647376) at http://127.0.0.1:8000
+[2026-07-25 22:49:37] INFO sweep 'w5-otel-agentic': 1 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-agentic
+[2026-07-25 22:49:38] INFO prediction note: expect_eviction=auto but working set or pool unknown
+[2026-07-25 22:49:38] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 22:49:38] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-agentic/01-qwen3-8b-awq_w5-otel-agentic_cs1/inference_perf.yaml --log-level INFO
+[2026-07-25 22:49:38] INFO driver started (pid 2648412), log: /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-agentic/01-qwen3-8b-awq_w5-otel-agentic_cs1/logs/driver.log
+[2026-07-25 22:50:48] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 22:50:48] INFO verdict: INDETERMINATE — no prediction (pool or working set unknown)
+[2026-07-25 22:50:48] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 22:50:48] INFO === 01-qwen3-8b-awq_w5-otel-agentic_cs1: done in 71s, status=OK, verdict=INDETERMINATE ===
+[2026-07-25 22:50:48] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-agentic/sweep_summary.csv
+[2026-07-25 22:50:48] INFO stopping vLLM (pid 2647376), grace 60s...
+[2026-07-25 22:50:54] INFO vLLM stopped.

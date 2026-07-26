@@ -1,0 +1,16 @@
+run_id=01-qwen3-8b-awq_w5-otel-agentic_cs1
+knobs=cs1
+spec=w5-otel-agentic
+telemetry_start_epoch=1785019778
+telemetry_start_utc=2026-07-25T22:49:38Z
+lmcache_before_epoch=1785019778
+lmcache_before_utc=2026-07-25T22:49:38Z
+workload_start_epoch=1785019778
+workload_start_utc=2026-07-25T22:49:38Z
+workload_end_epoch=1785019848
+workload_end_utc=2026-07-25T22:50:48Z
+driver_exit_status=0
+lmcache_after_epoch=1785019848
+lmcache_after_utc=2026-07-25T22:50:48Z
+validation_epoch=1785019848
+validation_utc=2026-07-25T22:50:48Z

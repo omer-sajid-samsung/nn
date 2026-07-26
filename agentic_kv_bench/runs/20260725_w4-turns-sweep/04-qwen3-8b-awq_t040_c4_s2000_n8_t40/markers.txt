@@ -1,0 +1,16 @@
+run_id=04-qwen3-8b-awq_t040_c4_s2000_n8_t40
+knobs=c4_s2000_n8_t40
+spec=w4-agentic-conversation
+telemetry_start_epoch=1785019177
+telemetry_start_utc=2026-07-25T22:39:37Z
+lmcache_before_epoch=1785019177
+lmcache_before_utc=2026-07-25T22:39:37Z
+workload_start_epoch=1785019177
+workload_start_utc=2026-07-25T22:39:37Z
+workload_end_epoch=1785019732
+workload_end_utc=2026-07-25T22:48:52Z
+driver_exit_status=0
+lmcache_after_epoch=1785019732
+lmcache_after_utc=2026-07-25T22:48:52Z
+validation_epoch=1785019732
+validation_utc=2026-07-25T22:48:52Z

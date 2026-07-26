@@ -74,3 +74,95 @@
 [2026-07-25 22:08:23] RUN: akb sweep --sweep sweeps/w4_turns_sweep.yaml --manage-vllm --vllm-venv /opt/ls/vllm/.venv/bin/activate --vllm-boot-wait-s 300 --no-amoprof
 [2026-07-25 22:08:23] INFO starting vLLM (model=Qwen/Qwen3-8B-AWQ) -> /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/vllm_server.log
 [2026-07-25 22:08:23] INFO waiting up to 300s for vLLM health at http://127.0.0.1:8000 ...
+[2026-07-25 22:09:03] INFO vLLM is healthy (pid 2624039) at http://127.0.0.1:8000
+[2026-07-25 22:09:03] INFO sweep 'w4-turns-sweep': 4 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep
+[2026-07-25 22:09:03] INFO prediction: working_set=19240 tokens vs pool=43808 tokens -> expect_eviction=False
+[2026-07-25 22:09:03] INFO prediction note: working_set/pool = 0.44x
+[2026-07-25 22:09:04] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 22:09:04] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/01-qwen3-8b-awq_t005_c4_s2000_n8_t5/inference_perf.yaml --log-level INFO
+[2026-07-25 22:09:04] INFO driver started (pid 2625077), log: /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/01-qwen3-8b-awq_t005_c4_s2000_n8_t5/logs/driver.log
+[2026-07-25 22:15:29] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 22:15:29] INFO verdict: IN_REGIME — no eviction predicted, peak KV pressure 23% (clean control)
+[2026-07-25 22:15:29] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 22:15:29] INFO === 01-qwen3-8b-awq_t005_c4_s2000_n8_t5: done in 386s, status=OK, verdict=IN_REGIME ===
+[2026-07-25 22:15:29] INFO settling 180s before next run...
+[2026-07-25 22:18:29] INFO prediction: working_set=34480 tokens vs pool=43808 tokens -> expect_eviction=False
+[2026-07-25 22:18:29] INFO prediction note: working_set/pool = 0.79x
+[2026-07-25 22:18:30] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 22:18:30] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/02-qwen3-8b-awq_t010_c4_s2000_n8_t10/inference_perf.yaml --log-level INFO
+[2026-07-25 22:18:30] INFO driver started (pid 2630990), log: /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/02-qwen3-8b-awq_t010_c4_s2000_n8_t10/logs/driver.log
+[2026-07-25 22:25:10] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 22:25:10] INFO verdict: IN_REGIME — no eviction predicted, peak KV pressure 23% (clean control)
+[2026-07-25 22:25:10] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 22:25:10] INFO === 02-qwen3-8b-awq_t010_c4_s2000_n8_t10: done in 400s, status=OK, verdict=IN_REGIME ===
+[2026-07-25 22:25:10] INFO settling 180s before next run...
+[2026-07-25 22:28:10] INFO prediction: working_set=64960 tokens vs pool=43808 tokens -> expect_eviction=True
+[2026-07-25 22:28:10] INFO prediction note: working_set/pool = 1.48x
+[2026-07-25 22:28:11] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 22:28:11] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/03-qwen3-8b-awq_t020_c4_s2000_n8_t20/inference_perf.yaml --log-level INFO
+[2026-07-25 22:28:11] INFO driver started (pid 2635956), log: /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/03-qwen3-8b-awq_t020_c4_s2000_n8_t20/logs/driver.log
+[2026-07-25 22:36:36] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 22:36:36] INFO verdict: NOT_OBSERVED — eviction predicted (64960 tokens working set vs 43808 pool) but peak KV pressure only 22% — harness bug or pool misestimate; investigate before reporting
+[2026-07-25 22:36:36] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 22:36:36] INFO === 03-qwen3-8b-awq_t020_c4_s2000_n8_t20: done in 505s, status=OK, verdict=NOT_OBSERVED ===
+[2026-07-25 22:36:36] INFO settling 180s before next run...
+[2026-07-25 22:39:36] INFO prediction: working_set=125920 tokens vs pool=43808 tokens -> expect_eviction=True
+[2026-07-25 22:39:36] INFO prediction note: working_set/pool = 2.87x
+[2026-07-25 22:39:37] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 22:39:37] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/04-qwen3-8b-awq_t040_c4_s2000_n8_t40/inference_perf.yaml --log-level INFO
+[2026-07-25 22:39:37] INFO driver started (pid 2641827), log: /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/04-qwen3-8b-awq_t040_c4_s2000_n8_t40/logs/driver.log
+[2026-07-25 22:48:52] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 22:48:52] INFO verdict: NOT_OBSERVED — eviction predicted (125920 tokens working set vs 43808 pool) but peak KV pressure only 23% — harness bug or pool misestimate; investigate before reporting
+[2026-07-25 22:48:52] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 22:48:52] INFO === 04-qwen3-8b-awq_t040_c4_s2000_n8_t40: done in 555s, status=OK, verdict=NOT_OBSERVED ===
+[2026-07-25 22:48:52] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep/sweep_summary.csv
+[2026-07-25 22:48:52] INFO stopping vLLM (pid 2624039), grace 60s...
+[2026-07-25 22:48:57] INFO vLLM stopped.
+[2026-07-25 22:48:57] EXIT: 0
+[2026-07-25 22:48:57] RUN: akb run --spec specs/w5_otel_agentic.yaml --sweep-name w5-otel-agentic --manage-vllm --vllm-venv /opt/ls/vllm/.venv/bin/activate --vllm-boot-wait-s 300 --no-amoprof
+[2026-07-25 22:48:57] INFO starting vLLM (model=Qwen/Qwen3-8B-AWQ) -> /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-agentic/vllm_server.log
+[2026-07-25 22:48:57] INFO waiting up to 300s for vLLM health at http://127.0.0.1:8000 ...
+[2026-07-25 22:49:37] INFO vLLM is healthy (pid 2647376) at http://127.0.0.1:8000
+[2026-07-25 22:49:37] INFO sweep 'w5-otel-agentic': 1 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-agentic
+[2026-07-25 22:49:38] INFO prediction note: expect_eviction=auto but working set or pool unknown
+[2026-07-25 22:49:38] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 22:49:38] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-agentic/01-qwen3-8b-awq_w5-otel-agentic_cs1/inference_perf.yaml --log-level INFO
+[2026-07-25 22:49:38] INFO driver started (pid 2648412), log: /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-agentic/01-qwen3-8b-awq_w5-otel-agentic_cs1/logs/driver.log
+[2026-07-25 22:50:48] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 22:50:48] INFO verdict: INDETERMINATE — no prediction (pool or working set unknown)
+[2026-07-25 22:50:48] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 22:50:48] INFO === 01-qwen3-8b-awq_w5-otel-agentic_cs1: done in 71s, status=OK, verdict=INDETERMINATE ===
+[2026-07-25 22:50:48] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-agentic/sweep_summary.csv
+[2026-07-25 22:50:48] INFO stopping vLLM (pid 2647376), grace 60s...
+[2026-07-25 22:50:54] INFO vLLM stopped.
+[2026-07-25 22:50:54] EXIT: 0
+[2026-07-25 22:50:54] RUN: akb report --sweep-dir /opt/ls/agentic_kv_bench/runs/20260725_w3-32k-headroom
+run                               verdict    pressure             lmcache_moved  amoprof_files  ttft_mean  ttft_p90  tpot_mean
+------------------------------------------------------------------------------------------------------------------------------
+01-qwen3-8b-awq_i16000_c1_i16000  IN_REGIME  0.06928532460447356  0              0              31134.3    44802.2   257.1    
+02-qwen3-8b-awq_i24000_c1_i24000  IN_REGIME  0.10338243316966722  0              0              48355.1    48640.8   363.3    
+03-qwen3-8b-awq_i32000_c1_i32000  IN_REGIME  0.13747954173486088  0              0              82307.9    82825.6   480.4    
+[2026-07-25 22:50:54] EXIT: 0
+[2026-07-25 22:50:54] RUN: akb report --sweep-dir /opt/ls/agentic_kv_bench/runs/20260725_w1-concurrency-sweep-full
+run                              verdict              pressure             lmcache_moved  amoprof_files  ttft_mean  ttft_p90  tpot_mean
+---------------------------------------------------------------------------------------------------------------------------------------
+01-qwen3-8b-awq_c001_c1_i4000    NOT_OBSERVED         0.09426379247351113  0              0              22072.3    49497.5   81.7     
+02-qwen3-8b-awq_c008_c8_i4000    NOT_OBSERVED         0.752648885641213    0              0              13902.0    28585.5   917.3    
+03-qwen3-8b-awq_c016_c16_i4000   LIKELY               0.9937888198757764   0              0              81186.5    128759.1  1192.8   
+04-qwen3-8b-awq_c100_c100_i1000  UNEXPECTED_PRESSURE  1.0                  0              0              65966.6    154768.7  1080.7   
+05-qwen3-8b-awq_c250_c250_i500   UNEXPECTED_PRESSURE  0.999269272926562    0              0              24289.5    38690.0   11344.8  
+[2026-07-25 22:50:54] EXIT: 0
+[2026-07-25 22:50:54] RUN: akb report --sweep-dir /opt/ls/agentic_kv_bench/runs/20260725_w4-turns-sweep
+run                                   verdict       pressure             lmcache_moved  amoprof_files  ttft_mean  ttft_p90  tpot_mean
+-------------------------------------------------------------------------------------------------------------------------------------
+01-qwen3-8b-awq_t005_c4_s2000_n8_t5   IN_REGIME     0.23456339057362074  0              0              6016.9     19381.3   157.4    
+02-qwen3-8b-awq_t010_c4_s2000_n8_t10  IN_REGIME     0.2331019364267446   0              0              2583.0     5708.6    164.9    
+03-qwen3-8b-awq_t020_c4_s2000_n8_t20  NOT_OBSERVED  0.2246985750822068   0              0              2194.0     4260.7    208.9    
+04-qwen3-8b-awq_t040_c4_s2000_n8_t40  NOT_OBSERVED  0.2334672999634636   0              0              2085.9     3917.9    246.7    
+[2026-07-25 22:50:54] EXIT: 0
+[2026-07-25 22:50:54] RUN: akb report --sweep-dir /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-agentic
+run                                  verdict        pressure              lmcache_moved  amoprof_files  ttft_mean  ttft_p90  tpot_mean
+--------------------------------------------------------------------------------------------------------------------------------------
+01-qwen3-8b-awq_w5-otel-agentic_cs1  INDETERMINATE  0.012056996711728218  0              0                                            
+[2026-07-25 22:50:55] EXIT: 0
+[2026-07-25 22:50:55] === proposal-gap sweep finished ===

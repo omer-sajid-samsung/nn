@@ -1,0 +1,16 @@
+run_id=03-qwen3-8b-awq_t020_c4_s2000_n8_t20
+knobs=c4_s2000_n8_t20
+spec=w4-agentic-conversation
+telemetry_start_epoch=1785018491
+telemetry_start_utc=2026-07-25T22:28:11Z
+lmcache_before_epoch=1785018491
+lmcache_before_utc=2026-07-25T22:28:11Z
+workload_start_epoch=1785018491
+workload_start_utc=2026-07-25T22:28:11Z
+workload_end_epoch=1785018996
+workload_end_utc=2026-07-25T22:36:36Z
+driver_exit_status=0
+lmcache_after_epoch=1785018996
+lmcache_after_utc=2026-07-25T22:36:36Z
+validation_epoch=1785018996
+validation_utc=2026-07-25T22:36:36Z

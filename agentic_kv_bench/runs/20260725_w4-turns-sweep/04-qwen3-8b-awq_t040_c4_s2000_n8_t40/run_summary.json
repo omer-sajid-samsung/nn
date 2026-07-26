@@ -1,0 +1,61 @@
+{
+  "verdict": "NOT_OBSERVED",
+  "verdict_reason": "eviction predicted (125920 tokens working set vs 43808 pool) but peak KV pressure only 23% \u2014 harness bug or pool misestimate; investigate before reporting",
+  "driver_status": 0,
+  "max_kv_pressure": 0.2334672999634636,
+  "lmcache_activity": {
+    "available": true,
+    "deltas": {}
+  },
+  "amoprof_files": 0,
+  "perf": {
+    "benchmark_time_s": 544.3,
+    "requests": 16,
+    "failures": 0,
+    "throughput": {
+      "input_tokens_per_sec": 94.99163982687922,
+      "output_tokens_per_sec": 14.776191527629088,
+      "total_tokens_per_sec": 109.76783135450832,
+      "requests_per_sec": 0.02939438821858329,
+      "images_per_sec": 0.0,
+      "videos_per_sec": 0.0,
+      "audios_per_sec": 0.0
+    },
+    "ttft_ms": {
+      "mean": 2085.9,
+      "median": 1808.4,
+      "p90": 3917.9,
+      "p99": 4236.4
+    },
+    "tpot_ms": {
+      "mean": 246.7,
+      "median": 201.5,
+      "p90": 371.5,
+      "p99": 494.4
+    },
+    "itl_ms": {
+      "mean": 227.0,
+      "median": 201.2,
+      "p90": 281.3,
+      "p99": 559.8
+    },
+    "request_latency_ms": {
+      "mean": 121137.4,
+      "median": 109710.0,
+      "p90": 174910.3,
+      "p99": 211151.8
+    }
+  },
+  "prediction": {
+    "kv_bytes_per_token": 147456,
+    "kv_bytes_source": "hf_config",
+    "pool_tokens": 43808,
+    "pool_source": "vllm_log",
+    "working_set_tokens": 125920,
+    "working_set_source": "conversation:shared+concurrent*(dyn+turns*(in+out))",
+    "expect_eviction": true,
+    "notes": [
+      "working_set/pool = 2.87x"
+    ]
+  }
+}
