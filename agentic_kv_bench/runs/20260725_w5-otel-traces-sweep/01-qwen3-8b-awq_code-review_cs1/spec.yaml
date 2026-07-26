@@ -1,0 +1,32 @@
+name: w5-otel-agentic
+description: 'Real multi-agent tool-call trace (coordinator + 3 specialist sub-agents,
+  fan-out/fan-in) replayed via inference-perf''s otel_trace_replay datagen, output-substituted
+  so KV growth follows this model''s actual generations.
+
+  '
+model: Qwen/Qwen3-8B-AWQ
+overrides:
+  data.otel_trace_replay.trace_files:
+  - /opt/ls/akb/agentic-kv-bench/traces/otel_examples/code_review_workflow.json
+prediction:
+  kv_dtype: float16
+  gpu_mem_util: 0.7
+  weights_gb: 6.0
+  expect_eviction: auto
+telemetry:
+  scrape_vllm_metrics: true
+  scrape_interval_s: 10
+  lmcache_port: 6999
+  lmcache_endpoints:
+  - /metrics
+  - /stats
+  - /cache/stats
+  - /health
+amoprof: {}
+timeouts:
+  run_timeout_s: 900
+  amoprof_ready_s: 90
+  post_start_settle_s: 10
+  post_stop_settle_s: 10
+  amoprof_stop_grace_s: 45
+  workload_kill_grace_s: 20

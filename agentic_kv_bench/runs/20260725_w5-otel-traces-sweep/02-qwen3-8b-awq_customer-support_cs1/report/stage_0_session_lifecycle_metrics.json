@@ -1,0 +1,92 @@
+{
+  "stage_metadata": {
+    "stage_id": 0,
+    "status": "COMPLETED",
+    "timeout_configured": null,
+    "actual_duration": 32.05502772331238,
+    "concurrent_sessions": 1,
+    "session_rate": null
+  },
+  "num_sessions": 1,
+  "num_sessions_succeeded": 1,
+  "num_sessions_failed": 0,
+  "total_events": 9,
+  "total_events_completed": 9,
+  "total_events_cancelled": 0,
+  "sessions_with_recorded_substitution": 0,
+  "total_recorded_substitutions": {
+    "count": 0,
+    "messages": []
+  },
+  "sessions_per_second": 0.032209200318957014,
+  "session_duration_sec": {
+    "mean": 31.047029733657837,
+    "min": 31.047029733657837,
+    "max": 31.047029733657837,
+    "p1": 31.047029733657837,
+    "p5": 31.047029733657837,
+    "p10": 31.047029733657837,
+    "p25": 31.047029733657837,
+    "median": 31.047029733657837,
+    "p75": 31.047029733657837,
+    "p90": 31.047029733657837,
+    "p95": 31.047029733657837,
+    "p99": 31.047029733657837
+  },
+  "num_events": {
+    "mean": 9.0,
+    "min": 9.0,
+    "max": 9.0,
+    "p1": 9.0,
+    "p5": 9.0,
+    "p10": 9.0,
+    "p25": 9.0,
+    "median": 9.0,
+    "p75": 9.0,
+    "p90": 9.0,
+    "p95": 9.0,
+    "p99": 9.0
+  },
+  "num_events_cancelled": {
+    "mean": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "p1": 0.0,
+    "p5": 0.0,
+    "p10": 0.0,
+    "p25": 0.0,
+    "median": 0.0,
+    "p75": 0.0,
+    "p90": 0.0,
+    "p95": 0.0,
+    "p99": 0.0
+  },
+  "total_input_tokens": {
+    "mean": 931.0,
+    "min": 931.0,
+    "max": 931.0,
+    "p1": 931.0,
+    "p5": 931.0,
+    "p10": 931.0,
+    "p25": 931.0,
+    "median": 931.0,
+    "p75": 931.0,
+    "p90": 931.0,
+    "p95": 931.0,
+    "p99": 931.0
+  },
+  "total_output_tokens": {
+    "mean": 525.0,
+    "min": 525.0,
+    "max": 525.0,
+    "p1": 525.0,
+    "p5": 525.0,
+    "p10": 525.0,
+    "p25": 525.0,
+    "median": 525.0,
+    "p75": 525.0,
+    "p90": 525.0,
+    "p95": 525.0,
+    "p99": 525.0
+  }
+}

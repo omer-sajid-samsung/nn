@@ -1,0 +1,11 @@
+{
+  "sweep": "w6-bigctx-thrash",
+  "spec": "specs/w6_bigctx_thrash.yaml",
+  "base_dir": "/opt/ls/agentic_kv_bench",
+  "created_utc": "2026-07-25T23:12:17Z",
+  "n_runs": 1,
+  "overrides": [
+    {}
+  ],
+  "harness_version": "0.1.0"
+}

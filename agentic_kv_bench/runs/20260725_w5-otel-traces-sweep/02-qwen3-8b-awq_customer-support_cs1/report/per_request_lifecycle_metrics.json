@@ -1,0 +1,272 @@
+[
+  {
+    "start_time": 171881.589100438,
+    "end_time": 171883.399921695,
+    "request": "{\"model\": \"Qwen/Qwen3-8B-AWQ\", \"messages\": [{\"role\": \"user\", \"content\": \"My SmartHome Hub keeps disconnecting from WiFi every few hours. This has been happening for a week and it's really frustrating!\"}], \"max_tokens\": 43, \"ignore_eos\": true, \"stream\": false}",
+    "response": "{\"id\":\"chatcmpl-45fdbfff791b447794ea61808bd3fbec\",\"object\":\"chat.completion\",\"created\":1785023953,\"model\":\"Qwen/Qwen3-8B-AWQ\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"<think>\\nOkay, the user's SmartHome Hub keeps disconnecting from WiFi every few hours, and it's been happening for a week. They're frustrated, so I need to address this thoroughly. Let me think\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"tool_calls\":[],\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"length\",\"stop_reason\":null,\"token_ids\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":34,\"total_tokens\":77,\"completion_tokens\":43,\"prompt_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"kv_transfer_params\":null}",
+    "info": {
+      "request_metrics": {
+        "text": {
+          "input_tokens": 26
+        },
+        "image": null,
+        "video": null,
+        "audio": null
+      },
+      "response_metrics": {
+        "output_tokens": 43,
+        "server_usage": null
+      },
+      "extra_info": {},
+      "lora_adapter": null,
+      "labels": {},
+      "output_text": "<think>\nOkay, the user's SmartHome Hub keeps disconnecting from WiFi every few hours, and it's been happening for a week. They're frustrated, so I need to address this thoroughly. Let me think",
+      "output_message": {
+        "role": "assistant",
+        "content": "<think>\nOkay, the user's SmartHome Hub keeps disconnecting from WiFi every few hours, and it's been happening for a week. They're frustrated, so I need to address this thoroughly. Let me think"
+      },
+      "input_tokens": 26
+    },
+    "error": null
+  },
+  {
+    "start_time": 171884.401491692,
+    "end_time": 171886.592139001,
+    "request": "{\"model\": \"Qwen/Qwen3-8B-AWQ\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a Technical Specialist for SmartHome devices.\"}, {\"role\": \"user\", \"content\": \"Customer reports: SmartHome Hub disconnecting from WiFi every few hours for a week. Coordinator response: I understand your frustration. Let me coordinate with our specialist team to diagnose this issue. I'll dispatch our Technical Specialist and Network Analyst to investigate.\"}], \"max_tokens\": 49, \"ignore_eos\": true, \"stream\": false}",
+    "response": "{\"id\":\"chatcmpl-d0cd957d601f41858dba76eeb1ca5dd7\",\"object\":\"chat.completion\",\"created\":1785023956,\"model\":\"Qwen/Qwen3-8B-AWQ\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"<think>\\nOkay, the customer is having an issue where their SmartHome Hub disconnects from WiFi every few hours. They've been experiencing this for a week. The coordinator has already acknowledged the problem and mentioned sending a Technical Specialist and Network Analyst.\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"tool_calls\":[],\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"length\",\"stop_reason\":null,\"token_ids\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":72,\"total_tokens\":121,\"completion_tokens\":49,\"prompt_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"kv_transfer_params\":null}",
+    "info": {
+      "request_metrics": {
+        "text": {
+          "input_tokens": 58
+        },
+        "image": null,
+        "video": null,
+        "audio": null
+      },
+      "response_metrics": {
+        "output_tokens": 49,
+        "server_usage": null
+      },
+      "extra_info": {},
+      "lora_adapter": null,
+      "labels": {},
+      "output_text": "<think>\nOkay, the customer is having an issue where their SmartHome Hub disconnects from WiFi every few hours. They've been experiencing this for a week. The coordinator has already acknowledged the problem and mentioned sending a Technical Specialist and Network Analyst.",
+      "output_message": {
+        "role": "assistant",
+        "content": "<think>\nOkay, the customer is having an issue where their SmartHome Hub disconnects from WiFi every few hours. They've been experiencing this for a week. The coordinator has already acknowledged the problem and mentioned sending a Technical Specialist and Network Analyst."
+      },
+      "input_tokens": 58
+    },
+    "error": null
+  },
+  {
+    "start_time": 171884.900540023,
+    "end_time": 171886.871933312,
+    "request": "{\"model\": \"Qwen/Qwen3-8B-AWQ\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a Network Analyst specializing in WiFi connectivity.\"}, {\"role\": \"user\", \"content\": \"Customer reports: SmartHome Hub disconnecting from WiFi every few hours for a week. Coordinator response: I understand your frustration. Let me coordinate with our specialist team to diagnose this issue. I'll dispatch our Technical Specialist and Network Analyst to investigate.\"}], \"max_tokens\": 45, \"ignore_eos\": true, \"stream\": false}",
+    "response": "{\"id\":\"chatcmpl-1a1590155d2e4067bb7223c4561b35ba\",\"object\":\"chat.completion\",\"created\":1785023956,\"model\":\"Qwen/Qwen3-8B-AWQ\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"<think>\\nOkay, the customer is having an issue where their SmartHome Hub disconnects from WiFi every few hours for a week. The coordinator has already acknowledged the problem and is sending a specialist and network analyst. Now, I\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"tool_calls\":[],\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"length\",\"stop_reason\":null,\"token_ids\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":72,\"total_tokens\":117,\"completion_tokens\":45,\"prompt_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"kv_transfer_params\":null}",
+    "info": {
+      "request_metrics": {
+        "text": {
+          "input_tokens": 58
+        },
+        "image": null,
+        "video": null,
+        "audio": null
+      },
+      "response_metrics": {
+        "output_tokens": 45,
+        "server_usage": null
+      },
+      "extra_info": {},
+      "lora_adapter": null,
+      "labels": {},
+      "output_text": "<think>\nOkay, the customer is having an issue where their SmartHome Hub disconnects from WiFi every few hours for a week. The coordinator has already acknowledged the problem and is sending a specialist and network analyst. Now, I",
+      "output_message": {
+        "role": "assistant",
+        "content": "<think>\nOkay, the customer is having an issue where their SmartHome Hub disconnects from WiFi every few hours for a week. The coordinator has already acknowledged the problem and is sending a specialist and network analyst. Now, I"
+      },
+      "input_tokens": 58
+    },
+    "error": null
+  },
+  {
+    "start_time": 171887.372867971,
+    "end_time": 171889.527023167,
+    "request": "{\"model\": \"Qwen/Qwen3-8B-AWQ\", \"messages\": [{\"role\": \"user\", \"content\": \"My SmartHome Hub keeps disconnecting from WiFi every few hours.\"}, {\"role\": \"assistant\", \"content\": \"<think>\\nOkay, the user's SmartHome Hub keeps disconnecting from WiFi every few hours, and it's been happening for a week. They're frustrated, so I need to address this thoroughly. Let me think\"}, {\"role\": \"user\", \"content\": \"What did your team find?\"}], \"max_tokens\": 53, \"ignore_eos\": true, \"stream\": false}",
+    "response": "{\"id\":\"chatcmpl-ea64b6f434b34bffa7760ffc9872aa5f\",\"object\":\"chat.completion\",\"created\":1785023959,\"model\":\"Qwen/Qwen3-8B-AWQ\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"<think>\\nOkay, the user is asking what my team found regarding their SmartHome Hub disconnecting from WiFi. Let me recall the previous conversation. They mentioned the issue has been happening for a week, and I provided a step-by-step guide to troubleshoot. Now\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"tool_calls\":[],\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"length\",\"stop_reason\":null,\"token_ids\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":80,\"total_tokens\":133,\"completion_tokens\":53,\"prompt_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"kv_transfer_params\":null}",
+    "info": {
+      "request_metrics": {
+        "text": {
+          "input_tokens": 62
+        },
+        "image": null,
+        "video": null,
+        "audio": null
+      },
+      "response_metrics": {
+        "output_tokens": 53,
+        "server_usage": null
+      },
+      "extra_info": {},
+      "lora_adapter": null,
+      "labels": {},
+      "output_text": "<think>\nOkay, the user is asking what my team found regarding their SmartHome Hub disconnecting from WiFi. Let me recall the previous conversation. They mentioned the issue has been happening for a week, and I provided a step-by-step guide to troubleshoot. Now",
+      "output_message": {
+        "role": "assistant",
+        "content": "<think>\nOkay, the user is asking what my team found regarding their SmartHome Hub disconnecting from WiFi. Let me recall the previous conversation. They mentioned the issue has been happening for a week, and I provided a step-by-step guide to troubleshoot. Now"
+      },
+      "input_tokens": 62
+    },
+    "error": null
+  },
+  {
+    "start_time": 171894.528164944,
+    "end_time": 171896.713097565,
+    "request": "{\"model\": \"Qwen/Qwen3-8B-AWQ\", \"messages\": [{\"role\": \"user\", \"content\": \"My SmartHome Hub keeps disconnecting from WiFi every few hours.\"}, {\"role\": \"assistant\", \"content\": \"<think>\\nOkay, the user's SmartHome Hub keeps disconnecting from WiFi every few hours, and it's been happening for a week. They're frustrated, so I need to address this thoroughly. Let me think\"}, {\"role\": \"user\", \"content\": \"What did your team find?\"}, {\"role\": \"assistant\", \"content\": \"<think>\\nOkay, the user is asking what my team found regarding their SmartHome Hub disconnecting from WiFi. Let me recall the previous conversation. They mentioned the issue has been happening for a week, and I provided a step-by-step guide to troubleshoot. Now\"}, {\"role\": \"user\", \"content\": \"I tried the firmware update but the problem still happens! I want a refund or replacement!\"}], \"max_tokens\": 53, \"ignore_eos\": true, \"stream\": false}",
+    "response": "{\"id\":\"chatcmpl-305141c8533544279d9a0a963d6b3bfe\",\"object\":\"chat.completion\",\"created\":1785023966,\"model\":\"Qwen/Qwen3-8B-AWQ\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"<think>\\nOkay, the user is frustrated because even after trying the firmware update, their SmartHome Hub still disconnects from WiFi. They want a refund or replacement. Let me think about how to respond.\\n\\nFirst, I need to acknowledge their frustration. They've already\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"tool_calls\":[],\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"length\",\"stop_reason\":null,\"token_ids\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":161,\"total_tokens\":214,\"completion_tokens\":53,\"prompt_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"kv_transfer_params\":null}",
+    "info": {
+      "request_metrics": {
+        "text": {
+          "input_tokens": 133
+        },
+        "image": null,
+        "video": null,
+        "audio": null
+      },
+      "response_metrics": {
+        "output_tokens": 53,
+        "server_usage": null
+      },
+      "extra_info": {},
+      "lora_adapter": null,
+      "labels": {},
+      "output_text": "<think>\nOkay, the user is frustrated because even after trying the firmware update, their SmartHome Hub still disconnects from WiFi. They want a refund or replacement. Let me think about how to respond.\n\nFirst, I need to acknowledge their frustration. They've already",
+      "output_message": {
+        "role": "assistant",
+        "content": "<think>\nOkay, the user is frustrated because even after trying the firmware update, their SmartHome Hub still disconnects from WiFi. They want a refund or replacement. Let me think about how to respond.\n\nFirst, I need to acknowledge their frustration. They've already"
+      },
+      "input_tokens": 133
+    },
+    "error": null
+  },
+  {
+    "start_time": 171897.713428453,
+    "end_time": 171900.784918196,
+    "request": "{\"model\": \"Qwen/Qwen3-8B-AWQ\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a Senior Technical Analyst. Review escalated cases.\"}, {\"role\": \"user\", \"content\": \"Escalated case: Customer tried firmware 2.3.2 update but WiFi disconnections persist. Previous diagnosis: firmware memory leak. Network analysis showed no network issues. What's the actual problem?\"}], \"max_tokens\": 76, \"ignore_eos\": true, \"stream\": false}",
+    "response": "{\"id\":\"chatcmpl-ffa78979051d47cc97267c1c2630a833\",\"object\":\"chat.completion\",\"created\":1785023969,\"model\":\"Qwen/Qwen3-8B-AWQ\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"<think>\\nOkay, the customer is having issues with WiFi disconnections after updating to firmware 2.3.2. The previous diagnosis was a memory leak in the firmware, and network analysis didn't show any network issues. I need to figure out the actual problem here.\\n\\nFirst, let me recap the information. The customer tried updating to firmware 2.3.2,\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"tool_calls\":[],\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"length\",\"stop_reason\":null,\"token_ids\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":65,\"total_tokens\":141,\"completion_tokens\":76,\"prompt_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"kv_transfer_params\":null}",
+    "info": {
+      "request_metrics": {
+        "text": {
+          "input_tokens": 51
+        },
+        "image": null,
+        "video": null,
+        "audio": null
+      },
+      "response_metrics": {
+        "output_tokens": 76,
+        "server_usage": null
+      },
+      "extra_info": {},
+      "lora_adapter": null,
+      "labels": {},
+      "output_text": "<think>\nOkay, the customer is having issues with WiFi disconnections after updating to firmware 2.3.2. The previous diagnosis was a memory leak in the firmware, and network analysis didn't show any network issues. I need to figure out the actual problem here.\n\nFirst, let me recap the information. The customer tried updating to firmware 2.3.2,",
+      "output_message": {
+        "role": "assistant",
+        "content": "<think>\nOkay, the customer is having issues with WiFi disconnections after updating to firmware 2.3.2. The previous diagnosis was a memory leak in the firmware, and network analysis didn't show any network issues. I need to figure out the actual problem here.\n\nFirst, let me recap the information. The customer tried updating to firmware 2.3.2,"
+      },
+      "input_tokens": 51
+    },
+    "error": null
+  },
+  {
+    "start_time": 171901.785847998,
+    "end_time": 171904.559780041,
+    "request": "{\"model\": \"Qwen/Qwen3-8B-AWQ\", \"messages\": [{\"role\": \"system\", \"content\": \"You are a Customer Success Manager with authority to approve replacements and compensation.\"}, {\"role\": \"user\", \"content\": \"Case summary: WiFi disconnections, firmware update failed. Senior Analyst found: Root Cause Analysis: Since firmware update failed, this is a hardware defect. The WiFi module itself is faulty - likely from the Q2 2025 manufacturing batch with known thermal issues. The chip overheats and enters protection mode. Firmware can't fix hardware. Recommendation: Device replacement required.\"}], \"max_tokens\": 68, \"ignore_eos\": true, \"stream\": false}",
+    "response": "{\"id\":\"chatcmpl-e7e4e91a2ae1489cb9632926c0ecfe81\",\"object\":\"chat.completion\",\"created\":1785023973,\"model\":\"Qwen/Qwen3-8B-AWQ\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"<think>\\nOkay, let's see. The user provided a case summary about WiFi disconnections and a failed firmware update. The root cause is a hardware defect in the WiFi module, specifically from a Q2 2025 manufacturing batch with thermal issues. The Senior Analyst concluded that the firmware can't fix this hardware problem, so replacement\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"tool_calls\":[],\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"length\",\"stop_reason\":null,\"token_ids\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":102,\"total_tokens\":170,\"completion_tokens\":68,\"prompt_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"kv_transfer_params\":null}",
+    "info": {
+      "request_metrics": {
+        "text": {
+          "input_tokens": 89
+        },
+        "image": null,
+        "video": null,
+        "audio": null
+      },
+      "response_metrics": {
+        "output_tokens": 68,
+        "server_usage": null
+      },
+      "extra_info": {},
+      "lora_adapter": null,
+      "labels": {},
+      "output_text": "<think>\nOkay, let's see. The user provided a case summary about WiFi disconnections and a failed firmware update. The root cause is a hardware defect in the WiFi module, specifically from a Q2 2025 manufacturing batch with thermal issues. The Senior Analyst concluded that the firmware can't fix this hardware problem, so replacement",
+      "output_message": {
+        "role": "assistant",
+        "content": "<think>\nOkay, let's see. The user provided a case summary about WiFi disconnections and a failed firmware update. The root cause is a hardware defect in the WiFi module, specifically from a Q2 2025 manufacturing batch with thermal issues. The Senior Analyst concluded that the firmware can't fix this hardware problem, so replacement"
+      },
+      "input_tokens": 89
+    },
+    "error": null
+  },
+  {
+    "start_time": 171905.561755415,
+    "end_time": 171908.653804609,
+    "request": "{\"model\": \"Qwen/Qwen3-8B-AWQ\", \"messages\": [{\"role\": \"user\", \"content\": \"My SmartHome Hub keeps disconnecting from WiFi.\"}, {\"role\": \"assistant\", \"content\": \"<think>\\nOkay, the user's SmartHome Hub keeps disconnecting from WiFi every few hours, and it's been happening for a week. They're frustrated, so I need to address this thoroughly. Let me think\"}, {\"role\": \"user\", \"content\": \"What did your team find?\"}, {\"role\": \"assistant\", \"content\": \"<think>\\nOkay, the user is asking what my team found regarding their SmartHome Hub disconnecting from WiFi. Let me recall the previous conversation. They mentioned the issue has been happening for a week, and I provided a step-by-step guide to troubleshoot. Now\"}, {\"role\": \"user\", \"content\": \"I tried the firmware update but the problem still happens!\"}, {\"role\": \"assistant\", \"content\": \"<think>\\nOkay, the user is frustrated because even after trying the firmware update, their SmartHome Hub still disconnects from WiFi. They want a refund or replacement. Let me think about how to respond.\\n\\nFirst, I need to acknowledge their frustration. They've already\"}, {\"role\": \"user\", \"content\": \"What's the resolution?\"}], \"max_tokens\": 74, \"ignore_eos\": true, \"stream\": false}",
+    "response": "{\"id\":\"chatcmpl-3c752003e5d242f1a787ed0b5583637b\",\"object\":\"chat.completion\",\"created\":1785023977,\"model\":\"Qwen/Qwen3-8B-AWQ\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"<think>\\nOkay, the user is asking for the resolution after the firmware update didn't fix their SmartHome Hub's WiFi disconnection issue. Let me break down what I should do.\\n\\nFirst, I need to consider all possible causes beyond the firmware. The user already tried updating, so maybe the issue is something else. Let me list possible troubleshooting steps they might have missed\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"tool_calls\":[],\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"length\",\"stop_reason\":null,\"token_ids\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":219,\"total_tokens\":293,\"completion_tokens\":74,\"prompt_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"kv_transfer_params\":null}",
+    "info": {
+      "request_metrics": {
+        "text": {
+          "input_tokens": 181
+        },
+        "image": null,
+        "video": null,
+        "audio": null
+      },
+      "response_metrics": {
+        "output_tokens": 74,
+        "server_usage": null
+      },
+      "extra_info": {},
+      "lora_adapter": null,
+      "labels": {},
+      "output_text": "<think>\nOkay, the user is asking for the resolution after the firmware update didn't fix their SmartHome Hub's WiFi disconnection issue. Let me break down what I should do.\n\nFirst, I need to consider all possible causes beyond the firmware. The user already tried updating, so maybe the issue is something else. Let me list possible troubleshooting steps they might have missed",
+      "output_message": {
+        "role": "assistant",
+        "content": "<think>\nOkay, the user is asking for the resolution after the firmware update didn't fix their SmartHome Hub's WiFi disconnection issue. Let me break down what I should do.\n\nFirst, I need to consider all possible causes beyond the firmware. The user already tried updating, so maybe the issue is something else. Let me list possible troubleshooting steps they might have missed"
+      },
+      "input_tokens": 181
+    },
+    "error": null
+  },
+  {
+    "start_time": 171909.654860243,
+    "end_time": 171912.614992877,
+    "request": "{\"model\": \"Qwen/Qwen3-8B-AWQ\", \"messages\": [{\"role\": \"user\", \"content\": \"My SmartHome Hub keeps disconnecting from WiFi.\"}, {\"role\": \"assistant\", \"content\": \"<think>\\nOkay, the user's SmartHome Hub keeps disconnecting from WiFi every few hours, and it's been happening for a week. They're frustrated, so I need to address this thoroughly. Let me think\"}, {\"role\": \"user\", \"content\": \"What did your team find?\"}, {\"role\": \"assistant\", \"content\": \"<think>\\nOkay, the user is asking what my team found regarding their SmartHome Hub disconnecting from WiFi. Let me recall the previous conversation. They mentioned the issue has been happening for a week, and I provided a step-by-step guide to troubleshoot. Now\"}, {\"role\": \"user\", \"content\": \"I tried the firmware update but the problem still happens!\"}, {\"role\": \"assistant\", \"content\": \"<think>\\nOkay, the user is frustrated because even after trying the firmware update, their SmartHome Hub still disconnects from WiFi. They want a refund or replacement. Let me think about how to respond.\\n\\nFirst, I need to acknowledge their frustration. They've already\"}, {\"role\": \"user\", \"content\": \"What's the resolution?\"}, {\"role\": \"assistant\", \"content\": \"<think>\\nOkay, the user is asking for the resolution after the firmware update didn't fix their SmartHome Hub's WiFi disconnection issue. Let me break down what I should do.\\n\\nFirst, I need to consider all possible causes beyond the firmware. The user already tried updating, so maybe the issue is something else. Let me list possible troubleshooting steps they might have missed\"}, {\"role\": \"user\", \"content\": \"Thank you so much! That's exactly what I needed. I appreciate the thorough investigation.\"}], \"max_tokens\": 64, \"ignore_eos\": true, \"stream\": false}",
+    "response": "{\"id\":\"chatcmpl-5a5370abe5b7477cbca27ce9be7a3693\",\"object\":\"chat.completion\",\"created\":1785023981,\"model\":\"Qwen/Qwen3-8B-AWQ\",\"choices\":[{\"index\":0,\"message\":{\"role\":\"assistant\",\"content\":\"<think>\\nOkay, the user is thanking me for the detailed resolution. They mentioned it's exactly what they needed and appreciated the thorough investigation. I should respond in a friendly and helpful manner. Let me make sure to acknowledge their thanks and offer further assistance if needed. Also, maybe add a note about their satisfaction. Keep\",\"refusal\":null,\"annotations\":null,\"audio\":null,\"function_call\":null,\"tool_calls\":[],\"reasoning_content\":null},\"logprobs\":null,\"finish_reason\":\"length\",\"stop_reason\":null,\"token_ids\":null}],\"service_tier\":null,\"system_fingerprint\":null,\"usage\":{\"prompt_tokens\":321,\"total_tokens\":385,\"completion_tokens\":64,\"prompt_tokens_details\":null},\"prompt_logprobs\":null,\"prompt_token_ids\":null,\"kv_transfer_params\":null}",
+    "info": {
+      "request_metrics": {
+        "text": {
+          "input_tokens": 273
+        },
+        "image": null,
+        "video": null,
+        "audio": null
+      },
+      "response_metrics": {
+        "output_tokens": 64,
+        "server_usage": null
+      },
+      "extra_info": {},
+      "lora_adapter": null,
+      "labels": {},
+      "output_text": "<think>\nOkay, the user is thanking me for the detailed resolution. They mentioned it's exactly what they needed and appreciated the thorough investigation. I should respond in a friendly and helpful manner. Let me make sure to acknowledge their thanks and offer further assistance if needed. Also, maybe add a note about their satisfaction. Keep",
+      "output_message": {
+        "role": "assistant",
+        "content": "<think>\nOkay, the user is thanking me for the detailed resolution. They mentioned it's exactly what they needed and appreciated the thorough investigation. I should respond in a friendly and helpful manner. Let me make sure to acknowledge their thanks and offer further assistance if needed. Also, maybe add a note about their satisfaction. Keep"
+      },
+      "input_tokens": 273
+    },
+    "error": null
+  }
+]

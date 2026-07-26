@@ -1,0 +1,19 @@
+[2026-07-25 22:50:57] INFO starting vLLM (model=Qwen/Qwen3-8B-AWQ) -> /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-amoprof/vllm_server.log
+[2026-07-25 22:50:57] INFO waiting up to 300s for vLLM health at http://127.0.0.1:8000 ...
+[2026-07-25 22:51:37] INFO vLLM is healthy (pid 2649814) at http://127.0.0.1:8000
+[2026-07-25 22:51:37] INFO sweep 'w2-revisit-thrash-amoprof': 1 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-amoprof
+[2026-07-25 22:51:38] INFO prediction: working_set=98048 tokens vs pool=43808 tokens -> expect_eviction=True
+[2026-07-25 22:51:38] INFO prediction note: working_set/pool = 2.24x
+[2026-07-25 22:51:38] INFO starting amoprof -> /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-amoprof/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u16/amoprof
+[2026-07-25 22:51:43] INFO amoprof is up (daemon pid 2650775), metrics on :9101; settling 10s
+[2026-07-25 22:51:53] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 22:51:53] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-amoprof/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u16/inference_perf.yaml --log-level INFO
+[2026-07-25 22:51:53] INFO driver started (pid 2651260), log: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-amoprof/01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u16/logs/driver.log
+[2026-07-25 23:11:19] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 23:11:20] INFO stopping amoprof (pid 2650775), grace 45s...
+[2026-07-25 23:11:22] INFO amoprof stopped; settling 10s for final telemetry flush
+[2026-07-25 23:11:32] INFO verdict: LIKELY — predicted eviction; peak KV pressure 98%; LMCache counters silent/unavailable
+[2026-07-25 23:11:32] INFO === 01-qwen3-8b-awq_w2-revisit-thrash_c8_i6000_u16: done in 1194s, status=OK, verdict=LIKELY ===
+[2026-07-25 23:11:32] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w2-revisit-thrash-amoprof/sweep_summary.csv
+[2026-07-25 23:11:32] INFO stopping vLLM (pid 2649814), grace 60s...
+[2026-07-25 23:11:37] INFO vLLM stopped.

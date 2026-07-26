@@ -1,0 +1,46 @@
+{
+  "verdict": "INDETERMINATE",
+  "verdict_reason": "no prediction (pool or working set unknown)",
+  "driver_status": 0,
+  "max_kv_pressure": 0.051881622214103085,
+  "lmcache_activity": {
+    "available": true,
+    "deltas": {}
+  },
+  "amoprof_files": 0,
+  "perf": {
+    "benchmark_time_s": 128.0,
+    "requests": 15,
+    "failures": 0,
+    "throughput": {
+      "input_tokens_per_sec": 41.53570769658533,
+      "output_tokens_per_sec": 35.39557862953322,
+      "total_tokens_per_sec": 76.93128632611855,
+      "requests_per_sec": 0.11717803563076545,
+      "images_per_sec": 0.0,
+      "videos_per_sec": 0.0,
+      "audios_per_sec": 0.0
+    },
+    "ttft_ms": {},
+    "tpot_ms": {},
+    "itl_ms": {},
+    "request_latency_ms": {
+      "mean": 15340.4,
+      "median": 12701.7,
+      "p90": 26057.8,
+      "p99": 29362.9
+    }
+  },
+  "prediction": {
+    "kv_bytes_per_token": 147456,
+    "kv_bytes_source": "hf_config",
+    "pool_tokens": 43808,
+    "pool_source": "vllm_log",
+    "working_set_tokens": null,
+    "working_set_source": "otel_trace_replay:unknown(trace-dependent)",
+    "expect_eviction": null,
+    "notes": [
+      "expect_eviction=auto but working set or pool unknown"
+    ]
+  }
+}

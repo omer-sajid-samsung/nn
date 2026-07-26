@@ -1,0 +1,20 @@
+{
+  "sweep": "w5-otel-traces-sweep",
+  "spec": "sweeps/../specs/w5_otel_agentic.yaml",
+  "base_dir": "/opt/ls/agentic_kv_bench",
+  "created_utc": "2026-07-25T23:53:53Z",
+  "n_runs": 2,
+  "overrides": [
+    {
+      "data.otel_trace_replay.trace_files": [
+        "/opt/ls/akb/agentic-kv-bench/traces/otel_examples/code_review_workflow.json"
+      ]
+    },
+    {
+      "data.otel_trace_replay.trace_files": [
+        "/opt/ls/akb/agentic-kv-bench/traces/otel_examples/customer_support_escalation.json"
+      ]
+    }
+  ],
+  "harness_version": "0.1.0"
+}

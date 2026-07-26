@@ -1,0 +1,19 @@
+[2026-07-25 23:11:37] INFO starting vLLM (model=Qwen/Qwen3-8B-AWQ) -> /opt/ls/agentic_kv_bench/runs/20260725_w6-bigctx-thrash/vllm_server.log
+[2026-07-25 23:11:37] INFO waiting up to 300s for vLLM health at http://127.0.0.1:8000 ...
+[2026-07-25 23:12:17] INFO vLLM is healthy (pid 2679095) at http://127.0.0.1:8000
+[2026-07-25 23:12:17] INFO sweep 'w6-bigctx-thrash': 1 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w6-bigctx-thrash
+[2026-07-25 23:12:18] INFO prediction: working_set=324096 tokens vs pool=234640 tokens -> expect_eviction=True
+[2026-07-25 23:12:18] INFO prediction note: working_set/pool = 1.38x
+[2026-07-25 23:12:19] INFO starting amoprof -> /opt/ls/agentic_kv_bench/runs/20260725_w6-bigctx-thrash/01-qwen3-8b-awq_w6-bigctx-thrash_c8_i20000_u16/amoprof
+[2026-07-25 23:12:24] INFO amoprof is up (daemon pid 2680097), metrics on :9101; settling 10s
+[2026-07-25 23:12:34] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 23:12:34] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w6-bigctx-thrash/01-qwen3-8b-awq_w6-bigctx-thrash_c8_i20000_u16/inference_perf.yaml --log-level INFO
+[2026-07-25 23:12:34] INFO driver started (pid 2680582), log: /opt/ls/agentic_kv_bench/runs/20260725_w6-bigctx-thrash/01-qwen3-8b-awq_w6-bigctx-thrash_c8_i20000_u16/logs/driver.log
+[2026-07-25 23:52:54] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 23:52:55] INFO stopping amoprof (pid 2680097), grace 45s...
+[2026-07-25 23:52:57] INFO amoprof stopped; settling 10s for final telemetry flush
+[2026-07-25 23:53:07] INFO verdict: NOT_OBSERVED — eviction predicted (324096 tokens working set vs 234640 pool) but peak KV pressure only 31% — harness bug or pool misestimate; investigate before reporting
+[2026-07-25 23:53:07] INFO === 01-qwen3-8b-awq_w6-bigctx-thrash_c8_i20000_u16: done in 2449s, status=OK, verdict=NOT_OBSERVED ===
+[2026-07-25 23:53:07] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w6-bigctx-thrash/sweep_summary.csv
+[2026-07-25 23:53:07] INFO stopping vLLM (pid 2679095), grace 60s...
+[2026-07-25 23:53:13] INFO vLLM stopped.

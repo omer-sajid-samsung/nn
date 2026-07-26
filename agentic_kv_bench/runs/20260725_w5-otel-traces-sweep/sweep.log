@@ -1,0 +1,24 @@
+[2026-07-25 23:53:13] INFO starting vLLM (model=Qwen/Qwen3-8B-AWQ) -> /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-traces-sweep/vllm_server.log
+[2026-07-25 23:53:13] INFO waiting up to 300s for vLLM health at http://127.0.0.1:8000 ...
+[2026-07-25 23:53:53] INFO vLLM is healthy (pid 2737002) at http://127.0.0.1:8000
+[2026-07-25 23:53:53] INFO sweep 'w5-otel-traces-sweep': 2 runs. results root: /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-traces-sweep
+[2026-07-25 23:53:53] INFO prediction note: expect_eviction=auto but working set or pool unknown
+[2026-07-25 23:53:54] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 23:53:54] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-traces-sweep/01-qwen3-8b-awq_code-review_cs1/inference_perf.yaml --log-level INFO
+[2026-07-25 23:53:54] INFO driver started (pid 2737958), log: /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-traces-sweep/01-qwen3-8b-awq_code-review_cs1/logs/driver.log
+[2026-07-25 23:56:09] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 23:56:09] INFO verdict: INDETERMINATE — no prediction (pool or working set unknown)
+[2026-07-25 23:56:09] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 23:56:09] INFO === 01-qwen3-8b-awq_code-review_cs1: done in 136s, status=OK, verdict=INDETERMINATE ===
+[2026-07-25 23:56:09] INFO settling 180s before next run...
+[2026-07-25 23:59:09] INFO prediction note: expect_eviction=auto but working set or pool unknown
+[2026-07-25 23:59:10] INFO LMCache snapshot -> lmcache_before.json (answered: /metrics)
+[2026-07-25 23:59:10] INFO driver: /opt/ls/miniforge3/bin/inference-perf --config_file /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-traces-sweep/02-qwen3-8b-awq_customer-support_cs1/inference_perf.yaml --log-level INFO
+[2026-07-25 23:59:10] INFO driver started (pid 2741111), log: /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-traces-sweep/02-qwen3-8b-awq_customer-support_cs1/logs/driver.log
+[2026-07-25 23:59:50] INFO LMCache snapshot -> lmcache_after.json (answered: /metrics)
+[2026-07-25 23:59:50] INFO verdict: INDETERMINATE — no prediction (pool or working set unknown)
+[2026-07-25 23:59:50] WARNING amoprof output dir is empty — check logs/amoprof_service.log
+[2026-07-25 23:59:50] INFO === 02-qwen3-8b-awq_customer-support_cs1: done in 40s, status=OK, verdict=INDETERMINATE ===
+[2026-07-25 23:59:50] INFO sweep finished. summary: /opt/ls/agentic_kv_bench/runs/20260725_w5-otel-traces-sweep/sweep_summary.csv
+[2026-07-25 23:59:50] INFO stopping vLLM (pid 2737002), grace 60s...
+[2026-07-25 23:59:55] INFO vLLM stopped.

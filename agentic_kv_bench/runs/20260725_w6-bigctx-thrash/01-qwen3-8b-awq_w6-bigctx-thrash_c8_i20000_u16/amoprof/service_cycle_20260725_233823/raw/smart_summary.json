@@ -1,0 +1,11 @@
+{
+  "host_written_gb": 0.293,
+  "nand_written_gb": 0.293,
+  "waf": 1.0,
+  "temp_start_c": 0,
+  "temp_end_c": 0,
+  "temp_peak_c": 0,
+  "collection_start_time_seconds": 1785022703.197161,
+  "collection_end_time_seconds": 1785022713.919308,
+  "collection_duration_s": 10.722146
+}

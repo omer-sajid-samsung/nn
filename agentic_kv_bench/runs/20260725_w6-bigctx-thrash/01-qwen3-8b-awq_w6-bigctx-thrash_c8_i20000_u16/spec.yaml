@@ -1,0 +1,30 @@
+name: w6-bigctx-thrash
+description: 'Revisit thrash at large (~20k token) context: bounded unique-prompt
+  pool exceeding the raised GPU KV pool, forcing eviction + LMCache disk retrieval
+  at context lengths close to the proposal''s 32k floor.
+
+  '
+model: Qwen/Qwen3-8B-AWQ
+overrides: {}
+prediction:
+  kv_dtype: float16
+  gpu_mem_util: 0.75
+  weights_gb: 6.0
+  expect_eviction: auto
+telemetry:
+  scrape_vllm_metrics: true
+  scrape_interval_s: 15
+  lmcache_port: 6999
+  lmcache_endpoints:
+  - /metrics
+  - /stats
+  - /cache/stats
+  - /health
+amoprof: {}
+timeouts:
+  run_timeout_s: 3600
+  amoprof_ready_s: 90
+  post_start_settle_s: 10
+  post_stop_settle_s: 10
+  amoprof_stop_grace_s: 45
+  workload_kill_grace_s: 20
