@@ -1,0 +1,15 @@
+{
+  "dram_available": true,
+  "dram_total_gb": 186.68,
+  "dram_used_gb_mean": 22.22,
+  "dram_used_gb_peak": 22.35,
+  "dram_free_gb_mean": 83.7,
+  "dram_available_gb_mean": 158.23,
+  "dram_util_pct_mean": 11.89,
+  "dram_util_pct_peak": 12.0,
+  "dram_delta_gb": 0.79,
+  "dram_samples": 11,
+  "collection_start_time_seconds": 1784959758.222148,
+  "collection_end_time_seconds": 1784959768.880752,
+  "collection_duration_s": 10.658604
+}

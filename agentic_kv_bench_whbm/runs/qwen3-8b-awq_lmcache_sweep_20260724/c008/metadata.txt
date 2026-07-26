@@ -1,0 +1,11 @@
+run_id=c008
+concurrency=8
+date_utc=2026-07-25T05:19:14Z
+name, memory.total [MiB], memory.used [MiB]
+Tesla T4, 15360 MiB, 10883 MiB
+Tesla T4, 15360 MiB, 10883 MiB
+Tesla T4, 15360 MiB, 10883 MiB
+Tesla T4, 15360 MiB, 10883 MiB
+mem:                total        used        free      shared  buff/cache   available
+mem: Mem:             186          23          89           8          83         163
+mem: Swap:              0           0           0

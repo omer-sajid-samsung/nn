@@ -1,0 +1,33 @@
+{
+  "gpu_available": true,
+  "gpu_count": 4,
+  "gpu_util_mean": 97.75,
+  "gpu_util_peak": 99.0,
+  "gpu_util_per_gpu": [
+    97.8,
+    97.5,
+    97.3,
+    98.5
+  ],
+  "hbm_util_mean": 7.43,
+  "hbm_used_mb_mean": 9829.0,
+  "hbm_used_mb_peak": 9829.0,
+  "hbm_used_gb_peak_all": 38.39,
+  "hbm_total_mb_per_gpu": 15360.0,
+  "hbm_total_gb_all": 60.0,
+  "hbm_util_pct_mean": 64.0,
+  "hbm_per_gpu_peak_mb": [
+    9829.0,
+    9829.0,
+    9829.0,
+    9829.0
+  ],
+  "power_w_mean": 52.49,
+  "power_w_peak": 71.9,
+  "power_all_gpus_w_mean": 210.0,
+  "gpu_temp_mean_c": 46.02,
+  "gpu_temp_peak_c": 47.0,
+  "collection_start_time_seconds": 1784957017.665345,
+  "collection_end_time_seconds": 1784957028.324812,
+  "collection_duration_s": 10.659467
+}
